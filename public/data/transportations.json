@@ -1,0 +1,260 @@
+[
+  {
+    "id": 1,
+    "label": {
+      "fr": "Avion"
+    },
+    "emoji": { "main": "✈️" },
+    "display": {
+      "min": 1000
+    },
+    "values": [
+      {
+        "max": 1000,
+        "value": 126,
+        "uncertainty": 230
+      },
+      {
+        "min": 1001,
+        "max": 2000,
+        "value": 102,
+        "uncertainty": 186
+      },
+      {
+        "min": 2001,
+        "max": 3500,
+        "value": 97.4,
+        "uncertainty": 178
+      },
+      {
+        "min": 3501,
+        "value": 82.8,
+        "uncertainty": 151
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "label": {
+      "fr": "TGV"
+    },
+    "emoji": { "main": "🚄" },
+    "display": {
+      "min": 150
+    },
+    "values": [
+      {
+        "value": 1.73
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "label": {
+      "fr": "Intercités"
+    },
+    "emoji": { "main": "🚈" },
+    "display": {
+      "min": 50
+    },
+    "values": [
+      {
+        "value": 5.29
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "label": {
+      "fr": "Voiture (moteur thermique)"
+    },
+    "emoji": { "main": "🚗" },
+    "display": {},
+    "values": [
+      {
+        "value": 193
+      }
+    ],
+    "carpool": 5
+  },
+  {
+    "id": 5,
+    "label": {
+      "fr": "Voiture (moteur électrique)"
+    },
+    "emoji": { "main": "🚗", "secondary": "⚡" },
+    "display": {},
+    "values": [
+      {
+        "value": 19.8
+      }
+    ],
+    "carpool": 5
+  },
+  {
+    "id": 6,
+    "label": {
+      "fr": "Autocar"
+    },
+    "emoji": { "main": "🚌" },
+    "display": {
+      "min": 15
+    },
+    "values": [
+      {
+        "value": 35.2
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "label": {
+      "fr": "Vélo ou marche"
+    },
+    "emoji": { "main": "🚴" },
+    "display": {
+      "max": 30
+    },
+    "values": [
+      {
+        "value": 0
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "label": {
+      "fr": "Vélo ou trottinette à assistance électrique"
+    },
+    "emoji": { "main": "🚴", "secondary": "⚡" },
+    "display": {
+      "max": 30
+    },
+    "values": [
+      {
+        "value": 2
+      }
+    ]
+  },
+
+  {
+    "id": 9,
+    "label": {
+      "fr": "Bus (moteur thermique)"
+    },
+    "emoji": { "main": "🚌" },
+    "display": {
+      "max": 12
+    },
+    "values": [
+      {
+        "value": 103
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "label": {
+      "fr": "Tramway"
+    },
+    "emoji": { "main": "🚋" },
+    "display": {
+      "max": 12
+    },
+    "values": [
+      {
+        "value": 2.2
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "label": {
+      "fr": "Métro"
+    },
+    "emoji": { "main": "🚇" },
+    "display": {
+      "max": 20
+    },
+    "values": [
+      {
+        "value": 2.5
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "label": {
+      "fr": "Scooter et moto légère"
+    },
+    "emoji": { "main": "🛵" },
+    "display": {
+      "max": 150
+    },
+    "values": [
+      {
+        "value": 61.6
+      }
+    ],
+    "carpool": 2
+  },
+  {
+    "id": 13,
+    "label": {
+      "fr": "Moto"
+    },
+    "emoji": { "main": "🛵" },
+    "display": {},
+    "values": [
+      {
+        "value": 168
+      }
+    ],
+    "carpool": 2
+  },
+  {
+    "id": 14,
+    "label": {
+      "fr": "RER ou Transilien"
+    },
+    "emoji": { "main": "🚈" },
+    "display": {
+      "max": 100
+    },
+    "values": [
+      {
+        "value": 4.1
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "label": {
+      "fr": "TER (moteur électrique)"
+    },
+    "emoji": { "main": "🚈", "secondary": "⚡" },
+    "display": {
+      "max": 150
+    },
+    "values": [
+      {
+        "value": 8.91
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "label": {
+      "fr": "TER (moteur thermique)"
+    },
+    "emoji": { "main": "🚈" },
+    "display": {
+      "max": 150
+    },
+    "values": [
+      {
+        "value": 79.8
+      }
+    ]
+  }
+]
