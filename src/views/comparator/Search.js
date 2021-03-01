@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   ${(props) => props.theme.mq.small} {
     flex-direction: column;
     align-items: center;
-    padding: 1em 0;
+    padding: 1em ${(props) => (props.mode === 'itinerary' ? '1em' : '2em')};
   }
 `
 const Start = styled.div`

@@ -59,7 +59,7 @@ const SecondaryEmoji = styled(Emoji)`
 `
 export default function Configurator(props) {
   const { configurator, setConfigurator } = useContext(ModalContext)
-  console.log(props.transportation.id === configurator)
+
   return (
     <Wrapper>
       <Column>

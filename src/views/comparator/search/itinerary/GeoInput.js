@@ -27,8 +27,8 @@ const Wrapper = styled.div`
     margin: 0 0 1em ${(props) => (props.from ? '2em' : '4em')};
   }
   ${(props) => props.theme.mq.small} {
-    width: calc(100vw - 3em);
-    margin: 0 0 1em ${(props) => (props.from ? '1em' : '2em')};
+    width: calc(100vw - 2em);
+    margin: 0 0 1em 0;
   }
 
   input {

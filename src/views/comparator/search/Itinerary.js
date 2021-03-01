@@ -44,6 +44,11 @@ const Selectable = styled.div`
 `
 const End = styled.div`
   margin-left: 7em;
+
+  ${(props) => props.theme.mq.small} {
+    align-self: flex-end;
+    margin: 0;
+  }
 `
 export default function Itinerary() {
   return (
