@@ -17,7 +17,7 @@ const Km = styled.div`
 export default function Suggestion() {
   const { suggestions } = useContext(SuggestionContext)
   const { km, mode } = useContext(SearchContext)
-  console.log(suggestions, mode)
+
   return (
     <Wrapper>
       {suggestions.find(({ id }) => id === Number(mode))

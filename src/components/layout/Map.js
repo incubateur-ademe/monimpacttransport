@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useRef } from 'react'
 import styled from 'styled-components'
 import ReactMapGL, { LinearInterpolator } from 'react-map-gl'
 import WebMercatorViewport from '@math.gl/web-mercator'
@@ -29,35 +29,36 @@ export default function Map() {
     zoom: 11,
   })
 
+  const timer = useRef()
+
   useEffect(() => {
-    console.log(itinerary)
-    setViewport((viewport) =>
-      mode === 'itinerary'
-        ? new WebMercatorViewport({
-            width,
-            height,
-          }).fitBounds([
-            [Number(itinerary.fromLongitude), Number(itinerary.fromLatitude)],
-            [Number(itinerary.toLongitude), Number(itinerary.toLatitude)],
-          ])
-        : /* ? new WebMercatorViewport({
-            width,
-            height,
-          }).fitBounds([
-            [2.2147121649, 48.7881366783],
-            [2.4875598769, 48.9426131391],
-          ])*/
-          {
-            ...viewport,
-            latitude: 48.8159,
-            longitude: 2.3061,
-            zoom: Math.log2(25000 / (((km ? km : 1) * 1000) / width)),
-            // zoom: 14,
-            transitionInterpolator: new LinearInterpolator(),
-            transitionDuration: 600,
-          }
+    clearTimeout(timer.current)
+    timer.current = setTimeout(
+      () =>
+        setViewport((viewport) =>
+          mode === 'itinerary'
+            ? new WebMercatorViewport({
+                width,
+                height,
+              }).fitBounds([
+                [
+                  Number(itinerary.fromLongitude),
+                  Number(itinerary.fromLatitude),
+                ],
+                [Number(itinerary.toLongitude), Number(itinerary.toLatitude)],
+              ])
+            : {
+                ...viewport,
+                latitude: 48.8159,
+                longitude: 2.3061,
+                zoom: Math.log2(25000 / (((km ? km : 1) * 1000) / width)),
+                transitionInterpolator: new LinearInterpolator(),
+                transitionDuration: 600,
+              }
+        ),
+      500
     )
-  }, [km, height, width, mode, itinerary])
+  }, [timer, km, height, width, mode, itinerary])
 
   return (
     <Wrapper>

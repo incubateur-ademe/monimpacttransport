@@ -13,7 +13,9 @@ const Wrapper = styled.select`
   opacity: 0;
   cursor: pointer;
 `
-const Option = styled.option``
+const Option = styled.option`
+  font-size: 0.5rem;
+`
 export default function Select() {
   const { suggestions } = useContext(SuggestionContext)
   const { mode, setMode } = useContext(SearchContext)

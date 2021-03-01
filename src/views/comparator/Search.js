@@ -12,11 +12,25 @@ const Wrapper = styled.div`
   position: relative;
   display: flex;
   padding: 8vh 0 ${(props) => (props.mode === 'itinerary' ? '2vh' : '6vh')};
-  font-size: 2.5em;
+  font-size: 2.25rem;
   font-weight: 700;
+
+  ${(props) => props.theme.mq.medium} {
+    font-size: 1.5rem;
+  }
+
+  ${(props) => props.theme.mq.small} {
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 0;
+  }
 `
-const Start = styled.div``
-const End = styled.div``
+const Start = styled.div`
+  align-self: flex-start;
+`
+const End = styled.div`
+  align-self: flex-end;
+`
 const Content = styled.div`
   position: relative;
   margin: 0 0.5em;
@@ -41,6 +55,10 @@ const Content = styled.div`
     font-size: 1.875rem;
     font-weight: 800;
     pointer-events: none;
+  }
+
+  ${(props) => props.theme.mq.small} {
+    margin: 0.25em 0 1.125em;
   }
 `
 export default function Search() {

@@ -3,7 +3,7 @@ import React, { useContext } from 'react'
 import StyleContext from 'utils/StyleContext'
 import UXContext from 'utils/UXContext'
 
-import EmbedConfigurator from '@bit/datagir.simulateurs.embed-configurator'
+import EmbedConfigurator from 'components/base/EmbedConfigurator'
 
 export default function Embed() {
   const { themes, theme, setTheme } = useContext(StyleContext)

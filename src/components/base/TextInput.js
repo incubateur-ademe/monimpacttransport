@@ -11,6 +11,8 @@ const Wrapper = styled.input`
   font-weight: 900;
   font-family: 'Fira Code', monospace;
   color: ${(props) => props.theme.colors.text};
+  color: ${(props) =>
+    props.theme.colors[props.theme.name === 'Défaut' ? 'text' : 'second']};
   background-color: ${(props) => props.theme.colors.main};
   border: none;
 

@@ -2,7 +2,7 @@ import React, { Suspense } from 'react'
 import styled from 'styled-components'
 
 import Header from 'components/layout/Header'
-import IframeFooter from 'components/layout/IframeFooter'
+import IframeFooter from 'components/base/IframeFooter'
 const Map = React.lazy(() => import('components/layout/Map'))
 
 const Wrapper = styled.div``

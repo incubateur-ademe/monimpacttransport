@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 const Start = styled.div`
   position: relative;
   display: flex;
-  margin-bottom: 2rem;
+  margin-bottom: 0.875em;
 `
 const Selectable = styled.div`
   position: relative;
@@ -43,7 +43,7 @@ const Selectable = styled.div`
   }
 `
 const End = styled.div`
-  margin-left: 15rem;
+  margin-left: 7em;
 `
 export default function Itinerary() {
   return (

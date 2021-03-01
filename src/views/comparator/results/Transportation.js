@@ -1,16 +1,40 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
+
+import ModalContext from 'utils/ModalContext'
+import Emoji from 'components/base/Emoji'
 
 const Wrapper = styled.div`
   position: relative;
-  margin-bottom: 1.25em;
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 1.7em;
+`
+const TitleWrapper = styled.div`
+  position: relative;
+  z-index: 10;
+  display: flex;
+  margin-bottom: 0.25rem;
 `
 const Title = styled.div`
-  margin-left: 3rem;
-  margin-bottom: 0.3em;
-  font-weight: 700;
+  font-weight: 600;
   color: ${(props) => props.theme.colors.main};
   cursor: pointer;
+`
+const Carpoolers = styled.div`
+  display: inline-block;
+  margin-left: 0.25rem;
+`
+const Carpooler = styled(Emoji)`
+  margin: 0 0.25rem;
+`
+const ChartWrapper = styled.div`
+  flex: 1;
+  max-width: 56.5rem;
+
+  ${(props) => props.theme.mq.medium} {
+    max-width: calc(100vw - 2.5rem - 2rem);
+  }
 `
 const Chart = styled.div`
   position: relative;
@@ -18,70 +42,114 @@ const Chart = styled.div`
   align-items: center;
 `
 
-const Emoji = styled.div`
+const EmojiWrapper = styled.div`
+  flex: 0;
   position: relative;
-  width: 2.5rem;
-  margin-right: 0.5rem;
-  font-size: 2.1875em;
-  line-height: 1;
+  width: 3rem;
+  margin-right: 1rem;
+  font-size: 2.5rem;
+  line-height: 0.7;
+
+  ${(props) => props.theme.mq.medium} {
+    width: 2.5rem;
+    font-size: 2rem;
+  }
 `
-const Secondary = styled.div`
+const SecondaryEmoji = styled(Emoji)`
   position: absolute;
   bottom: 0;
   right: 0;
-  transform: translate(60%, 60%);
+  transform: translate(30%, 50%);
   font-size: 0.75em;
 `
 const Bar = styled.div`
-  height: 2.1875em;
-  width: calc(${(props) => props.percent * 49}rem + 1rem);
-  background-color: ${(props) => props.theme.colors.second};
+  width: calc(${(props) => props.percent * 50}rem + 1rem);
+  height: 2rem;
+  background-color: ${(props) => props.theme.colors.ter};
+  border-radius: 1rem;
+
+  ${(props) => props.theme.mq.medium} {
+    width: calc(${(props) => props.percent * 70}vw + 1rem);
+    height: 1.75rem;
+    border-radius: 0.875rem;
+  }
 `
 const Value = styled.div`
-  flex: 1;
   display: flex;
   align-items: baseline;
-  padding-left: 0.3125em;
-  font-size: 1.25em;
+  padding-left: 0.5rem;
+  font-size: 1em;
   font-weight: 600;
   line-height: 0.7;
-  color: ${(props) => props.theme.colors.second};
+  color: ${(props) => props.theme.colors.ter};
+  cursor: pointer;
+  transition: color 200ms ease-out;
+
+  &:hover {
+    color: ${(props) => props.theme.colors.main};
+  }
+
+  ${(props) => props.theme.mq.small} {
+    font-size: 0.75rem;
+  }
 `
 const Number = styled.span`
   margin-right: 0.6rem;
-  font-size: 3.125rem;
+  font-size: 2rem;
   font-weight: 900;
+
+  ${(props) => props.theme.mq.small} {
+    font-size: 1.5rem;
+  }
 `
 const Unit = styled.span``
+
 export default function Transportation(props) {
+  const { setConfigurator, setCO2E } = useContext(ModalContext)
+
   return (
     <Wrapper>
-      <Title>{props.transportation.label.fr}</Title>
-      <Chart>
-        <Emoji>
-          {props.transportation.emoji.main}
-          <Secondary>{props.transportation.emoji.secondary}</Secondary>
-        </Emoji>
-        <Bar percent={props.transportation.value / props.max} />
-        <Value>
-          <Number>
-            {props.transportation.value > 1000000
-              ? Math.round(props.transportation.value / 100000) / 10
-              : props.transportation.value > 1000
-              ? Math.round(props.transportation.value / 100) / 10
-              : Math.round(props.transportation.value * 10) / 10}
-          </Number>
-          <Unit>
-            {props.transportation.value > 1000000
-              ? ' t'
-              : props.transportation.value > 1000
-              ? ' kg'
-              : ' g'}
-            CO
-            <sub>2</sub>e
-          </Unit>
-        </Value>
-      </Chart>
+      <EmojiWrapper>
+        <Emoji>{props.transportation.emoji.main}</Emoji>
+        <SecondaryEmoji>{props.transportation.emoji.secondary}</SecondaryEmoji>
+      </EmojiWrapper>
+      <ChartWrapper>
+        <TitleWrapper>
+          <Title onClick={() => setConfigurator(props.transportation.id)}>
+            {props.transportation.label.fr}
+            {props.transportation.carpoolers > 1 && (
+              <Carpoolers>
+                {[...Array(props.transportation.carpoolers)].map(
+                  (carpooler, index) => (
+                    <Carpooler key={index}>🧑</Carpooler>
+                  )
+                )}
+              </Carpoolers>
+            )}
+          </Title>
+        </TitleWrapper>
+        <Chart>
+          <Bar percent={props.transportation.value / props.max} />
+          <Value onClick={() => setCO2E(true)}>
+            <Number>
+              {props.transportation.value > 1000000
+                ? Math.round(props.transportation.value / 100000) / 10
+                : props.transportation.value > 1000
+                ? Math.round(props.transportation.value / 100) / 10
+                : Math.round(props.transportation.value * 10) / 10}
+            </Number>
+            <Unit>
+              {props.transportation.value > 1000000
+                ? ' t'
+                : props.transportation.value > 1000
+                ? ' kg'
+                : ' g'}
+              CO
+              <sub>2</sub>e
+            </Unit>
+          </Value>
+        </Chart>
+      </ChartWrapper>
     </Wrapper>
   )
 }

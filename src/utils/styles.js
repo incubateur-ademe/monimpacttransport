@@ -6,9 +6,9 @@ export const themes = {
     name: 'Défaut',
     colors: {
       main: '#FF6495',
-      second: '#F8F9FA',
+      second: '#361999',
       ter: '#78FFF1',
-      background: '#4f24db',
+      background: '#371A95',
       text: '#F8F9FA',
     },
     fonts: {
@@ -17,10 +17,10 @@ export const themes = {
     },
     mq: {
       small: `@media screen and (max-width: ${650}px)`,
-      medium: `@media screen and (max-width: ${1260}px)`,
-      mediumLandscape: `@media screen and (orientation: landscape) and (max-width: ${1260}px)`,
-      mediumPortrait: `@media screen and (orientation: portrait) and (max-width: ${1260}px)`,
-      large: `@media screen and (min-width: ${1800}px)`,
+      medium: `@media screen and (max-width: ${62}em)`,
+      mediumLandscape: `@media screen and (orientation: landscape) and (max-width: ${62}px)`,
+      mediumPortrait: `@media screen and (orientation: portrait) and (max-width: ${62}px)`,
+      large: `@media screen and (min-width: ${92}em)`,
       xlarge: `@media screen and (min-width: ${2000}px)`,
     },
   },
@@ -28,8 +28,9 @@ export const themes = {
     name: 'Classique',
     colors: {
       main: '#32337B',
-      second: '#fdfdfd',
-      background: '#fdfdfd',
+      second: '#ffffff',
+      ter: '#32337B',
+      background: '#ffffff',
       text: '#32337B',
     },
     fonts: {
@@ -48,10 +49,11 @@ export const themes = {
   night: {
     name: 'Nuit',
     colors: {
-      main: '#fdfdfd',
+      main: '#ffffff',
       second: '#282c35',
+      ter: '#ffffff',
       background: '#282c35',
-      text: '#fdfdfd',
+      text: '#ffffff',
     },
     fonts: {
       body: '"Montserrat Alternates", sans-serif',
@@ -71,6 +73,7 @@ export const themes = {
     colors: {
       main: 'black',
       second: 'white',
+      ter: 'black',
       background: 'white',
       text: 'black',
     },
@@ -122,7 +125,11 @@ export const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
     font-family: ${(props) => props.theme.fonts.title};
-    font-style: italic;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
   }
 
   a {

@@ -7,8 +7,8 @@ import SearchContext from 'utils/SearchContext'
 const Wrapper = styled.div`
   position: relative;
   display: flex;
-  width: 45rem;
-  margin: 0 0 1.5rem ${(props) => (props.from ? '5rem' : '10rem')};
+  width: 30em;
+  margin: 0 0 1em ${(props) => (props.from ? '3em' : '6em')};
   font-size: 1.5rem;
   line-height: 1.7;
 
@@ -22,12 +22,21 @@ const Wrapper = styled.div`
     background-color: ${(props) => props.theme.colors.main};
   }
 
+  ${(props) => props.theme.mq.medium} {
+    width: 25em;
+    margin: 0 0 1em ${(props) => (props.from ? '2em' : '4em')};
+  }
+  ${(props) => props.theme.mq.small} {
+    width: calc(100vw - 3em);
+    margin: 0 0 1em ${(props) => (props.from ? '1em' : '2em')};
+  }
+
   input {
     position: relative;
     z-index: 10;
-    width: calc(100% - 0.6rem);
-    margin-left: 0.6rem;
-    padding: 0.4rem 0.6rem;
+    width: calc(100% - 0.4em);
+    margin-left: 0.4em;
+    padding: 0.3em 0.4em;
     font-weight: 700;
     color: ${(props) => props.theme.colors.text};
     background-color: ${(props) => props.theme.colors.main};
@@ -46,7 +55,7 @@ const Wrapper = styled.div`
     z-index: 15;
     margin-left: 0.6rem;
     padding: 0.3rem 0.6rem;
-    font-size: 1rem;
+    font-size: 0.666666667em;
     font-weight: 600;
     color: ${(props) => props.theme.colors.text};
     background-color: ${(props) => props.theme.colors.main};
@@ -61,7 +70,7 @@ const Km = styled.div`
   position: absolute;
   top: 100%;
   right: 0.5rem;
-  font-size: 1rem;
+  font-size: 0.666666667em;
   font-weight: 600;
   color: ${(props) => props.theme.colors.main};
 `
