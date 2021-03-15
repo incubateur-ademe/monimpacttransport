@@ -7,8 +7,15 @@ import Modal from 'components/base/Modal'
 import Button from 'components/base/Button'
 import Carpool from './configuratorModal/Carpool'
 import Uncertainty from './configuratorModal/Uncertainty'
-import Configurator from './configuratorModal/Configurator'
+import TransportationList from 'components/misc/configurator/TransportationList'
 
+const StyledModal = styled(Modal)`
+  display: none;
+
+  ${(props) => props.theme.mq.medium} {
+    display: block;
+  }
+`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -37,10 +44,10 @@ export default function ConfiguratorModal() {
   const { reset } = useContext(TransportationContext)
 
   return (
-    <Modal open={configurator} setOpen={setConfigurator} width='45em'>
+    <StyledModal open={configurator} setOpen={setConfigurator} width='45em'>
       <Wrapper>
         <Title>Personnaliser l'Affichage</Title>
-        <Configurator />
+        <TransportationList />
         <Flex>
           <Carpool />
           <Uncertainty />
@@ -54,6 +61,6 @@ export default function ConfiguratorModal() {
           </Button>
         </ButtonWrapper>
       </Wrapper>
-    </Modal>
+    </StyledModal>
   )
 }

@@ -8,17 +8,18 @@ import StyleContext from 'utils/StyleContext'
 import Header from 'components/layout/Header'
 import Footer from 'components/base/Footer'
 import Embed from 'components/misc/Embed'
+import Configurator from 'components/misc/Configurator'
 import Learning from 'components/layout/Learning'
 
 const Map = React.lazy(() => import('components/layout/Map'))
 
 const Wrapper = styled.div`
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: row;
   justify-content: space-between;
 
-  ${(props) => props.theme.mq.large} {
-    flex-direction: row;
+  ${(props) => props.theme.mq.medium} {
+    flex-direction: column-reverse;
   }
 `
 const Content = styled.div`
@@ -31,7 +32,7 @@ const FullScreen = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  max-width: 62rem;
+  max-width: 46rem;
   min-height: ${(props) => props.windowHeight}px;
   margin: 0 auto 5rem;
   padding: 0 0.5rem 2rem;
@@ -39,12 +40,12 @@ const FullScreen = styled.div`
 export default function Web(props) {
   const { height } = useWindowSize()
 
-  const { setConfiguratorOpen } = useContext(UXContext)
+  const { setConfiguratorOpen, map } = useContext(UXContext)
   const { theme } = useContext(StyleContext)
 
   return (
     <Wrapper>
-      {theme === 'default' && (
+      {theme === 'default' && map && (
         <Suspense fallback={''}>
           <Map />
         </Suspense>
@@ -67,6 +68,7 @@ export default function Web(props) {
         />
       </Content>
       <Embed />
+      <Configurator />
     </Wrapper>
   )
 }

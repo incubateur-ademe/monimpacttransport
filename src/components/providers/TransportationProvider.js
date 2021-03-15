@@ -49,7 +49,7 @@ export default function TransportationProvider(props) {
 
   const [uncertainty, setUncertainty] = useQueryParam(
     'uncertainty',
-    withDefault(BooleanParam, false)
+    withDefault(BooleanParam, true)
   )
 
   return (

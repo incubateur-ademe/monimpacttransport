@@ -61,7 +61,7 @@ const ButtonClose = styled.div`
 `
 export default function Modal(props) {
   return (
-    <Wrapper open={props.open}>
+    <Wrapper open={props.open} className={props.className}>
       <Background open={props.open} onClick={() => props.setOpen(false)} />
       <Content
         open={props.open}

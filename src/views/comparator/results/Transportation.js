@@ -3,6 +3,8 @@ import styled from 'styled-components'
 
 import ModalContext from 'utils/ModalContext'
 import Emoji from 'components/base/Emoji'
+import Carpool from './transportation/Carpool'
+import Uncertainty from './transportation/Uncertainty'
 
 const Wrapper = styled.div`
   position: relative;
@@ -17,22 +19,17 @@ const TitleWrapper = styled.div`
   margin-bottom: 0.25rem;
 `
 const Title = styled.div`
+  position: relative;
   font-weight: 600;
   color: ${(props) => props.theme.colors.main};
   cursor: pointer;
 `
-const Carpoolers = styled.div`
-  display: inline-block;
-  margin-left: 0.25rem;
-`
-const Carpooler = styled(Emoji)`
-  margin: 0 0.25rem;
-`
+
 const ChartWrapper = styled.div`
   flex: 1;
-  max-width: 56.5rem;
+  max-width: 41.5rem;
 
-  ${(props) => props.theme.mq.medium} {
+  ${(props) => props.theme.mq.small} {
     max-width: calc(100vw - 2.5rem - 2rem);
   }
 `
@@ -43,14 +40,13 @@ const Chart = styled.div`
 `
 
 const EmojiWrapper = styled.div`
-  flex: 0;
   position: relative;
-  width: 3rem;
+  width: 2.5rem;
   margin-right: 1rem;
   font-size: 2.5rem;
   line-height: 0.7;
 
-  ${(props) => props.theme.mq.medium} {
+  ${(props) => props.theme.mq.small} {
     width: 2.5rem;
     font-size: 2rem;
   }
@@ -63,12 +59,12 @@ const SecondaryEmoji = styled(Emoji)`
   font-size: 0.75em;
 `
 const Bar = styled.div`
-  width: calc(${(props) => props.percent * 50}rem + 1rem);
+  width: calc(${(props) => props.percent * 34}rem + 1rem);
   height: 2rem;
   background-color: ${(props) => props.theme.colors.ter};
   border-radius: 1rem;
 
-  ${(props) => props.theme.mq.medium} {
+  ${(props) => props.theme.mq.small} {
     width: calc(${(props) => props.percent * 70}vw + 1rem);
     height: 1.75rem;
     border-radius: 0.875rem;
@@ -115,17 +111,12 @@ export default function Transportation(props) {
       </EmojiWrapper>
       <ChartWrapper>
         <TitleWrapper>
-          <Title onClick={() => setConfigurator(props.transportation.id)}>
-            {props.transportation.label.fr}
-            {props.transportation.carpoolers > 1 && (
-              <Carpoolers>
-                {[...Array(props.transportation.carpoolers)].map(
-                  (carpooler, index) => (
-                    <Carpooler key={index}>🧑</Carpooler>
-                  )
-                )}
-              </Carpoolers>
-            )}
+          <Title>
+            <span onClick={() => setConfigurator(props.transportation.id)}>
+              {props.transportation.label.fr}
+            </span>
+            <Carpool transportation={props.transportation} />
+            <Uncertainty transportation={props.transportation} />
           </Title>
         </TitleWrapper>
         <Chart>

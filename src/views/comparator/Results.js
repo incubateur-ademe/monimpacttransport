@@ -9,6 +9,7 @@ import Transportation from './results/Transportation'
 const Wrapper = styled.div`
   flex: 1;
   position: relative;
+  margin-bottom: 2rem;
 `
 export default function Results() {
   const {
@@ -81,6 +82,7 @@ export default function Results() {
     <Wrapper>
       {transportationsToDisplay.map((transportation) => (
         <Transportation
+          key={transportation.id}
           transportation={transportation}
           max={
             transportationsToDisplay[transportationsToDisplay.length - 1].value

@@ -32,11 +32,10 @@ export default function Map() {
   const timer = useRef()
 
   useEffect(() => {
-    clearTimeout(timer.current)
     timer.current = setTimeout(
       () =>
         setViewport((viewport) =>
-          mode === 'itinerary'
+          mode === 'itinerary' && (itinerary.from || itinerary.to)
             ? new WebMercatorViewport({
                 width,
                 height,
@@ -58,6 +57,7 @@ export default function Map() {
         ),
       500
     )
+    return () => clearTimeout(timer.current)
   }, [timer, km, height, width, mode, itinerary])
 
   return (

@@ -8,7 +8,8 @@ export const themes = {
       main: '#FF6495',
       second: '#361999',
       ter: '#78FFF1',
-      background: '#371A95',
+      quad: '#F8F9FA',
+      background: '#411AB7',
       text: '#F8F9FA',
     },
     fonts: {
@@ -16,8 +17,8 @@ export const themes = {
       title: '"Montserrat Alternates", sans-serif',
     },
     mq: {
-      small: `@media screen and (max-width: ${650}px)`,
-      medium: `@media screen and (max-width: ${62}em)`,
+      small: `@media screen and (max-width: ${46}em)`,
+      medium: `@media screen and (max-width: ${75}em)`,
       mediumLandscape: `@media screen and (orientation: landscape) and (max-width: ${62}px)`,
       mediumPortrait: `@media screen and (orientation: portrait) and (max-width: ${62}px)`,
       large: `@media screen and (min-width: ${92}em)`,
@@ -30,6 +31,7 @@ export const themes = {
       main: '#32337B',
       second: '#ffffff',
       ter: '#32337B',
+      quad: '#ffffff',
       background: '#ffffff',
       text: '#32337B',
     },
@@ -52,6 +54,7 @@ export const themes = {
       main: '#ffffff',
       second: '#282c35',
       ter: '#ffffff',
+      quad: '#282c35',
       background: '#282c35',
       text: '#ffffff',
     },
@@ -74,6 +77,7 @@ export const themes = {
       main: 'black',
       second: 'white',
       ter: 'black',
+      quad: 'white',
       background: 'white',
       text: 'black',
     },
@@ -100,7 +104,8 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${(props) => props.theme.fonts.body};
     scroll-behavior: smooth;
     line-height: 1.4;
-    
+    text-rendering: geometricPrecision;
+
     ${(props) => props.theme.mq.small} {
       font-size: 0.875em;
     }

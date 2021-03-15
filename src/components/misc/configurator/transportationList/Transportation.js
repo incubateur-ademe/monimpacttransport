@@ -5,7 +5,8 @@ import ModalContext from 'utils/ModalContext'
 
 import Emoji from 'components/base/Emoji'
 import MagicLink from 'components/base/MagicLink'
-import Checkbox from 'components/base/Checkbox'
+import Visible from './transportation/Visible'
+import Lock from './transportation/Lock'
 
 const Wrapper = styled.tr`
   &:nth-child(odd) {
@@ -14,19 +15,21 @@ const Wrapper = styled.tr`
   }
 `
 const Column = styled.td`
-  padding: 0.5rem 1rem;
+  padding: 1rem 1rem;
 `
 const Label = styled.div`
   display: flex;
   align-items: center;
+  font-weight: 700;
   cursor: pointer;
 
   &:after {
     content: 'ˇ';
     position: relative;
-    top: 0.4em;
-    margin-left: 0.2em;
-    font-weight: 700;
+    top: 0.35em;
+    margin-left: 0.3em;
+    font-size: 1.5em;
+    line-height: 0;
   }
 
   &:hover {
@@ -36,12 +39,14 @@ const Label = styled.div`
 const Details = styled.div`
   padding: 0.5rem 0 0.5rem 2.75rem;
 `
-const Description = styled.div``
+const Description = styled.div`
+  color: ${(props) => props.theme.colors.text};
+`
 const Source = styled(MagicLink)``
 const CheckboxWrapper = styled.td`
   text-align: center;
-  vertical-align: top;
-  padding: 0.5rem 0;
+  width: 3rem;
+  padding-right: 0.5rem;
 `
 const EmojiWrapper = styled.div`
   position: relative;
@@ -93,20 +98,20 @@ export default function Configurator(props) {
         </Details>
       </Column>
       <CheckboxWrapper>
-        <Checkbox
+        <Visible
           checked={props.transportationsVisibles.includes(
             String(props.transportation.id)
           )}
-          onChange={() => props.toggleVisible(props.transportation.id)}
+          onClick={() => props.toggleVisible(props.transportation.id)}
           small
         />
       </CheckboxWrapper>
       <CheckboxWrapper>
-        <Checkbox
+        <Lock
           checked={props.transportationsAlwaysVisibles.includes(
             String(props.transportation.id)
           )}
-          onChange={() => props.toggleAlwaysVisible(props.transportation.id)}
+          onClick={() => props.toggleAlwaysVisible(props.transportation.id)}
           small
         />
       </CheckboxWrapper>

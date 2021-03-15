@@ -9,18 +9,15 @@ export default function UXProvider(props) {
 
   const [configuratorOpen, setConfiguratorOpen] = useState(false)
 
-  const [displayTitle, setDisplayTitle] = useQueryParam(
-    'title',
-    withDefault(BooleanParam, true)
-  )
+  const [map, setMap] = useQueryParam('map', withDefault(BooleanParam, true))
 
   return (
     <UXContext.Provider
       value={{
         configuratorOpen,
         setConfiguratorOpen,
-        displayTitle,
-        setDisplayTitle,
+        map,
+        setMap,
       }}
     >
       {props.children}

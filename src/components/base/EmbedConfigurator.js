@@ -1,24 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Checkbox from 'components/base/Checkbox'
-import TextInput from './embedConfigurator/TextInput'
 import Themes from './embedConfigurator/Themes'
 import Code from './embedConfigurator/Code'
-import Button from 'components/base/Button'
 
 const Wrapper = styled.div`
   position: relative;
   display: ${(props) => (props.open ? 'block' : 'none')};
+  width: 30rem;
+  border-bottom: none;
+  border-left: 5px solid ${(props) => props.theme.colors.main};
   background-color: ${(props) => props.theme.colors.second};
-  border-bottom: 2px solid ${(props) => props.theme.colors.main};
   color: ${(props) => props.theme.colors.main};
   transition: all 600ms;
 
   ${(props) => props.theme.mq.large} {
-    width: 30rem;
-    border-bottom: none;
-    border-left: 5px solid ${(props) => props.theme.colors.main};
+    border-left: none;
+    border-bottom: 2px solid ${(props) => props.theme.colors.main};
   }
 `
 const Content = styled.div`
@@ -59,21 +57,13 @@ const Subtitle = styled.h3`
   font-size: 1.3em;
   margin-bottom: 1rem;
 `
-const ButtonWrapper = styled.div`
-  margin-bottom: 1em;
-`
 export default function EmbedConfigurator(props) {
   return (
     <Wrapper open={props.configuratorOpen}>
       <Content>
         <ButtonClose
           onClick={() => {
-            props.options.map((option) => {
-              if (option.default) {
-                option.setter(option.default)
-              }
-              return option
-            })
+            props.onClose && props.onClose()
             props.setTheme('default')
             props.setConfiguratorOpen(false)
           }}
@@ -83,22 +73,7 @@ export default function EmbedConfigurator(props) {
         <Title>Intégrer le simulateur</Title>
         <Code id={props.id} />
         <Subtitle>Options d'intégration</Subtitle>
-        {props.options.map((option) =>
-          option.type === 'boolean' ? (
-            <Checkbox
-              checked={props.option.value}
-              onChange={(checked) => props.option.setter(checked)}
-            >
-              {option.label}
-            </Checkbox>
-          ) : option.type === 'button' ? (
-            <ButtonWrapper>
-              <Button onClick={option.setter}>{option.label}</Button>
-            </ButtonWrapper>
-          ) : (
-            <TextInput option={option} />
-          )
-        )}
+        {props.children}
         <Themes
           themes={props.themes}
           theme={props.theme}

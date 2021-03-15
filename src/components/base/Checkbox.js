@@ -39,7 +39,8 @@ const Input = styled.input`
   pointer-events: none;
 `
 const Label = styled.label`
-  font-size: 0.875em;
+  font-size: 0.833333333em;
+  white-space: nowrap;
 `
 export default function Checkbox(props) {
   return (
