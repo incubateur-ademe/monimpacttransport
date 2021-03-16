@@ -78,12 +78,7 @@ const Value = styled.div`
   font-weight: 600;
   line-height: 0.7;
   color: ${(props) => props.theme.colors.ter};
-  cursor: pointer;
   transition: color 200ms ease-out;
-
-  &:hover {
-    color: ${(props) => props.theme.colors.main};
-  }
 
   ${(props) => props.theme.mq.small} {
     font-size: 0.75rem;
@@ -98,7 +93,12 @@ const Number = styled.span`
     font-size: 1.5rem;
   }
 `
-const Unit = styled.span``
+const Unit = styled.span`
+  cursor: pointer;
+  &:hover {
+    color: ${(props) => props.theme.colors.main};
+  }
+`
 
 export default function Transportation(props) {
   const { setConfigurator, setCO2E } = useContext(ModalContext)
@@ -121,7 +121,7 @@ export default function Transportation(props) {
         </TitleWrapper>
         <Chart>
           <Bar percent={props.transportation.value / props.max} />
-          <Value onClick={() => setCO2E(true)}>
+          <Value>
             <Number>
               {props.transportation.value > 1000000
                 ? Math.round(props.transportation.value / 100000) / 10
@@ -129,7 +129,7 @@ export default function Transportation(props) {
                 ? Math.round(props.transportation.value / 100) / 10
                 : Math.round(props.transportation.value * 10) / 10}
             </Number>
-            <Unit>
+            <Unit onClick={() => setCO2E(true)}>
               {props.transportation.value > 1000000
                 ? ' t'
                 : props.transportation.value > 1000
