@@ -74,7 +74,8 @@ export default function Uncertainty(props) {
       >
         Forçage radiatif{' '}
         <RadiativeForcing
-          onClick={() => {
+          onClick={(e) => {
+            e.stopPropagation()
             setRadiativeForcing(true)
           }}
         >
