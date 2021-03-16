@@ -51,6 +51,21 @@ const RadiativeForcing = styled.a`
   text-decoration: underline;
   cursor: pointer;
 `
+const Display = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  display: flex;
+  align-items: center;
+  transform: translateY(-50%);
+  margin-left: 0.25rem;
+`
+const Plus = styled.sup`
+  font-weight: 900;
+  color: ${(props) => props.theme.colors.main};
+  background-color: transparent;
+  border: none;
+`
 export default function Uncertainty(props) {
   const { uncertainty, setUncertainty } = useContext(TransportationContext)
   const { configuratorOpen } = useContext(UXContext)
@@ -60,28 +75,33 @@ export default function Uncertainty(props) {
   )
 
   return props.transportation.uncertainty ? (
-    <Wrapper open={configurator || configuratorOpen}>
-      {configurator && (
-        <ButtonClose
-          onClick={() => {
-            setConfigurator(false)
-          }}
-        />
-      )}
-      <StyledCheckbox
-        checked={uncertainty}
-        onChange={(checked) => setUncertainty(checked)}
-      >
-        Impact des traînées{' '}
-        <RadiativeForcing
-          onClick={(e) => {
-            e.stopPropagation()
-            setRadiativeForcing(true)
-          }}
+    <>
+      <Display onClick={() => setConfigurator(true)}>
+        <Plus>+</Plus>
+      </Display>
+      <Wrapper open={configurator || configuratorOpen}>
+        {configurator && (
+          <ButtonClose
+            onClick={() => {
+              setConfigurator(false)
+            }}
+          />
+        )}
+        <StyledCheckbox
+          checked={uncertainty}
+          onChange={(checked) => setUncertainty(checked)}
         >
-          (?)
-        </RadiativeForcing>
-      </StyledCheckbox>
-    </Wrapper>
+          Impact des traînées{' '}
+          <RadiativeForcing
+            onClick={(e) => {
+              e.stopPropagation()
+              setRadiativeForcing(true)
+            }}
+          >
+            (?)
+          </RadiativeForcing>
+        </StyledCheckbox>
+      </Wrapper>
+    </>
   ) : null
 }

@@ -65,6 +65,12 @@ const Carpooler = styled(Emoji)`
   cursor: pointer;
   transition: border 200ms ease-out;
 `
+const Plus = styled.sup`
+  font-weight: 900;
+  color: ${(props) => props.theme.colors.main};
+  background-color: transparent;
+  border: none;
+`
 export default function Carpool(props) {
   const { configurator, setConfigurator } = useContext(ModalContext)
   const { configuratorOpen } = useContext(UXContext)
@@ -75,14 +81,17 @@ export default function Carpool(props) {
     <>
       <Display onClick={() => setConfigurator(true)}>
         <Carpoolers>
-          {props.transportation.carpoolers > 1 &&
+          {props.transportation.carpoolers > 1 ? (
             [...Array(props.transportation.carpoolers)].map(
               (carpooler, index) => (
                 <Carpooler small key={index}>
                   🧑
                 </Carpooler>
               )
-            )}
+            )
+          ) : (
+            <Plus>+</Plus>
+          )}
         </Carpoolers>
       </Display>
       <Wrapper open={configurator || configuratorOpen}>
