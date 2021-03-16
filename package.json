@@ -19,6 +19,7 @@
     "react-mapbox-gl-geocoder": "^1.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "react-tooltip": "^4.2.15",
     "styled-components": "^5.2.1",
     "styled-normalize": "^8.0.7",
     "twemoji": "^13.0.1",
