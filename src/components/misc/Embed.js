@@ -5,23 +5,14 @@ import UXContext from 'utils/UXContext'
 
 import EmbedConfigurator from 'components/base/EmbedConfigurator'
 import Checkbox from 'components/base/Checkbox'
+import Button from 'components/base/Button'
 import TransportationList from 'components/misc/configurator/TransportationList'
 
 const StyledCheckbox = styled(Checkbox)`
   margin-bottom: 1rem;
 `
-const Toggle = styled.button`
-  display: flex;
-  align-items: center;
-  background: none;
-  border: none;
+const Toggle = styled(Button)`
   margin-bottom: 1rem;
-  padding: 0;
-  color: ${(props) => props.theme.colors.main};
-
-  &:focus {
-    outline: none;
-  }
 
   &:after {
     content: 'ˇ';
