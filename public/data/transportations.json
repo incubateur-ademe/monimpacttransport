@@ -285,7 +285,7 @@
       "fr": "4,1 gCO2e/km/personne ; Base Carbone ADEME"
     },
     "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=rer",
-    "emoji": { "main": "🚈" },
+    "emoji": { "main": "🚃" },
     "default": true,
     "display": {
       "min": 11,
