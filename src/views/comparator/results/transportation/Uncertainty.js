@@ -72,7 +72,7 @@ export default function Uncertainty(props) {
         checked={uncertainty}
         onChange={(checked) => setUncertainty(checked)}
       >
-        Forçage radiatif{' '}
+        Impact des traînées{' '}
         <RadiativeForcing
           onClick={(e) => {
             e.stopPropagation()

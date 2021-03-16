@@ -24,14 +24,14 @@ export default function Uncertainty() {
       onChange={(checked) => setUncertainty(checked)}
       small
     >
-      prendre en compte le{' '}
+      prendre en compte l'
       <RadiativeForcing
         onClick={(e) => {
           e.stopPropagation()
           setRadiativeForcing(true)
         }}
       >
-        forçage radiatif
+        impact des traînées
       </RadiativeForcing>
     </Wrapper>
   )

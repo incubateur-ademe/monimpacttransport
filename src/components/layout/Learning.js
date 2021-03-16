@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import styled from 'styled-components'
+import AnimatedNumber from 'animated-number-react'
 
 import useOnScreen from 'hooks/useOnScreen'
 
@@ -7,7 +8,7 @@ import Button from 'components/base/Button'
 
 const Wrapper = styled.div`
   position: relative;
-  max-width: 45em;
+  max-width: 35em;
   margin: 0 auto 1em;
 
   ${(props) => props.theme.mq.small} {
@@ -18,43 +19,59 @@ const Content = styled.div`
   position: relative;
 `
 const Statistic = styled.div`
-  display: flex;
   margin-bottom: 1em;
 `
-const Number = styled.div`
-  font-size: 16em;
+const FirstLine = styled.div`
+  display: flex;
+  align-items: baseline;
+
+  font-size: 3.15rem;
   font-weight: 900;
-  letter-spacing: -0.08em;
-  line-height: 0.85;
+  line-height: 0.9;
+
+  ${(props) => props.theme.mq.small} {
+    font-size: 7vw;
+  }
+`
+const Number = styled.div`
+  width: 2.22303365em;
+  font-size: 13rem;
+  font-weight: 900;
+  text-align: right;
+  color: ${(props) => props.theme.colors.main};
   opacity: ${(props) => (props.isOnScreen ? 1 : 0)};
   transition: opacity 1000ms;
 
   ${(props) => props.theme.mq.small} {
-    font-size: 30vw;
-    letter-spacing: 0;
+    font-size: 36.5vw;
   }
+`
+const FirstWord = styled.span`
+  opacity: ${(props) => (props.isOnScreen ? 1 : 0)};
+  transition: opacity 1000ms 1000ms;
 `
 const BigText = styled.div`
   font-weight: 900;
-  line-height: 1.14;
-  text-transform: uppercase;
+  line-height: 0.9;
 
   ${(props) => props.theme.mq.small} {
     line-height: 1.04;
   }
 `
 const Line = styled.div`
-  font-size: ${(props) => (props.bottom ? '5.39em' : '6.7em')};
+  font-size: ${(props) => (props.bottom ? '9.09em' : '6.45em')};
   opacity: ${(props) => (props.isOnScreen ? 1 : 0)};
-  transition: opacity 1000ms ${(props) => (props.bottom ? '800ms' : '400ms')};
+  transition: opacity 1000ms ${(props) => (props.bottom ? '1400ms' : '1100ms')};
 
   ${(props) => props.theme.mq.small} {
-    font-size: ${(props) => (props.bottom ? '10.7vw' : '13.5vw')};
+    font-size: ${(props) => (props.bottom ? '24.2vw' : '17.5vw')};
   }
 `
+const Color = styled.span`
+  color: ${(props) => props.theme.colors.main};
+`
 const Strong = styled.p`
-  margin-left: 2rem;
-  font-size: 1.25em;
+  font-size: 1.45rem;
   font-weight: 700;
   font-style: italic;
 
@@ -76,22 +93,43 @@ export default function Learning() {
     <Wrapper id='informations'>
       <Content>
         <Statistic ref={ref}>
-          <Number isOnScreen={isOnScreen}>10</Number>
+          <FirstLine>
+            <Number isOnScreen={isOnScreen}>
+              {isOnScreen && (
+                <AnimatedNumber
+                  value={30}
+                  formatValue={(value) => Math.round(value) + '%'}
+                />
+              )}
+            </Number>
+            <FirstWord isOnScreen={isOnScreen}>des</FirstWord>
+          </FirstLine>
           <BigText>
-            <Line isOnScreen={isOnScreen}>tonnes</Line>
+            <Line isOnScreen={isOnScreen}>émissions</Line>
             <Line isOnScreen={isOnScreen} bottom>
-              à perdre
+              de <Color>CO2</Color>
             </Line>
           </BigText>
         </Statistic>
         <Strong>
-          Voiture pas bien. Train bien. Avion pas bien. Vélo bien.
+          "Hors confinement", le secteur des transports est le 1er secteur
+          émetteur de GES.
         </Strong>
         <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-          sed purus ut sem dignissim vehicula. Morbi dictum mi non ipsum
-          sagittis fermentum. Duis at ante vel arcu dignissim dictum a et urna.
+          Jusqu’à peu, se déplacer faisait partie intégrante de notre vie
+          sociale et professionnelle. À tel point que tout notre environnement
+          est structuré autour des transports. Tout invite au voyage, qu’il soit
+          court ou long. Mais comment révolutionner nos trajets ?
         </Text>
+        <ButtonWrapper>
+          <Button
+            to={
+              'https://multimedia.ademe.fr/infographies/infographie-la-mobilite-ademe/'
+            }
+          >
+            En savoir plus
+          </Button>
+        </ButtonWrapper>
         <Text>
           Si vous souhaitez aller plus loin dans votre démarche, vous pouvez
           calculer votre empreinte sur le climat grace à notre simulateur{' '}

@@ -6,7 +6,7 @@ export const themes = {
     name: 'Défaut',
     colors: {
       main: '#FF6495',
-      second: '#361999',
+      second: '#411AB7',
       ter: '#78FFF1',
       quad: '#F8F9FA',
       background: '#411AB7',

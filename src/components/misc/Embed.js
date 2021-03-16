@@ -11,6 +11,8 @@ const StyledCheckbox = styled(Checkbox)`
   margin-bottom: 1rem;
 `
 const Toggle = styled.button`
+  display: flex;
+  align-items: center;
   background: none;
   border: none;
   margin-bottom: 1rem;
@@ -19,7 +21,16 @@ const Toggle = styled.button`
 
   &:focus {
     outline: none;
-    text-decoration: underline;
+  }
+
+  &:after {
+    content: 'ˇ';
+    position: relative;
+    top: 0.35em;
+    margin-left: 0.3em;
+    font-size: 1.5em;
+    line-height: 0;
+    text-decoration: none !important;
   }
 `
 export default function Embed() {
