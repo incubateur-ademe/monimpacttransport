@@ -14,12 +14,11 @@ export default function CO2EModal() {
     <Modal open={radiativeForcing} setOpen={setRadiativeForcing}>
       <Title>Impact des traînées</Title>
       <Text>
-        L'impact de l'avion ne se limite pas aux émissions de CO2 dues à la
-        combustion du kérosène pour à sa fabrication, mais il implique d'autres
-        effets liées aux traînées, émissions d'autres particules NOx, etc. On
-        peut alors utiliser le forçage radiatif pour mesurer tous les effets. A
-        ce jour il existe une grande incertitude quant à ces effets (facteur x2,
-        x3...). Des recherches sont menées pour préciser encore ces impacts.
+        Du fait que les avions volent à haute altitude, la combustion du kérosène
+        crée des traînées et perturbe les cycles d’autres gaz à effet de serre que
+        le CO2 (vapeur d'eau, eau condensée sous diverses formes, NOx et méthane qui,
+        ensemble, produisent de l'ozone, etc.) : c'est cet impact additionnel (dit 
+        forçage radiatif additionnel) qui est pris en compte lorsque la case est cochée.
       </Text>
     </Modal>
   )
