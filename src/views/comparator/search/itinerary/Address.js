@@ -46,7 +46,6 @@ const Km = styled.div`
   position: absolute;
   top: 100%;
   right: 0.7em;
-  color: ${(props) => props.theme.colors.main};
 
   span {
     font-size: 0.875rem;
@@ -89,7 +88,7 @@ export default function Address(props) {
       <InputWrapper type={props.type}>
         {props.type === 'to' && (
           <Km>
-            <span>({km}km)</span>
+            <span>({km}km à vol d'oiseau)</span>
           </Km>
         )}
         <Input

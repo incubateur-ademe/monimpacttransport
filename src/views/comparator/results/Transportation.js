@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 
+import TransportationContext from 'utils/TransportationContext'
 import ModalContext from 'utils/ModalContext'
 import Emoji from 'components/base/Emoji'
 import Carpool from './transportation/Carpool'
@@ -59,6 +60,7 @@ const SecondaryEmoji = styled(Emoji)`
   font-size: 0.75em;
 `
 const Bar = styled.div`
+  position: relative;
   width: calc(${(props) => props.percent * 34}rem + 1rem);
   height: 2rem;
   background-color: ${(props) => props.theme.colors.ter};
@@ -102,9 +104,11 @@ const Unit = styled.span`
 
 export default function Transportation(props) {
   const { setConfigurator, setCO2E } = useContext(ModalContext)
+  console.log(props)
+  const { uncertainty } = useContext(TransportationContext)
 
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       <EmojiWrapper>
         <Emoji>{props.transportation.emoji.main}</Emoji>
         <SecondaryEmoji>{props.transportation.emoji.secondary}</SecondaryEmoji>

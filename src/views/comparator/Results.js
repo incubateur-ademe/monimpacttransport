@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import styled from 'styled-components'
+import { Flipper, Flipped } from 'react-flip-toolkit'
 
 import TransportationContext from 'utils/TransportationContext'
 import SearchContext from 'utils/SearchContext'
@@ -80,15 +81,23 @@ export default function Results() {
 
   return (
     <Wrapper>
-      {transportationsToDisplay.map((transportation) => (
-        <Transportation
-          key={transportation.id}
-          transportation={transportation}
-          max={
-            transportationsToDisplay[transportationsToDisplay.length - 1].value
-          }
-        />
-      ))}
+      <Flipper
+        flipKey={transportationsToDisplay
+          .map((transportation) => transportation.id)
+          .join()}
+      >
+        {transportationsToDisplay.map((transportation) => (
+          <Flipped flipId={transportation.id} key={transportation.id}>
+            <Transportation
+              transportation={transportation}
+              max={
+                transportationsToDisplay[transportationsToDisplay.length - 1]
+                  .value
+              }
+            />
+          </Flipped>
+        ))}
+      </Flipper>
     </Wrapper>
   )
 }
