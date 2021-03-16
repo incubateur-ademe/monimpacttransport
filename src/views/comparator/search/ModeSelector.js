@@ -67,6 +67,7 @@ const Distance = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.5rem;
+  color: ${(props) => props.theme.colors.quad};
   opacity: ${(props) => (props.visible ? 1 : 0)};
   transition: all 300ms ease-out;
 
