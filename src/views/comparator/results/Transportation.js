@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 
-import TransportationContext from 'utils/TransportationContext'
 import ModalContext from 'utils/ModalContext'
 import Emoji from 'components/base/Emoji'
 import Carpool from './transportation/Carpool'
@@ -72,6 +71,14 @@ const Bar = styled.div`
     border-radius: 0.875rem;
   }
 `
+const UncertaintyMarker = styled.div`
+  position: absolute;
+  top: 0;
+  left: ${(props) => props.percent * 100}%;
+  width: 0.25rem;
+  height: 100%;
+  background-color: ${(props) => props.theme.colors.background};
+`
 const Value = styled.div`
   display: flex;
   align-items: baseline;
@@ -104,8 +111,6 @@ const Unit = styled.span`
 
 export default function Transportation(props) {
   const { setConfigurator, setCO2E } = useContext(ModalContext)
-  console.log(props)
-  const { uncertainty } = useContext(TransportationContext)
 
   return (
     <Wrapper {...props}>
@@ -124,7 +129,13 @@ export default function Transportation(props) {
           </Title>
         </TitleWrapper>
         <Chart>
-          <Bar percent={props.transportation.value / props.max} />
+          <Bar percent={props.transportation.value / props.max}>
+            {props.transportation.value !== props.transportation.base && (
+              <UncertaintyMarker
+                percent={props.transportation.base / props.transportation.value}
+              />
+            )}
+          </Bar>
           <Value>
             <Number>
               {props.transportation.value > 1000000

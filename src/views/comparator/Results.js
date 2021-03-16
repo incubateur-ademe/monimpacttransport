@@ -65,6 +65,7 @@ export default function Results() {
                 : 0) *
                 km) /
               carpoolers,
+            base: (valueToUse.value * km) / carpoolers,
             carpoolers,
           }
         })
