@@ -37,6 +37,7 @@ const Content = styled.div`
   right: 0;
   width: 30rem;
   height: 100%;
+  border-left: 2px solid ${(props) => props.theme.colors.main};
   overflow-y: scroll;
   overflow-x: visible;
   transform: translateX(${(props) => (props.open ? 0 : '100%')});

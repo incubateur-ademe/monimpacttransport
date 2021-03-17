@@ -7,8 +7,9 @@ const Wrapper = styled.button`
   right: 0;
   transform: translate(${(props) => (props.open ? '-30rem' : '0')}, -50%);
   padding: 1rem 0.6rem 1rem 1rem;
-  background-color: ${(props) => props.theme.colors.main};
-  border: none;
+  background-color: ${(props) => props.theme.colors.quad};
+  border: 2px solid ${(props) => props.theme.colors.main};
+  border-right: none;
   border-radius: 2rem 0 0 2rem;
   box-shadow: 0 0.5px 12.4px rgba(0, 0, 0, 0.215),
     0 1.3px 22.7px rgba(0, 0, 0, 0.286), 0 3px 36.1px rgba(0, 0, 0, 0.344),
@@ -35,7 +36,7 @@ const Settings = styled.svg`
   transition: all 300ms ease-out;
 
   path {
-    fill: ${(props) => props.theme.colors.quad};
+    fill: ${(props) => props.theme.colors.text};
   }
 `
 const Arrow = styled.svg`
@@ -50,7 +51,7 @@ const Arrow = styled.svg`
   transition: opacity 300ms ease-out;
 
   path {
-    fill: ${(props) => props.theme.colors.quad};
+    fill: ${(props) => props.theme.colors.text};
   }
 `
 export default function ButtonClose(props) {

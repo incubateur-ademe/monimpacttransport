@@ -11,7 +11,8 @@ const Wrapper = styled.div`
   transform: translate(40%, -30%);
   width: 1.5rem;
   height: 1.5rem;
-  background-color: ${(props) => props.theme.colors.main};
+  background-color: ${(props) => props.theme.colors.quad};
+  border: 2px solid ${(props) => props.theme.colors.main};
   border-radius: 1rem;
   cursor: pointer;
 `
@@ -20,7 +21,7 @@ const Svg = styled.svg`
   width: 0.65rem;
   height: auto;
   path {
-    fill: ${(props) => props.theme.colors.quad};
+    fill: ${(props) => props.theme.colors.text};
   }
 `
 export default function ButtonClose(props) {

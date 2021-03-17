@@ -75,6 +75,7 @@ export default function Footer(props) {
 
               {props.sources.map((source) => (
                 <Source
+                  key={source.label}
                   href={source.href}
                   target='_blank'
                   rel='noopener noreferrer'

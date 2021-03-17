@@ -62,7 +62,7 @@ const SecondaryEmoji = styled(Emoji)`
   transform: translate(30%, 50%);
   font-size: 0.75em;
 `
-export default function Configurator(props) {
+export default function Transportation(props) {
   const { configurator, setConfigurator } = useContext(ModalContext)
 
   return (

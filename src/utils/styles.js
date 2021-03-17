@@ -8,7 +8,7 @@ export const themes = {
       main: '#FF6495',
       second: '#411AB7',
       ter: '#78FFF1',
-      quad: '#F8F9FA',
+      quad: '#FF6495',
       background: '#411AB7',
       text: '#F8F9FA',
     },
@@ -119,6 +119,8 @@ export const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
     margin-top: 0;
     box-sizing: inherit;
+
+    ${(props) => props.theme.name !== 'Défaut' && 'box-shadow: none!important'};
   }
 
   #root {

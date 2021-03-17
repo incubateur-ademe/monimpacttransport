@@ -8,8 +8,6 @@ const Wrapper = styled.input`
   padding: 0.3em 0.6em;
   font-weight: 600;
   color: ${(props) => props.theme.colors.text};
-  color: ${(props) =>
-    props.theme.colors[props.theme.name === 'Défaut' ? 'text' : 'second']};
   border: none;
   background-color: transparent;
 

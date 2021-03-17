@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   transform: translateY(-50%);
   margin-left: 0.5rem;
   padding: 0.5875rem 0.8rem 0.6375rem 1rem;
-  color: ${(props) => props.theme.colors.quad};
+  color: ${(props) => props.theme.colors.text};
   opacity: ${(props) => (props.open ? 1 : 0)};
   pointer-events: ${(props) => (props.open ? 'inherit' : 'none')};
   cursor: default;
@@ -29,7 +29,8 @@ const Wrapper = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: ${(props) => props.theme.colors.main};
+    background-color: ${(props) => props.theme.colors.quad};
+    border: 2px solid ${(props) => props.theme.colors.main};
     border-radius: 1.5rem;
     box-shadow: 0 1.6px 9px rgba(0, 0, 0, 0.239),
       0 3.9px 24.8px rgba(0, 0, 0, 0.284), 0 7.5px 59.7px rgba(0, 0, 0, 0.303),
@@ -39,15 +40,15 @@ const Wrapper = styled.div`
 const StyledCheckbox = styled(Checkbox)`
   display: flex;
   &:before {
-    border-color: ${(props) => props.theme.colors.quad};
+    border-color: ${(props) => props.theme.colors.text};
   }
 
   &:after {
-    color: ${(props) => props.theme.colors.quad};
+    color: ${(props) => props.theme.colors.text};
   }
 `
 const RadiativeForcing = styled.a`
-  color: ${(props) => props.theme.colors.quad};
+  color: ${(props) => props.theme.colors.text};
   text-decoration: underline;
   cursor: pointer;
 `

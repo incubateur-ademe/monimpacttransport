@@ -10,7 +10,7 @@ import Suggestions from './address/Suggestions'
 const Wrapper = styled.div`
   position: relative;
   margin: 0 0 1.5rem ${(props) => (props.type === 'from' ? '5rem' : '10rem')};
-  padding: 0.3em 0;
+  padding: calc(0.3em + 2px) 0;
   line-height: 1.15;
 
   ${(props) => props.theme.mq.small} {
@@ -23,8 +23,9 @@ const InputWrapper = styled.div`
   top: 0;
   left: 100%;
   width: 33rem;
+  background-color: ${(props) => props.theme.colors.quad};
+  border: 2px solid ${(props) => props.theme.colors.main};
   border-radius: 0.75em;
-  background-color: ${(props) => props.theme.colors.main};
   box-shadow: ${(props) =>
     props.focus
       ? `0 0.5px 12.4px rgba(0, 0, 0, 0.266),

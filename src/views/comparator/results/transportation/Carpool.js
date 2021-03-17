@@ -28,7 +28,8 @@ const Wrapper = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: ${(props) => props.theme.colors.main};
+    background-color: ${(props) => props.theme.colors.quad};
+    border: 2px solid ${(props) => props.theme.colors.main};
     border-radius: 1.5rem;
     box-shadow: 0 1.6px 9px rgba(0, 0, 0, 0.239),
       0 3.9px 24.8px rgba(0, 0, 0, 0.284), 0 7.5px 59.7px rgba(0, 0, 0, 0.303),
@@ -39,7 +40,7 @@ const Title = styled.div`
   flex: 1;
   position: relative;
   margin: 0.1rem 0 0;
-  color: ${(props) => props.theme.colors.quad};
+  color: ${(props) => props.theme.colors.text};
   white-space: nowrap;
 `
 const Display = styled.div`
@@ -60,7 +61,7 @@ const Carpooler = styled(Emoji)`
   padding: ${(props) => (props.small ? 0 : '0.25rem')};
   // opacity: ${(props) => (props.active ? 1 : 0.5)};
   border: 2px solid
-    ${(props) => (props.active ? props.theme.colors.quad : 'transparent')};
+    ${(props) => (props.active ? props.theme.colors.text : 'transparent')};
   border-radius: 1rem;
   cursor: pointer;
   transition: border 200ms ease-out;

@@ -15,7 +15,7 @@ const Table = styled.table`
   font-size: 0.875em;
   border-spacing: 0;
 `
-export default function Configurator() {
+export default function TransportationList() {
   const {
     transportations,
     transportationsVisibles,
@@ -30,6 +30,7 @@ export default function Configurator() {
         <tbody>
           {transportations.map((transportation) => (
             <Transportation
+              key={transportation.id}
               transportation={transportation}
               transportationsVisibles={transportationsVisibles}
               toggleVisible={toggleVisible}
