@@ -1,7 +1,30 @@
-import React, { useContext } from 'react'
-import styled from 'styled-components'
+import React, { useState, useContext } from 'react'
+import styled, { keyframes } from 'styled-components'
 
 import SearchContext from 'utils/SearchContext'
+
+const attentionSeeker = keyframes`
+  0%,
+  80% {
+    transform: scale(1);
+  }
+
+  82.8% {
+    transform: scale(1.3);
+  }
+
+  85.6% {
+    transform: scale(1);
+  }
+
+  88.4% {
+    transform: scale(1.3);
+  }
+
+  94% {
+    transform: scale(1);
+  }
+`
 
 const Wrapper = styled.div`
   position: relative;
@@ -29,6 +52,8 @@ const Input = styled.input`
     0 1.3px 22.7px rgba(0, 0, 0, 0.286), 0 3px 36.1px rgba(0, 0, 0, 0.344),
     0 10px 80px rgba(0, 0, 0, 0.5);
   transition: box-shadow 300ms ease-out;
+  animation: ${(props) => (!props.seen ? attentionSeeker : 'none')} 5s linear
+    infinite;
 
   &:focus {
     outline: none;
@@ -49,6 +74,8 @@ const Input = styled.input`
 export default function Distance() {
   const { km, setKm } = useContext(SearchContext)
 
+  const [seen, setSeen] = useState(false)
+
   return (
     <Wrapper>
       <Start
@@ -61,6 +88,8 @@ export default function Distance() {
           type='number'
           value={km}
           width={String(km).length}
+          seen={seen}
+          onFocus={() => setSeen(true)}
           onChange={(e) => setKm(e.target.value)}
         />
         <span

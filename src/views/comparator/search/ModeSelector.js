@@ -1,7 +1,30 @@
-import React, { useContext } from 'react'
-import styled from 'styled-components'
+import React, { useState, useContext } from 'react'
+import styled, { keyframes } from 'styled-components'
 
 import SearchContext from 'utils/SearchContext'
+
+const attentionSeeker = keyframes`
+  from,
+  90%,
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+
+  91%,
+  93%,
+  95%,
+  97%,
+  99% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  92%,
+  94%,
+  96%,
+  98% {
+    transform: translate3d(10px, 0, 0);
+  }
+`
 
 const Wrapper = styled.div`
   position: absolute;
@@ -20,6 +43,8 @@ const Wrapper = styled.div`
     0 10px 80px rgba(0, 0, 0, 0.5);
   transition: all 400ms ease-out;
   cursor: pointer;
+  animation: ${(props) => (!props.seen ? attentionSeeker : 'none')} 10s linear
+    infinite;
 
   &:hover,
   &:focus {
@@ -27,6 +52,7 @@ const Wrapper = styled.div`
     box-shadow: 0 0.5px 12.4px rgba(0, 0, 0, 0.322),
       0 1.3px 22.7px rgba(0, 0, 0, 0.429), 0 3px 36.1px rgba(0, 0, 0, 0.516),
       0 10px 80px rgba(0, 0, 0, 0.75);
+
     svg {
       path {
         stroke-dashoffset: 1738.66479;
@@ -78,13 +104,17 @@ const Distance = styled.div`
 `
 export default function ModeSelector() {
   const { mode, setMode } = useContext(SearchContext)
+
+  const [seen, setSeen] = useState(false)
   return (
     <Wrapper
-      onClick={() =>
+      seen={seen}
+      onClick={() => {
+        setSeen(true)
         setMode((prevMode) =>
           prevMode === 'distance' ? 'itinerary' : 'distance'
         )
-      }
+      }}
     >
       <Itinerary
         visible={mode === 'distance'}
