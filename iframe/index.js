@@ -7,9 +7,9 @@ const search = script.dataset.search
 const old = script.dataset.distanceInitiale
 const source = window.location.href.toString()
 
-const src = `${
-  domain || 'https://monimpacttransport.fr'
-}/embed${search}&source=${source}${old && '&theme=classic'}`
+const src = `${domain || 'https://monconvertisseurco2.fr'}/embed${search}${
+  search.includes('?') ? '&' : '?'
+}source=${source}${old && '&theme=classic'}`
 
 const iframe = document.createElement('iframe')
 

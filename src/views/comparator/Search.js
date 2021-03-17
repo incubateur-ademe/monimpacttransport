@@ -9,7 +9,9 @@ import Itinerary from './search/Itinerary'
 
 const Wrapper = styled.div`
   position: relative;
-  padding: 6vh 0 ${(props) => (props.mode === 'itinerary' ? '2vh' : '6vh')};
+  padding: ${(props) => (props.iframe ? '3rem' : '6vh')} 0
+    ${(props) =>
+      props.iframe ? '3rem' : props.mode === 'itinerary' ? '2vh' : '6vh'};
   font-size: 2rem;
   font-weight: 700;
 
@@ -17,11 +19,11 @@ const Wrapper = styled.div`
     font-size: 4.35vw;
   }
 `
-export default function Search() {
+export default function Search(props) {
   const { mode } = useContext(SearchContext)
 
   return (
-    <Wrapper mode={mode}>
+    <Wrapper mode={mode} iframe={props.iframe}>
       <ModeSelector />
       {mode === 'itinerary' ? <Itinerary /> : <Distance />}
     </Wrapper>

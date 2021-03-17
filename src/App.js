@@ -31,7 +31,7 @@ function App() {
                     <Switch>
                       <Route path='/embed'>
                         <Iframe>
-                          <Comparator />
+                          <Comparator iframe />
                         </Iframe>
                       </Route>
                       <Route>

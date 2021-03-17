@@ -16,13 +16,13 @@ const Disclaimer = styled.p`
   max-width: 30rem;
   margin: 0 auto 1rem;
 `
-export default function Comparator() {
+export default function Comparator(props) {
   const { setConfigurator } = useContext(ModalContext)
   const { mode } = useContext(SearchContext)
 
   return (
     <>
-      <Search />
+      <Search iframe={props.iframe} />
       <Results />
       <Buttonwrapper>
         <Button
