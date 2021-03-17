@@ -8,13 +8,9 @@ import Search from './comparator/Search'
 import Results from './comparator/Results'
 
 const Buttonwrapper = styled.div`
-  display: none;
+  display: flex;
   justify-content: center;
   margin-bottom: 1.5rem;
-
-  ${(props) => props.theme.mq.medium} {
-    display: flex;
-  }
 `
 const Disclaimer = styled.p`
   margin: 0 0 1rem 3.5rem;
@@ -32,7 +28,9 @@ export default function Comparator() {
       <Search />
       <Results />
       <Buttonwrapper>
-        <Button onClick={() => setConfigurator(true)}>Personnaliser</Button>
+        <Button onClick={() => setConfigurator(true)}>
+          Voir tous les modes de transport
+        </Button>
       </Buttonwrapper>
       {mode === 'itinerary' && (
         <Disclaimer>
@@ -41,10 +39,11 @@ export default function Comparator() {
         </Disclaimer>
       )}
       <Disclaimer>
-        Équivalent CO₂ par personne en France. Sont inclus les émissions directes,
-        et la production et distribution de carburant et d'électricité. La construction
-        des véhicules (voiture, vélo, batterie, train, avion...) et des infrastructures
-        (routes, rails, aéroports...) n'est pas incluse.
+        Équivalent CO₂ par personne en France. Sont inclus les émissions
+        directes, et la production et distribution de carburant et
+        d'électricité. La construction des véhicules (voiture, vélo, batterie,
+        train, avion...) et des infrastructures (routes, rails, aéroports...)
+        n'est pas incluse.
       </Disclaimer>
     </>
   )
