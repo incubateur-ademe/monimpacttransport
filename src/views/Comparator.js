@@ -13,7 +13,8 @@ const Buttonwrapper = styled.div`
   margin-bottom: 1.5rem;
 `
 const Disclaimer = styled.p`
-  margin: 0 0 1rem;
+  max-width: 30rem;
+  margin: 0 auto 1rem;
 `
 export default function Comparator() {
   const { setConfigurator } = useContext(ModalContext)

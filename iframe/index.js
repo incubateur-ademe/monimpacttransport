@@ -1,16 +1,15 @@
 import { iframeResize } from 'iframe-resizer'
 
-const script = document.getElementById('datagir-mon-impact-transport')
+const script = document.getElementById('ecolab-transport')
 
 const domain = script.dataset.domain
 const search = script.dataset.search
-//const theme = script.dataset.theme
-//const title = script.dataset.title
+const old = script.dataset.distanceInitiale
 const source = window.location.href.toString()
 
 const src = `${
   domain || 'https://monimpacttransport.fr'
-}/embed${search}&source=${source}`
+}/embed${search}&source=${source}${old && '&theme=classic'}`
 
 const iframe = document.createElement('iframe')
 

@@ -38,7 +38,7 @@ export default function Embed() {
       setConfiguratorOpen={setConfiguratorOpen}
       themes={themes}
       theme={theme}
-      id='mon-impact-transport'
+      id='ecolab-transport'
       setTheme={setTheme}
       onClose={() => setMap(true)}
     >

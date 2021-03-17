@@ -31,7 +31,7 @@
         "uncertainty": 178
       },
       {
-        "max": 10000000,
+        "max": 100000000000000000,
         "value": 82.8,
         "uncertainty": 151
       }

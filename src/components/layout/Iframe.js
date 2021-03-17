@@ -1,6 +1,8 @@
-import React, { Suspense } from 'react'
+import React, { Suspense, useContext } from 'react'
 import styled from 'styled-components'
 
+import UXContext from 'utils/UXContext'
+import StyleContext from 'utils/StyleContext'
 import Header from 'components/layout/Header'
 import IframeFooter from 'components/base/IframeFooter'
 const Map = React.lazy(() => import('components/layout/Map'))
@@ -17,11 +19,16 @@ const Content = styled.div`
   }
 `
 export default function Iframe(props) {
+  const { map } = useContext(UXContext)
+  const { theme } = useContext(StyleContext)
+
   return (
     <Wrapper>
-      <Suspense fallback={''}>
-        <Map />
-      </Suspense>
+      {theme === 'default' && map && (
+        <Suspense fallback={''}>
+          <Map />
+        </Suspense>
+      )}
       <Content>
         <Header iframe />
         {props.children}
