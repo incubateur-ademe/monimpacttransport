@@ -300,30 +300,10 @@
   {
     "id": 15,
     "label": {
-      "fr": "TER (électrique)"
+      "fr": "TER"
     },
     "description": {
-      "fr": "8.91 gCO2e/km/personne ; Base Carbone ADEME"
-    },
-    "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=ter",
-    "emoji": { "main": "🚈", "secondary": "⚡" },
-    "default": false,
-    "display": {
-      "max": 150
-    },
-    "values": [
-      {
-        "value": 8.91
-      }
-    ]
-  },
-  {
-    "id": 16,
-    "label": {
-      "fr": "TER (thermique)"
-    },
-    "description": {
-      "fr": "79.8 gCO2e/km/personne ; Base Carbone ADEME"
+      "fr": "24,8 gCO2e/km/personne ; Base Carbone ADEME"
     },
     "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=ter",
     "emoji": { "main": "🚈" },
@@ -333,7 +313,7 @@
     },
     "values": [
       {
-        "value": 79.8
+        "value": 24.8
       }
     ]
   }
