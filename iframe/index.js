@@ -4,12 +4,11 @@ const script = document.getElementById('ecolab-transport')
 
 const domain = script.dataset.domain
 const search = script.dataset.search
-const old = script.dataset.distanceInitiale
 const source = window.location.href.toString()
 
 const src = `${domain || 'https://monconvertisseurco2.fr'}/embed${search}${
-  search.includes('?') ? '&' : '?'
-}source=${source}${old && '&theme=classic'}`
+  search && search.includes('?') ? '&' : '?'
+}source=${source}${!search && '&theme=classic'}`
 
 const iframe = document.createElement('iframe')
 
