@@ -41,7 +41,10 @@
       property="og:description"
       content="Découvrez l'impact de vos déplacements sur le climat ! Des données ouvertes pour une mobilité moins émettrice en CO2."
     />
-    <meta property="og:image" content="%PUBLIC_URL%/metaimage.png" />
+    <meta
+      property="og:image"
+      content="https://monimpacttransport.fr/metaimage.png"
+    />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -51,14 +54,42 @@
       property="twitter:description"
       content="Découvrez l'impact de vos déplacements sur le climat ! Des données ouvertes pour une mobilité moins émettrice en CO2."
     />
-    <meta property="twitter:image" content="%PUBLIC_URL%/metaimage.png" />
+    <meta
+      property="twitter:image"
+      content="https://monimpacttransport.fr/metaimage.png"
+    />
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;600;700;800;900&family=Fira+Code:wght@700"
       rel="stylesheet"
     />
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserver%2CString.prototype.replaceAll"></script>
+
+    <!-- Matomo -->
+    <script type="text/javascript">
+      var _paq = window._paq || []
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView'])
+      _paq.push(['enableLinkTracking'])
+      ;(function () {
+        var u = 'https://stats.data.gouv.fr/'
+        _paq.push(['setTrackerUrl', u + 'matomo.php'])
+        _paq.push(['setSiteId', '155'])
+        var d = document,
+          g = d.createElement('script'),
+          s = d.getElementsByTagName('script')[0]
+        g.type = 'text/javascript'
+        g.async = true
+        g.defer = true
+        g.src = u + 'matomo.js'
+        s.parentNode.insertBefore(g, s)
+      })()
+    </script>
+    <!-- End Matomo Code -->
   </head>
+
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>

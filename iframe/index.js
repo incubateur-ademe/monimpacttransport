@@ -1,6 +1,6 @@
 import { iframeResize } from 'iframe-resizer'
 
-const script = document.getElementById('datagir-fruits-et-legumes')
+const script = document.getElementById('datagir-mon-impact-transport')
 
 const domain = script.dataset.domain
 const search = script.dataset.search
@@ -9,7 +9,7 @@ const search = script.dataset.search
 const source = window.location.href.toString()
 
 const src = `${
-  domain || 'https://mesfruitsetlegumesdesaison.fr'
+  domain || 'https://monimpacttransport.fr'
 }/embed${search}&source=${source}`
 
 const iframe = document.createElement('iframe')

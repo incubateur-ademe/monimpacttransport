@@ -5,7 +5,7 @@ import UXContext from 'utils/UXContext'
 import usePageView from 'hooks/usePageView'
 
 export default function UXProvider(props) {
-  usePageView('Mes Fruits et Légumes de Saison')
+  usePageView('Mon Impact Transport')
 
   const [configuratorOpen, setConfiguratorOpen] = useState(false)
 

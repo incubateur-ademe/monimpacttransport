@@ -116,6 +116,13 @@ export default function Address(props) {
             setFocus(value)
           }}
           onChange={(suggestion) => {
+            window._paq &&
+              window._paq.push([
+                'trackEvent',
+                'itinerary',
+                'change',
+                props.type,
+              ])
             setSearch(suggestion.place_name_fr)
             setItinerary({
               [props.type]: suggestion.place_name_fr,

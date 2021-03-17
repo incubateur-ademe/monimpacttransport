@@ -28,7 +28,13 @@ export default function Comparator() {
       <Search />
       <Results />
       <Buttonwrapper>
-        <Button onClick={() => setConfigurator(true)}>
+        <Button
+          onClick={() => {
+            window._paq &&
+              window._paq.push(['trackEvent', 'configurator', 'toggle', true])
+            setConfigurator(true)
+          }}
+        >
           Voir tous les modes de transport
         </Button>
       </Buttonwrapper>

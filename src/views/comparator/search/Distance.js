@@ -89,8 +89,16 @@ export default function Distance() {
           value={km}
           width={String(km).length}
           seen={seen}
-          onFocus={() => setSeen(true)}
-          onChange={(e) => setKm(e.target.value)}
+          onFocus={() => {
+            window._paq &&
+              window._paq.push(['trackEvent', 'Distance', 'input', 'focus'])
+            setSeen(true)
+          }}
+          onChange={(e) => {
+            window._paq &&
+              window._paq.push(['trackEvent', 'Distance', 'input', 'change'])
+            setKm(e.target.value)
+          }}
         />
         <span
           dangerouslySetInnerHTML={{

@@ -111,6 +111,13 @@ export default function ModeSelector() {
       seen={seen}
       onClick={() => {
         setSeen(true)
+        window._paq &&
+          window._paq.push([
+            'trackEvent',
+            'mode',
+            'change',
+            mode === 'distance' ? 'itinerary' : 'distance',
+          ])
         setMode((prevMode) =>
           prevMode === 'distance' ? 'itinerary' : 'distance'
         )

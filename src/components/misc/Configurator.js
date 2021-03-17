@@ -51,7 +51,16 @@ export default function Configurator() {
   return (
     <Wrapper open={configurator} configuratorOpen={configuratorOpen}>
       <ButtonClose
-        onClick={() => setConfigurator((prevConfigurator) => !prevConfigurator)}
+        onClick={() => {
+          window._paq &&
+            window._paq.push([
+              'trackEvent',
+              'configurator',
+              'toggle',
+              !configurator,
+            ])
+          setConfigurator((prevConfigurator) => !prevConfigurator)
+        }}
         open={configurator}
       />
       <Content open={configurator}>
