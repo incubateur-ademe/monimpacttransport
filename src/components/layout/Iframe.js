@@ -9,6 +9,7 @@ const Map = React.lazy(() => import('components/layout/Map'))
 
 const Wrapper = styled.div``
 const Content = styled.div`
+  position: relative;
   width: 40em;
   margin: 0 auto 2em;
   padding-bottom: 5vw;

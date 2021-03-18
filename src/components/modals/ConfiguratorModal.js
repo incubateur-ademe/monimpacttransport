@@ -13,7 +13,7 @@ const StyledModal = styled(Modal)`
   display: none;
 
   ${(props) => props.theme.mq.medium} {
-    display: block;
+    display: flex;
   }
 `
 const Wrapper = styled.div`

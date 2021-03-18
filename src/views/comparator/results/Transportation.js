@@ -27,7 +27,7 @@ const Title = styled.div`
 
 const ChartWrapper = styled.div`
   flex: 1;
-  max-width: 41.5rem;
+  max-width: 37rem;
 
   ${(props) => props.theme.mq.small} {
     max-width: calc(100vw - 2.5rem - 2rem);
@@ -60,7 +60,7 @@ const SecondaryEmoji = styled(Emoji)`
 `
 const Bar = styled.div`
   position: relative;
-  width: calc(${(props) => props.percent * 34}rem + 1rem);
+  width: calc(${(props) => props.percent * 30}rem + 1rem);
   height: 2rem;
   background-color: ${(props) => props.theme.colors.ter};
   border-radius: 1rem;
