@@ -22,7 +22,11 @@ export default function Lock(props) {
   return (
     <>
       <Wrapper
-        data-tip='Afficher en permanence le mode de transport,<br />peu importe la distance'
+        data-tip={
+          props.checked
+            ? `N'afficher le mode de transport<br/>que s'il est pertinent<br/>par rapport à la distance`
+            : 'Afficher en permanence le mode de transport,<br />peu importe la distance'
+        }
         data-multiline={true}
         x='0px'
         y='0px'
