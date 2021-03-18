@@ -20,10 +20,8 @@ const Input = styled.input`
   font-weight: 900;
   font-family: 'Fira Code', monospace;
   color: ${(props) => props.theme.colors.text};
-  color: ${(props) =>
-    props.theme.colors[props.theme.name === 'Défaut' ? 'text' : 'second']};
-  background-color: ${(props) => props.theme.colors.main};
-  border: none;
+  background-color: ${(props) => props.theme.colors.quad};
+  border: 2px solid ${(props) => props.theme.colors.main};
   border-radius: 0.75em;
   box-shadow: 0 0.5px 12.4px rgba(0, 0, 0, 0.215),
     0 1.3px 22.7px rgba(0, 0, 0, 0.286), 0 3px 36.1px rgba(0, 0, 0, 0.344),
