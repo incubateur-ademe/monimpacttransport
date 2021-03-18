@@ -14,8 +14,13 @@ export default function CO2EModal() {
     <Modal open={approximation} setOpen={setApproximation}>
       <Title>Mode Itinéraire</Title>
       <Text>
-        Les distances données par le mode itinéraire sont calculées à vol
-        d'oiseau et ne correspondent pas à la réalité des transports.
+        Lorsque vous ne connaissez pas directement le kilométrage, le mode
+        itinéraire vous permet d'estimer la distance entre deux points.
+      </Text>
+      <Text>
+        Calculée à vol d'oiseau, cette distance est identique pour tous les
+        modes de déplacement et ne correspond pas à la réalité des transports
+        disponibles sur ce trajet.
       </Text>
     </Modal>
   )
