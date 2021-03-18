@@ -34,6 +34,7 @@ export default function Map() {
   useEffect(() => {
     timer.current = setTimeout(
       () =>
+        Number(km) &&
         setViewport((viewport) =>
           mode === 'itinerary' && (itinerary.from || itinerary.to)
             ? new WebMercatorViewport({

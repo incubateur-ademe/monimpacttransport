@@ -14,11 +14,12 @@ const Middle = styled.div``
 const Input = styled.input`
   position: relative;
   z-index: 10;
-  width: ${(props) => props.width * 0.63 + 1.2}em;
+  width: ${(props) => props.width * 0.7 + 1.2}em;
   max-width: 5.625em;
-  padding: 0.3em 0.6em;
+  padding: 0.15em 0.6em;
   font-weight: 900;
   font-family: 'Fira Code', monospace;
+  line-height: 0.7;
   color: ${(props) => props.theme.colors.text};
   background-color: ${(props) => props.theme.colors.quad};
   border: 2px solid ${(props) => props.theme.colors.main};
@@ -60,7 +61,9 @@ export default function Distance() {
       />
       <Middle>
         <Input
-          type='number'
+          type='text'
+          inputmode='numeric'
+          pattern='[0-9]*'
           value={km}
           width={String(km).length}
           onFocus={() => {
@@ -70,7 +73,7 @@ export default function Distance() {
           onChange={(e) => {
             window._paq &&
               window._paq.push(['trackEvent', 'Distance', 'input', 'change'])
-            setKm(e.target.value || 0)
+            setKm(Number(e.target.value) || 0)
           }}
         />
         <span
