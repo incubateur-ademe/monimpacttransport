@@ -14,14 +14,13 @@ export default function CO2EModal() {
     <Modal open={radiativeForcing} setOpen={setRadiativeForcing}>
       <Title>Impact des traînées</Title>
       <Text>
-        Les deux parties de la barre représentent l'impact du vol sans (à gauche) 
-        et avec (à droite) prise en compte de l'impact induit des traînées de 
-        condensation, tel que présenté dans la Base Carbone de l'ADEME. Du fait que 
-        les avions volent à haute altitude, la combustion du kérosène crée des traînées 
+        Du fait que les avions volent à haute altitude, la combustion du kérosène crée des traînées 
         et perturbe les cycles d’autres gaz à effet de serre que le CO2 (vapeur d'eau, 
         eau condensée sous diverses formes, NOx et méthane qui, ensemble, produisent de 
-        l'ozone, etc.) : c'est cet impact additionnel (dit forçage radiatif additionnel) 
-        qui est représenté par la partie de droite de la barre lorsque la case est cochée.
+        l'ozone, etc.). Cet impact est appelé forçage radiatif additionnel.
+        Les deux parties de la barre représentent l'impact du vol sans (à gauche) et avec
+        (à droite, lorsque la case est cochée) prise en compte de l'impact induit des traînées de 
+        condensation, tel que présenté dans la Base Carbone de l'ADEME.
       </Text>
     </Modal>
   )
