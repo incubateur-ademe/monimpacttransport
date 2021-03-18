@@ -14,7 +14,8 @@ const Wrapper = styled.div`
   color: ${(props) => props.theme.colors.main};
   transition: all 600ms;
 
-  ${(props) => props.theme.mq.large} {
+  ${(props) => props.theme.mq.medium} {
+    width: auto;
     border-left: none;
     border-bottom: 2px solid ${(props) => props.theme.colors.main};
   }
