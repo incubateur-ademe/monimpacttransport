@@ -21,6 +21,7 @@ const Label = styled.div`
   display: flex;
   align-items: center;
   font-weight: 700;
+  opacity: ${(props) => (props.disabled ? 0.5 : 1)};
   cursor: pointer;
 
   &:after {
@@ -30,10 +31,6 @@ const Label = styled.div`
     margin-left: 0.3em;
     font-size: 1.5em;
     line-height: 0;
-  }
-
-  &:hover {
-    color: ${(props) => props.theme.colors.main};
   }
 `
 const Details = styled.div`
@@ -70,6 +67,7 @@ export default function Transportation(props) {
       <Column>
         <Label
           active={props.transportation.id === configurator}
+          disabled={!props.transportation.values}
           onClick={() =>
             setConfigurator(
               configurator === props.transportation.id
@@ -98,22 +96,26 @@ export default function Transportation(props) {
         </Details>
       </Column>
       <CheckboxWrapper>
-        <Visible
-          checked={props.transportationsVisibles.includes(
-            String(props.transportation.id)
-          )}
-          onClick={() => props.toggleVisible(props.transportation.id)}
-          small
-        />
+        {props.transportation.values && (
+          <Visible
+            checked={props.transportationsVisibles.includes(
+              String(props.transportation.id)
+            )}
+            onClick={() => props.toggleVisible(props.transportation.id)}
+            small
+          />
+        )}
       </CheckboxWrapper>
       <CheckboxWrapper>
-        <Lock
-          checked={props.transportationsAlwaysVisibles.includes(
-            String(props.transportation.id)
-          )}
-          onClick={() => props.toggleAlwaysVisible(props.transportation.id)}
-          small
-        />
+        {props.transportation.values && (
+          <Lock
+            checked={props.transportationsAlwaysVisibles.includes(
+              String(props.transportation.id)
+            )}
+            onClick={() => props.toggleAlwaysVisible(props.transportation.id)}
+            small
+          />
+        )}
       </CheckboxWrapper>
     </Wrapper>
   )
