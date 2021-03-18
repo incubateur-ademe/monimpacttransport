@@ -1,6 +1,8 @@
 import { iframeResize } from 'iframe-resizer'
 
-const script = document.getElementById('ecolab-transport')
+const script =
+  document.getElementById('mon-impact-transport') ||
+  document.getElementById('ecolab-transport')
 
 const domain = script.dataset.domain
 const search = script.dataset.search
