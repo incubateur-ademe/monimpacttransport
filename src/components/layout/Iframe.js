@@ -34,7 +34,7 @@ export default function Iframe(props) {
         <Header iframe />
         {props.children}
       </Content>
-      <IframeFooter />
+      <IframeFooter about='https://monimpacttransport.fr' />
     </Wrapper>
   )
 }
