@@ -70,7 +70,7 @@ export default function Distance() {
           onChange={(e) => {
             window._paq &&
               window._paq.push(['trackEvent', 'Distance', 'input', 'change'])
-            setKm(e.target.value)
+            setKm(e.target.value || 0)
           }}
         />
         <span
