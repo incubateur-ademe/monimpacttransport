@@ -45,6 +45,10 @@ const Input = styled.input`
   &[type='number'] {
     -moz-appearance: textfield;
   }
+
+  ${(props) => props.theme.mq.small} {
+    max-width: 4.35em;
+  }
 `
 export default function Distance() {
   const { km, setKm } = useContext(SearchContext)
