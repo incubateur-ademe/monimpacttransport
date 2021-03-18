@@ -36,7 +36,6 @@ const Wrapper = styled.div`
   padding: 0.15rem 1rem 0.6rem;
   background-color: ${(props) => props.theme.colors.quad};
   border: 2px solid ${(props) => props.theme.colors.main};
-  border-top: none;
   border-radius: 0 0 2.5rem 2.5rem;
   box-shadow: 0 0.5px 12.4px rgba(0, 0, 0, 0.215),
     0 1.3px 22.7px rgba(0, 0, 0, 0.286), 0 3px 36.1px rgba(0, 0, 0, 0.344),
