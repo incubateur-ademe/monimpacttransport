@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import api from 'utils/api'
 import SearchContext from 'utils/SearchContext'
+import ModalContext from 'utils/ModalContext'
 import useDebounce from 'hooks/useDebounce'
 import TextInput from 'components/base/TextInput'
 import Suggestions from './address/Suggestions'
@@ -56,8 +57,14 @@ const Km = styled.div`
     }
   }
 `
+const Approximation = styled.span`
+  color: ${(props) => props.theme.colors.main};
+  text-decoration: underline;
+  cursor: pointer;
+`
 export default function Address(props) {
   const { km, itinerary, setItinerary } = useContext(SearchContext)
+  const { setApproximation } = useContext(ModalContext)
   const [search, setSearch] = useState(itinerary[props.type])
   const debouncedSearch = useDebounce(search)
 
@@ -89,7 +96,13 @@ export default function Address(props) {
       <InputWrapper type={props.type}>
         {props.type === 'to' && (
           <Km>
-            <span>({km}km à vol d'oiseau)</span>
+            <span>
+              ({km}km{' '}
+              <Approximation onClick={() => setApproximation(true)}>
+                à vol d'oiseau
+              </Approximation>
+              )
+            </span>
           </Km>
         )}
         <Input
