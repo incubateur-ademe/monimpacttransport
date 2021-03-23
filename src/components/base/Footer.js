@@ -6,6 +6,7 @@ import repufrancaise from './footer/repufrancaise.jpg'
 
 import Button from 'components/base/Button'
 import MagicLink from 'components/base/MagicLink'
+import ThemeToggle from 'components/base/ThemeToggle'
 import Logo from './footer/Logo'
 
 const Wrapper = styled.div`
@@ -47,6 +48,12 @@ const Title = styled.h3`
   margin: 0;
   color: ${(props) => props.theme.colors[props.color || 'text']};
 `
+const Right = styled.div`
+  text-align: right;
+`
+const StyledButton = styled(Button)`
+  margin-bottom: 1rem;
+`
 const LogosWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -85,20 +92,23 @@ export default function Footer(props) {
               ))}
             </Sources>
           )}
-          {props.setConfiguratorOpen && (
-            <Button
-              onClick={() => {
-                window.scrollTo({
-                  top: 0,
-                  left: 0,
-                  behavior: 'smooth',
-                })
-                props.setConfiguratorOpen(true)
-              }}
-            >
-              Je veux l'intégrer à mon site !
-            </Button>
-          )}
+          <Right>
+            {props.setConfiguratorOpen && (
+              <StyledButton
+                onClick={() => {
+                  window.scrollTo({
+                    top: 0,
+                    left: 0,
+                    behavior: 'smooth',
+                  })
+                  props.setConfiguratorOpen(true)
+                }}
+              >
+                Je veux l'intégrer à mon site !
+              </StyledButton>
+            )}
+            <ThemeToggle mobile />
+          </Right>
         </Flex>
       </Content>
       <LogosWrapper>

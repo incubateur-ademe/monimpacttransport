@@ -5,11 +5,12 @@ import useWindowSize from 'hooks/useWindowSize'
 import UXContext from 'utils/UXContext'
 import StyleContext from 'utils/StyleContext'
 
-import Header from 'components/layout/Header'
 import Footer from 'components/base/Footer'
+import ThemeToggle from 'components/base/ThemeToggle'
+import Header from 'components/layout/Header'
+import Learning from 'components/layout/Learning'
 import Embed from 'components/misc/Embed'
 import Configurator from 'components/misc/Configurator'
-import Learning from 'components/layout/Learning'
 
 const Map = React.lazy(() => import('components/layout/Map'))
 
@@ -41,15 +42,16 @@ export default function Web(props) {
   const { height } = useWindowSize()
 
   const { setConfiguratorOpen, map } = useContext(UXContext)
-  const { theme } = useContext(StyleContext)
+  const { theme, accessibility } = useContext(StyleContext)
 
   return (
     <Wrapper>
-      {theme === 'default' && map && (
+      {theme === 'default' && !accessibility && map && (
         <Suspense fallback={''}>
           <Map />
         </Suspense>
       )}
+      <ThemeToggle />
       <Content>
         <FullScreen windowHeight={height}>
           <Header />
