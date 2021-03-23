@@ -52,10 +52,10 @@ export const themes = {
     name: 'Nuit',
     colors: {
       main: '#ffffff',
-      second: '#282c35',
+      second: '#1e1e1e',
       ter: '#ffffff',
-      quad: '#282c35',
-      background: '#282c35',
+      quad: '#1e1e1e',
+      background: '#1e1e1e',
       text: '#ffffff',
     },
     fonts: {
@@ -71,19 +71,19 @@ export const themes = {
       xlarge: `@media screen and (min-width: ${2000}px)`,
     },
   },
-  accessible: {
-    name: 'Accessible',
+  simple: {
+    name: 'Simple',
     colors: {
-      main: 'black',
-      second: 'white',
-      ter: 'black',
-      quad: 'white',
-      background: 'white',
-      text: 'black',
+      main: '#1e1e1e',
+      second: '#ffffff',
+      ter: '#1e1e1e',
+      quad: '#ffffff',
+      background: '#ffffff',
+      text: '#1e1e1e',
     },
     fonts: {
-      body: 'Arial, sans-serif',
-      title: 'Arial, sans-serif',
+      body: '"Montserrat Alternates", sans-serif',
+      title: '"Montserrat Alternates", sans-serif',
     },
     mq: {
       small: `@media screen and (max-width: ${650}px)`,
