@@ -48,12 +48,12 @@ export default function SearchProvider(props) {
       itinerary.toLongitude
     ) {
       const from = turf.point([
-        Number(itinerary.fromLatitude),
         Number(itinerary.fromLongitude),
+        Number(itinerary.fromLatitude),
       ])
       const to = turf.point([
-        Number(itinerary.toLatitude),
         Number(itinerary.toLongitude),
+        Number(itinerary.toLatitude),
       ])
       const distance = turf.distance(from, to)
       console.log(distance)
