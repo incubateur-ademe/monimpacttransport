@@ -103,7 +103,7 @@ export default function Footer(props) {
               props.setConfiguratorOpen(true)
             }}
           >
-            Configurer mon intégration
+            Intégrer le simulateur
           </StyledButton>
           <Text>
             Vous souhaitez <strong>réutiliser les données brutes</strong> ?
