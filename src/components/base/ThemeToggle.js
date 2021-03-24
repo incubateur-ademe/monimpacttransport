@@ -8,7 +8,7 @@ import UXContext from 'utils/UXContext'
 const Wrapper = styled.div`
   position: fixed;
   top: 0.5rem;
-  left: 0.5rem;
+  right: 0.5rem;
   display: flex;
 
   ${(props) => props.theme.mq.medium} {
