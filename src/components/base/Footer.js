@@ -113,7 +113,7 @@ export default function Footer(props) {
           </Text>
         </Section>
         <Section color={props.color}>
-          <Title>Qui sommes nous ?</Title>
+          <Title>Qui sommes-nous ?</Title>
           <Text>
             <MagicLink to='https://datagir.ademe.fr/'>
               <strong>Datagir</strong>
