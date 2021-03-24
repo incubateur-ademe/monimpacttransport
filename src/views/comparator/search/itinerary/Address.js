@@ -5,7 +5,7 @@ import api from 'utils/api'
 import SearchContext from 'utils/SearchContext'
 import ModalContext from 'utils/ModalContext'
 import useDebounce from 'hooks/useDebounce'
-import TextInput from 'components/base/TextInput'
+import TextInput from './address/TextInput'
 import Suggestions from './address/Suggestions'
 
 const Wrapper = styled.div`

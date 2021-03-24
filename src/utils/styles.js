@@ -101,8 +101,9 @@ export const GlobalStyle = createGlobalStyle`
 
   html {
     box-sizing: border-box;
-    font-family: ${(props) => props.theme.fonts.body};
     scroll-behavior: smooth;
+    font-weight: 500;
+    font-family: ${(props) => props.theme.fonts.body};
     line-height: 1.4;
     text-rendering: geometricPrecision;
 
@@ -132,6 +133,8 @@ export const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     margin-top: 0;
     font-family: ${(props) => props.theme.fonts.title};
+    font-weight: 900;
+    line-height: 1.2;
   }
 
   h2 {

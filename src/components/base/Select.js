@@ -7,41 +7,35 @@ const Wrapper = styled.div`
 const Label = styled.label`
   display: block;
   margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: ${(props) => props.theme.colors[props.error ? 'error' : 'text']};
 `
-const Input = styled.input`
+const Input = styled.select`
   width: 100%;
   padding: 0.5rem 1rem;
   color: ${(props) => props.theme.colors.text};
   background-color: transparent;
   border: 2px solid ${(props) => props.theme.colors.text};
   border-radius: 1rem;
-  transition: box-shadow 300ms ease-out;
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 -0 0px 1px ${(props) => props.theme.colors.main} inset;
-  }
+  appearance: none;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 0.5rem) 50%;
+  background-size: 1.5rem 1.5rem;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 24 24' ><path fill='%23ffffff' d='M12,13.1l5-4.9l1.4,1.4L12,15.9L5.6,9.5l1.4-1.4L12,13.1z'/></svg>");
+  cursor: pointer;
 `
-export default function TextInput(props) {
+export default function Select(props) {
   return (
     <Wrapper>
-      {props.label && (
-        <Label htmlFor={props.name} error={props.error}>
-          {props.label}
-        </Label>
-      )}
+      {props.label && <Label htmlFor={props.name}>{props.label}</Label>}
       <Input
-        type={props.type || 'text'}
         id={props.name}
         name={props.name}
         value={props.value}
-        error={props.error}
         onChange={(e) => {
           props.onChange({ value: e.currentTarget.value, name: props.name })
         }}
-      />
+      >
+        {props.children}
+      </Input>
     </Wrapper>
   )
 }
