@@ -37,8 +37,10 @@ const Flex = styled.div`
 `
 const Sources = styled.div`
   flex: 1;
+
   ${(props) => props.theme.mq.small} {
-    margin-bottom: 1em;
+    margin-bottom: 2rem;
+    text-align: center;
   }
 `
 const Source = styled.a`
@@ -49,7 +51,13 @@ const Title = styled.h3`
   color: ${(props) => props.theme.colors[props.color || 'text']};
 `
 const Right = styled.div`
-  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  ${(props) => props.theme.mq.small} {
+    align-items: center;
+  }
 `
 const StyledButton = styled(Button)`
   margin-bottom: 1rem;
@@ -78,7 +86,7 @@ export default function Footer(props) {
         <Flex>
           {props.sources && (
             <Sources>
-              <Title color={props.color}>Sources des données :</Title>
+              <Title color={props.color}>Sources des données</Title>
 
               {props.sources.map((source) => (
                 <Source
