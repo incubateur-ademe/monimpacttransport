@@ -109,7 +109,7 @@ export default function Footer(props) {
             Vous souhaitez <strong>réutiliser les données brutes</strong> ?
             Contactez nous à{' '}
             <MagicLink to='mailto:datagir@ademe.fr'>datagir@ademe.fr</MagicLink>{' '}
-            pour bénificier de notre expertise et accompagnement.
+            pour bénéficier de notre expertise et accompagnement.
           </Text>
           <Text>
             Ce simulateur est développé de manière ouverte (open source).
