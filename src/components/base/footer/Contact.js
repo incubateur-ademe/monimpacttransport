@@ -8,7 +8,6 @@ import Select from 'components/base/Select'
 
 const Wrapper = styled.form`
   width: 100%;
-  margin-bottom: 2rem;
 `
 const ButtonWrapper = styled.div`
   display: flex;

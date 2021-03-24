@@ -17,13 +17,9 @@ const Wrapper = styled.div`
   transition: all 600ms;
 `
 const Content = styled.div`
-  max-width: ${(props) => props.width || '35em'};
+  max-width: ${(props) => props.width || '37rem'};
   margin: 0 auto;
-  padding: 2rem 0 0;
-
-  ${(props) => props.theme.mq.small} {
-    margin: 0 3vw;
-  }
+  padding: 2rem 1rem 0;
 `
 const Section = styled.div`
   display: flex;
@@ -34,10 +30,6 @@ const Section = styled.div`
   p,
   h2 {
     color: ${(props) => props.theme.colors[props.color || 'text']};
-  }
-  ${(props) => props.theme.mq.small} {
-    margin-bottom: 2rem;
-    text-align: center;
   }
 `
 const Text = styled.p``

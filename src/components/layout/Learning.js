@@ -7,13 +7,9 @@ import useOnScreen from 'hooks/useOnScreen'
 import Button from 'components/base/Button'
 
 const Wrapper = styled.div`
-  position: relative;
-  max-width: 35em;
-  margin: 0 auto 1em;
-
-  ${(props) => props.theme.mq.small} {
-    margin: 0 3vw 1em;
-  }
+  max-width: 37rem;
+  margin: 0 auto;
+  padding: 2rem 1rem 0;
 `
 const Content = styled.div`
   position: relative;
