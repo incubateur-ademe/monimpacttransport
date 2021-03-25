@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import Themes from './embedConfigurator/Themes'
 import Code from './embedConfigurator/Code'
+import MagicLink from 'components/base/MagicLink'
 
 const Wrapper = styled.div`
   position: relative;
@@ -58,6 +59,7 @@ const Subtitle = styled.h3`
   font-size: 1.3em;
   margin-bottom: 1rem;
 `
+const Contact = styled.p``
 export default function EmbedConfigurator(props) {
   return (
     <Wrapper open={props.configuratorOpen}>
@@ -80,6 +82,13 @@ export default function EmbedConfigurator(props) {
           theme={props.theme}
           setTheme={props.setTheme}
         />
+        <Contact>
+          Vous souhaitez aller plus loin dans l'intégration de ce calculateur ou
+          des données ?{' '}
+          <MagicLink to='https://datagir.ademe.fr/#contact'>
+            Contactez-nous
+          </MagicLink>
+        </Contact>
       </Content>
     </Wrapper>
   )

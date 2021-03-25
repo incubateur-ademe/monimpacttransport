@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 const Content = styled.div`
   max-width: ${(props) => props.width || '37rem'};
   margin: 0 auto;
-  padding: 2rem 1rem 0;
+  padding: 2rem 1rem 1rem;
 `
 const Section = styled.div`
   display: flex;
@@ -31,6 +31,9 @@ const Section = styled.div`
   h2 {
     color: ${(props) => props.theme.colors[props.color || 'text']};
   }
+`
+const CenterSection = styled(Section)`
+  align-items: center;
 `
 const Text = styled.p``
 const Title = styled.h2`
@@ -56,11 +59,35 @@ const Institution = styled.img`
   display: block;
   height: 5.625em;
 `
-
+const StyledLink = styled.button`
+  display: inline;
+  margin: 0;
+  padding: 0;
+  color: ${(props) => props.theme.colors.main};
+  text-decoration: underline;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+`
 export default function Footer(props) {
   return (
     <Wrapper background={props.background} id='about'>
       <Content>
+        <CenterSection>
+          <StyledButton
+            onClick={() => {
+              window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth',
+              })
+              props.setConfiguratorOpen(true)
+            }}
+          >
+            J'intègre le simulateur à mon site
+          </StyledButton>
+          <ThemeToggle mobile />
+        </CenterSection>
         <Section color={props.color}>
           <Title>D'ou viennent ces données ?</Title>
           <Text>
@@ -80,30 +107,38 @@ export default function Footer(props) {
             Comment intégrer ces données à mon site ou application ?
           </Title>
           <Text>
-            Vous souhaitez{' '}
-            <strong>afficher ce simulateur sur votre site</strong> ?
-            Personnalisez le et intégrez le facilement grace à notre
-            configurateur :
+            <strong>
+              Vous souhaitez afficher ce simulateur sur votre site ?
+            </strong>
+            <br />
+            Personnalisez le et intégrez le facilement grace à{' '}
+            <StyledLink
+              onClick={() => {
+                window.scrollTo({
+                  top: 0,
+                  left: 0,
+                  behavior: 'smooth',
+                })
+                props.setConfiguratorOpen(true)
+              }}
+            >
+              notre configurateur
+            </StyledLink>
+            .
           </Text>
-          <StyledButton
-            onClick={() => {
-              window.scrollTo({
-                top: 0,
-                left: 0,
-                behavior: 'smooth',
-              })
-              props.setConfiguratorOpen(true)
-            }}
-          >
-            Intégrer le simulateur
-          </StyledButton>
+
           <Text>
-            Vous souhaitez <strong>réutiliser les données brutes</strong> ?
+            <strong>Vous souhaitez réutiliser les données brutes ?</strong>
+            <br />
             Contactez nous à{' '}
-            <MagicLink to='mailto:datagir@ademe.fr'>datagir@ademe.fr</MagicLink>{' '}
+            <MagicLink to='mailto:datagir@ademe.fr'>
+              datagir@ademe.fr
+            </MagicLink>{' '}
             pour bénéficier de notre expertise et accompagnement.
           </Text>
           <Text>
+            <strong>Vous souhaitez réutiliser le code du simulateur ?</strong>
+            <br />
             Ce simulateur est développé de manière ouverte (open source).
             L’ensemble du code est{' '}
             <MagicLink to='https://github.com/datagir/monimpacttransport'>
@@ -111,6 +146,22 @@ export default function Footer(props) {
             </MagicLink>
             .
           </Text>
+        </Section>
+        <Section color={props.color}>
+          <Title>Nous contacter</Title>
+          <Text>
+            Vous souhaitez nous contacter pour{' '}
+            <strong>
+              obtenir de l'aide sur l'intégration des données ou des simulateurs
+            </strong>{' '}
+            ? Ou alors pour{' '}
+            <strong>
+              nous signaler un bug, nous faire une suggestion ou donner votre
+              avis sur ce simulateur
+            </strong>{' '}
+            ? Utilisez le formulaire ci‑dessous :
+          </Text>
+          <Contact />
         </Section>
         <Section color={props.color}>
           <Title>Qui sommes-nous ?</Title>
@@ -137,34 +188,7 @@ export default function Footer(props) {
             par l'appropriation et l’intégration de ces données afin d’apporter
             l’information au plus près des citoyens.
           </Text>
-          <StyledButton to='https://datagir.ademe.fr/'>
-            En savoir plus
-          </StyledButton>
         </Section>
-        <Section color={props.color}>
-          <Title>Nous contacter</Title>
-          <Text>
-            Vous souhaitez nous contacter pour{' '}
-            <strong>
-              obtenir de l'aide sur l'intégration des données ou des simulateurs
-            </strong>{' '}
-            ? Ou alors pour{' '}
-            <strong>
-              nous signaler un bug, nous faire une suggestion ou donner votre
-              avis sur ce simulateur
-            </strong>{' '}
-            ? Écrivez nous à{' '}
-            <strong>
-              <MagicLink to='mailto:datagir@ademe.fr'>
-                datagir@ademe.fr
-              </MagicLink>
-            </strong>{' '}
-            ou utilisez le formulaire ci‑dessous :
-          </Text>
-          <Contact />
-        </Section>
-
-        <ThemeToggle mobile />
       </Content>
       <LogosWrapper>
         <Logos to='https://datagir.ademe.fr/'>
