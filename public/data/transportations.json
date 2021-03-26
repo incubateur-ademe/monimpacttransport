@@ -400,5 +400,16 @@
         "value": 113
       }
     ]
+  },
+  {
+    "id": 22,
+    "label": {
+      "fr": "Camping Car"
+    },
+    "description": {
+      "fr": "Pas de donnée disponible pour ce mode de transport"
+    },
+    "emoji": { "main": "🚙" },
+    "default": false
   }
 ]
