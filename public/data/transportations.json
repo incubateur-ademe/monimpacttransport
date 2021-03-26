@@ -320,13 +320,22 @@
   {
     "id": 16,
     "label": {
-      "fr": "Bus (electrique)"
+      "fr": "Bus (électrique)"
     },
     "description": {
-      "fr": "Pas de donnée disponible pour ce mode de transport"
+      "fr": "21,7 gCO2e/km/personne ; Base Carbone ADEME, Autobus - GNV"
     },
-    "emoji": { "main": "🚌", "secondary": "⚡" },
-    "default": false
+    "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=autobus",
+    "emoji": { "main": "🚌", "secondary": "💨" },
+    "default": false,
+    "display": {
+      "max": 15
+    },
+    "values": [
+      {
+        "value": 21.7
+      }
+    ]
   },
   {
     "id": 17,
@@ -364,12 +373,32 @@
   {
     "id": 20,
     "label": {
-      "fr": "Scooter et moto légère (electrique)"
+      "fr": "Scooter et moto légère (électrique)"
     },
     "description": {
       "fr": "Pas de donnée disponible pour ce mode de transport"
     },
     "emoji": { "main": "🛵", "secondary": "⚡" },
     "default": false
+  },
+  {
+    "id": 21,
+    "label": {
+      "fr": "Bus (GNV)"
+    },
+    "description": {
+      "fr": "113 gCO2e/km/personne ; Base Carbone ADEME, Autobus - GNV"
+    },
+    "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=autobus",
+    "emoji": { "main": "🚌", "secondary": "💨" },
+    "default": false,
+    "display": {
+      "max": 15
+    },
+    "values": [
+      {
+        "value": 113
+      }
+    ]
   }
 ]
