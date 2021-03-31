@@ -12,7 +12,6 @@ const Content = styled.div`
   position: relative;
   max-width: 46rem;
   margin: 0 auto 2em;
-  padding-bottom: 5vw;
 
   ${(props) => props.theme.mq.small} {
     width: auto;
