@@ -121,7 +121,7 @@
       "fr": "Autocar"
     },
     "description": {
-      "fr": "35,2 gCO2e/km/personne ; Base Carbone ADEME, Autocar - Gazole"
+      "fr": "35,2 gCO2e/km/personne ; Taux de remplissage : 30 personnes (62%) ; Base Carbone ADEME, Autocar - Gazole"
     },
     "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=autocar",
     "emoji": { "main": "🚌" },
@@ -181,7 +181,7 @@
       "fr": "Bus (thermique)"
     },
     "description": {
-      "fr": "103 gCO2e/km/personne ; Base Carbone ADEME, Autobus - Gazole"
+      "fr": "103 gCO2e/km/personne ; Taux de remplissage : 10 personnes ; Base Carbone ADEME, Autobus - Gazole"
     },
     "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=autobus",
     "emoji": { "main": "🚌" },
@@ -387,7 +387,7 @@
       "fr": "Bus (GNV)"
     },
     "description": {
-      "fr": "113 gCO2e/km/personne ; Base Carbone ADEME, Autobus - GNV"
+      "fr": "113 gCO2e/km/personne ; Taux de remplissage : 10 personnes ; Base Carbone ADEME, Autobus - GNV"
     },
     "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=autobus",
     "emoji": { "main": "🚌", "secondary": "💨" },
