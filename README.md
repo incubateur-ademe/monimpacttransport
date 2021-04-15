@@ -1,4 +1,4 @@
-# Mon convertisseur CO2
+# Mon Impact Transport
 
 Application web permettant de comparer la consommation en CO2e de différents modes de transport.
 
