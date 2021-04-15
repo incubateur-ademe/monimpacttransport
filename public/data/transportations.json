@@ -323,17 +323,17 @@
       "fr": "Bus (électrique)"
     },
     "description": {
-      "fr": "21,7 gCO2e/km/personne ; Base Carbone ADEME, Autobus - GNV"
+      "fr": "9,5 gCO2e/km/personne ; Base Carbone ADEME, Autobus - Electrique"
     },
     "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=autobus",
-    "emoji": { "main": "🚌", "secondary": "💨" },
+    "emoji": { "main": "🚌", "secondary": "⚡" },
     "default": false,
     "display": {
       "max": 15
     },
     "values": [
       {
-        "value": 21.7
+        "value": 9.5
       }
     ]
   },
