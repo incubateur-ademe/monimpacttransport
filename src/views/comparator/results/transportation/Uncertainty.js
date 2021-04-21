@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   transform: translateY(-50%);
-  margin-left: 0.5rem;
+  margin-left: 0.2rem;
   padding: 0.5875rem 0.8rem 0.6375rem 1rem;
   color: ${(props) => props.theme.colors.text};
   opacity: ${(props) => (props.open ? 1 : 0)};
@@ -58,10 +58,17 @@ const Display = styled.div`
   transform: translateY(-50%);
   margin-left: 0.25rem;
 `
-const Plus = styled.sup`
+const Plus = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1.25rem;
+  height: 1.25rem;
   font-weight: 900;
-  color: ${(props) => props.theme.colors.main};
-  background-color: transparent;
+  line-height: 0.7;
+  color: ${(props) => props.theme.colors.background};
+  background-color: ${(props) => props.theme.colors.main};
+  border-radius: 1rem;
   border: none;
 `
 export default function Uncertainty(props) {
