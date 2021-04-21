@@ -65,6 +65,7 @@ const Bar = styled.div`
   height: 2rem;
   background-color: ${(props) => props.theme.colors.text};
   border-radius: 1rem;
+  cursor: pointer;
 
   ${(props) => props.theme.mq.small} {
     width: calc(${(props) => props.percent * 70}vw + 1rem);
@@ -131,7 +132,10 @@ export default function Transportation(props) {
           </Title>
         </TitleWrapper>
         <Chart>
-          <Bar percent={props.transportation.value / props.max}>
+          <Bar
+            percent={props.transportation.value / props.max}
+            onClick={() => setConfiguratorOpen(props.transportation.id)}
+          >
             {props.transportation.value !== props.transportation.base && (
               <UncertaintyMarker
                 percent={props.transportation.base / props.transportation.value}
