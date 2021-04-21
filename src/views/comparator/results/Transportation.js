@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 
 import ModalContext from 'utils/ModalContext'
+import UXContext from 'utils/UXContext'
 import Emoji from 'components/base/Emoji'
 import Carpool from './transportation/Carpool'
 import Uncertainty from './transportation/Uncertainty'
@@ -62,7 +63,7 @@ const Bar = styled.div`
   position: relative;
   width: calc(${(props) => props.percent * 30}rem + 1rem);
   height: 2rem;
-  background-color: ${(props) => props.theme.colors.ter};
+  background-color: ${(props) => props.theme.colors.text};
   border-radius: 1rem;
 
   ${(props) => props.theme.mq.small} {
@@ -86,7 +87,7 @@ const Value = styled.div`
   font-size: 1em;
   font-weight: 600;
   line-height: 0.7;
-  color: ${(props) => props.theme.colors.ter};
+  color: ${(props) => props.theme.colors.text};
   transition: color 200ms ease-out;
 
   ${(props) => props.theme.mq.small} {
@@ -110,7 +111,8 @@ const Unit = styled.span`
 `
 
 export default function Transportation(props) {
-  const { setConfigurator, setCO2E } = useContext(ModalContext)
+  const { setCO2E } = useContext(ModalContext)
+  const { setConfiguratorOpen } = useContext(UXContext)
 
   return (
     <Wrapper {...props}>
@@ -121,7 +123,7 @@ export default function Transportation(props) {
       <ChartWrapper>
         <TitleWrapper>
           <Title>
-            <span onClick={() => setConfigurator(props.transportation.id)}>
+            <span onClick={() => setConfiguratorOpen(props.transportation.id)}>
               {props.transportation.label.fr}
             </span>
             <Carpool transportation={props.transportation} />

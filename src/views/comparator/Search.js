@@ -24,7 +24,7 @@ export default function Search(props) {
 
   return (
     <Wrapper mode={mode} iframe={props.iframe}>
-      <ModeSelector />
+      <ModeSelector iframe={props.iframe} />
       {mode === 'itinerary' ? <Itinerary /> : <Distance />}
     </Wrapper>
   )

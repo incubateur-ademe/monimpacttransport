@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 
-import ModalContext from 'utils/ModalContext'
+import UXContext from 'utils/UXContext'
 import TransportationContext from 'utils/TransportationContext'
 import Modal from 'components/base/Modal'
 import Button from 'components/base/Button'
@@ -19,7 +19,7 @@ const StyledModal = styled(Modal)`
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  max-height: calc(90vh - 3rem);
+  max-height: calc(90vh - 4rem);
 `
 const Title = styled.h2``
 const Flex = styled.div`
@@ -40,14 +40,18 @@ const ButtonWrapper = styled.div`
   }
 `
 export default function ConfiguratorModal() {
-  const { configurator, setConfigurator } = useContext(ModalContext)
+  const { configuratorOpen, setConfiguratorOpen } = useContext(UXContext)
   const { reset } = useContext(TransportationContext)
 
   return (
-    <StyledModal open={configurator} setOpen={setConfigurator} width='45em'>
+    <StyledModal
+      open={configuratorOpen}
+      setOpen={setConfiguratorOpen}
+      width='45em'
+    >
       <Wrapper>
         <Title>Personnaliser l'Affichage</Title>
-        <TransportationList />
+        <TransportationList modal />
         <Flex>
           <Carpool />
           <Uncertainty />
@@ -56,7 +60,7 @@ export default function ConfiguratorModal() {
           <Button onClick={reset} hollow small>
             Réinitialiser
           </Button>
-          <Button onClick={() => setConfigurator(false)} small>
+          <Button onClick={() => setConfiguratorOpen(false)} small>
             Valider
           </Button>
         </ButtonWrapper>

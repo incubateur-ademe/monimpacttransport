@@ -5,14 +5,16 @@ import useWindowSize from 'hooks/useWindowSize'
 import UXContext from 'utils/UXContext'
 import StyleContext from 'utils/StyleContext'
 
-import Footer from 'components/base/Footer'
 import ThemeToggle from 'components/base/ThemeToggle'
-import Header from 'components/layout/Header'
-import Learning from 'components/layout/Learning'
-import Embed from 'components/misc/Embed'
+import InstallButton from 'components/base/InstallButton'
+import Learning from 'components/misc/Learning'
 import Configurator from 'components/misc/Configurator'
+import ShareWrapper from 'components/wrappers/ShareWrapper'
+import EmbedWrapper from 'components/wrappers/EmbedWrapper'
+import ContactWrapper from 'components/wrappers/ContactWrapper'
+import FooterWrapper from 'components/wrappers/FooterWrapper'
 
-const Map = React.lazy(() => import('components/layout/Map'))
+const Map = React.lazy(() => import('components/misc/Map'))
 
 const Wrapper = styled.div`
   display: flex;
@@ -33,15 +35,21 @@ const FullScreen = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  max-width: 46rem;
+  width: 46rem;
   min-height: ${(props) => props.windowHeight}px;
   margin: 0 auto 5rem;
-  padding: 0 0.5rem 2rem;
+  padding: 0 0.5rem;
+
+  ${(props) => props.theme.mq.small} {
+    width: auto;
+    margin: 0 3vw 2em;
+    padding-bottom: 5vw;
+  }
 `
 export default function Web(props) {
   const { height } = useWindowSize()
 
-  const { setConfiguratorOpen, map } = useContext(UXContext)
+  const { map } = useContext(UXContext)
   const { theme, accessibility } = useContext(StyleContext)
 
   return (
@@ -52,25 +60,16 @@ export default function Web(props) {
         </Suspense>
       )}
       <ThemeToggle />
-      <Content>
-        <FullScreen windowHeight={height}>
-          <Header />
-          {props.children}
-        </FullScreen>
-        <Learning />
-        <Footer
-          width={'45rem'}
-          setConfiguratorOpen={setConfiguratorOpen}
-          sources={[
-            {
-              label: 'Base carbone®',
-              href: 'https://data.ademe.fr/datasets/base-carbone(r)',
-            },
-          ]}
-        />
-      </Content>
-      <Embed />
       <Configurator />
+      <Content>
+        <FullScreen windowHeight={height}>{props.children}</FullScreen>
+        <Learning />
+        <FooterWrapper />
+      </Content>
+      <EmbedWrapper />
+      <ShareWrapper />
+      <ContactWrapper />
+      <InstallButton />
     </Wrapper>
   )
 }

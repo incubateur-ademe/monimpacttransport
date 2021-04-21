@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 
 import UXContext from 'utils/UXContext'
-import ModalContext from 'utils/ModalContext'
 import TransportationContext from 'utils/TransportationContext'
 import Emoji from 'components/base/Emoji'
 import ButtonClose from './ButtonClose'
@@ -28,12 +27,13 @@ const Wrapper = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: ${(props) => props.theme.colors.quad};
-    border: 2px solid ${(props) => props.theme.colors.main};
+    background-color: ${(props) => props.theme.colors.background};
+    border: 2px solid ${(props) => props.theme.colors.ter};
     border-radius: 1.5rem;
-    box-shadow: 0 1.6px 9px rgba(0, 0, 0, 0.239),
-      0 3.9px 24.8px rgba(0, 0, 0, 0.284), 0 7.5px 59.7px rgba(0, 0, 0, 0.303),
-      0 17px 198px rgba(0, 0, 0, 0.34);
+  }
+
+  ${(props) => props.theme.mq.medium} {
+    display: none;
   }
 `
 const Title = styled.div`
@@ -59,9 +59,8 @@ const Carpooler = styled(Emoji)`
   position: relative;
   margin: 0 0.25rem;
   padding: ${(props) => (props.small ? 0 : '0.25rem')};
-  // opacity: ${(props) => (props.active ? 1 : 0.5)};
   border: 2px solid
-    ${(props) => (props.active ? props.theme.colors.text : 'transparent')};
+    ${(props) => (props.active ? props.theme.colors.main : 'transparent')};
   border-radius: 1rem;
   cursor: pointer;
   transition: border 200ms ease-out;
@@ -73,14 +72,13 @@ const Plus = styled.sup`
   border: none;
 `
 export default function Carpool(props) {
-  const { configurator, setConfigurator } = useContext(ModalContext)
-  const { configuratorOpen } = useContext(UXContext)
+  const { configuratorOpen, setConfiguratorOpen } = useContext(UXContext)
 
   const { carpool, setCarpool } = useContext(TransportationContext)
 
   return props.transportation.carpool ? (
     <>
-      <Display onClick={() => setConfigurator(true)}>
+      <Display onClick={() => setConfiguratorOpen(true)}>
         <Carpoolers>
           {props.transportation.carpoolers > 1 ? (
             [...Array(props.transportation.carpoolers)].map(
@@ -95,11 +93,11 @@ export default function Carpool(props) {
           )}
         </Carpoolers>
       </Display>
-      <Wrapper open={configurator || configuratorOpen}>
-        {configurator && (
+      <Wrapper open={configuratorOpen}>
+        {configuratorOpen && (
           <ButtonClose
             onClick={() => {
-              setConfigurator(false)
+              setConfiguratorOpen(false)
             }}
           />
         )}

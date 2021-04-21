@@ -10,7 +10,7 @@ const source = window.location.href.toString()
 
 const src = `${domain || 'https://monimpacttransport.fr'}/embed/${search}${
   search && search.includes('?') ? '&' : '?'
-}source=${source}${!search && '&theme=classic'}`
+}source=${source}`
 
 const iframe = document.createElement('iframe')
 

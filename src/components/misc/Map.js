@@ -67,7 +67,7 @@ export default function Map() {
         {...viewport}
         width='100%'
         height='100%'
-        mapStyle={'mapbox://styles/florianpanchout/ckkcsfbzm0ab617p8elhz6k8r'}
+        mapStyle={'mapbox://styles/florianpanchout/cknr9isnk0jhd17o1r4v4dc4i'}
         onViewportChange={setViewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API_TOKEN}
       />

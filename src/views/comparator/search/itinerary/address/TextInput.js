@@ -5,7 +5,7 @@ const Wrapper = styled.input`
   position: relative;
   z-index: 10;
   width: 100%;
-  padding: 0.3em 0.6em;
+  padding: 0.3em 0 0.3em 0.6em;
   font-weight: 600;
   color: ${(props) => props.theme.colors.text};
   border: none;

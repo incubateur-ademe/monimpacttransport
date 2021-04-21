@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { QueryParamProvider } from 'use-query-params'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 import { GlobalStyle } from 'utils/styles'
 import StyleProvider from 'components/providers/StyleProvider'
@@ -18,43 +19,47 @@ import Web from 'components/layout/Web'
 import Iframe from 'components/layout/Iframe'
 import Comparator from 'views/Comparator'
 
+const queryClient = new QueryClient()
+
 function App() {
   return (
     <Router>
       <QueryParamProvider ReactRouterRoute={Route}>
-        <UXProvider>
-          <StyleProvider>
-            <ModalProvider>
-              <TransportationProvider>
-                <SuggestionProvider>
-                  <SearchProvider>
-                    <GlobalStyle />
-                    <Switch>
-                      <Route path='/embed'>
-                        <Iframe>
-                          <Comparator iframe />
-                        </Iframe>
-                      </Route>
-                      <Route>
-                        <Web>
-                          <Switch>
-                            <Route path='/'>
-                              <Comparator />
-                            </Route>
-                          </Switch>
-                        </Web>
-                      </Route>
-                    </Switch>
-                    <CO2EModal />
-                    <ConfiguratorModal />
-                    <RadiativeForcingModal />
-                    <ApproximationModal />
-                  </SearchProvider>
-                </SuggestionProvider>
-              </TransportationProvider>
-            </ModalProvider>
-          </StyleProvider>
-        </UXProvider>
+        <QueryClientProvider client={queryClient}>
+          <UXProvider>
+            <StyleProvider>
+              <ModalProvider>
+                <TransportationProvider>
+                  <SuggestionProvider>
+                    <SearchProvider>
+                      <GlobalStyle />
+                      <Switch>
+                        <Route path='/embed'>
+                          <Iframe>
+                            <Comparator iframe />
+                          </Iframe>
+                        </Route>
+                        <Route>
+                          <Web>
+                            <Switch>
+                              <Route path='/'>
+                                <Comparator />
+                              </Route>
+                            </Switch>
+                          </Web>
+                        </Route>
+                      </Switch>
+                      <CO2EModal />
+                      <ConfiguratorModal />
+                      <RadiativeForcingModal />
+                      <ApproximationModal />
+                    </SearchProvider>
+                  </SuggestionProvider>
+                </TransportationProvider>
+              </ModalProvider>
+            </StyleProvider>
+          </UXProvider>
+        </QueryClientProvider>
       </QueryParamProvider>
     </Router>
   )

@@ -4,54 +4,51 @@ import styled from 'styled-components'
 const Wrapper = styled.button`
   position: fixed;
   top: 50%;
-  right: 0;
-  transform: translate(${(props) => (props.open ? '-30rem' : '0')}, -50%);
-  padding: 1rem 0.6rem 1rem 1rem;
-  background-color: ${(props) => props.theme.colors.quad};
-  border: 2px solid ${(props) => props.theme.colors.main};
+  left: 0;
+  transform: translate(${(props) => (props.open ? '30rem' : '0')}, -50%);
+  padding: 0.7rem 0.9rem;
+  background-color: ${(props) => props.theme.colors.main};
+  border: 5px solid ${(props) => props.theme.colors.main};
   border-right: none;
-  border-radius: 2rem 0 0 2rem;
-  box-shadow: 0 0.5px 12.4px rgba(0, 0, 0, 0.215),
-    0 1.3px 22.7px rgba(0, 0, 0, 0.286), 0 3px 36.1px rgba(0, 0, 0, 0.344),
-    0 10px 80px rgba(0, 0, 0, 0.5);
+  border-radius: 0 2rem 2rem 0;
   transition: all 400ms ease-out;
+  overflow: hidden;
   cursor: pointer;
 
   &:hover,
   &:focus {
     outline: none;
-    box-shadow: 0 0.5px 12.4px rgba(0, 0, 0, 0.322),
-      0 1.3px 22.7px rgba(0, 0, 0, 0.429), 0 3px 36.1px rgba(0, 0, 0, 0.516),
-      0 10px 80px rgba(0, 0, 0, 0.75);
-    svg {
-      transform: rotate(180deg);
-    }
+  }
+
+  ${(props) => props.theme.mq.medium} {
+    display: none;
   }
 `
 const Settings = styled.svg`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: block;
-  width: 2rem;
+  width: 2.25rem;
   height: auto;
   opacity: ${(props) => (props.open ? 0 : 1)};
   transition: all 300ms ease-out;
 
   path {
-    fill: ${(props) => props.theme.colors.text};
+    fill: ${(props) => props.theme.colors.second};
   }
 `
 const Arrow = styled.svg`
-  position: absolute;
-  top: 50%;
-  left: calc(50% + 0.3rem);
-  transform: translate(-50%, -50%) !important;
   display: block;
   width: 2rem;
   height: auto;
+  transform: rotate(180deg);
   opacity: ${(props) => (props.open ? 1 : 0)};
   transition: opacity 300ms ease-out;
 
   path {
-    fill: ${(props) => props.theme.colors.text};
+    fill: ${(props) => props.theme.colors.second};
   }
 `
 export default function ButtonClose(props) {

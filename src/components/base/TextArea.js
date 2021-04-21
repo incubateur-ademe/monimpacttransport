@@ -7,6 +7,7 @@ const Wrapper = styled.div`
 const Label = styled.label`
   display: block;
   margin-bottom: 0.5rem;
+  font-weight: 700;
   color: ${(props) => props.theme.colors[props.error ? 'error' : 'text']};
 `
 const Input = styled.textarea`
@@ -22,7 +23,7 @@ const Input = styled.textarea`
 
   &:focus {
     outline: none;
-    box-shadow: 0 -0 0px 1px ${(props) => props.theme.colors.main} inset;
+    box-shadow: 0 -0 0px 1px ${(props) => props.theme.colors.text};
   }
 `
 export default function TextArea(props) {

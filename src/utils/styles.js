@@ -3,35 +3,12 @@ import styledNormalize from 'styled-normalize'
 
 export const themes = {
   default: {
-    name: 'Défaut',
+    name: 'Defaut',
     colors: {
-      main: '#FF6495',
-      second: '#411AB7',
-      ter: '#78FFF1',
-      quad: '#FF6495',
-      background: '#411AB7',
-      text: '#F8F9FA',
-    },
-    fonts: {
-      body: '"Montserrat Alternates", sans-serif',
-      title: '"Montserrat Alternates", sans-serif',
-    },
-    mq: {
-      small: `@media screen and (max-width: ${46}em)`,
-      medium: `@media screen and (max-width: ${75}em)`,
-      mediumLandscape: `@media screen and (orientation: landscape) and (max-width: ${62}px)`,
-      mediumPortrait: `@media screen and (orientation: portrait) and (max-width: ${62}px)`,
-      large: `@media screen and (min-width: ${92}em)`,
-      xlarge: `@media screen and (min-width: ${2000}px)`,
-    },
-  },
-  classic: {
-    name: 'Classique',
-    colors: {
-      main: '#32337B',
+      main: '#EF0D50',
       second: '#ffffff',
       ter: '#32337B',
-      quad: '#ffffff',
+      quad: '50, 51, 123',
       background: '#ffffff',
       text: '#32337B',
     },
@@ -40,8 +17,31 @@ export const themes = {
       title: '"Montserrat Alternates", sans-serif',
     },
     mq: {
-      small: `@media screen and (max-width: ${650}px)`,
-      medium: `@media screen and (max-width: ${1260}px)`,
+      small: `@media screen and (max-width: ${46}em)`,
+      medium: `@media screen and (max-width: ${83.75}rem)`,
+      mediumLandscape: `@media screen and (orientation: landscape) and (max-width: ${62}px)`,
+      mediumPortrait: `@media screen and (orientation: portrait) and (max-width: ${62}px)`,
+      large: `@media screen and (min-width: ${92}em)`,
+      xlarge: `@media screen and (min-width: ${2000}px)`,
+    },
+  },
+  classic: {
+    name: 'No Map',
+    colors: {
+      main: '#EF0D50',
+      second: '#ffffff',
+      ter: '#32337B',
+      quad: '50, 51, 123',
+      background: '#ffffff',
+      text: '#32337B',
+    },
+    fonts: {
+      body: '"Montserrat Alternates", sans-serif',
+      title: '"Montserrat Alternates", sans-serif',
+    },
+    mq: {
+      small: `@media screen and (max-width: ${46}em)`,
+      medium: `@media screen and (max-width: ${83.75}rem)`,
       mediumLandscape: `@media screen and (orientation: landscape) and (max-width: ${1260}px)`,
       mediumPortrait: `@media screen and (orientation: portrait) and (max-width: ${1260}px)`,
       large: `@media screen and (min-width: ${1800}px)`,
@@ -51,10 +51,10 @@ export const themes = {
   night: {
     name: 'Nuit',
     colors: {
-      main: '#ffffff',
+      main: '#92F2D2',
       second: '#1e1e1e',
       ter: '#ffffff',
-      quad: '#1e1e1e',
+      quad: '146, 242, 210',
       background: '#1e1e1e',
       text: '#ffffff',
     },
@@ -63,8 +63,8 @@ export const themes = {
       title: '"Montserrat Alternates", sans-serif',
     },
     mq: {
-      small: `@media screen and (max-width: ${650}px)`,
-      medium: `@media screen and (max-width: ${1260}px)`,
+      small: `@media screen and (max-width: ${46}em)`,
+      medium: `@media screen and (max-width: ${83.75}rem)`,
       mediumLandscape: `@media screen and (orientation: landscape) and (max-width: ${1260}px)`,
       mediumPortrait: `@media screen and (orientation: portrait) and (max-width: ${1260}px)`,
       large: `@media screen and (min-width: ${1800}px)`,
@@ -74,10 +74,10 @@ export const themes = {
   simple: {
     name: 'Simple',
     colors: {
-      main: '#1e1e1e',
+      main: '#000091',
       second: '#ffffff',
       ter: '#1e1e1e',
-      quad: '#ffffff',
+      quad: '62, 3, 128',
       background: '#ffffff',
       text: '#1e1e1e',
     },
@@ -86,8 +86,8 @@ export const themes = {
       title: '"Montserrat Alternates", sans-serif',
     },
     mq: {
-      small: `@media screen and (max-width: ${650}px)`,
-      medium: `@media screen and (max-width: ${1260}px)`,
+      small: `@media screen and (max-width: ${46}em)`,
+      medium: `@media screen and (max-width: ${83.75}rem)`,
       mediumLandscape: `@media screen and (orientation: landscape) and (max-width: ${1260}px)`,
       mediumPortrait: `@media screen and (orientation: portrait) and (max-width: ${1260}px)`,
       large: `@media screen and (min-width: ${1800}px)`,
@@ -120,8 +120,6 @@ export const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
     margin-top: 0;
     box-sizing: inherit;
-
-    ${(props) => props.theme.name !== 'Défaut' && 'box-shadow: none!important'};
   }
 
   #root {
@@ -144,5 +142,9 @@ export const GlobalStyle = createGlobalStyle`
 
   a {
     color: ${(props) => props.theme.colors.main};
+  }
+
+  option {
+    color: #010101;
   }
 `

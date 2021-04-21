@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 
-import ModalContext from 'utils/ModalContext'
+import UXContext from 'utils/UXContext'
 
 import Emoji from 'components/base/Emoji'
 import MagicLink from 'components/base/MagicLink'
@@ -10,11 +10,11 @@ import Lock from './transportation/Lock'
 
 const Wrapper = styled.tr`
   &:nth-child(odd) {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 1rem;
+    background-color: rgba(${(props) => props.theme.colors.quad}, 0.1);
   }
 `
 const Column = styled.td`
+  position: relative;
   padding: 1rem 1rem;
 `
 const Label = styled.div`
@@ -60,17 +60,17 @@ const SecondaryEmoji = styled(Emoji)`
   font-size: 0.75em;
 `
 export default function Transportation(props) {
-  const { configurator, setConfigurator } = useContext(ModalContext)
+  const { configuratorOpen, setConfiguratorOpen } = useContext(UXContext)
 
   return (
     <Wrapper>
       <Column>
         <Label
-          active={props.transportation.id === configurator}
+          active={props.transportation.id === configuratorOpen}
           disabled={!props.transportation.values}
           onClick={() =>
-            setConfigurator(
-              configurator === props.transportation.id
+            setConfiguratorOpen(
+              configuratorOpen === props.transportation.id
                 ? true
                 : props.transportation.id
             )
@@ -84,7 +84,7 @@ export default function Transportation(props) {
           </EmojiWrapper>
           {props.transportation.label.fr}
         </Label>
-        <Details hidden={props.transportation.id !== configurator}>
+        <Details hidden={props.transportation.id !== configuratorOpen}>
           <Description
             dangerouslySetInnerHTML={{
               __html: props.transportation.description.fr,

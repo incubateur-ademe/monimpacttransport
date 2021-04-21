@@ -1,7 +1,21 @@
-import React, { useContext } from 'react'
-import styled from 'styled-components'
+import React, { useState, useContext } from 'react'
+import styled, { keyframes } from 'styled-components'
 
 import SearchContext from 'utils/SearchContext'
+
+const flash = keyframes`
+  from,
+  75%,
+  87.5%,
+  to {
+    opacity: 1;
+  }
+
+  81.25%,
+  93.75% {
+    opacity: 0;
+  }
+`
 
 const Wrapper = styled.div`
   position: relative;
@@ -14,26 +28,20 @@ const Middle = styled.div``
 const Input = styled.input`
   position: relative;
   z-index: 10;
-  width: ${(props) => props.width * 0.7 + 1.2}em;
+  width: calc(${(props) => props.width * 0.6 + 1.2}em + 10px);
   max-width: 5.625em;
   padding: 0.15em 0.6em;
   font-weight: 900;
   font-family: 'Fira Code', monospace;
   line-height: 0.7;
-  color: ${(props) => props.theme.colors.text};
-  background-color: ${(props) => props.theme.colors.quad};
-  border: 2px solid ${(props) => props.theme.colors.main};
+  color: ${(props) => props.theme.colors.main};
+  background-color: ${(props) => props.theme.colors.background};
+  border: 5px solid ${(props) => props.theme.colors.main};
   border-radius: 0.75em;
-  box-shadow: 0 0.5px 12.4px rgba(0, 0, 0, 0.215),
-    0 1.3px 22.7px rgba(0, 0, 0, 0.286), 0 3px 36.1px rgba(0, 0, 0, 0.344),
-    0 10px 80px rgba(0, 0, 0, 0.5);
-  transition: box-shadow 300ms ease-out;
+  animation: ${(props) => (props.pristine ? flash : 'none')} 4s infinite;
 
   &:focus {
     outline: none;
-    box-shadow: 0 0.5px 12.4px rgba(0, 0, 0, 0.322),
-      0 1.3px 22.7px rgba(0, 0, 0, 0.429), 0 3px 36.1px rgba(0, 0, 0, 0.516),
-      0 10px 80px rgba(0, 0, 0, 0.75);
   }
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
@@ -52,6 +60,8 @@ const Input = styled.input`
 export default function Distance() {
   const { km, setKm } = useContext(SearchContext)
 
+  const [pristine, setPristine] = useState(true)
+
   return (
     <Wrapper>
       <Start
@@ -67,9 +77,11 @@ export default function Distance() {
           value={km}
           width={String(km).length}
           onFocus={() => {
+            setPristine(false)
             window._paq &&
               window._paq.push(['trackEvent', 'Distance', 'input', 'focus'])
           }}
+          pristine={pristine}
           onChange={(e) => {
             window._paq &&
               window._paq.push(['trackEvent', 'Distance', 'input', 'change'])

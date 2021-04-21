@@ -24,18 +24,9 @@ const InputWrapper = styled.div`
   top: 0;
   left: 100%;
   width: 33rem;
-  background-color: ${(props) => props.theme.colors.quad};
-  border: 2px solid ${(props) => props.theme.colors.main};
+  background-color: ${(props) => props.theme.colors.background};
+  border: 5px solid ${(props) => props.theme.colors.main};
   border-radius: 0.75em;
-  box-shadow: ${(props) =>
-    props.focus
-      ? `0 0.5px 12.4px rgba(0, 0, 0, 0.266),
-      0 1.3px 22.7px rgba(0, 0, 0, 0.354), 0 3px 36.1px rgba(0, 0, 0, 0.427),
-      0 10px 80px rgba(0, 0, 0, 0.62)`
-      : `0 0.5px 12.4px rgba(0, 0, 0, 0.15),
-    0 1.3px 22.7px rgba(0, 0, 0, 0.22), 0 3px 36.1px rgba(0, 0, 0, 0.3),
-    0 10px 80px rgba(0, 0, 0, 0.4)`};
-  transition: box-shadow 300ms ease-out;
 
   ${(props) => props.theme.mq.small} {
     width: calc(

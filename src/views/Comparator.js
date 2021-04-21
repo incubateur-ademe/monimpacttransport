@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 
 import SearchContext from 'utils/SearchContext'
-import ModalContext from 'utils/ModalContext'
+import UXContext from 'utils/UXContext'
 import Button from 'components/base/Button'
 import Search from './comparator/Search'
 import Results from './comparator/Results'
@@ -24,7 +24,7 @@ const Toggle = styled.span`
 export default function Comparator(props) {
   const { setMode } = useContext(SearchContext)
 
-  const { setConfigurator } = useContext(ModalContext)
+  const { setConfiguratorOpen } = useContext(UXContext)
 
   return (
     <>
@@ -35,7 +35,7 @@ export default function Comparator(props) {
           onClick={() => {
             window._paq &&
               window._paq.push(['trackEvent', 'configurator', 'toggle', true])
-            setConfigurator(true)
+            setConfiguratorOpen(true)
           }}
         >
           Voir tous les modes de transport

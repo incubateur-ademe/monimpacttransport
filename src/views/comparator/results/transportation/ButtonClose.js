@@ -11,8 +11,8 @@ const Wrapper = styled.div`
   transform: translate(40%, -30%);
   width: 1.5rem;
   height: 1.5rem;
-  background-color: ${(props) => props.theme.colors.quad};
-  border: 2px solid ${(props) => props.theme.colors.main};
+  background-color: ${(props) => props.theme.colors.background};
+  border: 2px solid ${(props) => props.theme.colors.ter};
   border-radius: 1rem;
   cursor: pointer;
 `

@@ -6,7 +6,8 @@ import TransportationContext from 'utils/TransportationContext'
 import Checkbox from 'components/base/Checkbox'
 
 const Wrapper = styled(Checkbox)`
-  margin-bottom: 1rem;
+  margin: 0 -1rem 1rem;
+  font-size: 0.875rem;
 `
 const RadiativeForcing = styled.a`
   color: ${(props) => props.theme.colors.main};

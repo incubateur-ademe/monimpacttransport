@@ -5,11 +5,12 @@ import TransportationContext from 'utils/TransportationContext'
 import Emoji from 'components/base/Emoji'
 
 const Wrapper = styled.div`
-  margin-bottom: 1rem;
+  margin: -0.5rem 0 0.5rem;
 `
 const Label = styled.div`
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
+  text-align: center;
 `
 const Carpoolers = styled.div`
   display: flex;

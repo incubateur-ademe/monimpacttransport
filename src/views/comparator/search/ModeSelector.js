@@ -1,56 +1,26 @@
-import React, { useState, useContext } from 'react'
-import styled, { keyframes } from 'styled-components'
+import React, { useContext } from 'react'
+import styled from 'styled-components'
 
 import SearchContext from 'utils/SearchContext'
 
-const attentionSeeker = keyframes`
-  from,
-  90%,
-  to {
-    transform: translate3d(0, 0, 0);
-  }
-
-  91%,
-  93%,
-  95%,
-  97%,
-  99% {
-    transform: translate3d(-10px, 0, 0);
-  }
-
-  92%,
-  94%,
-  96%,
-  98% {
-    transform: translate3d(10px, 0, 0);
-  }
-`
-
 const Wrapper = styled.div`
   position: absolute;
+  z-index: 50;
   top: 0;
   right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0.15rem 1rem 0.6rem;
-  background-color: ${(props) => props.theme.colors.quad};
-  border: 2px solid ${(props) => props.theme.colors.main};
-  border-radius: 0 0 2.5rem 2.5rem;
-  box-shadow: 0 0.5px 12.4px rgba(0, 0, 0, 0.215),
-    0 1.3px 22.7px rgba(0, 0, 0, 0.286), 0 3px 36.1px rgba(0, 0, 0, 0.344),
-    0 10px 80px rgba(0, 0, 0, 0.5);
+  padding: ${(props) => (props.iframe ? '0.3rem 1rem' : '0.15rem 1rem 0.6rem')};
+  background-color: ${(props) => props.theme.colors.main};
+  border: 5px solid ${(props) => props.theme.colors.main};
+  border-radius: ${(props) => (props.iframe ? '1.5rem' : '0 0 2.5rem 2.5rem')};
   transition: all 400ms ease-out;
   cursor: pointer;
-  animation: ${(props) => (!props.seen ? attentionSeeker : 'none')} 10s linear
-    infinite;
 
   &:hover,
   &:focus {
     outline: none;
-    box-shadow: 0 0.5px 12.4px rgba(0, 0, 0, 0.322),
-      0 1.3px 22.7px rgba(0, 0, 0, 0.429), 0 3px 36.1px rgba(0, 0, 0, 0.516),
-      0 10px 80px rgba(0, 0, 0, 0.75);
 
     svg {
       path {
@@ -75,10 +45,10 @@ const Itinerary = styled.svg`
   }
 `
 const Marker = styled.path`
-  fill: ${(props) => props.theme.colors.text};
+  fill: ${(props) => props.theme.colors.second};
 `
 const Path = styled.path`
-  stroke: ${(props) => props.theme.colors.text};
+  stroke: ${(props) => props.theme.colors.second};
   stroke-width: 30;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -93,7 +63,7 @@ const Distance = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 1.5rem;
-  color: ${(props) => props.theme.colors.text};
+  color: ${(props) => props.theme.colors.second};
   opacity: ${(props) => (props.visible ? 1 : 0)};
   transition: all 300ms ease-out;
 
@@ -101,15 +71,13 @@ const Distance = styled.div`
     font-size: 1.25rem;
   }
 `
-export default function ModeSelector() {
+export default function ModeSelector(props) {
   const { mode, setMode } = useContext(SearchContext)
 
-  const [seen, setSeen] = useState(false)
   return (
     <Wrapper
-      seen={seen}
+      iframe={props.iframe}
       onClick={() => {
-        setSeen(true)
         window._paq &&
           window._paq.push([
             'trackEvent',

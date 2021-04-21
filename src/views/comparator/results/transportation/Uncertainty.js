@@ -29,12 +29,9 @@ const Wrapper = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: ${(props) => props.theme.colors.quad};
-    border: 2px solid ${(props) => props.theme.colors.main};
+    background-color: ${(props) => props.theme.colors.background};
+    border: 2px solid ${(props) => props.theme.colors.ter};
     border-radius: 1.5rem;
-    box-shadow: 0 1.6px 9px rgba(0, 0, 0, 0.239),
-      0 3.9px 24.8px rgba(0, 0, 0, 0.284), 0 7.5px 59.7px rgba(0, 0, 0, 0.303),
-      0 17px 198px rgba(0, 0, 0, 0.34);
   }
 `
 const StyledCheckbox = styled(Checkbox)`
@@ -69,22 +66,20 @@ const Plus = styled.sup`
 `
 export default function Uncertainty(props) {
   const { uncertainty, setUncertainty } = useContext(TransportationContext)
-  const { configuratorOpen } = useContext(UXContext)
+  const { configuratorOpen, setConfiguratorOpen } = useContext(UXContext)
 
-  const { configurator, setConfigurator, setRadiativeForcing } = useContext(
-    ModalContext
-  )
+  const { setRadiativeForcing } = useContext(ModalContext)
 
   return props.transportation.uncertainty ? (
     <>
-      <Display onClick={() => setConfigurator(true)}>
+      <Display onClick={() => setConfiguratorOpen(true)}>
         <Plus>+</Plus>
       </Display>
-      <Wrapper open={configurator || configuratorOpen}>
-        {configurator && (
+      <Wrapper open={configuratorOpen}>
+        {configuratorOpen && (
           <ButtonClose
             onClick={() => {
-              setConfigurator(false)
+              setConfiguratorOpen(false)
             }}
           />
         )}

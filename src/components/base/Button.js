@@ -9,13 +9,11 @@ const Wrapper = styled(MagicLink)`
   align-items: center;
   padding: 0.8em 1.6em;
   font-size: ${(props) => (props.small ? '0.875em' : '1em')};
-  font-weight: 700;
+  font-weight: 400;
   text-align: center;
   text-decoration: none;
   color: ${(props) =>
-    props.hollow
-      ? props.theme.colors.main
-      : props.theme.colors[props.theme.name === 'Défaut' ? 'text' : 'second']};
+    props.hollow ? props.theme.colors.main : props.theme.colors['second']};
   background-color: ${(props) =>
     props.hollow ? 'transparent' : props.theme.colors.main};
   border: 1px solid ${(props) => props.theme.colors.main};
@@ -28,8 +26,7 @@ const Wrapper = styled(MagicLink)`
   &:hover {
     background-color: ${(props) =>
       props.hollow ? props.theme.colors.main : props.theme.colors.main};
-    color: ${(props) =>
-      props.theme.colors[props.theme.name === 'Défaut' ? 'text' : 'second']};
+    color: ${(props) => props.theme.colors['second']};
   }
 
   &:focus {
