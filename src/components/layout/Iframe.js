@@ -15,6 +15,10 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  ${(props) => props.theme.mq.medium} {
+    flex-direction: column-reverse;
+  }
 `
 const Content = styled.div`
   flex: 1;
