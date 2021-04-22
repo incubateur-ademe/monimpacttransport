@@ -24,7 +24,7 @@ export default function FooterWrapper() {
       <p>
         <Emoji>⚠️</Emoji>{' '}
         <strong>
-          Sont inclus les émissions directes, l'entretien du véhicule, et la
+          Sont inclus les émissions directes, et la
           production et distribution de carburant et d'électricité.
         </strong>
         .
