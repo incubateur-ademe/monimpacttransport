@@ -68,6 +68,7 @@ export default function SearchProvider(props) {
       value={{
         mode,
         setMode: (newMode) => {
+          window._paq.push(['trackEvent', 'mode', 'change', newMode])
           const newSuggestion = suggestions.find(
             (suggestion) => suggestion.id === Number(newMode)
           )

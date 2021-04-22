@@ -17,7 +17,7 @@ export const themes = {
       title: '"Montserrat Alternates", sans-serif',
     },
     mq: {
-      small: `@media screen and (max-width: ${46}em)`,
+      small: `@media screen and (max-width: ${46}rem)`,
       medium: `@media screen and (max-width: ${83.75}rem)`,
       mediumLandscape: `@media screen and (orientation: landscape) and (max-width: ${62}px)`,
       mediumPortrait: `@media screen and (orientation: portrait) and (max-width: ${62}px)`,
@@ -40,7 +40,7 @@ export const themes = {
       title: '"Montserrat Alternates", sans-serif',
     },
     mq: {
-      small: `@media screen and (max-width: ${46}em)`,
+      small: `@media screen and (max-width: ${46}rem)`,
       medium: `@media screen and (max-width: ${83.75}rem)`,
       mediumLandscape: `@media screen and (orientation: landscape) and (max-width: ${1260}px)`,
       mediumPortrait: `@media screen and (orientation: portrait) and (max-width: ${1260}px)`,
@@ -63,7 +63,7 @@ export const themes = {
       title: '"Montserrat Alternates", sans-serif',
     },
     mq: {
-      small: `@media screen and (max-width: ${46}em)`,
+      small: `@media screen and (max-width: ${46}rem)`,
       medium: `@media screen and (max-width: ${83.75}rem)`,
       mediumLandscape: `@media screen and (orientation: landscape) and (max-width: ${1260}px)`,
       mediumPortrait: `@media screen and (orientation: portrait) and (max-width: ${1260}px)`,
@@ -86,7 +86,7 @@ export const themes = {
       title: '"Montserrat Alternates", sans-serif',
     },
     mq: {
-      small: `@media screen and (max-width: ${46}em)`,
+      small: `@media screen and (max-width: ${46}rem)`,
       medium: `@media screen and (max-width: ${83.75}rem)`,
       mediumLandscape: `@media screen and (orientation: landscape) and (max-width: ${1260}px)`,
       mediumPortrait: `@media screen and (orientation: portrait) and (max-width: ${1260}px)`,
@@ -106,10 +106,6 @@ export const GlobalStyle = createGlobalStyle`
     font-family: ${(props) => props.theme.fonts.body};
     line-height: 1.4;
     text-rendering: geometricPrecision;
-
-    ${(props) => props.theme.mq.small} {
-      font-size: 0.875em;
-    }
   }
 
   body {

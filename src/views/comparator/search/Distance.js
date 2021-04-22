@@ -78,8 +78,7 @@ export default function Distance() {
           width={String(km).length}
           onFocus={() => {
             setPristine(false)
-            window._paq &&
-              window._paq.push(['trackEvent', 'Distance', 'input', 'focus'])
+            window._paq.push(['trackEvent', 'Distance', 'input', 'focus'])
           }}
           pristine={pristine}
           onChange={(e) => {

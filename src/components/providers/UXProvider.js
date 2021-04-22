@@ -5,7 +5,7 @@ import UXContext from 'utils/UXContext'
 import usePageView from 'hooks/usePageView'
 
 export default function UXProvider(props) {
-  usePageView('Télétravail')
+  usePageView('Mon Impact Transport')
 
   const [embedOpen, setEmbedOpen] = useState(false)
   const [shareOpen, setShareOpen] = useState(false)
@@ -29,6 +29,7 @@ export default function UXProvider(props) {
         embedOpen,
         setEmbedOpen: (value) => {
           if (value) {
+            window._paq.push(['trackEvent', 'panel', 'embed', 'open'])
             window.scrollTo({
               top: 0,
               left: 0,
@@ -44,6 +45,7 @@ export default function UXProvider(props) {
         shareOpen,
         setShareOpen: (value) => {
           if (value) {
+            window._paq.push(['trackEvent', 'panel', 'share', 'open'])
             window.scrollTo({
               top: 0,
               left: 0,
@@ -58,6 +60,7 @@ export default function UXProvider(props) {
         },
         contactOpen,
         setContactOpen: (value) => {
+          window._paq.push(['trackEvent', 'panel', 'contact', 'open'])
           if (value) {
             window.scrollTo({
               top: 0,
@@ -73,6 +76,7 @@ export default function UXProvider(props) {
         },
         configuratorOpen,
         setConfiguratorOpen: (value) => {
+          window._paq.push(['trackEvent', 'panel', 'configurator', 'open'])
           if (value) {
             window.scrollTo({
               top: 0,

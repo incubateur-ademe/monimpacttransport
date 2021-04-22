@@ -78,13 +78,6 @@ export default function ModeSelector(props) {
     <Wrapper
       iframe={props.iframe}
       onClick={() => {
-        window._paq &&
-          window._paq.push([
-            'trackEvent',
-            'mode',
-            'change',
-            mode === 'distance' ? 'itinerary' : 'distance',
-          ])
         setMode((prevMode) =>
           prevMode === 'distance' ? 'itinerary' : 'distance'
         )

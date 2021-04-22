@@ -33,8 +33,6 @@ export default function Comparator(props) {
       <Buttonwrapper>
         <Button
           onClick={() => {
-            window._paq &&
-              window._paq.push(['trackEvent', 'configurator', 'toggle', true])
             setConfiguratorOpen(true)
           }}
         >
@@ -58,8 +56,6 @@ export default function Comparator(props) {
               behavior: 'smooth',
             })
             setMode('itinerary')
-            window._paq &&
-              window._paq.push(['trackEvent', 'mode', 'change', 'itinerary'])
           }}
         >
           mode itinéraire

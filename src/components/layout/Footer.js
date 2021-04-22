@@ -15,12 +15,15 @@ const Wrapper = styled.div`
   position: relative;
   background-color: ${(props) =>
     props.theme.colors[props.background || 'second']};
-  transition: all 600ms;
 `
 const Content = styled.div`
-  max-width: ${(props) => props.width || '37rem'};
+  width: ${(props) => props.width || '37rem'};
   margin: 0 auto;
-  padding: 2rem 1rem 1rem;
+  padding: 2rem 0.5rem 1rem;
+
+  ${(props) => props.theme.mq.small} {
+    width: auto;
+  }
 `
 const Section = styled.div`
   display: flex;

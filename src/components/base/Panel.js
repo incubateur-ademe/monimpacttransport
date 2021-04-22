@@ -8,7 +8,7 @@ import ContactButton from './panel/ContactButton'
 const Wrapper = styled.div`
   position: relative;
   width: ${(props) => (props.open ? '30rem' : 0)};
-  transition: all 400ms ease-out;
+  transition: width 400ms ease-out;
 
   ${(props) => props.theme.mq.medium} {
     display: ${(props) => (props.open ? 'block' : 'none')};
@@ -31,7 +31,7 @@ const Content = styled.div`
   overflow-y: scroll;
   overflow-x: visible;
   transform: translateX(${(props) => (props.open ? 0 : '100%')});
-  transition: all 400ms ease-out;
+  transition: transform 400ms ease-out;
 
   ${(props) => props.theme.mq.medium} {
     position: relative;

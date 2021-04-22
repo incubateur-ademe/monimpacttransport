@@ -6,16 +6,20 @@ import UXContext from 'utils/UXContext'
 const Wrapper = styled.div`
   display: none;
   justify-content: space-around;
-  margin-bottom: 2rem;
+  margin-bottom: ${(props) => (props.iframe ? 1 : 2)}rem;
 
   ${(props) => props.theme.mq.medium} {
     display: flex;
   }
 `
-const Button = styled.div`
+const Button = styled.button`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0;
+  padding: 0;
+  background: none;
+  border: none;
 `
 const Icon = styled.div`
   position: relative;
@@ -46,12 +50,16 @@ const Embed = styled.svg`
 const Share = styled.svg`
   width: 1.5rem;
 `
+const Eye = styled.svg`
+  width: 1.5rem;
+`
 const Install = styled.svg``
 const Label = styled.div`
   font-size: 0.75rem;
   font-weight: 700;
+  text-align: center;
 `
-export default function MobileButtons() {
+export default function MobileButtons(props) {
   const {
     setEmbedOpen,
     setShareOpen,
@@ -60,7 +68,7 @@ export default function MobileButtons() {
   } = useContext(UXContext)
 
   return (
-    <Wrapper>
+    <Wrapper iframe={props.iframe}>
       <Button onClick={() => setEmbedOpen(true)}>
         <Icon>
           <Embed
@@ -127,6 +135,21 @@ export default function MobileButtons() {
         </Icon>
         <Label>Contact</Label>
       </Button>
+      {props.iframe && (
+        <Button to={process.env.REACT_APP_URL}>
+          <Icon>
+            <Eye x='0px' y='0px' viewBox='0 0 469.333 469.333'>
+              <path d='M234.667,170.667c-35.307,0-64,28.693-64,64s28.693,64,64,64s64-28.693,64-64S269.973,170.667,234.667,170.667z' />
+              <path d='M234.667,74.667C128,74.667,36.907,141.013,0,234.667c36.907,93.653,128,160,234.667,160     c106.773,0,197.76-66.347,234.667-160C432.427,141.013,341.44,74.667,234.667,74.667z M234.667,341.333     c-58.88,0-106.667-47.787-106.667-106.667S175.787,128,234.667,128s106.667,47.787,106.667,106.667     S293.547,341.333,234.667,341.333z' />
+            </Eye>
+          </Icon>
+          <Label>
+            Version
+            <br />
+            détaillée
+          </Label>
+        </Button>
+      )}
     </Wrapper>
   )
 }

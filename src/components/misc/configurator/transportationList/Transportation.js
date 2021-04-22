@@ -63,7 +63,7 @@ export default function Transportation(props) {
   const { configuratorOpen, setConfiguratorOpen } = useContext(UXContext)
 
   return (
-    <Wrapper>
+    <Wrapper id={props.id}>
       <Column>
         <Label
           active={props.transportation.id === configuratorOpen}

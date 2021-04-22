@@ -4,6 +4,9 @@ import styled from 'styled-components'
 import UXContext from 'utils/UXContext'
 import StyleContext from 'utils/StyleContext'
 import Configurator from 'components/misc/Configurator'
+import ShareWrapper from 'components/wrappers/ShareWrapper'
+import EmbedWrapper from 'components/wrappers/EmbedWrapper'
+import ContactWrapper from 'components/wrappers/ContactWrapper'
 import IframeFooter from 'components/layout/IframeFooter'
 
 const Map = React.lazy(() => import('components/misc/Map'))
@@ -41,8 +44,11 @@ export default function Iframe(props) {
       <Configurator />
       <Content>
         <FullScreen>{props.children}</FullScreen>
-        <IframeFooter about={process.env.REACT_APP_URL} />
+        <IframeFooter />
       </Content>
+      <EmbedWrapper />
+      <ShareWrapper />
+      <ContactWrapper />
     </Wrapper>
   )
 }
