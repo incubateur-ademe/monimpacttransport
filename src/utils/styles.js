@@ -18,7 +18,7 @@ export const themes = {
     },
     mq: {
       small: `@media screen and (max-width: ${46}rem)`,
-      medium: `@media screen and (max-width: ${83.75}rem)`,
+      medium: `@media screen and (max-width: ${79.5}rem)`,
       mediumLandscape: `@media screen and (orientation: landscape) and (max-width: ${62}px)`,
       mediumPortrait: `@media screen and (orientation: portrait) and (max-width: ${62}px)`,
       large: `@media screen and (min-width: ${92}em)`,
@@ -41,7 +41,7 @@ export const themes = {
     },
     mq: {
       small: `@media screen and (max-width: ${46}rem)`,
-      medium: `@media screen and (max-width: ${83.75}rem)`,
+      medium: `@media screen and (max-width: ${79.5}rem)`,
       mediumLandscape: `@media screen and (orientation: landscape) and (max-width: ${1260}px)`,
       mediumPortrait: `@media screen and (orientation: portrait) and (max-width: ${1260}px)`,
       large: `@media screen and (min-width: ${1800}px)`,
@@ -64,7 +64,7 @@ export const themes = {
     },
     mq: {
       small: `@media screen and (max-width: ${46}rem)`,
-      medium: `@media screen and (max-width: ${83.75}rem)`,
+      medium: `@media screen and (max-width: ${79.5}rem)`,
       mediumLandscape: `@media screen and (orientation: landscape) and (max-width: ${1260}px)`,
       mediumPortrait: `@media screen and (orientation: portrait) and (max-width: ${1260}px)`,
       large: `@media screen and (min-width: ${1800}px)`,
@@ -87,7 +87,7 @@ export const themes = {
     },
     mq: {
       small: `@media screen and (max-width: ${46}rem)`,
-      medium: `@media screen and (max-width: ${83.75}rem)`,
+      medium: `@media screen and (max-width: ${79.5}rem)`,
       mediumLandscape: `@media screen and (orientation: landscape) and (max-width: ${1260}px)`,
       mediumPortrait: `@media screen and (orientation: portrait) and (max-width: ${1260}px)`,
       large: `@media screen and (min-width: ${1800}px)`,
