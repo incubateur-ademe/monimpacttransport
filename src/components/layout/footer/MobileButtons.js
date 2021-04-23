@@ -18,6 +18,7 @@ const Button = styled.button`
   align-items: center;
   margin: 0;
   padding: 0;
+  color: ${(props) => props.theme.colors.text};
   background: none;
   border: none;
 `
