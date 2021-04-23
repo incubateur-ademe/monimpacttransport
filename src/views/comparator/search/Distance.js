@@ -21,10 +21,26 @@ const Wrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+
+  ${(props) => props.theme.mq.small} {
+    flex-direction: column;
+  }
 `
-const Start = styled.div``
-const End = styled.div``
-const Middle = styled.div``
+const Start = styled.div`
+  ${(props) => props.theme.mq.small} {
+    align-self: flex-start;
+  }
+`
+const End = styled.div`
+  ${(props) => props.theme.mq.small} {
+    align-self: flex-end;
+  }
+`
+const Middle = styled.div`
+  ${(props) => props.theme.mq.small} {
+    margin: 0.5rem 0 -0.5rem;
+  }
+`
 const Input = styled.input`
   position: relative;
   z-index: 10;
@@ -54,7 +70,9 @@ const Input = styled.input`
   }
 
   ${(props) => props.theme.mq.small} {
-    max-width: 4.35em;
+    max-width: none;
+    border: 3px solid ${(props) => props.theme.colors.main};
+    width: calc(${(props) => props.width * 0.6 + 1.2}em + 6px);
   }
 `
 export default function Distance() {

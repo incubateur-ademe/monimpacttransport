@@ -15,7 +15,12 @@ const Wrapper = styled.div`
   line-height: 1.15;
 
   ${(props) => props.theme.mq.small} {
-    margin: 0 0 ${(props) => (props.type === 'from' ? '1.5rem' : '2rem')} 0;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 0 0 ${(props) => (props.type === 'from' ? '1rem' : '1.75rem')} 0;
+
+    padding: 0;
   }
 `
 const InputWrapper = styled.div`
@@ -29,9 +34,12 @@ const InputWrapper = styled.div`
   border-radius: 0.75em;
 
   ${(props) => props.theme.mq.small} {
-    width: calc(
-      100vw - ${(props) => (props.type === 'from' ? '4rem' : '3rem')}
-    );
+    flex: 1;
+    position: relative;
+    top: auto;
+    left: auto;
+    width: auto;
+    border: 3px solid ${(props) => props.theme.colors.main};
   }
 `
 const Input = styled(TextInput)``

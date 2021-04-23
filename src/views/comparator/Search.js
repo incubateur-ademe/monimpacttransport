@@ -16,7 +16,8 @@ const Wrapper = styled.div`
   font-weight: 700;
 
   ${(props) => props.theme.mq.small} {
-    font-size: 4.16vw;
+    font-size: 6vw;
+    padding: 1rem 0 1.5rem;
   }
 `
 export default function Search(props) {

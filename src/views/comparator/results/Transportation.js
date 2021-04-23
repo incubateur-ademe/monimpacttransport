@@ -24,6 +24,10 @@ const Title = styled.div`
   font-weight: 600;
   color: ${(props) => props.theme.colors.main};
   cursor: pointer;
+
+  ${(props) => props.theme.mq.small} {
+    font-size: 0.875rem;
+  }
 `
 
 const ChartWrapper = styled.div`
@@ -48,7 +52,8 @@ const EmojiWrapper = styled.div`
   line-height: 0.7;
 
   ${(props) => props.theme.mq.small} {
-    width: 2.5rem;
+    width: 2rem;
+    margin-right: 0.75rem;
     font-size: 2rem;
   }
 `

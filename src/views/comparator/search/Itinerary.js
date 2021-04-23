@@ -9,15 +9,15 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
-
-  ${(props) => props.theme.mq.medium} {
-    font-size: 1.5rem;
-  }
 `
 const Start = styled.div`
   position: relative;
   display: flex;
   margin-bottom: 1.5rem;
+
+  ${(props) => props.theme.mq.small} {
+    margin-bottom: 0.5rem;
+  }
 `
 const End = styled.div`
   margin-left: 15rem;
