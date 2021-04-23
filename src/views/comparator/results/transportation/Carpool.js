@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
+import ReactTooltip from 'react-tooltip'
 
 import UXContext from 'utils/UXContext'
 import TransportationContext from 'utils/TransportationContext'
@@ -96,7 +97,12 @@ export default function Carpool(props) {
               )
             )
           ) : (
-            <Plus>+</Plus>
+            <>
+              <Plus data-tip={'Ajouter un·e covoitureur·se'} data-for='carpool'>
+                +
+              </Plus>
+              <ReactTooltip id='carpool' />
+            </>
           )}
         </Carpoolers>
       </Display>

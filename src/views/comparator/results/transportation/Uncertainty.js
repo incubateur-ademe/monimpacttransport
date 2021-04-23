@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
+import ReactTooltip from 'react-tooltip'
 
 import UXContext from 'utils/UXContext'
 import ModalContext from 'utils/ModalContext'
@@ -80,7 +81,12 @@ export default function Uncertainty(props) {
   return props.transportation.uncertainty ? (
     <>
       <Display onClick={() => setConfiguratorOpen(true)}>
-        <Plus>+</Plus>
+        <>
+          <Plus data-tip={'Impact des trainées'} data-for='uncertainty'>
+            +
+          </Plus>
+          <ReactTooltip id='uncertainty' />
+        </>
       </Display>
       <Wrapper open={configuratorOpen}>
         {configuratorOpen && (
