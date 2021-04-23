@@ -41,7 +41,7 @@ const FullScreen = styled.div`
   padding: 0 0.5rem;
 
   ${(props) => props.theme.mq.small} {
-    width: auto;
+    width: 100%;
   }
 `
 export default function Web(props) {
