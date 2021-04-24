@@ -1,6 +1,7 @@
 {
   "name": "Mon Impact Transport",
   "short_name": "Impact Transport",
+  "description": "Découvrez l'impact de vos déplacements sur le climat ! Des données ouvertes pour une mobilité moins émettrice en CO2.",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
