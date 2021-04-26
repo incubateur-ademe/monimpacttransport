@@ -11,7 +11,7 @@ import MobileButtons from './footer/MobileButtons'
 
 const Wrapper = styled.div`
   position: relative;
-  background-color: white;
+  background-color: ${(props) => props.theme.colors.second};
 `
 const Content = styled.div`
   max-width: 37rem;
@@ -33,7 +33,7 @@ const Logos = styled(MagicLink)`
   align-items: center;
   width: 100%;
   text-decoration: none;
-  background-color: white;
+  background-color: ${(props) => props.theme.colors.second};
 `
 const Institution = styled.img`
   display: block;
