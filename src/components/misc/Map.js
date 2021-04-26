@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import ReactMapGL, { LinearInterpolator } from 'react-map-gl'
 import WebMercatorViewport from '@math.gl/web-mercator'
 
+import UXContext from 'utils/UXContext'
 import useWindowSize from 'hooks/useWindowSize'
 import SearchContext from 'utils/SearchContext'
 
@@ -21,11 +22,13 @@ const Wrapper = styled.div`
 export default function Map() {
   const { km, mode, itinerary } = useContext(SearchContext)
 
+  const { center } = useContext(UXContext)
+
   const { height, width } = useWindowSize()
 
   const [viewport, setViewport] = useState({
-    latitude: 48.8159,
-    longitude: 2.3061,
+    latitude: center.lat,
+    longitude: center.long,
     zoom: 11,
   })
 
@@ -49,8 +52,8 @@ export default function Map() {
               ])
             : {
                 ...viewport,
-                latitude: 48.8159,
-                longitude: 2.3061,
+                latitude: center.lat,
+                longitude: center.long,
                 zoom: Math.log2(25000 / (((km ? km : 1) * 1000) / width)),
                 transitionInterpolator: new LinearInterpolator(),
                 transitionDuration: 600,
@@ -59,7 +62,7 @@ export default function Map() {
       500
     )
     return () => clearTimeout(timer.current)
-  }, [timer, km, height, width, mode, itinerary])
+  }, [timer, km, center, height, width, mode, itinerary])
 
   return (
     <Wrapper>

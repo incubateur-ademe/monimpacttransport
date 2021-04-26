@@ -11,10 +11,9 @@ const Wrapper = styled.div`
   transition: width 400ms ease-out;
 
   ${(props) => props.theme.mq.medium} {
-    display: ${(props) => (props.open ? 'block' : 'none')};
+    display: ${(props) => (props.open && props.small ? 'block' : 'none')};
     width: auto;
     border-left: none;
-    overflow: hidden;
     transition: none;
   }
 `
@@ -38,10 +37,10 @@ const Content = styled.div`
     width: auto;
     height: auto;
     transform: none;
-    padding: 1rem;
+    margin-bottom: 2rem;
+    padding: 0;
     border-left: none;
-    border-bottom: 2px solid ${(props) => props.theme.colors.main};
-    overflow: hidden;
+    overflow: visible;
     transition: none;
   }
 
@@ -66,26 +65,27 @@ const ButtonClose = styled.div`
 `
 export default function Panel(props) {
   return (
-    <Wrapper open={props.open}>
-      {props.index === 0 ? (
-        <EmbedButton
-          open={props.open}
-          onClick={props.toggleClose}
-          index={props.index}
-        />
-      ) : props.index === 1 ? (
-        <ShareButton
-          open={props.open}
-          onClick={props.toggleClose}
-          index={props.index}
-        />
-      ) : (
-        <ContactButton
-          open={props.open}
-          onClick={props.toggleClose}
-          index={props.index}
-        />
-      )}
+    <Wrapper open={props.open} small={props.small}>
+      {!props.small &&
+        (props.index === 0 ? (
+          <EmbedButton
+            open={props.open}
+            onClick={props.toggleClose}
+            index={props.index}
+          />
+        ) : props.index === 1 ? (
+          <ShareButton
+            open={props.open}
+            onClick={props.toggleClose}
+            index={props.index}
+          />
+        ) : (
+          <ContactButton
+            open={props.open}
+            onClick={props.toggleClose}
+            index={props.index}
+          />
+        ))}
       <Content open={props.open}>
         <ButtonClose onClick={props.toggleClose}>+</ButtonClose>
         {props.children}

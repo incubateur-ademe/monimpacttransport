@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { useQueryParam, BooleanParam, withDefault } from 'use-query-params'
+import {
+  useQueryParam,
+  BooleanParam,
+  ObjectParam,
+  withDefault,
+} from 'use-query-params'
 
 import UXContext from 'utils/UXContext'
 import usePageView from 'hooks/usePageView'
@@ -13,7 +18,15 @@ export default function UXProvider(props) {
   const [typeShare, setTypeShare] = useState('simulator')
 
   const [configuratorOpen, setConfiguratorOpen] = useState(false)
+
   const [map, setMap] = useQueryParam('map', withDefault(BooleanParam, true))
+  const [center, setCenter] = useQueryParam(
+    'center',
+    withDefault(ObjectParam, {
+      lat: 48.8159,
+      long: 2.3061,
+    })
+  )
 
   const [installPrompt, setInstallPrompt] = useState(null)
   useEffect(() => {
@@ -30,11 +43,7 @@ export default function UXProvider(props) {
         setEmbedOpen: (value) => {
           if (value) {
             window._paq.push(['trackEvent', 'panel', 'embed', 'open'])
-            window.scrollTo({
-              top: 0,
-              left: 0,
-              behavior: 'smooth',
-            })
+
             setShareOpen(false)
             setContactOpen(false)
             setConfiguratorOpen(false)
@@ -46,11 +55,7 @@ export default function UXProvider(props) {
         setShareOpen: (value) => {
           if (value) {
             window._paq.push(['trackEvent', 'panel', 'share', 'open'])
-            window.scrollTo({
-              top: 0,
-              left: 0,
-              behavior: 'smooth',
-            })
+
             setEmbedOpen(false)
             setContactOpen(false)
             setConfiguratorOpen(false)
@@ -62,11 +67,6 @@ export default function UXProvider(props) {
         setContactOpen: (value) => {
           window._paq.push(['trackEvent', 'panel', 'contact', 'open'])
           if (value) {
-            window.scrollTo({
-              top: 0,
-              left: 0,
-              behavior: 'smooth',
-            })
             setShareOpen(false)
             setEmbedOpen(false)
             setConfiguratorOpen(false)
@@ -78,11 +78,6 @@ export default function UXProvider(props) {
         setConfiguratorOpen: (value) => {
           window._paq.push(['trackEvent', 'panel', 'configurator', 'open'])
           if (value) {
-            window.scrollTo({
-              top: 0,
-              left: 0,
-              behavior: 'smooth',
-            })
             setShareOpen(false)
             setEmbedOpen(false)
             setContactOpen(false)
@@ -91,6 +86,8 @@ export default function UXProvider(props) {
         },
         map,
         setMap,
+        center,
+        setCenter,
         typeShare,
         setTypeShare,
         installPrompt,
