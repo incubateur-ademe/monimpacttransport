@@ -53,7 +53,7 @@ export default function Code(props) {
           : '?theme=' + theme + centerSearch
       }"></script>`
     )
-  }, [location.search, props.id, props.typeShare, theme])
+  }, [location.search, props.id, props.typeShare, theme, centerSearch])
 
   const [copied, setCopied] = useState(false)
   return (
