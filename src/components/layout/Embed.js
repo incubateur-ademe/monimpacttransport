@@ -27,7 +27,6 @@ export default function Embed(props) {
       <h2>
         Intégrer{' '}
         <Select
-          fancy
           value={typeShare}
           onChange={setTypeShare}
           options={[
