@@ -33,7 +33,7 @@ const Logos = styled(MagicLink)`
   align-items: center;
   width: 100%;
   text-decoration: none;
-  background-color: ${(props) => props.theme.colors.second};
+  background-color: white;
 `
 const Institution = styled.img`
   display: block;
@@ -50,14 +50,14 @@ export default function Footer() {
             En savoir plus sur ce simulateur
           </Button>
         </ButtonWrapper>
-        <LogosWrapper>
-          <Logos to='https://datagir.ademe.fr/'>
-            <Institution src={repufrancaise} alt='République Française' />
-            <Institution src={ademe} alt='ADEME' />
-            <Logo />
-          </Logos>
-        </LogosWrapper>
       </Content>
+      <LogosWrapper>
+        <Logos to='https://datagir.ademe.fr/'>
+          <Institution src={repufrancaise} alt='République Française' />
+          <Institution src={ademe} alt='ADEME' />
+          <Logo />
+        </Logos>
+      </LogosWrapper>
     </Wrapper>
   )
 }

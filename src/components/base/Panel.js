@@ -25,7 +25,8 @@ const Content = styled.div`
   width: 30rem;
   height: 100%;
   padding: 2rem;
-  background-color: ${(props) => props.theme.colors.background};
+  background-color: ${(props) =>
+    props.small ? 'transparent' : props.theme.colors.background};
   border-left: 5px solid ${(props) => props.theme.colors.main};
   overflow-y: scroll;
   overflow-x: visible;
