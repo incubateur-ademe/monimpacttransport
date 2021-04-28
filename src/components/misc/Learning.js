@@ -132,18 +132,18 @@ export default function Learning() {
         </ButtonWrapper>
         <Text>
           Si vous souhaitez aller plus loin dans votre démarche, vous pouvez
-          calculer votre empreinte sur le climat grace à notre simulateur{' '}
+          calculer l'empreinte du télétravail sur le climat grace à notre{' '}
           <a
             href={'https://nosgestesclimat.fr/'}
             target='_blank'
             rel='noopener noreferrer'
           >
-            Nos Gestes Climat
+            simulateur télétravail
           </a>
         </Text>
         <ButtonWrapper>
-          <Button to={'https://nosgestesclimat.fr/'}>
-            Je calcule mon empreinte carbone
+          <Button to={'https://teletravail.monimpacttransport.fr/'}>
+            Calculer l'impact du télétravail
           </Button>
         </ButtonWrapper>
       </Content>
