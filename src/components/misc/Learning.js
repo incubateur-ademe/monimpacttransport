@@ -5,6 +5,7 @@ import AnimatedNumber from 'animated-number-react'
 import useOnScreen from 'hooks/useOnScreen'
 
 import Button from 'components/base/Button'
+import MagicLink from 'components/base/MagicLink'
 
 const Wrapper = styled.div`
   width: ${(props) => props.width || '37rem'};
@@ -133,13 +134,9 @@ export default function Learning() {
         <Text>
           Si vous souhaitez aller plus loin dans votre démarche, vous pouvez
           calculer l'empreinte du télétravail sur le climat grace à notre{' '}
-          <a
-            href={'https://nosgestesclimat.fr/'}
-            target='_blank'
-            rel='noopener noreferrer'
-          >
+          <MagicLink to={'https://teletravail.monimpacttransport.fr/'}>
             simulateur télétravail
-          </a>
+          </MagicLink>
         </Text>
         <ButtonWrapper>
           <Button to={'https://teletravail.monimpacttransport.fr/'}>
