@@ -29,7 +29,6 @@ const Title = styled.div`
     font-size: 0.875rem;
   }
 `
-
 const ChartWrapper = styled.div`
   flex: 1;
   max-width: 37rem;

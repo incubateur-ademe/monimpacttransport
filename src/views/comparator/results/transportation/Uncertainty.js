@@ -37,6 +37,7 @@ const Wrapper = styled.div`
 `
 const StyledCheckbox = styled(Checkbox)`
   display: flex;
+
   &:before {
     border-color: ${(props) => props.theme.colors.text};
   }

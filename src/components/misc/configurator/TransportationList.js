@@ -1,8 +1,7 @@
-import React, { useEffect, useContext, useRef } from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 
 import TransportationContext from 'utils/TransportationContext'
-import UXContext from 'utils/UXContext'
 import Transportation from './transportationList/Transportation'
 
 const Wrapper = styled.div`
@@ -24,16 +23,9 @@ export default function TransportationList(props) {
     toggleVisible,
   } = useContext(TransportationContext)
 
-  const ref = useRef(null)
-  const { configuratorOpen } = useContext(UXContext)
-
-  useEffect(() => {
-    console.log('scroll')
-    ref.current.scrollIntoView()
-  }, [configuratorOpen])
   return (
     <Wrapper modal={props.modal}>
-      <Table ref={ref}>
+      <Table>
         <tbody>
           {transportations.map((transportation) => (
             <Transportation

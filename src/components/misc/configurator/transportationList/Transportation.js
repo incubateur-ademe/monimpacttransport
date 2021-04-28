@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useEffect, useContext, useRef } from 'react'
 import styled from 'styled-components'
 
 import UXContext from 'utils/UXContext'
@@ -62,8 +62,15 @@ const SecondaryEmoji = styled(Emoji)`
 export default function Transportation(props) {
   const { configuratorOpen, setConfiguratorOpen } = useContext(UXContext)
 
+  const ref = useRef(null)
+  useEffect(() => {
+    if (configuratorOpen === props.transportation.id) {
+      console.log(props.transportation.id)
+      ref.current.scrollIntoView()
+    }
+  }, [configuratorOpen, props.transportation])
   return (
-    <Wrapper id={props.id}>
+    <Wrapper id={props.id} ref={ref}>
       <Column>
         <Label
           active={props.transportation.id === configuratorOpen}
