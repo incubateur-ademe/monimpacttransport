@@ -27,8 +27,8 @@ export default function Map() {
   const { height, width } = useWindowSize()
 
   const [viewport, setViewport] = useState({
-    latitude: center.lat,
-    longitude: center.long,
+    latitude: Number(center.lat),
+    longitude: Number(center.long),
     zoom: 11,
   })
 
@@ -52,8 +52,8 @@ export default function Map() {
               ])
             : {
                 ...viewport,
-                latitude: center.lat,
-                longitude: center.long,
+                latitude: Number(center.lat),
+                longitude: Number(center.long),
                 zoom: Math.log2(25000 / (((km ? km : 1) * 1000) / width)),
                 transitionInterpolator: new LinearInterpolator(),
                 transitionDuration: 600,
