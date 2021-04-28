@@ -67,17 +67,11 @@ const Carpooler = styled(Emoji)`
   transition: border 200ms ease-out;
 `
 const Plus = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 1.25rem;
-  height: 1.25rem;
+  margin-left: -0.1rem;
+  font-size: 1.5rem;
   font-weight: 900;
-  line-height: 0.7;
-  color: ${(props) => props.theme.colors.background};
-  background-color: ${(props) => props.theme.colors.main};
-  border-radius: 1rem;
-  border: none;
+  line-height: 0.8;
+  color: ${(props) => props.theme.colors.main};
 `
 export default function Carpool(props) {
   const { configuratorOpen, setConfiguratorOpen } = useContext(UXContext)
@@ -86,24 +80,20 @@ export default function Carpool(props) {
 
   return props.transportation.carpool ? (
     <>
-      <Display onClick={() => setConfiguratorOpen(true)}>
+      <Display
+        onClick={() => setConfiguratorOpen(true)}
+        data-tip={'Ajouter un·e covoitureur·se'}
+        data-for='carpool'
+      >
         <Carpoolers>
-          {props.transportation.carpoolers > 1 ? (
-            [...Array(props.transportation.carpoolers)].map(
-              (carpooler, index) => (
-                <Carpooler small key={index}>
-                  🧑
-                </Carpooler>
-              )
+          {[...Array(props.transportation.carpoolers)].map(
+            (carpooler, index) => (
+              <Carpooler small key={index}>
+                🧑
+              </Carpooler>
             )
-          ) : (
-            <>
-              <Plus data-tip={'Ajouter un·e covoitureur·se'} data-for='carpool'>
-                +
-              </Plus>
-              <ReactTooltip id='carpool' />
-            </>
           )}
+          {props.transportation.carpoolers === 1 && <Plus>+</Plus>}
         </Carpoolers>
       </Display>
       <Wrapper open={configuratorOpen}>
@@ -130,6 +120,8 @@ export default function Carpool(props) {
           ))}
         </Carpoolers>
       </Wrapper>
+
+      <ReactTooltip id='carpool' />
     </>
   ) : null
 }
