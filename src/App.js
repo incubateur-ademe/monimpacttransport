@@ -15,6 +15,7 @@ import CO2EModal from 'components/modals/CO2EModal'
 import ConfiguratorModal from 'components/modals/ConfiguratorModal'
 import RadiativeForcingModal from 'components/modals/RadiativeForcingModal'
 import ApproximationModal from 'components/modals/ApproximationModal'
+import InstallInstructionsModal from 'components/modals/InstallInstructionsModal'
 import Web from 'components/layout/Web'
 import Iframe from 'components/layout/Iframe'
 import Comparator from 'views/Comparator'
@@ -53,6 +54,7 @@ function App() {
                       <ConfiguratorModal />
                       <RadiativeForcingModal />
                       <ApproximationModal />
+                      <InstallInstructionsModal />
                     </SearchProvider>
                   </SuggestionProvider>
                 </TransportationProvider>
