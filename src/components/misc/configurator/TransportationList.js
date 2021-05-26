@@ -7,7 +7,7 @@ import Transportation from './transportationList/Transportation'
 const Wrapper = styled.div`
   position: relative;
   margin: 0 ${(props) => (props.modal ? '-2rem' : 0)} 1rem;
-  overflow-y: scroll;
+  overflow-y: auto;
 `
 const Table = styled.table`
   width: 100%;
