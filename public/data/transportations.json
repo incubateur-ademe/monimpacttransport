@@ -411,5 +411,25 @@
     },
     "emoji": { "main": "🚙" },
     "default": false
+  },
+  {
+    "id": 23,
+    "label": {
+      "fr": "Jet Privé"
+    },
+    "description": {
+      "fr": "1300 gCO2e/km/personne ;"
+    },
+    "source": "https://www.transportenvironment.org/sites/te/files/publications/2021_05_private_jets_FINAL.pdf",
+    "emoji": { "main": "🛩️" },
+    "default": false,
+    "display": {
+      "min": 500
+    },
+    "values": [
+      {
+        "value": 1300
+      }
+    ]
   }
 ]
