@@ -40,7 +40,7 @@ export default function Comparator(props) {
         </Button>
       </Buttonwrapper>
       <Disclaimer>
-        Équivalent CO₂ par personne en France. Sont inclus les émissions
+        Équivalent CO₂ par personne en France. Sont incluses les émissions
         directes, et la production et distribution de carburant et
         d'électricité. La construction des véhicules (voiture, vélo, batterie,
         train, avion...) et des infrastructures (routes, rails, aéroports...)
