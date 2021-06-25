@@ -113,7 +113,7 @@ export default function Distance() {
       </Middle>
       <End
         dangerouslySetInnerHTML={{
-          __html: `&nbsp;j'emets`,
+          __html: `&nbsp;j'émets`,
         }}
       />
     </Wrapper>
