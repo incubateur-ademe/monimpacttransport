@@ -1,4 +1,4 @@
-var transportations = require('./transportations.json')
+var transportations = require('../../public/data/transportations.json')
 
 exports.handler = function (event) {
   const km = event.queryStringParameters.km || 1
