@@ -1,6 +1,6 @@
 var transportations = require('../../public/data/transportations.json')
 
-exports.handler = function (event) {
+exports.handler = async function (event) {
   const km = event.queryStringParameters.km || 1
   const filter =
     event.queryStringParameters.filter ||
