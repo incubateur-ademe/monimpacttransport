@@ -27,18 +27,18 @@ Voici un résultat de recherche sur le site Mon Impact Transport que je voulais 
         },
         facebook: {
           simulator: {
-            quote: `Découvrez l'impact de vos déplacements sur l'environnement !`,
+            quote: `Découvrez l'impact de vos déplacements sur l'environnement ! Grâce à ce simulateur Datagir, comparez les différents modes de transport pour choisir une mobilité moins émettrice en CO2 🌍`,
           },
           result: {
-            quote: `Découvrez l'impact de mon déplacement sur l'environnement ! `,
+            quote: `Découvrez l'impact de mon déplacement sur l'environnement ! Grâce à ce simulateur Datagir, j’ai comparé les différents modes de transport pour mon trajet. Et pour votre trajet, quel est le mode le moins émetteur de CO2 ? 🌍`,
           },
         },
         twitter: {
           simulator: {
-            title: `Découvrez l'impact de vos déplacements sur l'environnement !`,
+            title: `Découvrez l'impact de vos déplacements sur l'environnement ! Grâce à ce simulateur @_datagir, comparez les différents modes de transport pour choisir une mobilité moins émettrice en CO2 🌍`,
           },
           result: {
-            title: `Découvrez l'impact de mon déplacement sur l'environnement ! `,
+            title: `Découvrez l'impact de mon déplacement sur l'environnement ! Grâce à ce simulateur @_datagir, j’ai comparé les différents modes de transport pour mon trajet. Et pour votre trajet, quel est le mode le moins émetteur de CO2 ? 🌍`,
           },
         },
         linkedin: {
@@ -51,10 +51,10 @@ Voici un résultat de recherche sur le site Mon Impact Transport que je voulais 
         },
         whatsapp: {
           simulator: {
-            title: `Découvrez l'impact de vos déplacements sur l'environnement !`,
+            title: `Découvrez l'impact de vos déplacements sur l'environnement ! Grâce à ce simulateur Datagir, comparez les différents modes de transport pour choisir une mobilité moins émettrice en CO2 🌍`,
           },
           result: {
-            title: `Découvrez l'impact de mon déplacement sur l'environnement ! `,
+            title: `Découvrez l'impact de mon déplacement sur l'environnement ! Grâce à ce simulateur Datagir, j’ai comparé les différents modes de transport pour mon trajet. Et pour votre trajet, quel est le mode le moins émetteur de CO2 ? 🌍`,
           },
         },
       }}
