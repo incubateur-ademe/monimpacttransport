@@ -1,36 +1,46 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
+import { Switch, Route } from 'react-router-dom'
 
-import SearchContext from 'utils/SearchContext'
 import ModeSelector from './search/ModeSelector'
 import Distance from './search/Distance'
 import Itinerary from './search/Itinerary'
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  max-width: 35rem;
+  margin: 0 auto 2rem;
+`
 const Content = styled.div`
-  padding: 1.5rem;
+  position: relative;
+  padding: 1.5rem 1.5rem 2rem;
   background-color: ${(props) => props.theme.colors.secondLight};
   border-radius: 1rem;
 `
 const Text = styled.p`
-  max-width: 32rem;
-  margin-left: auto;
-  margin-right: auto;
   font-size: 1.25rem;
   text-align: center;
 `
 export default function Search() {
-  const { mode } = useContext(SearchContext)
-
   return (
     <Wrapper>
       <ModeSelector />
       <Content>
-        <Text>
-          Découvrez la quantité de CO2e que vous émettez{' '}
-          <strong>(par personne)</strong> pour cette distance
-        </Text>
-        {mode === 'itinerary' ? <Itinerary /> : <Distance />}
+        <Switch>
+          <Route path='/itineraire'>
+            <Text>
+              Découvrez la quantité de CO2e que vous émettez{' '}
+              <strong>(par personne)</strong> pour ce trajet
+            </Text>
+            <Itinerary />
+          </Route>
+          <Route path='/'>
+            <Text>
+              Découvrez la quantité de CO2e que vous émettez{' '}
+              <strong>(par personne)</strong> pour cette distance
+            </Text>
+            <Distance />
+          </Route>
+        </Switch>
       </Content>
     </Wrapper>
   )

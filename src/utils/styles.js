@@ -11,6 +11,7 @@ export const themes = {
       secondLight: '#EFF4F9',
       background: '#ffffff',
       footer: '#F6F7F9',
+      footerLight: '#FBFBFC',
       text: '#383838',
       textLight: '#939699',
     },
@@ -60,7 +61,6 @@ export const GlobalStyle = createGlobalStyle`
     scroll-behavior: smooth;
     font-family: ${(props) => props.theme.fonts.body};
     line-height: 1.4;
-    text-rendering: geometricPrecision;
   }
 
   body {

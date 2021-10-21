@@ -30,10 +30,8 @@ const End = styled.div`
 export default function Itinerary() {
   return (
     <Wrapper>
-      <Start>Quand je vais</Start>
       <Address type='from' />
       <Address type='to' />
-      <End>j'émets</End>
     </Wrapper>
   )
 }

@@ -1,149 +1,99 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 
-import api from 'utils/api'
-import SearchContext from 'utils/SearchContext'
-import ModalContext from 'utils/ModalContext'
+import { useAddress } from 'hooks/useAddress'
 import useDebounce from 'hooks/useDebounce'
 import TextInput from './address/TextInput'
 import Suggestions from './address/Suggestions'
 
-const Wrapper = styled.div`
-  position: relative;
-  margin: 0 0 1.5rem ${(props) => (props.type === 'from' ? '5rem' : '10rem')};
-  padding: calc(0.3em + 2px) 0;
-  line-height: 1.15;
-
-  ${(props) => props.theme.mq.small} {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    margin: 0 0 ${(props) => (props.type === 'from' ? '1rem' : '1.75rem')} 0;
-
-    padding: 0;
-  }
-`
-const InputWrapper = styled.div`
+const Wrapper = styled.form`
   position: absolute;
-  z-index: ${(props) => (props.type === 'from' ? '101' : '100')};
-  top: 0;
-  left: 100%;
-  width: 33rem;
+  z-index: 100;
+  top: ${(props) => (props.addressSet ? '1rem' : '5rem')};
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2rem);
+  max-width: 25rem;
   background-color: ${(props) => props.theme.colors.background};
-  border: 5px solid ${(props) => props.theme.colors.main};
-  border-radius: 0.75em;
+  border: 0.125rem solid ${(props) => props.theme.colors.second};
+  border-radius: 1.375rem;
+  transition: box-shadow 200ms ease-out;
+  transition: border 200ms ease-out, top 300ms ease-out;
+  //overflow: hidden;
 
   ${(props) => props.theme.mq.small} {
-    flex: 1;
-    position: relative;
-    top: auto;
-    left: auto;
-    width: auto;
-    border: 3px solid ${(props) => props.theme.colors.main};
+    top: ${(props) => (props.addressSet ? '2.5rem' : '5rem')};
   }
 `
-const Input = styled(TextInput)``
-const Km = styled.div`
-  position: absolute;
-  top: 100%;
-  right: 0.7em;
 
-  span {
-    font-size: 0.875rem;
-
-    ${(props) => props.theme.mq.small} {
-      font-size: 0.75rem;
-    }
-  }
-`
-const Approximation = styled.span`
-  color: ${(props) => props.theme.colors.main};
-  text-decoration: underline;
-  cursor: pointer;
-`
 export default function Address(props) {
-  const { km, itinerary, setItinerary } = useContext(SearchContext)
-  const { setApproximation } = useContext(ModalContext)
-  const [search, setSearch] = useState(itinerary[props.type])
+  const [search, setSearch] = useState('')
+  useEffect(() => {
+    setSearch(props.address)
+  }, [props.address])
   const debouncedSearch = useDebounce(search)
 
-  const [suggestions, setSuggestions] = useState([])
-
-  useEffect(() => {
-    if (debouncedSearch && debouncedSearch.length > 2) {
-      api
-        .get(
-          `https://api.mapbox.com/geocoding/v5/mapbox.places/${debouncedSearch}.json?proximity=2.3488,48.8534&language=fr&access_token=${process.env.REACT_APP_MAPBOX_API_TOKEN}`
-        )
-        .then((res) => setSuggestions(res.features || []))
-    } else {
-      setSuggestions([])
-    }
-  }, [debouncedSearch])
+  const { data, isFetching } = useAddress(debouncedSearch)
 
   const [focus, setFocus] = useState(false)
+  const input = useRef(null)
+  const [current, setCurrent] = useState(0)
 
-  let timer = null
+  useEffect(() => {
+    if (!focus) {
+      setCurrent(0)
+      input.current && input.current.blur()
+    }
+  }, [focus])
+
+  const navigateToPlace = (place) => {
+    if (place) {
+      props.setAddress({
+        label: place.properties.label,
+        latitude: place.geometry.coordinates[1],
+        longitude: place.geometry.coordinates[0],
+      })
+      props.setCenter([
+        place.geometry.coordinates[1],
+        place.geometry.coordinates[0],
+      ])
+      props.setZoom(13)
+      setFocus(false)
+    }
+  }
 
   return (
-    <Wrapper className={props.className} type={props.type}>
-      <span
-        dangerouslySetInnerHTML={{
-          __html: `${props.type === 'from' ? 'de' : 'à'}&nbsp;`,
-        }}
+    <Wrapper
+      focus={focus}
+      addressSet={props.address}
+      onSubmit={(e) => {
+        e.preventDefault()
+        if (current > -1) {
+          navigateToPlace(data[current])
+        }
+      }}
+    >
+      <TextInput
+        ref={input}
+        search={search}
+        suggestion={data && data[current]}
+        suggestionVisible={data && focus}
+        isFetching={isFetching}
+        setSearch={setSearch}
+        setFocus={setFocus}
+        navigateToPlace={navigateToPlace}
       />
-      <InputWrapper type={props.type}>
-        {props.type === 'to' && (
-          <Km>
-            <span>
-              ({km}km{' '}
-              <Approximation onClick={() => setApproximation(true)}>
-                à vol d'oiseau
-              </Approximation>
-              )
-            </span>
-          </Km>
-        )}
-        <Input
-          name={'address'}
-          autoComplete='off'
-          value={search}
-          onChange={(value) => {
-            setSearch(value)
-          }}
-          onFocus={() => {
-            clearTimeout(timer)
-            setFocus(true)
-          }}
-          onBlur={() => {
-            clearTimeout(timer)
-            timer = setTimeout(() => setFocus(false), 100)
-          }}
-        />
+      {data && focus && (
         <Suggestions
-          suggestions={suggestions}
+          search={debouncedSearch}
+          results={data}
           focus={focus}
-          setFocus={(value) => {
-            clearTimeout(timer)
-            setFocus(value)
-          }}
-          onChange={(suggestion) => {
-            window._paq &&
-              window._paq.push([
-                'trackEvent',
-                'itinerary',
-                'change',
-                props.type,
-              ])
-            setSearch(suggestion.place_name_fr)
-            setItinerary({
-              [props.type]: suggestion.place_name_fr,
-              [props.type + 'Longitude']: suggestion.center[0],
-              [props.type + 'Latitude']: suggestion.center[1],
-            })
-          }}
+          current={current}
+          isFetching={isFetching}
+          setCurrent={setCurrent}
+          handleSuggestionClick={navigateToPlace}
         />
-      </InputWrapper>
+      )}
     </Wrapper>
   )
 }
