@@ -10,7 +10,6 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding-bottom: 0.125rem;
   margin-bottom: 3rem;
 `
 const Logos = styled(MagicLink)`

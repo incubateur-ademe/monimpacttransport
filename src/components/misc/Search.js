@@ -2,23 +2,33 @@ import React from 'react'
 import styled from 'styled-components'
 import { Switch, Route } from 'react-router-dom'
 
+import Checkbox from 'components/base/Checkbox'
 import ModeSelector from './search/ModeSelector'
 import Distance from './search/Distance'
 import Itinerary from './search/Itinerary'
 
 const Wrapper = styled.div`
-  max-width: 35rem;
-  margin: 0 auto 2rem;
+  max-width: 30rem;
+  margin: 0 auto;
 `
 const Content = styled.div`
   position: relative;
-  padding: 1.5rem 1.5rem 2rem;
+  margin-bottom: 0.5rem;
+  padding: 1.5rem 2rem;
   background-color: ${(props) => props.theme.colors.secondLight};
   border-radius: 1rem;
 `
 const Text = styled.p`
-  font-size: 1.25rem;
   text-align: center;
+`
+const Checkboxes = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+`
+const StyledCheckbox = styled(Checkbox)`
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
 `
 export default function Search() {
   return (
@@ -42,6 +52,16 @@ export default function Search() {
           </Route>
         </Switch>
       </Content>
+      <Checkboxes>
+        <Route path='/'>
+          <StyledCheckbox onChange={console.log}>
+            Afficher <strong>tous</strong> les modes de transport
+          </StyledCheckbox>
+        </Route>
+        <StyledCheckbox onChange={console.log}>
+          Afficher le <strong>covoiturage</strong>
+        </StyledCheckbox>
+      </Checkboxes>
     </Wrapper>
   )
 }

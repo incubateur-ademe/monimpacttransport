@@ -13,7 +13,7 @@ const Wrapper = styled.div`
     left: 0;
     height: 1.2em;
     width: 1.2em;
-    border: 2px solid ${(props) => props.theme.colors.main};
+    border: 2px solid ${(props) => props.theme.colors.second};
     border-radius: 0.25rem;
     cursor: pointer;
   }
@@ -26,7 +26,7 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    color: ${(props) => props.theme.colors.main};
+    color: ${(props) => props.theme.colors.second};
     font-size: 1.75em;
     line-height: 0.7;
     opacity: ${(props) => (props.checked ? 1 : 0)};
@@ -34,7 +34,7 @@ const Wrapper = styled.div`
   }
 `
 const Input = styled.input`
-  margin-right: ${(props) => (props.label ? '1em' : 0)};
+  margin-right: ${(props) => (props.label ? '0.75em' : 0)};
   opacity: 0;
   pointer-events: none;
 `

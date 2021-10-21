@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   position: relative;
   display: flex;
   align-items: flex-end;
-  margin-bottom: 1.7em;
+  margin-bottom: 1.25rem;
 `
 const TitleWrapper = styled.div`
   position: relative;
@@ -23,18 +23,15 @@ const Title = styled.div`
   position: relative;
   color: ${(props) => props.theme.colors.main};
   cursor: pointer;
+  font-size: 0.875rem;
 
   ${(props) => props.theme.mq.small} {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
   }
 `
 const ChartWrapper = styled.div`
   flex: 1;
-  max-width: 37.875rem;
-
-  ${(props) => props.theme.mq.small} {
-    max-width: calc(100vw - 2.5rem - 2rem);
-  }
+  max-width: 30rem;
 `
 const Chart = styled.div`
   position: relative;
@@ -65,7 +62,7 @@ const SecondaryEmoji = styled(Emoji)`
 const Bar = styled.div`
   position: relative;
   width: ${(props) => props.percent * 100}%;
-  height: 2rem;
+  height: 1.75rem;
   transform-origin: left;
   background-color: ${(props) => props.theme.colors.second};
   border-radius: 1rem;
@@ -81,29 +78,29 @@ const Bar = styled.div`
 const Value = styled.div`
   position: absolute;
   top: 50%;
-  left: ${(props) => (props.inside ? 'auto' : '100%')};
-  right: ${(props) => (props.inside ? '1rem' : 'auto')};
+  left: 100%;
   transform: translateY(-50%);
   display: flex;
   align-items: baseline;
   padding-left: ${(props) => (props.noBar ? 0 : 0.5)}rem;
-  font-size: 1em;
   line-height: 0.7;
-  color: ${(props) =>
-    props.theme.colors[props.inside ? 'background' : 'second']};
+  color: ${(props) => props.theme.colors.second};
   transition: color 200ms ease-out;
 
   ${(props) => props.theme.mq.small} {
-    font-size: 0.75rem;
+    left: ${(props) => (props.inside ? 'auto' : '100%')};
+    right: ${(props) => (props.inside ? '1rem' : 'auto')};
+    color: ${(props) =>
+      props.theme.colors[props.inside ? 'background' : 'second']};
   }
 `
 const Number = styled.span`
   margin-right: 0.6rem;
-  font-size: 1.375rem;
+  font-size: 1.25rem;
   font-weight: 700;
 
   ${(props) => props.theme.mq.small} {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 `
 const Unit = styled.span`
@@ -145,7 +142,11 @@ export default function Transportation(props) {
               inside={props.transportation.value / props.max > 0.9}
             >
               <Number>
-                {Math.round(props.transportation.value / 10) / 100}
+                {props.transportation.value > 100000
+                  ? Math.round(props.transportation.value / 1000)
+                  : props.transportation.value > 10000
+                  ? Math.round(props.transportation.value / 100) / 10
+                  : Math.round(props.transportation.value / 10) / 100}
               </Number>
               <Unit onClick={() => setCO2E(true)}>
                 {' '}
