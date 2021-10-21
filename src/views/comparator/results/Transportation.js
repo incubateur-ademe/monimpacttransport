@@ -67,7 +67,7 @@ const Bar = styled.div`
   position: relative;
   width: calc(${(props) => props.percent * 30}rem + 1rem);
   height: 2rem;
-  background-color: ${(props) => props.theme.colors.text};
+  background-color: ${(props) => props.theme.colors.second};
   border-radius: 1rem;
   cursor: pointer;
 
@@ -92,7 +92,7 @@ const Value = styled.div`
   font-size: 1em;
   font-weight: 600;
   line-height: 0.7;
-  color: ${(props) => props.theme.colors.text};
+  color: ${(props) => props.theme.colors.second};
   transition: color 200ms ease-out;
 
   ${(props) => props.theme.mq.small} {

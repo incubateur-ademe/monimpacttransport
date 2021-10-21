@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import {
   useQueryParam,
   BooleanParam,
@@ -7,30 +7,18 @@ import {
   withDefault,
 } from 'use-query-params'
 
+import useTransportations from 'hooks/useTransportations'
 import TransportationContext from 'utils/TransportationContext'
 
 export default function TransportationProvider(props) {
-  const [transportations, setTransportations] = useState([])
-  useEffect(() => {
-    fetch('/data/transportations.json')
-      .then((res) => res.json())
-      .then((res) =>
-        setTransportations(
-          res.sort((a, b) =>
-            a.label.fr.normalize('NFD') > b.label.fr.normalize('NFD') ? 1 : -1
-          )
-        )
-      )
-  }, [])
+  const transportations = useTransportations()
 
   const [transportationsVisibles, setTransportationsVisibles] = useQueryParam(
     'transportations',
     withDefault(DelimitedArrayParam, [])
   )
-  const [
-    transportationsAlwaysVisibles,
-    setTransportationsAlwaysVisibles,
-  ] = useQueryParam('always', withDefault(DelimitedArrayParam, []))
+  const [transportationsAlwaysVisibles, setTransportationsAlwaysVisibles] =
+    useQueryParam('always', withDefault(DelimitedArrayParam, []))
 
   useEffect(() => {
     if (!transportationsVisibles.length) {

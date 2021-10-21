@@ -1,8 +1,0 @@
-[
-  { "id": 1, "label": { "fr": "vais acheter du pain" }, "km": 1 },
-  { "id": 2, "label": { "fr": "vais au travail" }, "km": 15 },
-  { "id": 3, "label": { "fr": "traverse la région" }, "km": 150 },
-  { "id": 4, "label": { "fr": "traverse la France" }, "km": 900 },
-  { "id": 5, "label": { "fr": "voyage en Europe" }, "km": 3000 },
-  { "id": 6, "label": { "fr": "voyage dans le monde" }, "km": 10000 }
-]

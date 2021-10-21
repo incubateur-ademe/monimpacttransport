@@ -40,7 +40,7 @@ export default function Share(props) {
   const [url, setUrl] = useState()
   useEffect(() => {
     setUrl(
-      `${window.location.origin}${
+      `${window.location.origin}/${
         typeShare === 'result' ? location.pathname + location.search : ''
       }`
     )
@@ -65,6 +65,7 @@ export default function Share(props) {
             {
               value: 'result',
               label: `cette fiche`,
+              disabled: !props.result,
             },
           ]}
         />

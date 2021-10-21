@@ -51,7 +51,6 @@ export default function Contact(props) {
       index={2}
     >
       <h2>Nous contacter</h2>
-
       <Form
         id='contact'
         method='post'
@@ -112,7 +111,9 @@ export default function Contact(props) {
             Je souhaite en savoir plus sur Datagir
           </option>
           {props.options.map((option) => (
-            <option value={option.value}>{option.label}</option>
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
           ))}
           <option value='bug'>J'ai trouvé un bug</option>
           <option value='amelioration'>

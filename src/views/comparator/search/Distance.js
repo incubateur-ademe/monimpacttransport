@@ -78,7 +78,7 @@ const Input = styled.input`
 export default function Distance() {
   const { km, setKm } = useContext(SearchContext)
 
-  const [pristine, setPristine] = useState(true)
+  const [pristine, setPristine] = useState(false)
 
   return (
     <Wrapper>

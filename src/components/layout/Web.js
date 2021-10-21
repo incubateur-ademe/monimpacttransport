@@ -1,20 +1,9 @@
-import React, { Suspense, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
-import useWindowSize from 'hooks/useWindowSize'
-import UXContext from 'utils/UXContext'
-import StyleContext from 'utils/StyleContext'
-
-import ThemeToggle from 'components/base/ThemeToggle'
-import InstallButton from 'components/base/InstallButton'
-import Learning from 'components/misc/Learning'
-import Configurator from 'components/misc/Configurator'
-import ShareWrapper from 'components/wrappers/ShareWrapper'
-import EmbedWrapper from 'components/wrappers/EmbedWrapper'
-import ContactWrapper from 'components/wrappers/ContactWrapper'
+import useIframe from 'hooks/useIframe'
+import HeaderWrapper from 'components/wrappers/HeaderWrapper'
 import FooterWrapper from 'components/wrappers/FooterWrapper'
-
-const Map = React.lazy(() => import('components/misc/Map'))
 
 const Wrapper = styled.div`
   display: flex;
@@ -35,39 +24,29 @@ const FullScreen = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  width: 46rem;
-  min-height: ${(props) => props.windowHeight}px;
-  margin: 0 auto 5rem;
-  padding: 0 0.5rem;
-
-  ${(props) => props.theme.mq.small} {
-    width: 100%;
-  }
+  width: 46.5rem;
+  max-width: 100%;
+  min-height: ${(props) => (props.iframe ? 'none' : '100vh')};
+  margin: 0 auto;
+  padding: 0 0.75rem 5rem;
 `
 export default function Web(props) {
-  const { height } = useWindowSize()
+  const iframe = useIframe()
+  const [noHeader, setnoHeader] = useState(false)
 
-  const { map } = useContext(UXContext)
-  const { theme, accessibility } = useContext(StyleContext)
+  useEffect(() => {
+    setnoHeader(window.location.search.includes('noheader'))
+  }, [])
 
   return (
     <Wrapper>
-      {theme === 'default' && !accessibility && map && (
-        <Suspense fallback={''}>
-          <Map />
-        </Suspense>
-      )}
-      <ThemeToggle />
-      <Configurator />
       <Content>
-        <FullScreen windowHeight={height}>{props.children}</FullScreen>
-        <Learning />
-        <FooterWrapper />
+        <FullScreen iframe={iframe}>
+          <HeaderWrapper noHeader={noHeader} />
+          {props.children}
+        </FullScreen>
+        <FooterWrapper iframe={iframe} />
       </Content>
-      <EmbedWrapper />
-      <ShareWrapper />
-      <ContactWrapper />
-      <InstallButton />
     </Wrapper>
   )
 }

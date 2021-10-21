@@ -32,7 +32,7 @@ const Arrow = styled.svg`
   transition: opacity 300ms ease-out;
 
   path {
-    fill: ${(props) => props.theme.colors.second};
+    fill: ${(props) => props.theme.colors.background};
   }
 `
 export default function Toggle(props) {
@@ -43,6 +43,7 @@ export default function Toggle(props) {
         open={props.open}
         onClick={props.onClick}
         data-tip={props.tooltip}
+        aria-label={props.tooltip}
       >
         {props.children}
         <Arrow
@@ -56,7 +57,7 @@ export default function Toggle(props) {
           <path d='M14.757,46.02c-1.412,0-2.825-0.521-3.929-1.569c-2.282-2.17-2.373-5.78-0.204-8.063l12.758-13.418L10.637,9.645    C8.46,7.37,8.54,3.76,10.816,1.582c2.277-2.178,5.886-2.097,8.063,0.179l16.505,17.253c2.104,2.2,2.108,5.665,0.013,7.872    L18.893,44.247C17.77,45.424,16.267,46.02,14.757,46.02z' />
         </Arrow>
       </Wrapper>
-      <ReactTooltip delayShow={200} place='left' />
+      <ReactTooltip delayShow={600} place='left' />
     </>
   )
 }

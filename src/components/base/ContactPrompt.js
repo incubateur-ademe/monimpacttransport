@@ -61,7 +61,7 @@ export default function ContactPrompt(props) {
           <br />
           Ce simulateur est développé de manière ouverte (open source).
           L’ensemble du code est{' '}
-          <MagicLink to={process.env.REACT_APP_REPOSITORY_URL}>
+          <MagicLink to={process.env.GATSBY_REPOSITORY_URL}>
             disponible librement
           </MagicLink>
           .

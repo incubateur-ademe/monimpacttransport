@@ -1,8 +1,7 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import {
   useQueryParam,
   withDefault,
-  NumberParam,
   StringParam,
   ObjectParam,
   ArrayParam,
@@ -20,7 +19,7 @@ export default function SearchProvider(props) {
     withDefault(StringParam, 'distance')
   )
 
-  const [km, setKm] = useQueryParam('km', withDefault(NumberParam, 10))
+  const [km, setKm] = useState(10)
 
   const [alwaysVisible, setAlwaysVisibile] = useQueryParam(
     'always',
