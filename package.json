@@ -3,11 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@math.gl/web-mercator": "^3.5.6",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^12.1.2",
-    "@testing-library/user-event": "^13.5.0",
-    "@turf/turf": "^6.5.0",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
     "animated-number-react": "^0.1.2",
     "axios": "^0.23.0",
     "copy-to-clipboard": "^3.3.1",
@@ -16,9 +14,8 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-flip-toolkit": "^7.0.13",
-    "react-map-gl": "6.1.17",
-    "react-mapbox-gl-geocoder": "^1.1.0",
     "react-query": "^3.27.0",
+    "react-range": "^1.8.11",
     "react-router-dom": "^5.3.0",
     "react-scripts": "4.0.3",
     "react-share": "^4.4.0",
@@ -28,7 +25,7 @@
     "styled-normalize": "^8.0.7",
     "twemoji": "^13.1.0",
     "use-query-params": "^1.2.3",
-    "web-vitals": "^2.1.2"
+    "web-vitals": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -56,10 +53,6 @@
     ]
   },
   "devDependencies": {
-    "webpack": "^5.59.0",
     "webpack-cli": "^4.9.1"
-  },
-  "resolutions": {
-    "react-scripts/eslint-webpack-plugin": "2.3.0"
   }
 }

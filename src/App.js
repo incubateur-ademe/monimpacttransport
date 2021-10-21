@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { QueryParamProvider } from 'use-query-params'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
@@ -16,7 +16,9 @@ import RadiativeForcingModal from 'components/modals/RadiativeForcingModal'
 import ApproximationModal from 'components/modals/ApproximationModal'
 import InstallInstructionsModal from 'components/modals/InstallInstructionsModal'
 import Web from 'components/layout/Web'
-import Comparator from 'views/Comparator'
+import Search from 'components/misc/Search'
+import Itinerary from 'views/Itinerary'
+import Distance from 'views/Distance'
 
 const queryClient = new QueryClient()
 
@@ -32,9 +34,15 @@ function App() {
                   <SearchProvider>
                     <GlobalStyle />
                     <Web>
-                      <Route>
-                        <Comparator />
-                      </Route>
+                      <Search />
+                      <Switch>
+                        <Route path='/itineraire'>
+                          <Itinerary />
+                        </Route>
+                        <Route path='/'>
+                          <Distance />
+                        </Route>
+                      </Switch>
                     </Web>
                     <CO2EModal />
                     <ConfiguratorModal />
