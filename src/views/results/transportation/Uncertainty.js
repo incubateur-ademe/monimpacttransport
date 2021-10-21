@@ -66,7 +66,7 @@ const Plus = styled.div`
   align-items: center;
   width: 1.25rem;
   height: 1.25rem;
-  font-weight: 900;
+  font-weight: bold;
   line-height: 0.7;
   color: ${(props) => props.theme.colors.background};
   background-color: ${(props) => props.theme.colors.main};

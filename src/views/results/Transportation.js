@@ -21,7 +21,6 @@ const TitleWrapper = styled.div`
 `
 const Title = styled.div`
   position: relative;
-  font-weight: 600;
   color: ${(props) => props.theme.colors.main};
   cursor: pointer;
 
@@ -31,7 +30,7 @@ const Title = styled.div`
 `
 const ChartWrapper = styled.div`
   flex: 1;
-  max-width: 37rem;
+  max-width: 37.875rem;
 
   ${(props) => props.theme.mq.small} {
     max-width: calc(100vw - 2.5rem - 2rem);
@@ -65,8 +64,9 @@ const SecondaryEmoji = styled(Emoji)`
 `
 const Bar = styled.div`
   position: relative;
-  width: calc(${(props) => props.percent * 30}rem + 1rem);
+  width: ${(props) => props.percent * 100}%;
   height: 2rem;
+  transform-origin: left;
   background-color: ${(props) => props.theme.colors.second};
   border-radius: 1rem;
   cursor: pointer;
@@ -77,22 +77,20 @@ const Bar = styled.div`
     border-radius: 0.875rem;
   }
 `
-const UncertaintyMarker = styled.div`
-  position: absolute;
-  top: 0;
-  left: ${(props) => props.percent * 100}%;
-  width: 0.25rem;
-  height: 100%;
-  background-color: ${(props) => props.theme.colors.background};
-`
+
 const Value = styled.div`
+  position: absolute;
+  top: 50%;
+  left: ${(props) => (props.inside ? 'auto' : '100%')};
+  right: ${(props) => (props.inside ? '1rem' : 'auto')};
+  transform: translateY(-50%);
   display: flex;
   align-items: baseline;
-  padding-left: 0.5rem;
+  padding-left: ${(props) => (props.noBar ? 0 : 0.5)}rem;
   font-size: 1em;
-  font-weight: 600;
   line-height: 0.7;
-  color: ${(props) => props.theme.colors.second};
+  color: ${(props) =>
+    props.theme.colors[props.inside ? 'background' : 'second']};
   transition: color 200ms ease-out;
 
   ${(props) => props.theme.mq.small} {
@@ -101,8 +99,8 @@ const Value = styled.div`
 `
 const Number = styled.span`
   margin-right: 0.6rem;
-  font-size: 2rem;
-  font-weight: 900;
+  font-size: 1.375rem;
+  font-weight: 700;
 
   ${(props) => props.theme.mq.small} {
     font-size: 1.5rem;
@@ -110,6 +108,8 @@ const Number = styled.span`
 `
 const Unit = styled.span`
   cursor: pointer;
+  font-size: 0.875rem;
+
   &:hover {
     color: ${(props) => props.theme.colors.main};
   }
@@ -140,30 +140,20 @@ export default function Transportation(props) {
             percent={props.transportation.value / props.max}
             onClick={() => setConfiguratorOpen(props.transportation.id)}
           >
-            {props.transportation.value !== props.transportation.base && (
-              <UncertaintyMarker
-                percent={props.transportation.base / props.transportation.value}
-              />
-            )}
+            <Value
+              noBar={props.transportation.value / props.max === 0}
+              inside={props.transportation.value / props.max > 0.9}
+            >
+              <Number>
+                {Math.round(props.transportation.value / 10) / 100}
+              </Number>
+              <Unit onClick={() => setCO2E(true)}>
+                {' '}
+                kgCO
+                <sub>2</sub>e
+              </Unit>
+            </Value>
           </Bar>
-          <Value>
-            <Number>
-              {props.transportation.value > 1000000
-                ? Math.round(props.transportation.value / 100000) / 10
-                : props.transportation.value > 1000
-                ? Math.round(props.transportation.value / 100) / 10
-                : Math.round(props.transportation.value * 10) / 10}
-            </Number>
-            <Unit onClick={() => setCO2E(true)}>
-              {props.transportation.value > 1000000
-                ? ' t'
-                : props.transportation.value > 1000
-                ? ' kg'
-                : ' g'}
-              CO
-              <sub>2</sub>e
-            </Unit>
-          </Value>
         </Chart>
       </ChartWrapper>
     </Wrapper>

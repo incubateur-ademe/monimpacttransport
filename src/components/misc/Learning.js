@@ -27,7 +27,7 @@ const FirstLine = styled.div`
   align-items: baseline;
 
   font-size: 3.15rem;
-  font-weight: 900;
+  font-weight: bold;
   line-height: 0.9;
 
   ${(props) => props.theme.mq.small} {
@@ -37,7 +37,7 @@ const FirstLine = styled.div`
 const Number = styled.div`
   width: 2.22303365em;
   font-size: 13rem;
-  font-weight: 900;
+  font-weight: bold;
   text-align: right;
   color: ${(props) => props.theme.colors.main};
   opacity: ${(props) => (props.isOnScreen ? 1 : 0)};
@@ -52,7 +52,7 @@ const FirstWord = styled.span`
   transition: opacity 1000ms 1000ms;
 `
 const BigText = styled.div`
-  font-weight: 900;
+  font-weight: bold;
   line-height: 0.9;
 
   ${(props) => props.theme.mq.small} {

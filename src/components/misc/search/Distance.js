@@ -66,6 +66,11 @@ const Thumb = styled.div`
   color: ${(props) => props.theme.colors.background};
   background-color: ${(props) => props.theme.colors.main};
   border-radius: 1.5rem;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.125rem ${(props) => props.theme.colors.second};
+  }
 `
 export default function Distance() {
   const { km, setKm } = useContext(SearchContext)

@@ -69,7 +69,7 @@ const Carpooler = styled(Emoji)`
 const Plus = styled.div`
   margin-left: -0.1rem;
   font-size: 1.5rem;
-  font-weight: 900;
+  font-weight: bold;
   line-height: 0.8;
   color: ${(props) => props.theme.colors.main};
 `

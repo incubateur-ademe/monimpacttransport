@@ -29,6 +29,7 @@ const FullScreen = styled.div`
   min-height: ${(props) => (props.iframe ? 'none' : '100vh')};
   margin: 0 auto;
   padding: 0 0.75rem 5rem;
+  border: 1px solid;
 `
 export default function Web(props) {
   const iframe = useIframe()
