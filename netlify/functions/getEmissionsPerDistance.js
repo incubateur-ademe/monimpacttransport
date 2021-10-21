@@ -1,6 +1,14 @@
+var MatomoTracker = require('matomo-tracker')
+
+var matomo = new MatomoTracker(155, 'https://stats.data.gouv.fr/matomo.php')
+
 var transportations = require('../../public/data/transportations.json')
 
 exports.handler = async function (event) {
+  matomo.track(
+    `https://monimpacttransport.fr/api/${event.queryStringParameters.km}`
+  )
+
   const km = event.queryStringParameters.km || 1
   const filter =
     event.queryStringParameters.filter ||
