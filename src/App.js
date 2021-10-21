@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { QueryParamProvider } from 'use-query-params'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
+import 'fonts/fonts.css'
 import { GlobalStyle } from 'utils/styles'
 import StyleProvider from 'components/providers/StyleProvider'
 import ModalProvider from 'components/providers/ModalProvider'
@@ -23,16 +24,17 @@ import Distance from 'views/Distance'
 const queryClient = new QueryClient()
 
 function App() {
+  console.log('app')
   return (
     <Router>
       <QueryParamProvider ReactRouterRoute={Route}>
         <QueryClientProvider client={queryClient}>
-          <UXProvider>
-            <StyleProvider>
+          <StyleProvider>
+            <UXProvider>
+              <GlobalStyle />
               <ModalProvider>
                 <TransportationProvider>
                   <SearchProvider>
-                    <GlobalStyle />
                     <Web>
                       <Search />
                       <Switch>
@@ -52,8 +54,8 @@ function App() {
                   </SearchProvider>
                 </TransportationProvider>
               </ModalProvider>
-            </StyleProvider>
-          </UXProvider>
+            </UXProvider>
+          </StyleProvider>
         </QueryClientProvider>
       </QueryParamProvider>
     </Router>

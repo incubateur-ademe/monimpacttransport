@@ -1,8 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 import styledNormalize from 'styled-normalize'
 
-import fonts from './fonts'
-
 export const themes = {
   default: {
     name: 'Clair',
@@ -14,6 +12,7 @@ export const themes = {
       background: '#ffffff',
       footer: '#F6F7F9',
       text: '#383838',
+      textLight: '#939699',
     },
     fonts: {
       body: '"Marianne", sans-serif',
@@ -55,8 +54,6 @@ export const themes = {
 
 export const GlobalStyle = createGlobalStyle`
   ${styledNormalize}
-
-  ${fonts}
 
   html {
     box-sizing: border-box;
@@ -104,5 +101,10 @@ export const GlobalStyle = createGlobalStyle`
 
   option {
     color: #010101;
+  }
+
+  strong {
+    font-weight: inherit;
+    color: ${(props) => props.theme.colors.second};
   }
 `

@@ -17,17 +17,35 @@ const flash = keyframes`
     opacity: 0;
   }
 `
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  display: flex;
+`
+const Button = styled.button``
+const Track = styled.div`
+  flex: 1;
+  height: 0.125rem;
+  background-color: ${(props) => props.theme.colors.textLight};
+`
 export default function Distance() {
   const { km, setKm } = useContext(SearchContext)
 
-  const [position, setPosition] = useState(3.17)
+  const [position, setPosition] = useState(0)
 
   useEffect(() => {
     setKm(Math.round(Math.pow(10, position) * 10))
   }, [position, setKm])
+
   return (
     <Wrapper>
+      <Button
+        onClick={() =>
+          setPosition((prevPosition) =>
+            prevPosition - 0.31761 < 0 ? 0 : prevPosition - 0.31761
+          )
+        }
+      >
+        -
+      </Button>
       <Range
         step={0.001}
         min={0}
@@ -35,17 +53,7 @@ export default function Distance() {
         values={[position]}
         onChange={(values) => setPosition(values[0])}
         renderTrack={({ props, children }) => (
-          <div
-            {...props}
-            style={{
-              ...props.style,
-              height: '6px',
-              width: '100%',
-              backgroundColor: '#ccc',
-            }}
-          >
-            {children}
-          </div>
+          <Track {...props}>{children}</Track>
         )}
         renderThumb={({ props }) => (
           <div
@@ -61,6 +69,15 @@ export default function Distance() {
           </div>
         )}
       />
+      <Button
+        onClick={() =>
+          setPosition((prevPosition) =>
+            prevPosition + 0.31761 > 3.1761 ? 3.1761 : prevPosition + 0.31761
+          )
+        }
+      >
+        +
+      </Button>
     </Wrapper>
   )
 }
