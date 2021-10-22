@@ -42,7 +42,7 @@ const ButtonWrapper = styled.div`
 export default function ConfiguratorModal() {
   const { configuratorOpen, setConfiguratorOpen } = useContext(UXContext)
   const { reset } = useContext(TransportationContext)
-
+  return null
   return (
     <StyledModal
       open={configuratorOpen}

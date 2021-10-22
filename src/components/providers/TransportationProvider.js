@@ -1,38 +1,27 @@
-import React, { useEffect } from 'react'
-import {
-  useQueryParam,
-  BooleanParam,
-  NumberParam,
-  DelimitedArrayParam,
-  withDefault,
-} from 'use-query-params'
+import React, { useState, useEffect } from 'react'
+import { useQueryParam, BooleanParam, withDefault } from 'use-query-params'
 
-import useTransportations from 'hooks/useTransportations'
+import transportationsData from 'data/transportations.json'
 import TransportationContext from 'utils/TransportationContext'
 
 export default function TransportationProvider(props) {
-  const transportations = useTransportations()
-
-  const [transportationsVisibles, setTransportationsVisibles] = useQueryParam(
-    'transportations',
-    withDefault(DelimitedArrayParam, [])
-  )
-  const [transportationsAlwaysVisibles, setTransportationsAlwaysVisibles] =
-    useQueryParam('always', withDefault(DelimitedArrayParam, []))
-
+  const [transportations, setTransportations] = useState([])
   useEffect(() => {
-    if (!transportationsVisibles.length) {
-      setTransportationsVisibles(
-        transportations
-          .filter((transportation) => transportation.default)
-          .map((transportation) => transportation.id)
+    setTransportations(
+      transportationsData.sort((a, b) =>
+        a.label.fr.normalize('NFD') > b.label.fr.normalize('NFD') ? 1 : -1
       )
-    }
-  }, [transportations, transportationsVisibles, setTransportationsVisibles])
+    )
+  }, [])
+
+  const [displayAll, setDisplayAll] = useQueryParam(
+    'all',
+    withDefault(BooleanParam, false)
+  )
 
   const [carpool, setCarpool] = useQueryParam(
     'carpool',
-    withDefault(NumberParam, 1)
+    withDefault(BooleanParam, false)
   )
 
   const [uncertainty, setUncertainty] = useQueryParam(
@@ -44,49 +33,12 @@ export default function TransportationProvider(props) {
     <TransportationContext.Provider
       value={{
         transportations,
-        transportationsVisibles,
-        transportationsAlwaysVisibles,
         carpool,
         setCarpool,
         uncertainty,
         setUncertainty,
-        toggleVisible: (id) => {
-          setTransportationsVisibles((oldVisibles) =>
-            oldVisibles.includes(String(id))
-              ? oldVisibles.filter(
-                  (visibleId) => String(visibleId) !== String(id)
-                )
-              : [...oldVisibles, id]
-          )
-          setTransportationsAlwaysVisibles((oldAlwaysVisibles) =>
-            oldAlwaysVisibles.filter(
-              (alwaysId) => String(alwaysId) !== String(id)
-            )
-          )
-        },
-        toggleAlwaysVisible: (id) => {
-          setTransportationsVisibles((oldVisibles) =>
-            oldVisibles.includes(String(id))
-              ? oldVisibles
-              : [...oldVisibles, id]
-          )
-          setTransportationsAlwaysVisibles((oldAlwaysVisibles) =>
-            oldAlwaysVisibles.includes(String(id))
-              ? oldAlwaysVisibles.filter(
-                  (alwaysId) => String(alwaysId) !== String(id)
-                )
-              : [...oldAlwaysVisibles, id]
-          )
-        },
-        reset: () => {
-          setTransportationsVisibles(
-            transportations
-              .filter((transportation) => transportation.default)
-              .map((transportation) => transportation.id)
-          )
-          setTransportationsAlwaysVisibles([])
-          setCarpool(1)
-        },
+        displayAll,
+        setDisplayAll,
       }}
     >
       {props.children}

@@ -11,13 +11,13 @@ const Wrapper = styled.div`
   position: relative;
   display: flex;
   align-items: flex-end;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.375rem;
 `
 const TitleWrapper = styled.div`
   position: relative;
   z-index: 10;
   display: flex;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.125rem;
 `
 const Title = styled.div`
   position: relative;
@@ -41,9 +41,9 @@ const Chart = styled.div`
 
 const EmojiWrapper = styled.div`
   position: relative;
-  width: 2.5rem;
+  width: 2rem;
   margin-right: 1rem;
-  font-size: 2.5rem;
+  font-size: 2rem;
   line-height: 0.7;
 
   ${(props) => props.theme.mq.small} {

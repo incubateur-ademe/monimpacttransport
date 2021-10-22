@@ -13,26 +13,25 @@ const Wrapper = styled.div`
   margin-bottom: 2rem;
 `
 export default function Results() {
-  const {
-    transportations,
-    transportationsVisibles,
-    transportationsAlwaysVisibles,
-    carpool,
-    uncertainty,
-  } = useContext(TransportationContext)
+  const { transportations, carpool, uncertainty, displayAll } = useContext(
+    TransportationContext
+  )
   const { km } = useContext(SearchContext)
 
   const [transportationsToDisplay, settransportationsToDisplay] = useState([])
+
   useEffect(() => {
     settransportationsToDisplay(
       transportations
-        .filter((transportation) =>
-          transportationsVisibles.includes(String(transportation.id))
-        )
+        // Remove all empty transportations
+        .filter((transportation) => transportation.values)
+        // Show only default (or display all)
+        .filter((transportation) => transportation.default || displayAll)
+        // Show only depending on distance (or display all)
         .filter(
           (transportation) =>
-            // Always visible
-            transportationsAlwaysVisibles.includes(String(transportation.id)) ||
+            // Display all transportations
+            displayAll ||
             // No display indicator at all
             !transportation.display ||
             // Empty display indicator
@@ -50,35 +49,20 @@ export default function Results() {
             transportation.values.length > 1
               ? transportation.values.find((value) => value.max > km)
               : transportation.values[0]
-          const carpoolers = transportation.carpool
-            ? carpool > transportation.carpool
-              ? transportation.carpool
-              : carpool
-            : 1
           return {
             ...transportation,
             value:
-              ((valueToUse
+              (valueToUse
                 ? uncertainty && valueToUse.uncertainty
                   ? valueToUse.uncertainty
                   : valueToUse.value
-                : 0) *
-                km) /
-              carpoolers,
-            base: (valueToUse.value * km) / carpoolers,
-            carpoolers,
+                : 0) * km,
+            base: valueToUse.value * km,
           }
         })
         .sort((a, b) => (a.value > b.value ? 1 : -1))
     )
-  }, [
-    km,
-    transportations,
-    transportationsVisibles,
-    transportationsAlwaysVisibles,
-    carpool,
-    uncertainty,
-  ])
+  }, [km, transportations, carpool, uncertainty, displayAll])
 
   return (
     <Wrapper>

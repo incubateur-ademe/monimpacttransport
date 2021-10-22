@@ -20,6 +20,7 @@ const flash = keyframes`
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
+  max-width: 30rem;
   height: 2.5rem;
   margin: 0 auto;
 `

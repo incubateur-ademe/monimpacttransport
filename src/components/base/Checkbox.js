@@ -47,7 +47,7 @@ export default function Checkbox(props) {
     <Wrapper
       checked={props.checked}
       small={props.small}
-      onClick={(e) => props.onChange((prev) => !prev)}
+      onClick={(e) => props.onChange(!props.checked)}
       className={props.className}
     >
       <Input

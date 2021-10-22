@@ -1,16 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { Switch, Route } from 'react-router-dom'
 
+import TransportationContext from 'utils/TransportationContext'
 import Checkbox from 'components/base/Checkbox'
 import ModeSelector from './search/ModeSelector'
 import Distance from './search/Distance'
 import Itinerary from './search/Itinerary'
 
-const Wrapper = styled.div`
-  max-width: 30rem;
-  margin: 0 auto;
-`
+const Wrapper = styled.div``
 const Content = styled.div`
   position: relative;
   margin-bottom: 0.5rem;
@@ -19,6 +17,8 @@ const Content = styled.div`
   border-radius: 1rem;
 `
 const Text = styled.p`
+  max-width: 26rem;
+  margin: 0 auto 1rem;
   text-align: center;
 `
 const Checkboxes = styled.div`
@@ -27,10 +27,15 @@ const Checkboxes = styled.div`
   align-items: flex-end;
 `
 const StyledCheckbox = styled(Checkbox)`
-  margin-bottom: 0.5rem;
   font-size: 0.875rem;
+
+  &:first-child {
+    margin-bottom: 0.375rem;
+  }
 `
 export default function Search() {
+  const { displayAll, setDisplayAll } = useContext(TransportationContext)
+
   return (
     <Wrapper>
       <ModeSelector />
@@ -54,7 +59,7 @@ export default function Search() {
       </Content>
       <Checkboxes>
         <Route path='/'>
-          <StyledCheckbox onChange={console.log}>
+          <StyledCheckbox checked={displayAll} onChange={setDisplayAll}>
             Afficher <strong>tous</strong> les modes de transport
           </StyledCheckbox>
         </Route>

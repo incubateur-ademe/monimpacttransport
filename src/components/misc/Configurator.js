@@ -31,7 +31,7 @@ const Content = styled.div`
 `
 export default function Configurator() {
   const { configuratorOpen, setConfiguratorOpen } = useContext(UXContext)
-
+  return null
   return (
     <Wrapper open={configuratorOpen}>
       <ButtonClose
