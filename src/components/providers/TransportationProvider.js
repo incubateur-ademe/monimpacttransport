@@ -14,20 +14,11 @@ export default function TransportationProvider(props) {
     )
   }, [])
 
-  const [displayAll, setDisplayAll] = useQueryParam(
-    'all',
-    withDefault(BooleanParam, false)
-  )
+  const [displayAll, setDisplayAll] = useState(false)
 
-  const [carpool, setCarpool] = useQueryParam(
-    'carpool',
-    withDefault(BooleanParam, false)
-  )
+  const [carpool, setCarpool] = useState(false)
 
-  const [uncertainty, setUncertainty] = useQueryParam(
-    'uncertainty',
-    withDefault(BooleanParam, true)
-  )
+  const [uncertainty, setUncertainty] = useState(true)
 
   return (
     <TransportationContext.Provider

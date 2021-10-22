@@ -34,7 +34,9 @@ const StyledCheckbox = styled(Checkbox)`
   }
 `
 export default function Search() {
-  const { displayAll, setDisplayAll } = useContext(TransportationContext)
+  const { displayAll, setDisplayAll, carpool, setCarpool } = useContext(
+    TransportationContext
+  )
 
   return (
     <Wrapper>
@@ -63,7 +65,7 @@ export default function Search() {
             Afficher <strong>tous</strong> les modes de transport
           </StyledCheckbox>
         </Route>
-        <StyledCheckbox onChange={console.log}>
+        <StyledCheckbox checked={carpool} onChange={setCarpool}>
           Afficher le <strong>covoiturage</strong>
         </StyledCheckbox>
       </Checkboxes>
