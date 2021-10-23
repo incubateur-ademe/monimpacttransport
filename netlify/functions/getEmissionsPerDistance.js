@@ -6,7 +6,7 @@ var transportations = require('../../public/data/transportations.json')
 
 exports.handler = async function (event) {
   matomo.track(
-    `https://monimpacttransport.fr/api/${event.queryStringParameters.km}`
+    `https://api.monimpacttransport.fr/beta/getEmissionsPerDistance?km=${event.queryStringParameters.km}`
   )
 
   const km = event.queryStringParameters.km || 1
