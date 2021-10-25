@@ -27,6 +27,8 @@ export default function Results() {
         .filter((transportation) => transportation.values)
         // Show only default (or display all)
         .filter((transportation) => transportation.default || displayAll)
+        // Show carpool or not
+        .filter((transportation) => !transportation.carpoolers || carpool)
         // Show only depending on distance (or display all)
         .filter(
           (transportation) =>
