@@ -1,5 +1,7 @@
 http://api.monimpacttransport.fr/beta/*   https://monimpacttransport.fr/.netlify/functions/:splat 200
 https://api.monimpacttransport.fr/beta/*  https://monimpacttransport.fr/.netlify/functions/:splat 200
 
+https://api.monimpacttransport.fr/*                                    https://api.monimpacttransport.fr/beta/*  200
+
 https://monimpacttransport.fr/*                                    /index.html  200
 https://www.monimpacttransport.fr/*                                    /index.html  200
