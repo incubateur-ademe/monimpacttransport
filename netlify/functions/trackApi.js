@@ -30,7 +30,7 @@ exports.handler = async function (event, context, callback) {
     event.queryStringParameters.ignoreRadiativeForcing || false
   const fields = (event.queryStringParameters.fields || '').split(',')
 
-  callback(null, {
+  return {
     statusCode: 200,
     headers: {
       'Access-Control-Allow-Origin': '*',
@@ -94,5 +94,5 @@ exports.handler = async function (event, context, callback) {
           return response
         })
     ),
-  })
+  }
 }
