@@ -10,13 +10,12 @@ exports.handler = async function (event, context, callback) {
       `https://stats.data.gouv.fr/matomo.php?idsite=155&rec=1&url=https%3A%2F%2Fapi.monimpacttransport.fr%2F&beta%2F&getEmissionsPerDistance?km=${km}`
     )
     .then((response) => {
-      console.log('success', response)
+      console.log('tracked successfully')
     })
     .catch((error) => {
-      console.log('error', error)
+      console.log('tracked failed', error)
     })
 
-  console.log('finally')
   const filter =
     event.queryStringParameters.filter ||
     (event.queryStringParameters.transportations ? 'all' : 'smart')
