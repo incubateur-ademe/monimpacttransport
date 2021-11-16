@@ -1,19 +1,12 @@
-var MatomoTracker = require('matomo-tracker')
-
-var matomo = new MatomoTracker(155, 'https://stats.data.gouv.fr/matomo.php')
+const https = require('https')
 
 var transportations = require('../../public/data/transportations.json')
 
-matomo.on('error', function (err) {
-  console.log('error tracking request: ', err)
-})
-
 exports.handler = async function (event) {
-  matomo.track(
-    `https://api.monimpacttransport.fr/beta/getEmissionsPerDistance?km=${event.queryStringParameters.km}`
-  )
-
   const km = event.queryStringParameters.km || 1
+
+  https.get(`https://api.monimpacttransport.fr/beta/trackApi?km=${km}`)
+
   const filter =
     event.queryStringParameters.filter ||
     (event.queryStringParameters.transportations ? 'all' : 'smart')
