@@ -2,10 +2,10 @@ const axios = require('axios')
 
 var transportations = require('../../public/data/transportations.json')
 
-exports.handler = async function (event) {
+exports.handler = async function (event, context, callback) {
   const km = event.queryStringParameters.km || 1
 
-  return axios
+  axios
     .post(
       `https://stats.data.gouv.fr/matomo.php?idsite=155&rec=1&url=https%3A%2F%2Fapi.monimpacttransport.fr%2F&beta%2F&getEmissionsPerDistance?km=${km}`
     )
@@ -29,7 +29,7 @@ exports.handler = async function (event) {
         event.queryStringParameters.ignoreRadiativeForcing || false
       const fields = (event.queryStringParameters.fields || '').split(',')
 
-      return {
+      callback(null, {
         statusCode: 200,
         headers: {
           'Access-Control-Allow-Origin': '*',
@@ -94,6 +94,6 @@ exports.handler = async function (event) {
               return response
             })
         ),
-      }
+      })
     })
 }
