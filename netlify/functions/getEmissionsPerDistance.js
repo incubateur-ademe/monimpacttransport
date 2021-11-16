@@ -7,7 +7,7 @@ exports.handler = async function (event, context, callback) {
 
   await axios
     .post(
-      `https://stats.data.gouv.fr/matomo.php?idsite=155&rec=1&url=https%3A%2F%2Fapi.monimpacttransport.fr%2F&beta%2F&getEmissionsPerDistance?km=${km}`
+      `https://stats.data.gouv.fr/matomo.php?idsite=155&rec=1&url=https%3A%2F%2Fapi.monimpacttransport.fr%2Fbeta%2FgetEmissionsPerDistance%3Fkm%3D${km}`
     )
     .then((response) => {
       console.log('tracked successfully')
