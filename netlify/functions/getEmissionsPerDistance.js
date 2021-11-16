@@ -5,7 +5,9 @@ var transportations = require('../../public/data/transportations.json')
 exports.handler = async function (event) {
   const km = event.queryStringParameters.km || 1
 
-  https.get(`https://api.monimpacttransport.fr/beta/trackApi?km=${km}`)
+  https.get(
+    `https://monimpacttransport.fr/.netlify/functions/trackApi?km=${km}`
+  )
 
   const filter =
     event.queryStringParameters.filter ||
