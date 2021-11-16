@@ -7,7 +7,9 @@ matomo.on('error', function (err) {
 })
 
 exports.handler = async function (event) {
-  return matomo.track(
-    `https://api.monimpacttransport.fr/beta/getEmissionsPerDistance?km=${event.queryStringParameters.km}`
-  )
+  return matomo
+    .track(
+      `https://api.monimpacttransport.fr/beta/getEmissionsPerDistance?km=${event.queryStringParameters.km}`
+    )
+    .then((res) => console.log('then: ', res))
 }
