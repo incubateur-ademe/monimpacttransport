@@ -1,90 +1,99 @@
-const https = require('https')
+const axios = require('axios')
 
 var transportations = require('../../public/data/transportations.json')
 
 exports.handler = async function (event) {
   const km = event.queryStringParameters.km || 1
 
-  https.get(
-    `https://monimpacttransport.fr/.netlify/functions/trackApi?km=${km}`
-  )
+  return axios
+    .post(
+      `https://stats.data.gouv.fr/matomo.php?idsite=155&rec=1&url=https%3A%2F%2Fapi.monimpacttransport.fr%2F&beta%2F&getEmissionsPerDistance?km=${km}`
+    )
+    .then((response) => {
+      console.log('success', response)
+    })
+    .catch((error) => {
+      console.log('error', error)
+    })
+    .finally(() => {
+      const filter =
+        event.queryStringParameters.filter ||
+        (event.queryStringParameters.transportations ? 'all' : 'smart')
+      const activeTransportations = event.queryStringParameters.transportations
+        ? event.queryStringParameters.transportations
+            .split(',')
+            .map((id) => Number(id))
+        : []
 
-  const filter =
-    event.queryStringParameters.filter ||
-    (event.queryStringParameters.transportations ? 'all' : 'smart')
-  const activeTransportations = event.queryStringParameters.transportations
-    ? event.queryStringParameters.transportations
-        .split(',')
-        .map((id) => Number(id))
-    : []
+      const ignoreRadiativeForcing =
+        event.queryStringParameters.ignoreRadiativeForcing || false
+      const fields = (event.queryStringParameters.fields || '').split(',')
 
-  const ignoreRadiativeForcing =
-    event.queryStringParameters.ignoreRadiativeForcing || false
-  const fields = (event.queryStringParameters.fields || '').split(',')
-
-  return {
-    statusCode: 200,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Access-Control-Allow-Methods': 'GET, POST, OPTION',
-    },
-    body: JSON.stringify(
-      transportations
-        // Remove transportations without data
-        .filter((transportation) => transportation.values)
-        // Filter transportations via filter parameter
-        .filter((transportation) =>
-          filter === 'all'
-            ? true
-            : //Not set
-              ((!transportation.display.min && !transportation.display.max) ||
-                //Only max
-                (!transportation.display.min &&
-                  transportation.display.max >= km) ||
-                //Only min
-                (!transportation.display.max &&
-                  transportation.display.min <= km) ||
-                //Both min and max
-                (transportation.display.min <= km &&
-                  transportation.display.max >= km)) &&
-              true
-        )
-        // Filter transportations via transportations parameter
-        .filter((transportation) =>
-          !activeTransportations.length
-            ? true
-            : activeTransportations.includes(transportation.id)
-        )
-        // Calculate emissions
-        .map((transportation) => {
-          const value = ignoreRadiativeForcing
-            ? transportation.values[0].value
-            : transportation.values[0].uncertainty ||
-              transportation.values[0].value
-          return {
-            ...transportation,
-            emissions: {
-              gco2e: value * km,
-              kgco2e: (value * km) / 1000,
-              tco2e: (value * km) / 1000000,
-            },
-          }
-        })
-        // Set response according to field parameter
-        .map((transportation) => {
-          let response = {
-            id: transportation.id,
-            name: transportation.label.fr,
-            emissions: transportation.emissions,
-          }
-          for (let field of fields) {
-            response[field] =
-              (transportation[field] && transportation[field].fr) ||
-              transportation[field]
-          }
-          return response
-        })
-    ),
-  }
+      return {
+        statusCode: 200,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Headers': 'Content-Type',
+          'Access-Control-Allow-Methods': 'GET, POST, OPTION',
+        },
+        body: JSON.stringify(
+          transportations
+            // Remove transportations without data
+            .filter((transportation) => transportation.values)
+            // Filter transportations via filter parameter
+            .filter((transportation) =>
+              filter === 'all'
+                ? true
+                : //Not set
+                  ((!transportation.display.min &&
+                    !transportation.display.max) ||
+                    //Only max
+                    (!transportation.display.min &&
+                      transportation.display.max >= km) ||
+                    //Only min
+                    (!transportation.display.max &&
+                      transportation.display.min <= km) ||
+                    //Both min and max
+                    (transportation.display.min <= km &&
+                      transportation.display.max >= km)) &&
+                  true
+            )
+            // Filter transportations via transportations parameter
+            .filter((transportation) =>
+              !activeTransportations.length
+                ? true
+                : activeTransportations.includes(transportation.id)
+            )
+            // Calculate emissions
+            .map((transportation) => {
+              const value = ignoreRadiativeForcing
+                ? transportation.values[0].value
+                : transportation.values[0].uncertainty ||
+                  transportation.values[0].value
+              return {
+                ...transportation,
+                emissions: {
+                  gco2e: value * km,
+                  kgco2e: (value * km) / 1000,
+                  tco2e: (value * km) / 1000000,
+                },
+              }
+            })
+            // Set response according to field parameter
+            .map((transportation) => {
+              let response = {
+                id: transportation.id,
+                name: transportation.label.fr,
+                emissions: transportation.emissions,
+              }
+              for (let field of fields) {
+                response[field] =
+                  (transportation[field] && transportation[field].fr) ||
+                  transportation[field]
+              }
+              return response
+            })
+        ),
+      }
+    })
 }
