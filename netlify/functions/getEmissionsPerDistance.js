@@ -5,9 +5,17 @@ var transportations = require('../../public/data/transportations.json')
 exports.handler = async function (event, context, callback) {
   const km = event.queryStringParameters.km || 1
 
+  const genRanHex = (size) =>
+    [...Array(size)]
+      .map(() => Math.floor(Math.random() * 16).toString(16))
+      .join('')
+
+  const id = genRanHex(16)
+  const rand = genRanHex(16)
+
   await axios
     .post(
-      `https://stats.data.gouv.fr/matomo.php?idsite=155&rec=1&url=https%3A%2F%2Fapi.monimpacttransport.fr%2Fbeta%2FgetEmissionsPerDistance%3Fkm%3D${km}`
+      `https://stats.data.gouv.fr/matomo.php?idsite=155&rec=1&_id=${id}&rand=${rand}&url=https%3A%2F%2Fapi.monimpacttransport.fr%2Fbeta%2FgetEmissionsPerDistance%3Fkm%3D${km}`
     )
     .then((response) => {
       console.log('tracked successfully')
