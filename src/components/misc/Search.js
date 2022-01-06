@@ -57,7 +57,7 @@ export default function Search() {
             </Text>
             <Itinerary />
           </Route>
-          <Route path='/'>
+          <Route>
             <Text>
               Découvrez la quantité de CO2e que vous émettez{' '}
               <strong>(par personne)</strong> pour cette distance
@@ -67,7 +67,7 @@ export default function Search() {
         </Switch>
       </Content>
       <Checkboxes>
-        <Route path='/'>
+        <Route path='/' exact>
           <StyledCheckbox checked={displayAll} onChange={setDisplayAll}>
             Afficher <strong>tous</strong> les modes de transport
           </StyledCheckbox>

@@ -117,7 +117,7 @@ export default function Burger(props) {
       </Button>
       <MenuWrapper>
         <Item to='/teletravail'>Télétravail</Item>
-        <Item to='/apropos'>À propos</Item>
+        <Item to='#apropos'>À propos</Item>
       </MenuWrapper>
     </Wrapper>
   )
