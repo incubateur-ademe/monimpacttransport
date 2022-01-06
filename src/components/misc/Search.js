@@ -50,6 +50,13 @@ export default function Search() {
             </Text>
             <Itinerary />
           </Route>
+          <Route path='/teletravail'>
+            <Text>
+              Découvrez la quantité de CO2e que vous émettez{' '}
+              <strong>(à l'année)</strong> en travaillant de chez vous
+            </Text>
+            <Itinerary />
+          </Route>
           <Route path='/'>
             <Text>
               Découvrez la quantité de CO2e que vous émettez{' '}

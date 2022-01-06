@@ -18,6 +18,7 @@ import InstallInstructionsModal from 'components/modals/InstallInstructionsModal
 import Web from 'components/layout/Web'
 import Search from 'components/misc/Search'
 import Itinerary from 'views/Itinerary'
+import Teletravail from 'views/Teletravail'
 import Distance from 'views/Distance'
 
 const queryClient = new QueryClient()
@@ -39,6 +40,9 @@ function App() {
                       <Switch>
                         <Route path='/itineraire'>
                           <Itinerary />
+                        </Route>
+                        <Route path='/teletravail'>
+                          <Teletravail />
                         </Route>
                         <Route path='/'>
                           <Distance />
