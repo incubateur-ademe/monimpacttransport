@@ -17,7 +17,7 @@ import ApproximationModal from 'components/modals/ApproximationModal'
 import InstallInstructionsModal from 'components/modals/InstallInstructionsModal'
 import Web from 'components/layout/Web'
 import Search from 'components/misc/Search'
-//import Itinerary from 'views/Itinerary'
+import Itinerary from 'views/Itinerary'
 import Distance from 'views/Distance'
 
 const queryClient = new QueryClient()
@@ -38,7 +38,7 @@ function App() {
                       <Search />
                       <Switch>
                         <Route path='/itineraire'>
-                          <div>Mode itinéraire</div>
+                          <Itinerary />
                         </Route>
                         <Route path='/'>
                           <Distance />
