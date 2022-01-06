@@ -12,13 +12,12 @@ import TransportationProvider from 'components/providers/TransportationProvider'
 import SearchProvider from 'components/providers/SearchProvider'
 
 import CO2EModal from 'components/modals/CO2EModal'
-import ConfiguratorModal from 'components/modals/ConfiguratorModal'
 import RadiativeForcingModal from 'components/modals/RadiativeForcingModal'
 import ApproximationModal from 'components/modals/ApproximationModal'
 import InstallInstructionsModal from 'components/modals/InstallInstructionsModal'
 import Web from 'components/layout/Web'
 import Search from 'components/misc/Search'
-import Itinerary from 'views/Itinerary'
+//import Itinerary from 'views/Itinerary'
 import Distance from 'views/Distance'
 
 const queryClient = new QueryClient()
@@ -39,7 +38,7 @@ function App() {
                       <Search />
                       <Switch>
                         <Route path='/itineraire'>
-                          <Itinerary />
+                          <div>Mode itinéraire</div>
                         </Route>
                         <Route path='/'>
                           <Distance />
@@ -47,7 +46,6 @@ function App() {
                       </Switch>
                     </Web>
                     <CO2EModal />
-                    <ConfiguratorModal />
                     <RadiativeForcingModal />
                     <ApproximationModal />
                     <InstallInstructionsModal />

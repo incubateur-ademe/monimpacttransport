@@ -1,22 +1,9 @@
 import React, { useState, useEffect, useContext } from 'react'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 import { Range } from 'react-range'
 
 import SearchContext from 'utils/SearchContext'
 
-const flash = keyframes`
-  from,
-  75%,
-  87.5%,
-  to {
-    opacity: 1;
-  }
-
-  81.25%,
-  93.75% {
-    opacity: 0;
-  }
-`
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
@@ -70,7 +57,7 @@ const Thumb = styled.div`
 
   &:focus {
     outline: none;
-    box-shadow: 0 0 0 0.125rem ${(props) => props.theme.colors.second};
+    box-shadow: 0 0 0 0.125rem ${(props) => props.theme.colors.mainLight};
   }
 `
 export default function Distance() {

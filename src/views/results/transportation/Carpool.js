@@ -2,9 +2,7 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 import ReactTooltip from 'react-tooltip'
 
-import UXContext from 'utils/UXContext'
 import TransportationContext from 'utils/TransportationContext'
-import Emoji from 'components/base/Emoji'
 import ButtonClose from './ButtonClose'
 
 const Wrapper = styled.div`
@@ -14,58 +12,37 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   transform: translateY(-50%);
-  margin-left: 0.2rem;
-  padding: 0.4rem;
-  cursor: pointer;
-  transition: opacity 300ms;
-
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: ${(props) => props.theme.colors.background};
-    border: 2px solid ${(props) => props.theme.colors.second};
-    border-radius: 1.5rem;
-    transition: background-color 200ms ease-out;
-  }
-
-  &:hover {
-    &:before {
-      background-color: ${(props) => props.theme.colors.secondLight};
-    }
-  }
+  margin-left: 0.4rem;
+  color: ${(props) => props.theme.colors.background};
+  background-color: ${(props) => props.theme.colors.main};
+  border-radius: 1.5rem;
+  transition: background-color 200ms ease-out;
 
   ${(props) => props.theme.mq.medium} {
     display: none;
   }
 `
 const Carpoolers = styled.div`
-  display: flex;
-`
-const Carpooler = styled(Emoji)`
-  position: relative;
-  margin: 0 0.2rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
 `
 export default function Carpool(props) {
   const { setCarpool } = useContext(TransportationContext)
 
   return props.transportation.carpoolers ? (
     <>
-      <Wrapper
-        onClick={() => setCarpool(false)}
-        data-tip={'Cacher le covoiturage'}
-        data-for='carpool'
-      >
-        <Carpoolers>
-          {[...Array(props.transportation.carpoolers)].map(
-            (carpooler, index) => (
-              <Carpooler key={index}>🧑</Carpooler>
-            )
-          )}
+      <Wrapper>
+        <Carpoolers
+          data-tip={
+            'Seulement si ces covoitureurs évitent de faire le même trajet avec un véhicule équivalent'
+          }
+          data-for='carpool'
+        >
+          avec {props.transportation.carpoolers - 1} covoitureur
+          {props.transportation.carpoolers > 2 ? 's' : ''}
         </Carpoolers>
+        <ButtonClose onClick={() => setCarpool(false)} />
       </Wrapper>
       <ReactTooltip id='carpool' />
     </>

@@ -9,19 +9,18 @@ const Wrapper = styled.div`
   top: 0;
   right: 0;
   transform: translate(40%, -30%);
-  width: 1.5rem;
-  height: 1.5rem;
-  background-color: ${(props) => props.theme.colors.background};
-  border: 2px solid ${(props) => props.theme.colors.ter};
+  width: 1.125rem;
+  height: 1.125rem;
+  background-color: ${(props) => props.theme.colors.main};
   border-radius: 1rem;
   cursor: pointer;
 `
 const Svg = styled.svg`
   display: block;
-  width: 0.65rem;
+  width: 0.5rem;
   height: auto;
   path {
-    fill: ${(props) => props.theme.colors.text};
+    fill: ${(props) => props.theme.colors.background};
   }
 `
 export default function ButtonClose(props) {
