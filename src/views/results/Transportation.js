@@ -127,7 +127,12 @@ export default function Transportation(props) {
           <Title>
             <span onClick={() => setConfiguratorOpen(props.transportation.id)}>
               {props.transportation.label.fr}{' '}
-              {props.distance && ` (${props.distance / 1000}km)`}
+              {props.distance &&
+                ` (${
+                  props.distance > 10000
+                    ? Math.round(props.distance / 1000)
+                    : Math.round(props.distance / 100) / 10
+                }km)`}
             </span>
             <Carpool transportation={props.transportation} />
             <Uncertainty transportation={props.transportation} />

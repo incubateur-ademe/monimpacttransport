@@ -31,9 +31,12 @@ export default function Itinerary() {
         footItineraries[0].elements[0].status === 'OK' &&
         footItineraries[0].elements[0].distance.value,
       rail:
-        railItineraries &&
-        railItineraries[0].elements[0].status === 'OK' &&
-        railItineraries[0].elements[0].distance.value,
+        (railItineraries &&
+          railItineraries[0].elements[0].status === 'OK' &&
+          railItineraries[0].elements[0].distance.value) ||
+        (carItineraries &&
+          carItineraries[0].elements[0].status === 'OK' &&
+          carItineraries[0].elements[0].distance.value),
     })
   }, [carItineraries, footItineraries, railItineraries])
 
@@ -55,6 +58,7 @@ export default function Itinerary() {
         // Show carpool or not
         .filter((transportation) => !transportation.carpoolers || carpool)
         // Show only depending on distance (or display all)
+        .filter((transportation) => datas[transportation.type])
         .filter(
           (transportation) =>
             // Display all transportations
@@ -65,36 +69,40 @@ export default function Itinerary() {
             (!transportation.display.min && !transportation.display.max) ||
             //Only max
             (!transportation.display.min &&
-              transportation.display.max >= datas[transportation.type]) ||
+              transportation.display.max >=
+                datas[transportation.type] / 1000) ||
             //Only min
             (!transportation.display.max &&
-              transportation.display.min <= datas[transportation.type]) ||
+              transportation.display.min <=
+                datas[transportation.type] / 1000) ||
             //Both min and max
-            (transportation.display.min <= datas[transportation.type] &&
-              transportation.display.max >= datas[transportation.type])
+            (transportation.display.min <= datas[transportation.type] / 1000 &&
+              transportation.display.max >= datas[transportation.type] / 1000)
         )
         .map((transportation) => {
           const valueToUse =
             transportation.values.length > 1
               ? transportation.values.find(
-                  (value) => value.max > datas[transportation.type]
+                  (value) => value.max > datas[transportation.type] / 1000
                 )
               : transportation.values[0]
           return {
             ...transportation,
             value:
-              (valueToUse
+              ((valueToUse
                 ? uncertainty && valueToUse.uncertainty
                   ? valueToUse.uncertainty
                   : valueToUse.value
-                : 0) * datas[transportation.type],
-            base: valueToUse.value * datas[transportation.type],
+                : 0) *
+                datas[transportation.type]) /
+              1000,
+            base: (valueToUse.value * datas[transportation.type]) / 1000,
           }
         })
         .sort((a, b) => (a.value > b.value ? 1 : -1))
     )
   }, [datas, transportations, carpool, uncertainty, displayAll])
-
+  console.log(transportations)
   return (
     <Wrapper>
       <Flipper
