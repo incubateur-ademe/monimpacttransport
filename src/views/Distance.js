@@ -19,7 +19,6 @@ export default function Results() {
   const { km } = useContext(SearchContext)
 
   const [transportationsToDisplay, settransportationsToDisplay] = useState([])
-
   useEffect(() => {
     settransportationsToDisplay(
       transportations
