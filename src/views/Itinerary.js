@@ -31,12 +31,11 @@ export default function Itinerary() {
         footItineraries[0].elements[0].status === 'OK' &&
         footItineraries[0].elements[0].distance.value,
       rail:
-        (railItineraries &&
-          railItineraries[0].elements[0].status === 'OK' &&
-          railItineraries[0].elements[0].distance.value) ||
-        (carItineraries &&
-          carItineraries[0].elements[0].status === 'OK' &&
-          carItineraries[0].elements[0].distance.value),
+        railItineraries && railItineraries[0].elements[0].status === 'OK'
+          ? railItineraries[0].elements[0].distance.value
+          : carItineraries &&
+            carItineraries[0].elements[0].status === 'OK' &&
+            carItineraries[0].elements[0].distance.value,
     })
   }, [carItineraries, footItineraries, railItineraries])
 
@@ -102,7 +101,7 @@ export default function Itinerary() {
         .sort((a, b) => (a.value > b.value ? 1 : -1))
     )
   }, [datas, transportations, carpool, uncertainty, displayAll])
-  console.log(transportations)
+
   return (
     <Wrapper>
       <Flipper
