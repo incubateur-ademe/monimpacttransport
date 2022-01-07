@@ -13,14 +13,14 @@ const Input = styled.input`
   padding: 0.5rem 4.5rem 0.5rem 1.5rem;
   font-size: 1rem;
   font-weight: normal;
-  line-height: 1.55;
+  line-height: 1.25;
   color: ${(props) => props.theme.colors.text};
   background: transparent;
   border: none;
 
   &::placeholder {
     color: ${(props) => props.theme.colors.text};
-    opacity: 0.4;
+    opacity: 0.6;
   }
   &:focus {
     outline: none;
@@ -32,7 +32,7 @@ export default React.forwardRef(function TextInput(props, ref) {
       <Input
         ref={ref}
         type='text'
-        placeholder='Entrez votre adresse'
+        placeholder={props.placeholder}
         value={props.search}
         onChange={(e) => props.setSearch(e.target.value)}
         onFocus={() => props.setFocus(true)}

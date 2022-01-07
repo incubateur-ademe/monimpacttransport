@@ -30,15 +30,15 @@ export default function Logo() {
       >
         <path d='M0 0H56V56H0V0Z' fill='white' />
         <path
-          fill-rule='evenodd'
-          clip-rule='evenodd'
+          fillRule='evenodd'
+          clipRule='evenodd'
           d='M53.6667 2.33333H2.33333V53.6667H53.6667V2.33333ZM0 0V56H56V0H0Z'
           fill='#DE0244'
         />
         <mask
           id='mask0_304:3'
           maskUnits='userSpaceOnUse'
-          style={{ 'mask-type': 'alpha' }}
+          style={{ maskType: 'alpha' }}
           x='2'
           y='2'
           width='52'
@@ -51,8 +51,8 @@ export default function Logo() {
         </mask>
         <g mask='url(#mask0_304:3)'>
           <path
-            fill-rule='evenodd'
-            clip-rule='evenodd'
+            fillRule='evenodd'
+            clipRule='evenodd'
             d='M2.10007 46C26.3454 46 46.0001 26.3453 46.0001 2.10001C46.0001 -22.1453 26.3454 -41.8 2.10007 -41.8C-22.1452 -41.8 -41.7999 -22.1453 -41.7999 2.10001C-41.7999 26.3453 -22.1452 46 2.10007 46ZM2.10007 56C31.8682 56 56.0001 31.8682 56.0001 2.10001C56.0001 -27.6681 31.8682 -51.8 2.10007 -51.8C-27.6681 -51.8 -51.7999 -27.6681 -51.7999 2.10001C-51.7999 31.8682 -27.6681 56 2.10007 56Z'
             fill='#DE0244'
           />

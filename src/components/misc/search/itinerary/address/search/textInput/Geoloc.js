@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import styled, { keyframes } from 'styled-components'
 
 import { usePosition } from 'hooks/useAddress'
@@ -61,11 +61,13 @@ export default function Geoloc(props) {
 
   const [isGeolocating, setIsGeolocating] = useState(null)
 
-  const { data, isFetching, isError } = usePosition(position)
+  const { isFetching, isError } = usePosition(position)
 
+  /*
   useEffect(() => {
     data && data.features && props.navigateToPlace(data.features[0])
   }, [data])
+  */
 
   const [error, setError] = useState(false)
 
