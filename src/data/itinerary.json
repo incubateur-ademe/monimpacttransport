@@ -135,7 +135,7 @@
     "emoji": { "main": "🚌" },
     "default": true,
     "display": {
-      "min": 16
+      "min": 31
     },
     "values": [
       {
@@ -156,7 +156,7 @@
     "emoji": { "main": "🚌" },
     "default": true,
     "display": {
-      "max": 15
+      "max": 30
     },
     "values": [
       {
