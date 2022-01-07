@@ -4,7 +4,7 @@ exports.handler = function (event) {
   console.log(event)
   return axios
     .get(
-      `https://maps.googleapis.com/maps/api/distancematrix/json?destinations=${event.queryStringParameters.destinations}&origins=${event.queryStringParameters.origins}&key=${process.env.GMAP_API_KEY}`
+      `https://maps.googleapis.com/maps/api/distancematrix/json?${event.rawQuery}&key=${process.env.GMAP_API_KEY}`
     )
     .then((res) => ({
       statusCode: 200,
