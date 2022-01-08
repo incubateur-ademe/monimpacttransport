@@ -24,7 +24,6 @@ import Distance from 'views/Distance'
 const queryClient = new QueryClient()
 
 function App() {
-  console.log('app')
   return (
     <Router>
       <QueryParamProvider ReactRouterRoute={Route}>

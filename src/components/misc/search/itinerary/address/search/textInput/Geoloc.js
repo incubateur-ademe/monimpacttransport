@@ -63,15 +63,14 @@ export default function Geoloc(props) {
 
   const { isFetching, isError } = usePosition(position)
 
-  /*
-  useEffect(() => {
+  /*useEffect(() => {
     data && data.features && props.navigateToPlace(data.features[0])
-  }, [data])
-  */
+  }, [data])*/
 
   const [error, setError] = useState(false)
 
   return typeof window != 'undefined' &&
+    false &&
     window.document &&
     'geolocation' in navigator ? (
     <>
