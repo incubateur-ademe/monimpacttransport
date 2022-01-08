@@ -22,41 +22,30 @@ const Content = styled.div`
 `
 const Statistic = styled.div`
   margin-bottom: 1em;
-`
-const FirstLine = styled.div`
-  display: flex;
-  align-items: baseline;
-
-  font-size: 3.15rem;
+  font-size: 4.3rem;
   font-weight: bold;
   line-height: 0.9;
+  text-align: right;
 
   ${(props) => props.theme.mq.small} {
-    font-size: 7vw;
+    font-size: 3.5rem;
+    text-align: center;
   }
 `
-const Number = styled.div`
-  width: 2.22303365em;
-  font-size: 15.5rem;
-  font-weight: bold;
+const FirstLine = styled.div``
+const Number = styled.span`
+  font-size: 14.5rem;
   text-align: right;
   color: ${(props) => props.theme.colors.main};
   opacity: ${(props) => (props.isOnScreen ? 1 : 0)};
   transition: opacity 1000ms;
 
   ${(props) => props.theme.mq.small} {
-    font-size: 36.5vw;
+    display: block;
+    font-size: 46.5vw;
   }
 `
-const BigText = styled.div`
-  font-size: 4.3rem;
-  font-weight: bold;
-  line-height: 0.9;
-
-  ${(props) => props.theme.mq.small} {
-    line-height: 1.04;
-  }
-`
+const BigText = styled.div``
 const Color = styled.span`
   color: ${(props) => props.theme.colors.main};
 `
