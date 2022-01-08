@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import useIframe from 'hooks/useIframe'
 import HeaderWrapper from 'components/wrappers/HeaderWrapper'
 import FooterWrapper from 'components/wrappers/FooterWrapper'
+import Learning from 'components/misc/Learning'
 
 const Wrapper = styled.div`
   display: flex;
@@ -49,6 +50,7 @@ export default function Web(props) {
           <HeaderWrapper noHeader={noHeader} />
           {props.children}
         </FullScreen>
+        <Learning />
         <FooterWrapper iframe={iframe} />
       </Content>
     </Wrapper>

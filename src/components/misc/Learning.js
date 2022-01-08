@@ -8,12 +8,13 @@ import Button from 'components/base/Button'
 import MagicLink from 'components/base/MagicLink'
 
 const Wrapper = styled.div`
-  width: ${(props) => props.width || '37rem'};
+  width: 47rem;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 2rem 0.5rem;
+  padding: 0 5rem 2rem;
 
-  ${(props) => props.theme.mq.small} {
-    width: auto;
+  ${(props) => props.theme.mq.small}  {
+    padding: 0 0.75rem 5rem;
   }
 `
 const Content = styled.div`
@@ -36,7 +37,7 @@ const FirstLine = styled.div`
 `
 const Number = styled.div`
   width: 2.22303365em;
-  font-size: 13rem;
+  font-size: 15.5rem;
   font-weight: bold;
   text-align: right;
   color: ${(props) => props.theme.colors.main};
@@ -47,25 +48,13 @@ const Number = styled.div`
     font-size: 36.5vw;
   }
 `
-const FirstWord = styled.span`
-  opacity: ${(props) => (props.isOnScreen ? 1 : 0)};
-  transition: opacity 1000ms 1000ms;
-`
 const BigText = styled.div`
+  font-size: 4.3rem;
   font-weight: bold;
   line-height: 0.9;
 
   ${(props) => props.theme.mq.small} {
     line-height: 1.04;
-  }
-`
-const Line = styled.div`
-  font-size: ${(props) => (props.bottom ? '9.09em' : '6.45em')};
-  opacity: ${(props) => (props.isOnScreen ? 1 : 0)};
-  transition: opacity 1000ms ${(props) => (props.bottom ? '1400ms' : '1100ms')};
-
-  ${(props) => props.theme.mq.small} {
-    font-size: ${(props) => (props.bottom ? '24.2vw' : '17.5vw')};
   }
 `
 const Color = styled.span`
@@ -96,25 +85,24 @@ export default function Learning() {
         <Statistic ref={ref}>
           <FirstLine>
             <Number isOnScreen={isOnScreen}>
-              {isOnScreen && (
+              {isOnScreen ? (
                 <AnimatedNumber
                   value={30}
                   formatValue={(value) => Math.round(value) + '%'}
                 />
+              ) : (
+                '0%'
               )}
             </Number>
-            <FirstWord isOnScreen={isOnScreen}>des</FirstWord>
+            des
           </FirstLine>
           <BigText>
-            <Line isOnScreen={isOnScreen}>émissions</Line>
-            <Line isOnScreen={isOnScreen} bottom>
-              de <Color>CO2</Color>
-            </Line>
+            émissions de <Color>CO2</Color>
           </BigText>
         </Statistic>
         <Strong>
           "Hors confinement", le secteur des transports est le 1er secteur
-          émetteur de GES.
+          émetteur de gaz à effet de serre.
         </Strong>
         <Text>
           Jusqu’à peu, se déplacer faisait partie intégrante de notre vie
@@ -133,14 +121,14 @@ export default function Learning() {
         </ButtonWrapper>
         <Text>
           Si vous souhaitez aller plus loin dans votre démarche, vous pouvez
-          calculer l'empreinte du télétravail sur le climat grace à notre{' '}
-          <MagicLink to={'https://teletravail.monimpacttransport.fr/'}>
-            simulateur télétravail
+          calculer votre empreinte sur le climat grace à notre{' '}
+          <MagicLink to={'https://nosgestesclimat.fr/'}>
+            simulateur Nos Gestes Climat
           </MagicLink>
         </Text>
         <ButtonWrapper>
-          <Button to={'https://teletravail.monimpacttransport.fr/'}>
-            Calculer l'impact du télétravail
+          <Button to={'https://nosgestesclimat.fr/'}>
+            Découvrir Nos Gestes Climat
           </Button>
         </ButtonWrapper>
       </Content>
