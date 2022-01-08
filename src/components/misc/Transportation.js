@@ -47,9 +47,7 @@ const EmojiWrapper = styled.div`
   line-height: 0.7;
 
   ${(props) => props.theme.mq.small} {
-    width: 2rem;
     margin-right: 0.75rem;
-    font-size: 2rem;
   }
 `
 const SecondaryEmoji = styled(Emoji)`
@@ -67,12 +65,6 @@ const Bar = styled.div`
   background-color: ${(props) => props.theme.colors.second};
   border-radius: 1rem;
   cursor: pointer;
-
-  ${(props) => props.theme.mq.small} {
-    width: calc(${(props) => props.percent * 70}vw + 1rem);
-    height: 1.75rem;
-    border-radius: 0.875rem;
-  }
 `
 
 const Value = styled.div`
@@ -145,7 +137,7 @@ export default function Transportation(props) {
           >
             <Value
               noBar={props.transportation.value / props.max === 0}
-              inside={props.transportation.value / props.max > 0.9}
+              inside={props.transportation.value / props.max > 0.7}
             >
               <Number>
                 {props.transportation.value > 100000

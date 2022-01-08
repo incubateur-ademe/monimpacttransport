@@ -17,15 +17,17 @@ const Wrapper = styled.div`
   background-color: ${(props) => props.theme.colors.main};
   border-radius: 1.5rem;
   transition: background-color 200ms ease-out;
-
-  ${(props) => props.theme.mq.medium} {
-    display: none;
-  }
 `
 const Carpoolers = styled.div`
   padding: 0.4rem 0.8rem;
   font-size: 0.75rem;
   white-space: nowrap;
+
+  span {
+    ${(props) => props.theme.mq.medium} {
+      display: none;
+    }
+  }
 `
 export default function Carpool(props) {
   const { setCarpool } = useContext(TransportationContext)
@@ -39,7 +41,8 @@ export default function Carpool(props) {
           }
           data-for='carpool'
         >
-          avec {props.transportation.carpoolers - 1} covoitureur
+          <span>avec </span>
+          {props.transportation.carpoolers - 1} covoitureur
           {props.transportation.carpoolers > 2 ? 's' : ''}
         </Carpoolers>
         <ButtonClose onClick={() => setCarpool(false)} />
