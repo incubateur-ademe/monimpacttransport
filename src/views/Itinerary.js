@@ -32,11 +32,12 @@ export default function Itinerary() {
         footItineraries[0].elements[0].status === 'OK' &&
         footItineraries[0].elements[0].distance.value,
       rail:
-        railItineraries && railItineraries[0].elements[0].status === 'OK'
+        railItineraries &&
+        (railItineraries[0].elements[0].status === 'OK'
           ? railItineraries[0].elements[0].distance.value
           : carItineraries &&
             carItineraries[0].elements[0].status === 'OK' &&
-            carItineraries[0].elements[0].distance.value,
+            carItineraries[0].elements[0].distance.value),
     })
   }, [carItineraries, footItineraries, railItineraries])
 

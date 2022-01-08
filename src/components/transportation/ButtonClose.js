@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   align-items: center;
   top: 0;
   right: 0;
-  transform: translate(40%, -30%);
+  transform: translate(25%, -30%);
   width: 1.125rem;
   height: 1.125rem;
   background-color: ${(props) => props.theme.colors.main};
