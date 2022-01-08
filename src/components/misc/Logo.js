@@ -21,7 +21,7 @@ const Title = styled.h1`
 const Wheel = styled.g`
   ${Wrapper}:hover & {
     transform: rotate(360deg);
-    transition: transform 600ms ease-out;
+    transition: transform 750ms ease-out;
   }
 `
 export default function Logo() {
