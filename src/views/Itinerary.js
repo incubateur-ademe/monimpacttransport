@@ -5,7 +5,8 @@ import { Flipper, Flipped } from 'react-flip-toolkit'
 import TransportationContext from 'utils/TransportationContext'
 import SearchContext from 'utils/SearchContext'
 import { useItinerary } from 'hooks/useItineraries'
-import Transportation from './results/Transportation'
+import Transportation from 'components/Transportation'
+import Disclaimer from 'components/misc/Disclaimer'
 
 const Wrapper = styled.div`
   flex: 1;
@@ -122,6 +123,7 @@ export default function Itinerary() {
           </Flipped>
         ))}
       </Flipper>
+      <Disclaimer itinerary />
     </Wrapper>
   )
 }

@@ -8,7 +8,7 @@ import Suggestions from './search/Suggestions'
 
 const Wrapper = styled.form`
   position: absolute;
-  z-index: 100;
+  z-index: ${(props) => (props.focus ? 100 : 1)};
   top: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -74,6 +74,7 @@ export default function Search(props) {
         placeholder={props.placeholder}
         suggestion={data && data[current]}
         suggestionVisible={data && focus}
+        focus={focus}
         isFetching={isFetching}
         setSearch={setSearch}
         setFocus={setFocus}

@@ -43,7 +43,10 @@ export default React.forwardRef(function TextInput(props, ref) {
         setFocus={props.setFocus}
       />
       <Geoloc
-        visible={!(props.suggestion && props.suggestionVisible && props.search)}
+        visible={
+          props.focus &&
+          !(props.suggestion && props.suggestionVisible && props.search)
+        }
         navigateToPlace={props.navigateToPlace}
       />
     </Wrapper>
