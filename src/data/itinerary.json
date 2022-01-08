@@ -1,5 +1,44 @@
 [
   {
+    "id": 1,
+    "type": "car",
+    "label": {
+      "fr": "Avion"
+    },
+    "uncertainty": true,
+    "description": {
+      "fr": "L'avion est proposé avec les tailles suivantes : <br/><br/>- 500 à 1 000 km, 101 à 220 sièges :<br/>126 gCO2e/km/personne sans l'impact des traînées,<br/>230 gCO2e/km/personne avec l'impact des traînées<br/><br/>- 1 000 à 2 000 km, 101 à 220 sièges :<br/>102 gCO2e/km/personne sans l'impact des traînées,<br/>186 gCO2e/km/personne avec l'impact des traînées<br/><br/>- 2 000 à 3 500 km, >220 sièges<br/>: 97,4 gCO2e/km/personne sans l'impact des traînées,<br/>178 gCO2e/km/personne avec l'impact des traînées<br/><br/>- au delà de 3 500 km, >220 sièges :<br/>82,8 gCO2e/km/personne sans l'impact des traînées,<br/>151 gCO2e/km/personne avec l'impact des traînées"
+    },
+    "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=Avion",
+    "emoji": { "main": "✈️" },
+    "default": true,
+    "display": {
+      "min": 500
+    },
+    "values": [
+      {
+        "max": 1000,
+        "value": 126,
+        "uncertainty": 230
+      },
+      {
+        "max": 2000,
+        "value": 102,
+        "uncertainty": 186
+      },
+      {
+        "max": 3500,
+        "value": 97.4,
+        "uncertainty": 178
+      },
+      {
+        "max": 100000000000000000,
+        "value": 82.8,
+        "uncertainty": 151
+      }
+    ]
+  },
+  {
     "id": 4,
     "type": "car",
     "label": {

@@ -55,7 +55,7 @@ const MenuWrapper = styled.div`
   right: 0;
   background-color: ${(props) => props.theme.colors.footer};
   border-radius: 1rem 0 1rem 1rem;
-  box-shadow: -0.25rem 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.1);
+  box-shadow: -0.25rem 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.05);
   opacity: 0;
   pointer-events: none;
   transition: opacity 200ms;

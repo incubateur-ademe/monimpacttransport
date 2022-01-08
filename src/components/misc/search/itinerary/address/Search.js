@@ -12,18 +12,14 @@ const Wrapper = styled.form`
   top: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: calc(100% - 2rem);
-  max-width: 25rem;
+  width: 100%;
+  max-width: 22rem;
   background-color: ${(props) => props.theme.colors.background};
   border: 0.125rem solid ${(props) => props.theme.colors.second};
   border-radius: 1.5rem;
   transition: box-shadow 200ms ease-out;
   transition: border 200ms ease-out, top 300ms ease-out;
   //overflow: hidden;
-
-  ${(props) => props.theme.mq.small} {
-    top: ${(props) => (props.addressSet ? '2.5rem' : '5rem')};
-  }
 `
 
 export default function Search(props) {

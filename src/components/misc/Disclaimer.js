@@ -12,7 +12,8 @@ export default function Disclaimer(props) {
       {props.itinerary && (
         <p>
           Les distances et modes de transport sont donnés à titre indicatif et
-          ne correspondent pas forcement à la réalité.
+          ne correspondent pas forcement à la réalité. Les destinations de
+          départ et d'arrivée doivent être situées en France métropolitaine.
         </p>
       )}
       <p>
