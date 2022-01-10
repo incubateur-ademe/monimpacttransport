@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   position: relative;
   background-color: ${(props) => props.theme.colors.background};
   max-height: 20rem;
-  overflow-y: scroll;
+  overflow-y: auto;
 
   border-radius: 0 0 1.375rem 1.375rem;
 `
