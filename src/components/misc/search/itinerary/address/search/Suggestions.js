@@ -58,7 +58,7 @@ export default function Suggestions(props) {
       window.removeEventListener('keydown', onKeyDown)
     }
   }, [onKeyDown])
-  console.log(props.results)
+
   return (
     <Wrapper>
       {props.results.map(

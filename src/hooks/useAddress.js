@@ -26,7 +26,7 @@ export function useAddress(id) {
         .get(
           `https://v2--ecolab-transport.netlify.app/.netlify/functions/callGMapPlace?place_id=${id}`
         )
-        .then((res) => res.data.features),
+        .then((res) => res.data),
     {
       keepPreviousData: true,
       refetchOnWindowFocus: false,

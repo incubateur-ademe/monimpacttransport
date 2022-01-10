@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import { useAddress } from 'hooks/useAddress'
@@ -14,8 +14,14 @@ export default function Address(props) {
   const [address, setAddress] = useState(null)
 
   const { data: place } = useAddress(address?.place_id)
-  console.log(place)
-  console.log(address)
+  const setCoordinates = props.setCoordinates
+  useEffect(() => {
+    place?.result?.geometry?.location &&
+      setCoordinates({
+        latitude: place.result.geometry.location.lat,
+        longitude: place.result.geometry.location.lng,
+      })
+  }, [place, setCoordinates])
   return (
     <Wrapper>
       <Search
