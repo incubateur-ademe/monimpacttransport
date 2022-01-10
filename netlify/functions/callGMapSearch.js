@@ -6,11 +6,11 @@ exports.handler = function (event) {
   const country = countries[event.headers['x-country']]
   console.log(country)
   console.log(
-    `https://maps.googleapis.com/maps/api/place/queryautocomplete/json?${event.rawQuery}&location=${country[0]},${country[1]}&key=${process.env.GMAP_API_KEY}`
+    `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?${event.rawQuery}&locationbias=point:${country[0]},${country[1]}&key=${process.env.GMAP_API_KEY}`
   )
   return axios
     .get(
-      `https://maps.googleapis.com/maps/api/place/queryautocomplete/json?${event.rawQuery}&location=${country[0]},${country[1]}&key=${process.env.GMAP_API_KEY}`
+      `https://maps.googleapis.com/maps/api/place/findplacefromtext/json?${event.rawQuery}&locationbias=point:${country[0]},${country[1]}&key=${process.env.GMAP_API_KEY}`
     )
     .then((res) => ({
       statusCode: 200,
