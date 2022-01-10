@@ -21,9 +21,6 @@ const Title = styled.h1`
 const Path = styled.path`
   fill: ${(props) => props.theme.colors.main};
 `
-const Background = styled.path`
-  fill: ${(props) => props.theme.colors.background};
-`
 const Wheel = styled.g`
   ${Wrapper}:hover & {
     transform: rotate(360deg);
