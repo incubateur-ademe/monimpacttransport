@@ -1,10 +1,12 @@
 const axios = require('axios')
 
+const countries = require('./countries.json')
+
 exports.handler = function (event) {
-  console.log(event)
+  const country = countries[event.headers['x-country']]
   return axios
     .get(
-      `https://maps.googleapis.com/maps/api/place/queryautocomplete/json?${event.rawQuery}&key=${process.env.GMAP_API_KEY}`
+      `https://maps.googleapis.com/maps/api/place/queryautocomplete/json?${event.rawQuery}&location=${country[0]},${country[1]}&key=${process.env.GMAP_API_KEY}`
     )
     .then((res) => ({
       statusCode: 200,

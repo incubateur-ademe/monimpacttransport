@@ -8,8 +8,8 @@ export function useAddress(search) {
       search && search.length > 2
         ? axios
             .get(
-              `https://api-adresse.data.gouv.fr/search/?q=${search}&type=housenumber`
-              // `https://v2--ecolab-transport.netlify.app/.netlify/functions/callGMapSearch?input=${search}&language=fr`
+              // `https://api-adresse.data.gouv.fr/search/?q=${search}&type=housenumber`
+              `https://v2--ecolab-transport.netlify.app/.netlify/functions/callGMapSearch?input=${search}&language=fr`
             )
             .then((res) => res.data.features)
         : Promise.resolve([]),
