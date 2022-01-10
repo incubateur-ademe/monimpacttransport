@@ -3,3 +3,5 @@ https://api.monimpacttransport.fr/beta/*  https://monimpacttransport.fr/.netlify
 
 https://monimpacttransport.fr/*                                    /index.html  200
 https://www.monimpacttransport.fr/*                                    /index.html  200
+
+/*                                    /index.html  200

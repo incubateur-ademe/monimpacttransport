@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import useIframe from 'hooks/useIframe'
+import ThemeToggle from 'components/base/ThemeToggle'
 import HeaderWrapper from 'components/wrappers/HeaderWrapper'
 import FooterWrapper from 'components/wrappers/FooterWrapper'
 import Learning from 'components/misc/Learning'
@@ -45,6 +46,8 @@ export default function Web(props) {
 
   return (
     <Wrapper>
+      <ThemeToggle />
+
       <Content>
         <FullScreen iframe={iframe}>
           <HeaderWrapper noHeader={noHeader} />

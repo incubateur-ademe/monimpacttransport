@@ -28,7 +28,7 @@ const Svg = styled.svg`
   width: 1.2rem;
   height: auto;
 `
-export default function Visible(props) {
+export default function ThemeToggle(props) {
   const { theme, setTheme } = useContext(StyleContext)
 
   return (
