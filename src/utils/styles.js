@@ -32,11 +32,14 @@ export const themes = {
     name: 'Sombre',
     colors: {
       main: '#F6BFC3',
+      mainLight: '#F6BFC3',
       second: '#E5EDF5',
       secondLight: '#383838',
       background: '#1e1e1e',
       footer: '#383838',
+      footerLight: '#FBFBFC',
       text: '#ffffff',
+      textLight: '#939699',
     },
     fonts: {
       body: '"Marianne", sans-serif',
