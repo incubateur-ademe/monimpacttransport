@@ -4,6 +4,7 @@ const countries = require('./countries.json')
 
 exports.handler = function (event) {
   const country = countries[event.headers['x-country']]
+  console.log(country)
   return axios
     .get(
       `https://maps.googleapis.com/maps/api/place/queryautocomplete/json?${event.rawQuery}&location=${country[0]},${country[1]}&key=${process.env.GMAP_API_KEY}`
