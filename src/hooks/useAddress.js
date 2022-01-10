@@ -9,7 +9,7 @@ export function useAddress(search) {
         ? axios
             .get(
               `https://api-adresse.data.gouv.fr/search/?q=${search}&type=housenumber`
-              //`https://maps.googleapis.com/maps/api/place/queryautocomplete/json?input=${search}&language=fr&key=${process.env.REACT_APP_GOOGLE_API_TOKEN}`
+              // `https://v2--ecolab-transport.netlify.app/.netlify/functions/callGMapSearch?input=${search}&language=fr`
             )
             .then((res) => res.data.features)
         : Promise.resolve([]),
