@@ -58,7 +58,7 @@ export default function Suggestions(props) {
       window.removeEventListener('keydown', onKeyDown)
     }
   }, [onKeyDown])
-
+  console.log(props.results)
   return (
     <Wrapper>
       {props.results.map(
@@ -66,7 +66,7 @@ export default function Suggestions(props) {
           index < maxSuggestions && (
             <Suggestion
               current={index === props.current}
-              key={result['properties']['id']}
+              key={result.place_id}
               isFetching={props.isFetching}
               onClick={() => props.handleSuggestionClick(result)}
               onMouseDown={(e) => e.preventDefault()}
@@ -75,7 +75,7 @@ export default function Suggestions(props) {
                 <Highlighter
                   searchWords={props.search.split(' ')}
                   autoEscape={true}
-                  textToHighlight={result['properties']['label']}
+                  textToHighlight={result.description}
                 />
               </Name>
             </Suggestion>

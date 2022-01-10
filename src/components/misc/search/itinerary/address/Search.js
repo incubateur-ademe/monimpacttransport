@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 
-import { useAddress } from 'hooks/useAddress'
+import { useSuggestions } from 'hooks/useAddress'
 import useDebounce from 'hooks/useDebounce'
 import TextInput from './search/TextInput'
 import Suggestions from './search/Suggestions'
@@ -29,7 +29,7 @@ export default function Search(props) {
   }, [props.address])
   const debouncedSearch = useDebounce(search)
 
-  const { data, isFetching } = useAddress(debouncedSearch)
+  const { data, isFetching } = useSuggestions(debouncedSearch)
 
   const [focus, setFocus] = useState(false)
   const input = useRef(null)
@@ -44,11 +44,7 @@ export default function Search(props) {
 
   const navigateToPlace = (place) => {
     if (place) {
-      props.setAddress({
-        label: place.properties.label,
-        latitude: place.geometry.coordinates[1],
-        longitude: place.geometry.coordinates[0],
-      })
+      props.setAddress(place)
       setFocus(false)
     }
   }
