@@ -21,6 +21,9 @@ const Text = styled.p`
   margin: 0 auto 1rem;
   text-align: center;
 `
+const Color = styled.span`
+  color: ${(props) => props.theme.colors.second};
+`
 const Checkboxes = styled.div`
   display: flex;
   flex-direction: column;
@@ -46,21 +49,21 @@ export default function Search() {
           <Route path='/itineraire'>
             <Text>
               Découvrez la quantité de CO2e que vous émettez{' '}
-              <strong>(par personne)</strong> pour ce trajet
+              <Color>(par personne)</Color> pour ce trajet
             </Text>
             <Itinerary />
           </Route>
           <Route path='/teletravail'>
             <Text>
               Découvrez la quantité de CO2e que vous économisez{' '}
-              <strong>(à l'année)</strong> en travaillant de chez vous
+              <Color>(à l'année)</Color> en travaillant de chez vous
             </Text>
             <Itinerary />
           </Route>
           <Route>
             <Text>
               Découvrez la quantité de CO2e que vous émettez{' '}
-              <strong>(par personne)</strong> pour cette distance
+              <Color>(par personne)</Color> pour cette distance
             </Text>
             <Distance />
           </Route>
@@ -69,11 +72,11 @@ export default function Search() {
       <Checkboxes>
         <Route path='/' exact>
           <StyledCheckbox checked={displayAll} onChange={setDisplayAll}>
-            Afficher <strong>tous</strong> les modes de transport
+            Afficher tous les modes de transport
           </StyledCheckbox>
         </Route>
         <StyledCheckbox checked={carpool} onChange={setCarpool}>
-          Afficher le <strong>covoiturage</strong>
+          Afficher le covoiturage
         </StyledCheckbox>
       </Checkboxes>
     </Wrapper>

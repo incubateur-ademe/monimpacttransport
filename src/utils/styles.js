@@ -105,9 +105,4 @@ export const GlobalStyle = createGlobalStyle`
   option {
     color: #010101;
   }
-
-  strong {
-    font-weight: inherit;
-    color: ${(props) => props.theme.colors.second};
-  }
 `
