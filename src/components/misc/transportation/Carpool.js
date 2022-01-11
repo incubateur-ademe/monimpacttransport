@@ -37,17 +37,17 @@ const Number = styled.span`
 const Plural = styled.span`
   opacity: ${(props) => (props.visible ? 1 : 0)};
 `
-const ButtonMore = styled.div`
+const ButtonMore = styled.button`
   padding: 0.2rem 0.8rem 0.2rem 0.4rem;
   font-size: 1rem;
   font-weight: bold;
+  color: ${(props) => props.theme.colors.background};
+  background: transparent;
+  border: none;
   cursor: pointer;
 `
-const ButtonLess = styled.div`
+const ButtonLess = styled(ButtonMore)`
   padding: 0.2rem 0.4rem 0.2rem 0.8rem;
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
 `
 export default function Carpool(props) {
   const { carpool, setCarpool } = useContext(TransportationContext)
