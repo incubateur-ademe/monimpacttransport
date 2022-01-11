@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import ReactTooltip from 'react-tooltip'
 
 import TransportationContext from 'utils/TransportationContext'
-import ButtonClose from './ButtonClose'
 
 const Wrapper = styled.div`
   position: absolute;
@@ -19,9 +18,10 @@ const Wrapper = styled.div`
   transition: background-color 200ms ease-out;
 `
 const Carpoolers = styled.div`
-  padding: 0.4rem 0.8rem;
+  padding: 0.4rem 0;
   font-size: 0.75rem;
   white-space: nowrap;
+  cursor: default;
 
   span {
     ${(props) => props.theme.mq.medium} {
@@ -29,12 +29,39 @@ const Carpoolers = styled.div`
     }
   }
 `
+const Number = styled.span`
+  display: inline-block;
+  min-width: 0.6em;
+  text-align: center;
+`
+const Plural = styled.span`
+  opacity: ${(props) => (props.visible ? 1 : 0)};
+`
+const ButtonMore = styled.div`
+  padding: 0.2rem 0.8rem 0.2rem 0.4rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+`
+const ButtonLess = styled.div`
+  padding: 0.2rem 0.4rem 0.2rem 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+`
 export default function Carpool(props) {
-  const { setCarpool } = useContext(TransportationContext)
+  const { carpool, setCarpool } = useContext(TransportationContext)
 
-  return props.transportation.carpoolers ? (
+  return props.transportation.carpool ? (
     <>
       <Wrapper>
+        <ButtonLess
+          onClick={() =>
+            setCarpool((prevCarpool) => (prevCarpool > 2 ? prevCarpool - 1 : 0))
+          }
+        >
+          -
+        </ButtonLess>
         <Carpoolers
           data-tip={
             'Seulement si ces covoitureurs évitent de faire le même trajet avec un véhicule équivalent'
@@ -42,10 +69,18 @@ export default function Carpool(props) {
           data-for='carpool'
         >
           <span>avec </span>
-          {props.transportation.carpoolers - 1} covoitureur
-          {props.transportation.carpoolers > 2 ? 's' : ''}
+          <Number>{carpool - 1}</Number> covoitureur
+          <Plural visible={carpool > 2}>s</Plural>
         </Carpoolers>
-        <ButtonClose onClick={() => setCarpool(false)} />
+        <ButtonMore
+          onClick={() =>
+            setCarpool((prevCarpool) =>
+              prevCarpool < 5 ? prevCarpool + 1 : prevCarpool
+            )
+          }
+        >
+          +
+        </ButtonMore>
       </Wrapper>
       <ReactTooltip id='carpool' />
     </>

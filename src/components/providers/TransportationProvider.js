@@ -8,22 +8,11 @@ const addCarpoolTransportations = (transportations) => {
   let carpoolTransportation = []
   for (let transportation of transportations) {
     if (transportation.carpool) {
-      for (let i = 1; i < transportation.carpool; i++) {
-        carpoolTransportation.push({
-          ...transportation,
-          id: transportation.id + '-' + i,
-          type: transportation.type,
-          label: {
-            fr: transportation.label.fr,
-          },
-          carpoolers: Number(i + 1),
-          values: [
-            {
-              value: transportation.values[0].value / Number(i + 1),
-            },
-          ],
-        })
-      }
+      carpoolTransportation.push({
+        ...transportation,
+        id: transportation.id + '-carpool',
+        carpool: false,
+      })
     }
   }
   return carpoolTransportation

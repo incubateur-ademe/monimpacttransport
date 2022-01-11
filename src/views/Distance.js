@@ -28,7 +28,7 @@ export default function Results() {
         // Show only default (or display all)
         .filter((transportation) => transportation.default || displayAll)
         // Show carpool or not
-        .filter((transportation) => !transportation.carpoolers || carpool)
+        .filter((transportation) => !transportation.carpool || carpool)
         // Show only depending on distance (or display all)
         .filter(
           (transportation) =>
@@ -47,18 +47,22 @@ export default function Results() {
               transportation.display.max >= km)
         )
         .map((transportation) => {
-          const valueToUse =
+          const valuesToUse =
             transportation.values.length > 1
               ? transportation.values.find((value) => value.max > km)
               : transportation.values[0]
+          const valueToUse =
+            (valuesToUse
+              ? uncertainty && valuesToUse.uncertainty
+                ? valuesToUse.uncertainty
+                : valuesToUse.value
+              : 0) * km
+          const valueWithCarpool = transportation.carpool
+            ? valueToUse / carpool
+            : valueToUse
           return {
             ...transportation,
-            value:
-              (valueToUse
-                ? uncertainty && valueToUse.uncertainty
-                  ? valueToUse.uncertainty
-                  : valueToUse.value
-                : 0) * km,
+            value: valueWithCarpool,
             base: valueToUse.value * km,
           }
         })
