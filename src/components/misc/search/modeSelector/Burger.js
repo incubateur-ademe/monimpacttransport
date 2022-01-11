@@ -69,6 +69,7 @@ const Item = styled(MagicLink)`
   display: block;
   padding: 1rem 1.5rem 0.5rem;
   text-decoration: none;
+  white-space: nowrap;
 
   &:last-child {
     padding: 0.5rem 1.5rem 1rem;
@@ -116,7 +117,7 @@ export default function Burger(props) {
         </Svg>
       </Button>
       <MenuWrapper>
-        <Item to='/teletravail'>Télétravail</Item>
+        <Item to='/teletravail'>Mode télétravail</Item>
         <Item to='#apropos'>À propos</Item>
       </MenuWrapper>
     </Wrapper>
