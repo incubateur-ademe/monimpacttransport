@@ -15,6 +15,7 @@ import CO2EModal from 'components/modals/CO2EModal'
 import RadiativeForcingModal from 'components/modals/RadiativeForcingModal'
 import ApproximationModal from 'components/modals/ApproximationModal'
 import InstallInstructionsModal from 'components/modals/InstallInstructionsModal'
+import SourceModal from 'components/modals/SourceModal'
 import Web from 'components/layout/Web'
 import Search from 'components/misc/Search'
 import Itinerary from 'views/Itinerary'
@@ -52,6 +53,7 @@ function App() {
                     <RadiativeForcingModal />
                     <ApproximationModal />
                     <InstallInstructionsModal />
+                    <SourceModal />
                   </SearchProvider>
                 </TransportationProvider>
               </ModalProvider>

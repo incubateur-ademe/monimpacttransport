@@ -6,7 +6,7 @@ export default function ModalProvider(props) {
   const [radiativeForcing, setRadiativeForcing] = useState(false)
   const [approximation, setApproximation] = useState(false)
   const [installInstructions, setInstallInstructions] = useState(false)
-
+  const [source, setSource] = useState(false)
   return (
     <ModalContext.Provider
       value={{
@@ -18,6 +18,8 @@ export default function ModalProvider(props) {
         setApproximation,
         installInstructions,
         setInstallInstructions,
+        source,
+        setSource,
       }}
     >
       {props.children}

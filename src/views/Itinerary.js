@@ -57,7 +57,7 @@ export default function Itinerary() {
         // Show only default (or display all)
         .filter((transportation) => transportation.default || displayAll)
         // Show carpool or not
-        .filter((transportation) => !transportation.carpoolers || carpool)
+        .filter((transportation) => !transportation.carpool || carpool)
         // Show only depending on distance (or display all)
         .filter((transportation) => datas[transportation.type])
         .filter(
@@ -81,22 +81,26 @@ export default function Itinerary() {
               transportation.display.max >= datas[transportation.type] / 1000)
         )
         .map((transportation) => {
-          const valueToUse =
+          const valuesToUse =
             transportation.values.length > 1
               ? transportation.values.find(
                   (value) => value.max > datas[transportation.type] / 1000
                 )
               : transportation.values[0]
+          const valueToUse =
+            ((valuesToUse
+              ? uncertainty && valuesToUse.uncertainty
+                ? valuesToUse.uncertainty
+                : valuesToUse.value
+              : 0) *
+              datas[transportation.type]) /
+            1000
+          const valueWithCarpool = transportation.carpool
+            ? valueToUse / carpool
+            : valueToUse
           return {
             ...transportation,
-            value:
-              ((valueToUse
-                ? uncertainty && valueToUse.uncertainty
-                  ? valueToUse.uncertainty
-                  : valueToUse.value
-                : 0) *
-                datas[transportation.type]) /
-              1000,
+            value: valueWithCarpool,
             base: (valueToUse.value * datas[transportation.type]) / 1000,
           }
         })

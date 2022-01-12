@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import styled from 'styled-components'
 
 import ModalContext from 'utils/ModalContext'
-import UXContext from 'utils/UXContext'
 import Emoji from 'components/base/Emoji'
 import Carpool from './transportation/Carpool'
 import Uncertainty from './transportation/Uncertainty'
@@ -105,8 +104,7 @@ const Unit = styled.span`
 `
 
 export default function Transportation(props) {
-  const { setCO2E } = useContext(ModalContext)
-  const { setConfiguratorOpen } = useContext(UXContext)
+  const { setSource, setCO2E } = useContext(ModalContext)
 
   return (
     <Wrapper {...props}>
@@ -117,7 +115,7 @@ export default function Transportation(props) {
       <ChartWrapper>
         <TitleWrapper>
           <Title>
-            <span onClick={() => setConfiguratorOpen(props.transportation.id)}>
+            <span onClick={() => setSource(props.transportation.id)}>
               {props.transportation.label.fr}{' '}
               {props.distance &&
                 ` (${
@@ -133,7 +131,7 @@ export default function Transportation(props) {
         <Chart>
           <Bar
             percent={props.transportation.value / props.max}
-            onClick={() => setConfiguratorOpen(props.transportation.id)}
+            onClick={() => setSource(props.transportation.id)}
           >
             <Value
               noBar={props.transportation.value / props.max === 0}

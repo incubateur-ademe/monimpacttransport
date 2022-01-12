@@ -97,8 +97,7 @@
       {
         "value": 61.6
       }
-    ],
-    "carpool": 2
+    ]
   },
   {
     "id": 13,
@@ -118,8 +117,7 @@
       {
         "value": 168
       }
-    ],
-    "carpool": 2
+    ]
   },
   {
     "id": 7,
@@ -204,13 +202,13 @@
     ]
   },
   {
-    "id": 11,
+    "id": 1011,
     "type": "rail",
     "label": {
       "fr": "Transport en commun (Métro, RER ou tramway)"
     },
     "description": {
-      "fr": "2,5 gCO2e/km/personne ; Base Carbone ADEME, Métro - Ile de France"
+      "fr": "Nous faisons une moyenne des facteurs d'émissions des trois modes de transport :<br/><br/><b>Métro</b> : 2,5 gCO2e/km/personne ; Base Carbone ADEME, Métro Ile de France<br/><br/><b>RER</b> : 4,1 gCO2e/km/personne ; Base Carbone ADEME<br/><br/><b>Tramway</b> : 2,2 gCO2e/km/personne ; Base Carbone ADEME, Tramway - Ile de France"
     },
     "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=m%C3%A9tro",
     "emoji": { "main": "🚇" },
@@ -225,13 +223,13 @@
     ]
   },
   {
-    "id": 2,
+    "id": 1002,
     "type": "rail",
     "label": {
       "fr": "TGV ou intercités"
     },
     "description": {
-      "fr": "1,73 gCO2e/km/personne : Base Carbone ADEME"
+      "fr": "Nous faisons une moyenne des facteurs d'émissions des deux modes de transport :<br/><br/><b>TGV</b> : 1,73 gCO2e/km/personne : Base Carbone ADEME<br/><br/><b>Intercités</b> : 5,29 gCO2e/km/personne ; Base Carbone ADEME"
     },
     "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=tgv",
     "emoji": { "main": "🚄" },
