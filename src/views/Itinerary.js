@@ -45,7 +45,6 @@ export default function Itinerary() {
     itineraryTransportations: transportations,
     carpool,
     uncertainty,
-    displayAll,
   } = useContext(TransportationContext)
 
   const [transportationsToDisplay, settransportationsToDisplay] = useState([])
@@ -55,15 +54,13 @@ export default function Itinerary() {
         // Remove all empty transportations
         .filter((transportation) => transportation.values)
         // Show only default (or display all)
-        .filter((transportation) => transportation.default || displayAll)
+        .filter((transportation) => transportation.default)
         // Show carpool or not
         .filter((transportation) => !transportation.carpool || carpool)
         // Show only depending on distance (or display all)
         .filter((transportation) => datas[transportation.type])
         .filter(
           (transportation) =>
-            // Display all transportations
-            displayAll ||
             // No display indicator at all
             !transportation.display ||
             // Empty display indicator
@@ -106,7 +103,7 @@ export default function Itinerary() {
         })
         .sort((a, b) => (a.value > b.value ? 1 : -1))
     )
-  }, [datas, transportations, carpool, uncertainty, displayAll])
+  }, [datas, transportations, carpool, uncertainty])
 
   return (
     <Wrapper>

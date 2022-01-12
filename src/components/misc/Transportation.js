@@ -63,7 +63,6 @@ const Bar = styled.div`
   transform-origin: left;
   background-color: ${(props) => props.theme.colors.second};
   border-radius: 1rem;
-  cursor: pointer;
 `
 
 const Value = styled.div`
@@ -129,10 +128,7 @@ export default function Transportation(props) {
           </Title>
         </TitleWrapper>
         <Chart>
-          <Bar
-            percent={props.transportation.value / props.max}
-            onClick={() => setSource(props.transportation.id)}
-          >
+          <Bar percent={props.transportation.value / props.max}>
             <Value
               noBar={props.transportation.value / props.max === 0}
               inside={props.transportation.value / props.max > 0.7}
