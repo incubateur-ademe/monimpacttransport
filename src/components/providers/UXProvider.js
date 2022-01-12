@@ -1,12 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import {
-  useQueryParam,
-  BooleanParam,
-  ObjectParam,
-  withDefault,
-} from 'use-query-params'
+import React, { useState, useEffect, useContext } from 'react'
+import { useLocation } from 'react-router-dom'
 
 import UXContext from 'utils/UXContext'
+import SearchContext from 'utils/SearchContext'
+
 import usePageView from 'hooks/usePageView'
 
 export default function UXProvider(props) {
@@ -15,18 +12,18 @@ export default function UXProvider(props) {
   const [embedOpen, setEmbedOpen] = useState(false)
   const [shareOpen, setShareOpen] = useState(false)
   const [contactOpen, setContactOpen] = useState(false)
+
+  let location = useLocation()
   const [typeShare, setTypeShare] = useState('simulator')
-
-  const [configuratorOpen, setConfiguratorOpen] = useState(false)
-
-  const [map, setMap] = useQueryParam('map', withDefault(BooleanParam, true))
-  const [center, setCenter] = useQueryParam(
-    'center',
-    withDefault(ObjectParam, {
-      lat: 48.8159,
-      long: 2.3061,
-    })
-  )
+  const [url, setUrl] = useState('')
+  const { km } = useContext(SearchContext)
+  useEffect(() => {
+    setUrl(
+      typeShare === 'result'
+        ? `${location.pathname}?${location.pathname === '/' ? `km=${km}&` : ''}`
+        : ''
+    )
+  }, [typeShare, location, km])
 
   const [installPrompt, setInstallPrompt] = useState(null)
   useEffect(() => {
@@ -35,7 +32,6 @@ export default function UXProvider(props) {
       console.log(`'beforeinstallprompt' event was fired.`)
     })
   }, [])
-
   const isIos = () => {
     const userAgent = window.navigator.userAgent.toLowerCase()
     return /iphone|ipad|ipod/.test(userAgent)
@@ -59,7 +55,6 @@ export default function UXProvider(props) {
 
             setShareOpen(false)
             setContactOpen(false)
-            setConfiguratorOpen(false)
             setTypeShare('simulator')
           }
           setEmbedOpen(value)
@@ -71,7 +66,6 @@ export default function UXProvider(props) {
 
             setEmbedOpen(false)
             setContactOpen(false)
-            setConfiguratorOpen(false)
             setTypeShare('simulator')
           }
           setShareOpen(value)
@@ -82,26 +76,12 @@ export default function UXProvider(props) {
           if (value) {
             setShareOpen(false)
             setEmbedOpen(false)
-            setConfiguratorOpen(false)
             setTypeShare('simulator')
           }
           setContactOpen(value)
         },
-        configuratorOpen,
-        setConfiguratorOpen: (value) => {
-          window._paq.push(['trackEvent', 'panel', 'configurator', 'open'])
-          if (value) {
-            setShareOpen(false)
-            setEmbedOpen(false)
-            setContactOpen(false)
-          }
-          setConfiguratorOpen(value)
-        },
-        map,
-        setMap,
-        center,
-        setCenter,
         typeShare,
+        url,
         setTypeShare,
         installPrompt,
         iOSPrompt,

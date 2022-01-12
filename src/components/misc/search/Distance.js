@@ -63,7 +63,10 @@ const Thumb = styled.div`
 export default function Distance() {
   const { km, setKm } = useContext(SearchContext)
 
-  const [position, setPosition] = useState(0)
+  // Please don't ask
+  const [position, setPosition] = useState(
+    Math.round((Math.log(km) / Math.log(10) - 1) * 1000) / 1000
+  )
 
   useEffect(() => {
     setKm(Math.round(Math.pow(10, position) * 10))

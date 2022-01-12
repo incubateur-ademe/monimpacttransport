@@ -122,12 +122,13 @@ export default function Contact(props) {
           <option value='autre'>Autre</option>
         </Select>
         {props.options.find((option) => option.value === user.objet) && (
-          <Warning>
-            {
-              props.options.find((option) => option.value === user.objet)
-                .disclaimer
-            }
-          </Warning>
+          <Warning
+            dangerouslySetInnerHTML={{
+              __html: props.options.find(
+                (option) => option.value === user.objet
+              ).disclaimer,
+            }}
+          />
         )}
         <TextArea
           name={'message'}

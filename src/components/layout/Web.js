@@ -3,8 +3,12 @@ import styled from 'styled-components'
 
 import useIframe from 'hooks/useIframe'
 import ThemeToggle from 'components/base/ThemeToggle'
+import InstallButton from 'components/base/InstallButton'
 import HeaderWrapper from 'components/wrappers/HeaderWrapper'
 import FooterWrapper from 'components/wrappers/FooterWrapper'
+import ShareWrapper from 'components/wrappers/ShareWrapper'
+import EmbedWrapper from 'components/wrappers/EmbedWrapper'
+import ContactWrapper from 'components/wrappers/ContactWrapper'
 import Learning from 'components/misc/Learning'
 
 const Wrapper = styled.div`
@@ -56,6 +60,10 @@ export default function Web(props) {
         <Learning />
         <FooterWrapper iframe={iframe} />
       </Content>
+      <EmbedWrapper />
+      <ShareWrapper />
+      <ContactWrapper />
+      <InstallButton />
     </Wrapper>
   )
 }

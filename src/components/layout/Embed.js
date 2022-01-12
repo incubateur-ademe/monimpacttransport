@@ -8,7 +8,7 @@ import ContactPrompt from 'components/base/ContactPrompt'
 import Select from 'components/base/FancySelect'
 
 export default function Embed(props) {
-  const { embedOpen, setEmbedOpen, typeShare, setTypeShare } =
+  const { embedOpen, setEmbedOpen, url, typeShare, setTypeShare } =
     useContext(UXContext)
 
   return (
@@ -28,11 +28,11 @@ export default function Embed(props) {
           onChange={setTypeShare}
           options={[
             { value: 'simulator', label: `ce simulateur` },
-            { value: 'result', label: `cette fiche`, disabled: !props.result },
+            { value: 'result', label: `ce résultat` },
           ]}
         />
       </h2>
-      <Code id={props.id} typeShare={typeShare} />
+      <Code id={props.id} url={url} />
       {props.children && (
         <>
           <h3>Options d'intégration</h3>

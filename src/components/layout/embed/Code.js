@@ -43,11 +43,9 @@ export default function Code(props) {
     setScript(
       `<script id="${props.id || 'datagir'}" src="${
         window.location.origin
-      }/iframe.js" data-search="${
-        props.typeShare === 'result' ? location.pathname : ''
-      }?theme=${theme}"></script>`
+      }/iframe.js" data-search="${props.url || '?'}theme=${theme}"></script>`
     )
-  }, [location.pathname, props.id, props.typeShare, theme])
+  }, [location.pathname, props.id, props.url, theme])
 
   const [copied, setCopied] = useState(false)
   return (
@@ -58,7 +56,7 @@ export default function Code(props) {
           if (copy(script)) {
             setCopied(true)
           }
-          window._paq?.push(['trackEvent', 'Share', 'Embed', props.typeshare])
+          window._paq?.push(['trackEvent', 'Share', 'Embed', props.url])
         }}
       >
         {script}

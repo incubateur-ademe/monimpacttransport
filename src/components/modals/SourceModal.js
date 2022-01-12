@@ -22,7 +22,6 @@ export default function SourceModal() {
       ...transportations,
       ...itineraryTransportations,
     ]
-    console.log(everyTransportations)
     setCurTransportation(
       everyTransportations.find(
         (transportation) => transportation.id === source

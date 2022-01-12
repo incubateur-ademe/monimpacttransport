@@ -30,11 +30,11 @@ function App() {
       <QueryParamProvider ReactRouterRoute={Route}>
         <QueryClientProvider client={queryClient}>
           <StyleProvider>
-            <UXProvider>
-              <GlobalStyle />
-              <ModalProvider>
-                <TransportationProvider>
-                  <SearchProvider>
+            <TransportationProvider>
+              <SearchProvider>
+                <UXProvider>
+                  <GlobalStyle />
+                  <ModalProvider>
                     <Web>
                       <Search />
                       <Switch>
@@ -54,10 +54,10 @@ function App() {
                     <ApproximationModal />
                     <InstallInstructionsModal />
                     <SourceModal />
-                  </SearchProvider>
-                </TransportationProvider>
-              </ModalProvider>
-            </UXProvider>
+                  </ModalProvider>
+                </UXProvider>
+              </SearchProvider>
+            </TransportationProvider>
           </StyleProvider>
         </QueryClientProvider>
       </QueryParamProvider>
