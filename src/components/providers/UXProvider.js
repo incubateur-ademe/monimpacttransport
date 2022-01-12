@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom'
 
 import UXContext from 'utils/UXContext'
 import SearchContext from 'utils/SearchContext'
-
+import TransportationContext from 'utils/TransportationContext'
 import usePageView from 'hooks/usePageView'
 
 export default function UXProvider(props) {
@@ -17,13 +17,16 @@ export default function UXProvider(props) {
   const [typeShare, setTypeShare] = useState('simulator')
   const [url, setUrl] = useState('')
   const { km } = useContext(SearchContext)
+  const { carpool, displayAll } = useContext(TransportationContext)
   useEffect(() => {
     setUrl(
       typeShare === 'result'
-        ? `${location.pathname}?${location.pathname === '/' ? `km=${km}&` : ''}`
+        ? `${location.pathname}?${
+            location.pathname === '/' ? `km=${km}&` : ''
+          }carpool=${carpool}&all=${displayAll}&`
         : ''
     )
-  }, [typeShare, location, km])
+  }, [typeShare, location, km, carpool, displayAll])
 
   const [installPrompt, setInstallPrompt] = useState(null)
   useEffect(() => {
