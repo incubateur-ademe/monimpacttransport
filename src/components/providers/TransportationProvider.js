@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import queryString from 'query-string'
 
 import transportationsData from 'data/transportations.json'
 import itineraryTransportationsData from 'data/itinerary.json'
@@ -17,12 +18,31 @@ const addCarpoolTransportations = (transportations) => {
   }
   return carpoolTransportation
 }
+const filterTransportation = (transportations, query) => {
+  if (query) {
+    const queriedTransportations = query.split('_')
+    return transportations.filter((transportation) =>
+      queriedTransportations.find(
+        (queriedTransportation) =>
+          Number(queriedTransportation) === transportation.id
+      )
+    )
+  } else {
+    return transportations
+  }
+}
 export default function TransportationProvider(props) {
   const [transportations, setTransportations] = useState([])
   useEffect(() => {
-    let carpoolTransportation = addCarpoolTransportations(transportationsData)
+    let filteredTransportations = filterTransportation(
+      transportationsData,
+      queryString.parse(window.location.search).transportations
+    )
+    let carpoolTransportation = addCarpoolTransportations(
+      filteredTransportations
+    )
     setTransportations(
-      [...transportationsData, ...carpoolTransportation].sort((a, b) =>
+      [...filteredTransportations, ...carpoolTransportation].sort((a, b) =>
         a.label.fr.normalize('NFD') > b.label.fr.normalize('NFD') ? 1 : -1
       )
     )
@@ -30,11 +50,15 @@ export default function TransportationProvider(props) {
 
   const [itineraryTransportations, setItineraryTransportations] = useState([])
   useEffect(() => {
+    let filteredTransportations = filterTransportation(
+      itineraryTransportationsData,
+      queryString.parse(window.location.search).transportations
+    )
     let carpoolTransportation = addCarpoolTransportations(
-      itineraryTransportationsData
+      filteredTransportations
     )
     setItineraryTransportations(
-      [...itineraryTransportationsData, ...carpoolTransportation].sort((a, b) =>
+      [...filteredTransportations, ...carpoolTransportation].sort((a, b) =>
         a.label.fr.normalize('NFD') > b.label.fr.normalize('NFD') ? 1 : -1
       )
     )
@@ -42,7 +66,9 @@ export default function TransportationProvider(props) {
 
   const [displayAll, setDisplayAll] = useState(false)
 
-  const [carpool, setCarpool] = useState(false)
+  const [carpool, setCarpool] = useState(
+    queryString.parse(window.location.search).carpool || 0
+  )
 
   const [uncertainty, setUncertainty] = useState(true)
 
