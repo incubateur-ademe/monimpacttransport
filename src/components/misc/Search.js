@@ -7,6 +7,7 @@ import Checkbox from 'components/base/Checkbox'
 import ModeSelector from './search/ModeSelector'
 import Distance from './search/Distance'
 import Itinerary from './search/Itinerary'
+import Teletravail from './search/Teletravail'
 
 const Wrapper = styled.div``
 const Content = styled.div`
@@ -58,7 +59,7 @@ export default function Search() {
               Découvrez la quantité de CO2e que vous économisez{' '}
               <Color>(à l'année)</Color> en travaillant de chez vous
             </Text>
-            <Itinerary />
+            <Teletravail />
           </Route>
           <Route>
             <Text>

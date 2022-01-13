@@ -11,6 +11,9 @@ export default function SearchProvider(props) {
   const [start, setStart] = useState(null)
   const [end, setEnd] = useState(null)
 
+  const [teletravailTransportation, setTeletravailTransportation] =
+    useState(null)
+
   return (
     <SearchContext.Provider
       value={{
@@ -20,6 +23,8 @@ export default function SearchProvider(props) {
         setStart,
         end,
         setEnd,
+        teletravailTransportation,
+        setTeletravailTransportation,
       }}
     >
       {props.children}

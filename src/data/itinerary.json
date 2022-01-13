@@ -11,7 +11,7 @@
     },
     "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=Avion",
     "emoji": { "main": "✈️" },
-    "default": true,
+    "default": false,
     "display": {
       "min": 500
     },
@@ -129,7 +129,7 @@
       "fr": "0 gCO2e/km/personne ; ADEME"
     },
     "emoji": { "main": "🚴" },
-    "default": true,
+    "default": false,
     "display": {
       "max": 30
     },
@@ -149,7 +149,7 @@
       "fr": " 2 gCO2e/km/personne pour la phase d'usage ; Etude ADEME \"Modélisation et évaluation environnementale de produits de consommation et biens d’Équipement \"<br/><br/>Hypothèses Vélo Électrique :<br/>- Capacité de la batterie : 11,6 Ah<br/>- Tension : 36 V<br/>- Capacité énergétique 417,6 Wh<br/>- Distance de 40 km par charge complète<br/>- 2 500 km/an<br/><br/>Hypothèses Trotinette Électrique :<br/>- Capacité de la batterie : 2,5 Ah<br/>- Tension : 36 V<br/>- Capacité énergétique : 90 Wh<br/>- 300 charges par an<br/>- 1 000 km/an"
     },
     "emoji": { "main": "🚴", "secondary": "⚡" },
-    "default": true,
+    "default": false,
     "display": {
       "max": 30
     },
@@ -170,7 +170,7 @@
     },
     "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=autocar",
     "emoji": { "main": "🚌" },
-    "default": true,
+    "default": false,
     "display": {
       "min": 31
     },
@@ -233,7 +233,7 @@
     },
     "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=tgv",
     "emoji": { "main": "🚄" },
-    "default": true,
+    "default": false,
     "display": {
       "min": 31
     },
