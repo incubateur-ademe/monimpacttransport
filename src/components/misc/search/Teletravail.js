@@ -13,9 +13,19 @@ const Wrapper = styled.div`
   align-items: flex-start;
   width: 100%;
 `
-
+const Details = styled.button`
+  margin: 0 auto;
+  padding: 0;
+  font-size: 0.875rem;
+  color: ${(props) => props.theme.colors.main};
+  text-decoration: underline;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+`
 export default function Teletravail() {
-  const { setStart, setEnd } = useContext(SearchContext)
+  const { start, end, teletravailTransportation, setStart, setEnd } =
+    useContext(SearchContext)
 
   return (
     <Wrapper>
@@ -23,6 +33,9 @@ export default function Teletravail() {
       <Address placeholder='Travail' setCoordinates={setEnd} />
       <Transportations />
       <Days />
+      {start && end && teletravailTransportation && (
+        <Details>Voir / ajuster les détails du calcul</Details>
+      )}
     </Wrapper>
   )
 }

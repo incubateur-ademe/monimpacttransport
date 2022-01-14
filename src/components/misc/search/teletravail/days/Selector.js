@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-  margin: 0 1rem;
+  margin: 0 1rem 1rem;
   padding: 1rem 1.5rem;
   background-color: ${(props) => props.theme.colors.footerLight};
   border-radius: 1rem;

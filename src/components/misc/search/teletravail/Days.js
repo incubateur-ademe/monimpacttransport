@@ -18,6 +18,7 @@ export default function Days() {
     setPresentiel,
     teletravail,
     setTeletravail,
+    days,
   } = useContext(SearchContext)
 
   return (
@@ -30,9 +31,7 @@ export default function Days() {
           value={presentiel}
           onChange={(value) => {
             setPresentiel(value)
-            if (teletravail + value > 5) {
-              setTeletravail(5 - value)
-            }
+            setTeletravail(days - value)
           }}
         />
         <Selector
@@ -40,9 +39,7 @@ export default function Days() {
           value={teletravail}
           onChange={(value) => {
             setTeletravail(value)
-            if (presentiel + value > 5) {
-              setPresentiel(5 - value)
-            }
+            setPresentiel(days - value)
           }}
         />
       </Wrapper>
