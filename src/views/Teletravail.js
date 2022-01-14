@@ -10,8 +10,14 @@ const Wrapper = styled.div`
   margin-top: 2rem;
 `
 export default function Teletravail() {
-  const { start, end, teletravailTransportation, presentiel, teletravail } =
-    useContext(SearchContext)
+  const {
+    start,
+    end,
+    teletravailTransportation,
+    presentiel,
+    teletravail,
+    holidays,
+  } = useContext(SearchContext)
 
   const { itineraryTransportations: transportations } = useContext(
     TransportationContext
@@ -50,7 +56,7 @@ export default function Teletravail() {
           (currentTransportation.values[0].value *
             (distance - distance * 0.25) *
             teletravail *
-            (52 - 5 - 1)) /
+            (52 - holidays - 1)) /
             1000000
         )
       )
@@ -59,12 +65,12 @@ export default function Teletravail() {
           (currentTransportation.values[0].value *
             distance *
             presentiel *
-            (52 - 5 - 1)) /
+            (52 - holidays - 1)) /
             1000000
         )
       )
     }
-  }, [presentiel, teletravail, distance, currentTransportation])
+  }, [presentiel, teletravail, holidays, distance, currentTransportation])
 
   return (
     <Wrapper>

@@ -15,9 +15,9 @@ export default function SearchProvider(props) {
     useState(null)
   const [presentiel, setPresentiel] = useState(5)
   const [teletravail, setTeletravail] = useState(0)
-  const [days, setDays] = useState(5)
-  const [holidays, setHolidays] = useState(5)
-  const [extraKm, setExtraKm] = useState(0.25)
+  const [days, setDays] = useState('5')
+  const [holidays, setHolidays] = useState('5')
+  const [extraKm, setExtraKm] = useState('0.25')
 
   return (
     <SearchContext.Provider

@@ -7,6 +7,8 @@ export default function ModalProvider(props) {
   const [approximation, setApproximation] = useState(false)
   const [installInstructions, setInstallInstructions] = useState(false)
   const [source, setSource] = useState(false)
+  const [teletravail, setTeletravail] = useState(false)
+
   return (
     <ModalContext.Provider
       value={{
@@ -20,6 +22,8 @@ export default function ModalProvider(props) {
         setInstallInstructions,
         source,
         setSource,
+        teletravail,
+        setTeletravail,
       }}
     >
       {props.children}

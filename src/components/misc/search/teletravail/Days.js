@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import styled from 'styled-components'
 
 import SearchContext from 'utils/SearchContext'
@@ -20,6 +20,17 @@ export default function Days() {
     setTeletravail,
     days,
   } = useContext(SearchContext)
+
+  useEffect(() => {
+    if (presentiel + teletravail !== days) {
+      if (presentiel > days) {
+        setPresentiel(days)
+        setTeletravail(0)
+      } else {
+        setTeletravail(days - presentiel)
+      }
+    }
+  }, [days, presentiel, teletravail, setPresentiel, setTeletravail])
 
   return (
     start &&
