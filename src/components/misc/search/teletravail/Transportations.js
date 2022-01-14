@@ -6,13 +6,11 @@ import SearchContext from 'utils/SearchContext'
 import Transportation from './transportations/Transportation'
 
 const Wrapper = styled.div`
-  margin: 0 auto 1rem;
+  margin: 1rem auto 2rem;
 `
 const List = styled.div`
   display: flex;
-  margin-bottom: 1rem;
-
-  padding: 0.75rem 0.375rem;
+  margin-bottom: 0.5rem;
 `
 const MoreButton = styled.button`
   width: 2.5rem;

@@ -13,6 +13,8 @@ export default function SearchProvider(props) {
 
   const [teletravailTransportation, setTeletravailTransportation] =
     useState(null)
+  const [presentiel, setPresentiel] = useState(5)
+  const [teletravail, setTeletravail] = useState(0)
 
   return (
     <SearchContext.Provider
@@ -25,6 +27,10 @@ export default function SearchProvider(props) {
         setEnd,
         teletravailTransportation,
         setTeletravailTransportation,
+        presentiel,
+        setPresentiel,
+        teletravail,
+        setTeletravail,
       }}
     >
       {props.children}

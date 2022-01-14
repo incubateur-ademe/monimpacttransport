@@ -75,13 +75,21 @@ export default function Search() {
           <StyledCheckbox checked={displayAll} onChange={setDisplayAll}>
             Afficher tous les modes de transport
           </StyledCheckbox>
+          <StyledCheckbox
+            checked={carpool}
+            onChange={() => setCarpool((prevCarpool) => (prevCarpool ? 0 : 2))}
+          >
+            Afficher le covoiturage
+          </StyledCheckbox>
         </Route>
-        <StyledCheckbox
-          checked={carpool}
-          onChange={() => setCarpool((prevCarpool) => (prevCarpool ? 0 : 2))}
-        >
-          Afficher le covoiturage
-        </StyledCheckbox>
+        <Route path='/itineraire'>
+          <StyledCheckbox
+            checked={carpool}
+            onChange={() => setCarpool((prevCarpool) => (prevCarpool ? 0 : 2))}
+          >
+            Afficher le covoiturage
+          </StyledCheckbox>
+        </Route>
       </Checkboxes>
     </Wrapper>
   )

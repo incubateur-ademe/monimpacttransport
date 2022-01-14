@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query'
 import axios from 'axios'
 
-export function useItinerary(start, end, mode, transit) {
+export function useItinerary(start, end, mode) {
   return useQuery(
     ['car', start, end, mode],
     () =>
@@ -11,7 +11,7 @@ export function useItinerary(start, end, mode, transit) {
         )
         .then((res) => res.data.rows),
     {
-      enabled: start && end ? true : false,
+      enabled: start && end && mode ? true : false,
       keepPreviousData: false,
       refetchOnWindowFocus: false,
     }
