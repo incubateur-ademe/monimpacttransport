@@ -4,7 +4,8 @@ import styled from 'styled-components'
 import TransportationContext from 'utils/TransportationContext'
 import SearchContext from 'utils/SearchContext'
 import { useItinerary } from 'hooks/useItineraries'
-import Footprint from './teletravail/Footprint'
+import YearlyFootprint from './teletravail/YearlyFootprint'
+import PercentFootprint from './teletravail/PercentFootprint'
 
 const Wrapper = styled.div`
   margin-top: 2rem;
@@ -17,6 +18,7 @@ export default function Teletravail() {
     presentiel,
     teletravail,
     holidays,
+    extraKm,
   } = useContext(SearchContext)
 
   const { itineraryTransportations: transportations } = useContext(
@@ -33,7 +35,7 @@ export default function Teletravail() {
   }, [transportations, teletravailTransportation])
 
   const [distance, setDistance] = useState(0)
-  const types = { car: 'driving', foot: 'walking', rail: 'transit' }
+  const types = { car: 'driving', foot: 'walking', rail: 'driving' }
   const { data: itinerary } = useItinerary(
     start,
     end,
@@ -54,7 +56,7 @@ export default function Teletravail() {
       setSaved(
         Math.round(
           (currentTransportation.values[0].value *
-            (distance - distance * 0.25) *
+            (distance - distance * extraKm) *
             teletravail *
             (52 - holidays - 1)) /
             1000000
@@ -70,18 +72,26 @@ export default function Teletravail() {
         )
       )
     }
-  }, [presentiel, teletravail, holidays, distance, currentTransportation])
+  }, [
+    presentiel,
+    teletravail,
+    holidays,
+    extraKm,
+    distance,
+    currentTransportation,
+  ])
 
   return (
     <Wrapper>
       {distance && currentTransportation && (
-        <Footprint
+        <YearlyFootprint
           emitted={emitted}
           saved={saved}
           presentiel={presentiel}
           teletravail={teletravail}
         />
       )}
+      {distance && currentTransportation && <PercentFootprint saved={saved} />}
     </Wrapper>
   )
 }

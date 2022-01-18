@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  margin-bottom: 2.5rem;
+`
 const Bar = styled.div`
   position: relative;
   height: 7rem;
@@ -54,7 +56,7 @@ const Disclaimer = styled.p`
   font-weight: 300;
   text-align: center;
 `
-export default function Teletravail(props) {
+export default function YearlyFootprint(props) {
   return (
     <Wrapper>
       <Bar>

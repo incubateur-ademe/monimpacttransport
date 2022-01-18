@@ -17,6 +17,7 @@ import ApproximationModal from 'components/modals/ApproximationModal'
 import InstallInstructionsModal from 'components/modals/InstallInstructionsModal'
 import SourceModal from 'components/modals/SourceModal'
 import TeletravailModal from 'components/modals/TeletravailModal'
+import FootprintModal from 'components/modals/FootprintModal'
 import Web from 'components/layout/Web'
 import Search from 'components/misc/Search'
 import Itinerary from 'views/Itinerary'
@@ -56,6 +57,7 @@ function App() {
                     <InstallInstructionsModal />
                     <SourceModal />
                     <TeletravailModal />
+                    <FootprintModal />
                   </ModalProvider>
                 </UXProvider>
               </SearchProvider>

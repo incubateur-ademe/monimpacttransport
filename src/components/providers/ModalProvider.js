@@ -8,6 +8,8 @@ export default function ModalProvider(props) {
   const [installInstructions, setInstallInstructions] = useState(false)
   const [source, setSource] = useState(false)
   const [teletravail, setTeletravail] = useState(false)
+  const [footprint, setFootprint] = useState(false)
+  const [detailFootprint, setDetailFootprint] = useState(false)
 
   return (
     <ModalContext.Provider
@@ -24,6 +26,10 @@ export default function ModalProvider(props) {
         setSource,
         teletravail,
         setTeletravail,
+        footprint,
+        setFootprint,
+        detailFootprint,
+        setDetailFootprint,
       }}
     >
       {props.children}

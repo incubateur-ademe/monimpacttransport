@@ -9,7 +9,7 @@ import MagicLink from 'components/base/MagicLink'
 
 const Title = styled.h2``
 const Text = styled.p``
-export default function Teletravail() {
+export default function TeletravailModal() {
   const { teletravail: open, setTeletravail } = useContext(ModalContext)
   const { days, setDays, holidays, setHolidays, extraKm, setExtraKm } =
     useContext(SearchContext)
