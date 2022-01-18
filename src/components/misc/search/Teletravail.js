@@ -7,14 +7,9 @@ import Address from './itinerary/Address'
 import Transportations from './teletravail/Transportations'
 import Days from './teletravail/Days'
 
-const Wrapper = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-`
+const Wrapper = styled.div``
 const Details = styled.button`
+  display: block;
   margin: 0 auto;
   padding: 0;
   font-size: 0.875rem;

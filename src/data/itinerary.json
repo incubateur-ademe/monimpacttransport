@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 1000,
     "type": "car",
     "label": {
       "fr": "Avion"
@@ -39,7 +39,7 @@
     ]
   },
   {
-    "id": 4,
+    "id": 1001,
     "type": "car",
     "label": {
       "fr": "Voiture (thermique)"
@@ -59,7 +59,7 @@
     "carpool": 5
   },
   {
-    "id": 5,
+    "id": 1002,
     "type": "car",
     "label": {
       "fr": "Voiture (électrique)"
@@ -79,7 +79,7 @@
     "carpool": 5
   },
   {
-    "id": 12,
+    "id": 1003,
     "type": "car",
     "label": {
       "fr": "Scooter et moto légère"
@@ -100,7 +100,7 @@
     ]
   },
   {
-    "id": 13,
+    "id": 1004,
     "type": "car",
     "label": {
       "fr": "Moto"
@@ -120,27 +120,7 @@
     ]
   },
   {
-    "id": 7,
-    "type": "foot",
-    "label": {
-      "fr": "Vélo ou marche"
-    },
-    "description": {
-      "fr": "0 gCO2e/km/personne ; ADEME"
-    },
-    "emoji": { "main": "🚴" },
-    "default": false,
-    "display": {
-      "max": 30
-    },
-    "values": [
-      {
-        "value": 0
-      }
-    ]
-  },
-  {
-    "id": 8,
+    "id": 1005,
     "type": "foot",
     "label": {
       "fr": "Vélo (ou trottinette) à assistance électrique"
@@ -149,7 +129,7 @@
       "fr": " 2 gCO2e/km/personne pour la phase d'usage ; Etude ADEME \"Modélisation et évaluation environnementale de produits de consommation et biens d’Équipement \"<br/><br/>Hypothèses Vélo Électrique :<br/>- Capacité de la batterie : 11,6 Ah<br/>- Tension : 36 V<br/>- Capacité énergétique 417,6 Wh<br/>- Distance de 40 km par charge complète<br/>- 2 500 km/an<br/><br/>Hypothèses Trotinette Électrique :<br/>- Capacité de la batterie : 2,5 Ah<br/>- Tension : 36 V<br/>- Capacité énergétique : 90 Wh<br/>- 300 charges par an<br/>- 1 000 km/an"
     },
     "emoji": { "main": "🚴", "secondary": "⚡" },
-    "default": false,
+    "default": true,
     "display": {
       "max": 30
     },
@@ -160,49 +140,7 @@
     ]
   },
   {
-    "id": 6,
-    "type": "car",
-    "label": {
-      "fr": "Autocar"
-    },
-    "description": {
-      "fr": "35,2 gCO2e/km/personne ; Taux de remplissage : 30 personnes (62%) ; Base Carbone ADEME, Autocar - Gazole"
-    },
-    "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=autocar",
-    "emoji": { "main": "🚌" },
-    "default": false,
-    "display": {
-      "min": 31
-    },
-    "values": [
-      {
-        "value": 35.2
-      }
-    ]
-  },
-  {
-    "id": 9,
-    "type": "car",
-    "label": {
-      "fr": "Bus (thermique)"
-    },
-    "description": {
-      "fr": "103 gCO2e/km/personne ; Taux de remplissage : 10 personnes ; Base Carbone ADEME, Autobus - Gazole"
-    },
-    "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=autobus",
-    "emoji": { "main": "🚌" },
-    "default": true,
-    "display": {
-      "max": 30
-    },
-    "values": [
-      {
-        "value": 103
-      }
-    ]
-  },
-  {
-    "id": 1011,
+    "id": 1006,
     "type": "rail",
     "label": {
       "fr": "Transport en commun (Métro, RER ou tramway)"
@@ -223,7 +161,7 @@
     ]
   },
   {
-    "id": 1002,
+    "id": 1007,
     "type": "rail",
     "label": {
       "fr": "TGV ou intercités"
@@ -233,13 +171,75 @@
     },
     "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=tgv",
     "emoji": { "main": "🚄" },
-    "default": false,
+    "default": true,
     "display": {
       "min": 31
     },
     "values": [
       {
         "value": 3.56
+      }
+    ]
+  },
+  {
+    "id": 1008,
+    "type": "car",
+    "label": {
+      "fr": "Bus (thermique)"
+    },
+    "description": {
+      "fr": "103 gCO2e/km/personne ; Taux de remplissage : 10 personnes ; Base Carbone ADEME, Autobus - Gazole"
+    },
+    "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=autobus",
+    "emoji": { "main": "🚌" },
+    "default": true,
+    "display": {
+      "max": 30
+    },
+    "values": [
+      {
+        "value": 103
+      }
+    ]
+  },
+  {
+    "id": 1009,
+    "type": "car",
+    "label": {
+      "fr": "Autocar"
+    },
+    "description": {
+      "fr": "35,2 gCO2e/km/personne ; Taux de remplissage : 30 personnes (62%) ; Base Carbone ADEME, Autocar - Gazole"
+    },
+    "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=autocar",
+    "emoji": { "main": "🚐" },
+    "default": true,
+    "display": {
+      "min": 31
+    },
+    "values": [
+      {
+        "value": 35.2
+      }
+    ]
+  },
+  {
+    "id": 1010,
+    "type": "foot",
+    "label": {
+      "fr": "Vélo ou marche"
+    },
+    "description": {
+      "fr": "0 gCO2e/km/personne ; ADEME"
+    },
+    "emoji": { "main": "🚴" },
+    "default": false,
+    "display": {
+      "max": 30
+    },
+    "values": [
+      {
+        "value": 0
       }
     ]
   }

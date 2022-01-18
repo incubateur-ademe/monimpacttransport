@@ -6,6 +6,10 @@ const Wrapper = styled.div`
   padding: 1rem 1.5rem;
   background-color: ${(props) => props.theme.colors.footerLight};
   border-radius: 1rem;
+
+  ${(props) => props.theme.mq.small} {
+    margin: 0 0.75rem 1rem;
+  }
 `
 const Title = styled.div`
   text-align: center;
@@ -38,6 +42,7 @@ const Value = styled.div`
 const Text = styled.div`
   font-size: 0.875rem;
   font-weight: 300;
+  text-align: center;
 `
 export default function Selector(props) {
   return (

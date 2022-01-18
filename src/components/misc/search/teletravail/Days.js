@@ -7,7 +7,7 @@ import Selector from './days/Selector'
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
-  width: 100%;
+  margin: 0 -0.75rem;
 `
 export default function Days() {
   const {

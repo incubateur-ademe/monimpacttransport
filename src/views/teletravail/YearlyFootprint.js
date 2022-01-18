@@ -24,6 +24,12 @@ const Emitted = styled.div`
   background-color: ${(props) => props.theme.colors.second};
   border-radius: 3.5rem;
   transition: width 300ms ease-out;
+
+  ${(props) => props.theme.mq.small} {
+    max-width: ${(props) =>
+      props.percent !== 100 ? 'calc(100% - 5rem)' : 'auto'};
+    min-width: ${(props) => (props.percent ? '5rem' : 'auto')};
+  }
 `
 const Saved = styled(Emitted)`
   left: auto;
@@ -38,7 +44,11 @@ const Content = styled.div`
   line-height: 1.4rem;
   opacity: ${(props) => (props.visible ? 1 : 0)};
   transition: opacity ${(props) => (props.visible ? 300 : 0)}ms
-    ${(props) => (props.visible ? 200 : 0)}ms; ;
+    ${(props) => (props.visible ? 200 : 0)}ms;
+
+  ${(props) => props.theme.mq.small} {
+    font-size: 0.875rem;
+  }
 `
 const Small = styled.span`
   font-size: 0.875rem;

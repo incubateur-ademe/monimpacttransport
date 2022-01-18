@@ -124,7 +124,7 @@
       "fr": "35,2 gCO2e/km/personne ; Taux de remplissage : 30 personnes (62%) ; Base Carbone ADEME, Autocar - Gazole"
     },
     "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=autocar",
-    "emoji": { "main": "🚌" },
+    "emoji": { "main": "🚐" },
     "default": true,
     "display": {
       "min": 16

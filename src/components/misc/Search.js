@@ -16,6 +16,10 @@ const Content = styled.div`
   padding: 1.5rem 2rem;
   background-color: ${(props) => props.theme.colors.secondLight};
   border-radius: 1rem;
+
+  ${(props) => props.theme.mq.small} {
+    padding: 1.5rem;
+  }
 `
 const Text = styled.p`
   max-width: 26rem;
