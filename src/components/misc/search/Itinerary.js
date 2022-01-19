@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 
 export default function Itinerary() {
   const { start, setStartPlace, end, setEndPlace } = useContext(SearchContext)
-  console.log(end?.address)
+
   return (
     <Wrapper>
       <Address
