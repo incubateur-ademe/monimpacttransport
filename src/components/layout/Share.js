@@ -41,7 +41,7 @@ export default function Share(props) {
     setEmbedOpen,
   } = useContext(UXContext)
 
-  const absoluteUrl = `${window.location.origin}/${url}`
+  const absoluteUrl = `${window.location.origin}${url}`
   return (
     <Panel
       small={props.small}

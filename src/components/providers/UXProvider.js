@@ -29,7 +29,9 @@ export default function UXProvider(props) {
               : ''
           }${
             location.pathname !== '/'
-              ? `start=${startPlace}&end=${endPlace}&`
+              ? `${startPlace ? `start=${startPlace}` : ''}${
+                  endPlace ? `&end=${endPlace}` : ''
+                }&`
               : ''
           }`
         : ''
