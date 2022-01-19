@@ -19,13 +19,17 @@ const Content = styled.div`
   border-radius: 1rem;
 
   ${(props) => props.theme.mq.small} {
-    padding: 1.5rem;
+    padding: 1rem;
   }
 `
 const Text = styled.p`
   max-width: 26rem;
   margin: 0 auto 1rem;
   text-align: center;
+
+  ${(props) => props.theme.mq.small} {
+    font-size: 0.875rem;
+  }
 `
 const Color = styled.button`
   padding: 0;
@@ -48,6 +52,10 @@ const StyledCheckbox = styled(Checkbox)`
 
   &:first-child {
     margin-bottom: 0.375rem;
+  }
+
+  ${(props) => props.theme.mq.small} {
+    font-size: 0.75rem;
   }
 `
 export default function Search() {

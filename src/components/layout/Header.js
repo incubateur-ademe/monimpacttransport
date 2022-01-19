@@ -11,11 +11,16 @@ const Wrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 3rem;
+
+  ${(props) => props.theme.mq.small} {
+    margin-bottom: 0.75rem;
+    font-size: 0.75rem;
+  }
 `
 const Logos = styled(MagicLink)`
   display: flex;
   align-items: center;
-  margin: 0 0.75rem 0 -0.75rem;
+  margin: 0 0.75em 0 -0.75em;
   background-color: #fff;
 `
 export default function Header(props) {

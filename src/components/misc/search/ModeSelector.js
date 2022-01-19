@@ -28,6 +28,12 @@ const Tab = styled(MagicLink)`
     background-color: ${(props) =>
       props.theme.colors[props.current ? 'secondLight' : 'footer']};
   }
+
+  ${(props) => props.theme.mq.small} {
+    margin-bottom: -1.25rem;
+    padding: 0.25rem 0 1.25rem;
+    font-size: 0.875rem;
+  }
 `
 export default function ModeSelector() {
   const location = useLocation()

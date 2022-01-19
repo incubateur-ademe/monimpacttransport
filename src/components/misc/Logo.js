@@ -7,15 +7,19 @@ const Wrapper = styled(MagicLink)`
   display: flex;
   align-items: center;
   text-decoration: none;
+
+  ${(props) => props.theme.mq.small} {
+    font-size: 0.75rem;
+  }
 `
 const Svg = styled.svg`
-  width: 3.5rem;
+  width: 3.5em;
   height: auto;
-  margin-right: 0.5rem;
+  margin-right: 0.5em;
 `
 const Title = styled.h1`
   margin: 0;
-  font-size: 0.875rem;
+  font-size: 0.875em;
   color: ${(props) => props.theme.colors.main};
 `
 const Path = styled.path`

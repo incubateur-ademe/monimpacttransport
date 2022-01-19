@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
   padding: 1em;
-  font-size: 0.75rem;
+  font-size: 0.75em;
   background-color: #fff;
 
   &:before {
@@ -34,6 +34,8 @@ const Wrapper = styled.div`
 `
 const Text = styled.svg`
   display: block;
+  height: 2.16666667em;
+  width: auto;
   transform: translateX(0.05em);
 `
 export default function Marianne() {

@@ -26,10 +26,20 @@ const Button = styled.button`
   line {
     stroke: ${(props) => props.theme.colors[props.current ? 'second' : 'main']};
   }
+
+  ${(props) => props.theme.mq.small} {
+    margin-bottom: -1.5rem;
+    padding-bottom: 0.5rem;
+  }
 `
 const Svg = styled.svg`
   width: 1.75rem;
   height: 1.75rem;
+
+  ${(props) => props.theme.mq.small} {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
 `
 const Line = styled.line`
   transition: transform 300ms ease-out;
