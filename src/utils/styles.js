@@ -37,7 +37,7 @@ export const themes = {
       secondLight: '#383838',
       background: '#1e1e1e',
       footer: '#383838',
-      footerLight: '#FBFBFC',
+      footerLight: '#1e1e1e',
       text: '#ffffff',
       textLight: '#939699',
     },

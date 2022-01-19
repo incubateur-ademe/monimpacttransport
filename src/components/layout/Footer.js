@@ -59,7 +59,7 @@ export default function Footer(props) {
     <Wrapper
       className={props.className}
       background={props.background}
-      id='about'
+      id='apropos'
     >
       <Content>
         <MobileButtons iframe={props.iframe} />

@@ -11,12 +11,16 @@ export default function MagicLink(props) {
     >
       {props.children}
     </button>
-  ) : props.to.includes(':') || props.to.includes('.') ? (
+  ) : props.to.includes(':') ||
+    props.to.includes('.') ||
+    props.to.includes('#') ? (
     <a
       className={props.className}
       href={props.to}
       onClick={props.onClick || null}
-      target='_blank'
+      target={
+        props.to.includes(':') || props.to.includes('.') ? '_blank' : '_self'
+      }
       rel='noreferrer noopener'
       aria-label={props['aria-label']}
     >

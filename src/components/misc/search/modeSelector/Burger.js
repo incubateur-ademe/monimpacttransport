@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { HashLink } from 'react-router-hash-link'
 
 import MagicLink from 'components/base/MagicLink'
 
@@ -118,7 +119,9 @@ export default function Burger(props) {
       </Button>
       <MenuWrapper>
         <Item to='/teletravail'>Mode télétravail</Item>
-        <Item to='#apropos'>À propos</Item>
+        <Item to='#apropos' as={HashLink}>
+          À propos
+        </Item>
       </MenuWrapper>
     </Wrapper>
   )
