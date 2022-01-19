@@ -53,8 +53,6 @@ export default function Itinerary() {
       transportations
         // Remove all empty transportations
         .filter((transportation) => transportation.values)
-        // Show only default (or display all)
-        .filter((transportation) => transportation.default)
         // Show carpool or not
         .filter((transportation) => !transportation.carpool || carpool)
         // Show only depending on distance (or display all)

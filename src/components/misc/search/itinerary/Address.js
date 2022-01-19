@@ -14,7 +14,7 @@ export default function Address(props) {
     <Wrapper>
       <Search
         placeholder={props.placeholder}
-        address={''}
+        address={props.address}
         setAddress={(address) => {
           props.setPlace(address?.place_id)
         }}
