@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   margin-bottom: 3rem;
 
   ${(props) => props.theme.mq.small} {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.25rem;
     font-size: 0.75rem;
   }
 `
