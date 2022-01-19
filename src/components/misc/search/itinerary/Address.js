@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
-import { useAddress } from 'hooks/useAddress'
 import Search from './address/Search'
 
 const Wrapper = styled.div`
@@ -11,25 +10,13 @@ const Wrapper = styled.div`
   margin-bottom: 1rem;
 `
 export default function Address(props) {
-  const [address, setAddress] = useState(null)
-
-  const { data: place } = useAddress(address?.place_id)
-  const setCoordinates = props.setCoordinates
-  useEffect(() => {
-    place?.result?.geometry?.location &&
-      setCoordinates({
-        latitude: place.result.geometry.location.lat,
-        longitude: place.result.geometry.location.lng,
-      })
-  }, [place, setCoordinates])
   return (
     <Wrapper>
       <Search
         placeholder={props.placeholder}
-        address={address?.description}
+        address={''}
         setAddress={(address) => {
-          setAddress(address)
-          //props.setCoordinates(address)
+          props.setPlace(address?.place_id)
         }}
       />
     </Wrapper>

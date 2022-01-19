@@ -13,12 +13,12 @@ const Wrapper = styled.div`
 `
 
 export default function Itinerary() {
-  const { setStart, setEnd } = useContext(SearchContext)
+  const { setStartPlace, setEndPlace } = useContext(SearchContext)
 
   return (
     <Wrapper>
-      <Address placeholder='Départ' setCoordinates={setStart} />
-      <Address placeholder='Arrivée' setCoordinates={setEnd} />
+      <Address placeholder='Départ' setPlace={setStartPlace} />
+      <Address placeholder='Arrivée' setPlace={setEndPlace} />
     </Wrapper>
   )
 }

@@ -4,7 +4,6 @@ import ModalContext from 'utils/ModalContext'
 export default function ModalProvider(props) {
   const [CO2E, setCO2E] = useState(false)
   const [radiativeForcing, setRadiativeForcing] = useState(false)
-  const [approximation, setApproximation] = useState(false)
   const [installInstructions, setInstallInstructions] = useState(false)
   const [source, setSource] = useState(false)
   const [teletravail, setTeletravail] = useState(false)
@@ -18,8 +17,6 @@ export default function ModalProvider(props) {
         setCO2E,
         radiativeForcing,
         setRadiativeForcing,
-        approximation,
-        setApproximation,
         installInstructions,
         setInstallInstructions,
         source,

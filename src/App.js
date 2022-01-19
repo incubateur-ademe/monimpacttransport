@@ -13,7 +13,6 @@ import SearchProvider from 'components/providers/SearchProvider'
 
 import CO2EModal from 'components/modals/CO2EModal'
 import RadiativeForcingModal from 'components/modals/RadiativeForcingModal'
-import ApproximationModal from 'components/modals/ApproximationModal'
 import InstallInstructionsModal from 'components/modals/InstallInstructionsModal'
 import SourceModal from 'components/modals/SourceModal'
 import TeletravailModal from 'components/modals/TeletravailModal'
@@ -54,7 +53,6 @@ function App() {
                     </Web>
                     <CO2EModal />
                     <RadiativeForcingModal />
-                    <ApproximationModal />
                     <InstallInstructionsModal />
                     <SourceModal />
                     <TeletravailModal />

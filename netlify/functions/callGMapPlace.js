@@ -3,7 +3,7 @@ const axios = require('axios')
 exports.handler = function (event) {
   return axios
     .get(
-      `https://maps.googleapis.com/maps/api/place/details/json?${event.rawQuery}&fields=geometry&key=${process.env.GMAP_API_KEY}`
+      `https://maps.googleapis.com/maps/api/place/details/json?${event.rawQuery}&fields=formatted_address,geometry&key=${process.env.GMAP_API_KEY}`
     )
     .then((res) => ({
       statusCode: 200,
