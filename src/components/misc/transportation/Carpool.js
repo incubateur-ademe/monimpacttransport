@@ -22,11 +22,10 @@ const Carpoolers = styled.div`
   font-size: 0.75rem;
   white-space: nowrap;
   cursor: default;
-
-  span {
-    ${(props) => props.theme.mq.medium} {
-      display: none;
-    }
+`
+const Start = styled.span`
+  ${(props) => props.theme.mq.medium} {
+    display: none;
   }
 `
 const Number = styled.span`
@@ -68,7 +67,7 @@ export default function Carpool(props) {
           }
           data-for='carpool'
         >
-          <span>avec </span>
+          <Start>avec </Start>
           <Number>{carpool - 1}</Number> covoitureur
           <Plural visible={carpool > 2}>s</Plural>
         </Carpoolers>
