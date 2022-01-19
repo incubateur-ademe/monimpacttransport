@@ -6,6 +6,7 @@ import SearchContext from 'utils/SearchContext'
 import { useItinerary } from 'hooks/useItineraries'
 import YearlyFootprint from './teletravail/YearlyFootprint'
 import PercentFootprint from './teletravail/PercentFootprint'
+import Disclaimer from 'components/misc/Disclaimer'
 
 const Wrapper = styled.div`
   margin-top: 2rem;
@@ -92,6 +93,7 @@ export default function Teletravail() {
         />
       )}
       {distance && currentTransportation && <PercentFootprint saved={saved} />}
+      <Disclaimer itinerary />
     </Wrapper>
   )
 }

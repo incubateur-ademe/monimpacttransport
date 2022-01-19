@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { Switch, Route } from 'react-router-dom'
 
 import TransportationContext from 'utils/TransportationContext'
+import ModalContext from 'utils/ModalContext'
 import Checkbox from 'components/base/Checkbox'
 import ModeSelector from './search/ModeSelector'
 import Distance from './search/Distance'
@@ -26,8 +27,16 @@ const Text = styled.p`
   margin: 0 auto 1rem;
   text-align: center;
 `
-const Color = styled.span`
+const Color = styled.button`
+  padding: 0;
   color: ${(props) => props.theme.colors.second};
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `
 const Checkboxes = styled.div`
   display: flex;
@@ -45,6 +54,7 @@ export default function Search() {
   const { displayAll, setDisplayAll, carpool, setCarpool } = useContext(
     TransportationContext
   )
+  const { setOccupancy } = useContext(ModalContext)
 
   return (
     <Wrapper>
@@ -54,21 +64,23 @@ export default function Search() {
           <Route path='/itineraire'>
             <Text>
               Découvrez la quantité de CO2e que vous émettez{' '}
-              <Color>(par personne)</Color> pour ce trajet
+              <Color onClick={() => setOccupancy(true)}>(par personne)</Color>{' '}
+              pour ce trajet
             </Text>
             <Itinerary />
           </Route>
           <Route path='/teletravail'>
             <Text>
-              Découvrez la quantité de CO2e que vous économisez{' '}
-              <Color>(à l'année)</Color> en travaillant de chez vous
+              Découvrez la quantité de CO2e que vous économisez (à l'année) en
+              travaillant de chez vous
             </Text>
             <Teletravail />
           </Route>
           <Route>
             <Text>
               Découvrez la quantité de CO2e que vous émettez{' '}
-              <Color>(par personne)</Color> pour cette distance
+              <Color onClick={() => setOccupancy(true)}>(par personne)</Color>{' '}
+              pour cette distance
             </Text>
             <Distance />
           </Route>
