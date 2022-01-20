@@ -41,7 +41,7 @@ export default function SearchProvider(props) {
   const [days, setDays] = useState('5')
   const [holidays, setHolidays] = useState('5')
   const [extraKm, setExtraKm] = useState('0.25')
-  const [yearlyFootprint, setYearlyFootprint] = useState(10)
+  const [yearlyFootprint, setYearlyFootprint] = useState(9.9)
 
   return (
     <SearchContext.Provider

@@ -46,7 +46,7 @@ export default function SetFootprintModal() {
         <br />
       </Text>
       <Text>
-        Aujourd'hui, un·e français·e en émet en moyenne 10 tonnes des gaz à
+        Aujourd'hui, un·e français·e en émet en moyenne 9,9 tonnes de gaz à
         effet de serre (GES) par an (
         <MagicLink to='https://www.statistiques.developpement-durable.gouv.fr/estimation-de-lempreinte-carbone-de-1995-2019'>
           source
