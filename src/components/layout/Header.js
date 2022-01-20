@@ -10,10 +10,10 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 
   ${(props) => props.theme.mq.small} {
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
     font-size: 0.75rem;
   }
 `
