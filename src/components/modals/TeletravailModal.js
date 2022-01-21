@@ -1,27 +1,41 @@
-import React, { useContext } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import styled from 'styled-components'
 
 import ModalContext from 'utils/ModalContext'
 import SearchContext from 'utils/SearchContext'
 import Modal from 'components/base/Modal'
 import FancySelect from 'components/base/FancySelect'
+import Button from 'components/base/Button'
 import MagicLink from 'components/base/MagicLink'
 
 const Title = styled.h2``
 const Text = styled.p``
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`
 export default function TeletravailModal() {
-  const { teletravail: open, setTeletravail } = useContext(ModalContext)
+  const { teletravail: open, setTeletravail: setOpen } =
+    useContext(ModalContext)
   const { days, setDays, holidays, setHolidays, extraKm, setExtraKm } =
     useContext(SearchContext)
 
+  const [pristine, setPristine] = useState(true)
+  useEffect(() => {
+    setPristine(true)
+  }, [open])
+
   return (
-    <Modal open={open} setOpen={setTeletravail}>
+    <Modal open={open} setOpen={setOpen}>
       <Title>Mode télétravail</Title>
       <Text>
         Nous comptons{' '}
         <FancySelect
           value={days}
-          onChange={setDays}
+          onChange={(value) => {
+            setDays(value)
+            setPristine(false)
+          }}
           options={[
             { value: '1', label: `1 jour` },
             { value: '2', label: `2 jours` },
@@ -35,7 +49,10 @@ export default function TeletravailModal() {
         travaillé{days > 1 && 's'} par semaine et{' '}
         <FancySelect
           value={holidays}
-          onChange={setHolidays}
+          onChange={(value) => {
+            setHolidays(value)
+            setPristine(false)
+          }}
           options={[
             { value: '1', label: `1 semaine` },
             { value: '2', label: `2 semaines` },
@@ -58,13 +75,16 @@ export default function TeletravailModal() {
         Nous considérons que{' '}
         <FancySelect
           value={extraKm}
-          onChange={setExtraKm}
+          onChange={(value) => {
+            setExtraKm(value)
+            setPristine(false)
+          }}
           options={[
             { value: '0.0', label: `0 %` },
             { value: '0.10', label: `10 %` },
             { value: '0.15', label: `15 %` },
             { value: '0.20', label: `20 %` },
-            { value: '0.25', label: `25 %` },
+            { value: '0.25', label: `25 % (défaut)` },
             { value: '0.30', label: `30 %` },
             { value: '0.35', label: `35 %` },
             { value: '0.40', label: `40 %` },
@@ -73,7 +93,7 @@ export default function TeletravailModal() {
           ]}
         />{' '}
         des émissions évitées via le télétravail sont émises pour d'autres
-        trajets (courses, école, etc.), comme le suggère cette{' '}
+        trajets (courses, école, etc.). Cette valeur (25 %) est tiré de cette{' '}
         <MagicLink to='https://librairie.ademe.fr/mobilite-et-transport/3776-caracterisation-des-effets-rebond-induits-par-le-teletravail.html'>
           étude de l'ADEME
         </MagicLink>
@@ -89,6 +109,11 @@ export default function TeletravailModal() {
         </MagicLink>
         .
       </Text>
+      {!pristine && (
+        <ButtonWrapper>
+          <Button onClick={() => setOpen(false)}>Valider</Button>
+        </ButtonWrapper>
+      )}
     </Modal>
   )
 }
