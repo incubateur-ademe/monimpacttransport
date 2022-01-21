@@ -138,7 +138,9 @@ export default function Transportation(props) {
                   ? Math.round(props.transportation.value / 1000)
                   : props.transportation.value > 10000
                   ? Math.round(props.transportation.value / 100) / 10
-                  : Math.round(props.transportation.value / 10) / 100}
+                  : props.transportation.value > 100
+                  ? Math.round(props.transportation.value / 10) / 100
+                  : Math.round(props.transportation.value) / 1000}
               </Number>
               <Unit onClick={() => setCO2E(true)}>
                 {' '}

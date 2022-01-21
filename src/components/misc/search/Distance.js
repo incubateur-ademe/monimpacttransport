@@ -65,11 +65,13 @@ export default function Distance() {
 
   // Please don't ask
   const [position, setPosition] = useState(
-    Math.round((Math.log(km) / Math.log(10) - 1) * 1000) / 1000
+    Math.round(
+      (Math.log((km > 10000 ? 10000 : km) * 10) / Math.log(10) - 1) * 1000
+    ) / 1000
   )
 
   useEffect(() => {
-    setKm(Math.round(Math.pow(10, position) * 10))
+    setKm(Math.round(Math.pow(10, position)))
   }, [position, setKm])
 
   return (
@@ -77,7 +79,7 @@ export default function Distance() {
       <Button
         onClick={() =>
           setPosition((prevPosition) =>
-            prevPosition - 0.31761 < 0 ? 0 : prevPosition - 0.31761
+            prevPosition - 0.4 < 0 ? 0 : prevPosition - 0.4
           )
         }
       >
@@ -97,7 +99,7 @@ export default function Distance() {
       <Range
         step={0.001}
         min={0}
-        max={3.1761}
+        max={4}
         values={[position]}
         onChange={(values) => setPosition(values[0])}
         renderTrack={({ props, children }) => (
@@ -108,7 +110,7 @@ export default function Distance() {
       <Button
         onClick={() =>
           setPosition((prevPosition) =>
-            prevPosition + 0.31761 > 3.1761 ? 3.1761 : prevPosition + 0.31761
+            prevPosition + 0.4 > 4 ? 4 : prevPosition + 0.4
           )
         }
       >
