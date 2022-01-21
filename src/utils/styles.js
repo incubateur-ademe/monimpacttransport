@@ -16,8 +16,8 @@ export const themes = {
       textLight: '#939699',
     },
     fonts: {
-      body: '"Marianne", sans-serif',
-      title: '"Marianne", sans-serif',
+      body: '"Marianne", Arial, sans-serif',
+      title: '"Marianne", Arial, sans-serif',
     },
     mq: {
       small: `@media screen and (max-width: ${46}em)`,
@@ -42,8 +42,8 @@ export const themes = {
       textLight: '#939699',
     },
     fonts: {
-      body: '"Marianne", sans-serif',
-      title: '"Marianne", sans-serif',
+      body: '"Marianne", Arial, sans-serif',
+      title: '"Marianne", Arial, sans-serif',
     },
     mq: {
       small: `@media screen and (max-width: ${46}em)`,
