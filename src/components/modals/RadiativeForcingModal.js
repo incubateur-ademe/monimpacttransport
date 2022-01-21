@@ -25,6 +25,7 @@ export default function CO2EModal() {
         est appelé forçage radiatif additionnel.
       </Text>
       <Checkbox
+        name='trainées'
         checked={uncertainty}
         onChange={(checked) => setUncertainty(checked)}
       >

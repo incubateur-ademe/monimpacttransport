@@ -93,7 +93,10 @@ const Item = styled(MagicLink)`
 export default function Burger(props) {
   return (
     <Wrapper>
-      <Button current={props.location.pathname === '/teletravail'} name='menu'>
+      <Button
+        current={props.location.pathname === '/teletravail'}
+        aria-label='menu'
+      >
         <Svg
           width='24'
           height='17'

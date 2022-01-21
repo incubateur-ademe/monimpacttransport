@@ -43,7 +43,6 @@ const Label = styled.label`
   white-space: nowrap;
 `
 export default function Checkbox(props) {
-  console.log(props.name)
   return (
     <Wrapper
       checked={props.checked}

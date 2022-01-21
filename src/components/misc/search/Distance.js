@@ -77,7 +77,7 @@ export default function Distance() {
   return (
     <Wrapper>
       <Button
-        name='moins'
+        aria-label='moins'
         onClick={() =>
           setPosition((prevPosition) =>
             prevPosition - 0.4 < 0 ? 0 : prevPosition - 0.4
@@ -113,7 +113,7 @@ export default function Distance() {
         )}
       />
       <Button
-        name='plus'
+        aria-label='plus'
         onClick={() =>
           setPosition((prevPosition) =>
             prevPosition + 0.4 > 4 ? 4 : prevPosition + 0.4
