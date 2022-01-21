@@ -51,9 +51,11 @@ export default function SetFootprintModal() {
         palier de réduction de -40% de GES d'ici 2030 (l'Europe parle de -55%).
       </Text>
       <Text>
-        Si vous connaissez votre empreinte carbonne annuelle, vous pouvez la
-        modifier :{' '}
+        Si vous connaissez{' '}
+        <label htmlFor='empreinte'>votre empreinte carbonne annuelle</label>,
+        vous pouvez la modifier :{' '}
         <StyledTextInput
+          name='empreinte'
           type='number'
           value={yearlyFootprint}
           onChange={(e) => {
