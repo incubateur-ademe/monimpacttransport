@@ -43,6 +43,7 @@ const Label = styled.label`
   white-space: nowrap;
 `
 export default function Checkbox(props) {
+  console.log(props.name)
   return (
     <Wrapper
       checked={props.checked}
@@ -51,13 +52,14 @@ export default function Checkbox(props) {
       className={props.className}
     >
       <Input
+        id={props.name}
         type='checkbox'
         checked={props.checked}
         label={props.children || props.label}
         onChange={(e) => props.onChange(e.target.checked)}
       />
       {(props.children || props.label) && (
-        <Label>{props.children || props.label}</Label>
+        <Label htmlFor={props.name}>{props.children || props.label}</Label>
       )}
     </Wrapper>
   )

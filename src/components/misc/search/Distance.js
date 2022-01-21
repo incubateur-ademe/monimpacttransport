@@ -77,6 +77,7 @@ export default function Distance() {
   return (
     <Wrapper>
       <Button
+        name='moins'
         onClick={() =>
           setPosition((prevPosition) =>
             prevPosition - 0.4 < 0 ? 0 : prevPosition - 0.4
@@ -105,9 +106,14 @@ export default function Distance() {
         renderTrack={({ props, children }) => (
           <Track {...props}>{children}</Track>
         )}
-        renderThumb={({ props }) => <Thumb {...props}>{km} km</Thumb>}
+        renderThumb={({ props }) => (
+          <Thumb {...props} aria-label='Distance'>
+            {km} km
+          </Thumb>
+        )}
       />
       <Button
+        name='plus'
         onClick={() =>
           setPosition((prevPosition) =>
             prevPosition + 0.4 > 4 ? 4 : prevPosition + 0.4

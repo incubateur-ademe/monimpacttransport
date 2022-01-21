@@ -96,10 +96,15 @@ export default function Search() {
       </Content>
       <Checkboxes>
         <Route path='/' exact>
-          <StyledCheckbox checked={displayAll} onChange={setDisplayAll}>
+          <StyledCheckbox
+            name='display-all'
+            checked={displayAll}
+            onChange={setDisplayAll}
+          >
             Afficher tous les modes de transport
           </StyledCheckbox>
           <StyledCheckbox
+            name='carpool'
             checked={carpool}
             onChange={() => setCarpool((prevCarpool) => (prevCarpool ? 0 : 2))}
           >
@@ -108,6 +113,7 @@ export default function Search() {
         </Route>
         <Route path='/itineraire'>
           <StyledCheckbox
+            name='carpool-2'
             checked={carpool}
             onChange={() => setCarpool((prevCarpool) => (prevCarpool ? 0 : 2))}
           >
