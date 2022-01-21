@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 `
 const Input = styled.input`
   width: 100%;
-  padding: 0.5rem 4.5rem 0.5rem 1.5rem;
+  padding: 0.5rem 0 0.5rem 1.5rem;
   font-size: 1rem;
   font-weight: normal;
   line-height: 1.25;
