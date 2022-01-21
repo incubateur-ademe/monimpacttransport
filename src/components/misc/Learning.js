@@ -97,20 +97,16 @@ export default function Learning() {
           Jusqu’à peu, se déplacer faisait partie intégrante de notre vie
           sociale et professionnelle. À tel point que tout notre environnement
           est structuré autour des transports. Tout invite au voyage, qu’il soit
-          court ou long. Mais comment révolutionner nos trajets ?
+          court ou long. Mais comment révolutionner nos trajets ? Découvrez des
+          pistes de réflexion avec cette{' '}
+          <MagicLink to='https://multimedia.ademe.fr/infographies/infographie-la-mobilite-ademe/'>
+            infographie de l'ADEME
+          </MagicLink>
         </Text>
-        <ButtonWrapper>
-          <Button
-            to={
-              'https://multimedia.ademe.fr/infographies/infographie-la-mobilite-ademe/'
-            }
-          >
-            En savoir plus
-          </Button>
-        </ButtonWrapper>
+
         <Text>
           Si vous souhaitez aller plus loin dans votre démarche, vous pouvez
-          calculer votre empreinte sur le climat grace à notre{' '}
+          calculer l'ensemble de votre empreinte sur le climat grace à notre{' '}
           <MagicLink to={'https://nosgestesclimat.fr/'}>
             simulateur Nos Gestes Climat
           </MagicLink>
