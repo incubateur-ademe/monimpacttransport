@@ -68,7 +68,7 @@ export default function Footer(props) {
         <MobileButtons iframe={iframe} />
 
         {iframe && (
-          <SmallButton to={process.env.GATSBY_URL}>
+          <SmallButton to='https://monimpacttransport.fr/'>
             En savoir plus sur ce simulateur
           </SmallButton>
         )}
