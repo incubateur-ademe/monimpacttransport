@@ -69,7 +69,6 @@ const Eye = styled.svg`
 const Install = styled.svg``
 const Label = styled.div`
   font-size: 0.75rem;
-  font-weight: bold;
   text-align: center;
 `
 export default function MobileButtons(props) {

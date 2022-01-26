@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import useIframe from 'hooks/useIframe'
 import MagicLink from 'components/base/MagicLink'
 import ThemeToggle from 'components/base/ThemeToggle'
 import ContactPrompt from 'components/base/ContactPrompt'
@@ -14,6 +15,7 @@ const Wrapper = styled.div`
   position: relative;
   background-color: ${(props) =>
     props.theme.colors[props.background || 'footer']};
+  border-radius: ${(props) => (props.iframe ? '1rem' : 0)};
   transition: all 600ms;
 `
 const Content = styled.div`
@@ -55,16 +57,18 @@ const Logos = styled(MagicLink)`
   background-color: #fff;
 `
 export default function Footer(props) {
+  const iframe = useIframe()
   return (
     <Wrapper
       className={props.className}
       background={props.background}
+      iframe={iframe}
       id='apropos'
     >
       <Content>
-        <MobileButtons iframe={props.iframe} />
+        <MobileButtons iframe={iframe} />
         <Section>
-          {props.iframe && (
+          {iframe && (
             <Button to={process.env.GATSBY_URL}>
               En savoir plus sur ce simulateur
             </Button>
@@ -73,7 +77,7 @@ export default function Footer(props) {
         <MobileSection>
           <ThemeToggle mobile />
         </MobileSection>
-        {!props.iframe && (
+        {!iframe && (
           <>
             <Section>{props.children}</Section>
             <Section>
@@ -112,7 +116,7 @@ export default function Footer(props) {
           </>
         )}
       </Content>
-      {!props.iframe && (
+      {!iframe && (
         <LogosWrapper>
           <Logos to='https://datagir.ademe.fr/' aria-label='datagir.ademe.fr'>
             <Marianne />

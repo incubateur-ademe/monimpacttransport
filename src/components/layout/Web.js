@@ -47,7 +47,7 @@ export default function Web(props) {
   useEffect(() => {
     setnoHeader(window.location.search.includes('noheader'))
   }, [])
-
+  console.log(iframe)
   return (
     <Wrapper>
       <ThemeToggle />
@@ -57,7 +57,7 @@ export default function Web(props) {
           <HeaderWrapper noHeader={noHeader} />
           {props.children}
         </FullScreen>
-        <Learning />
+        {!iframe && <Learning />}
         <FooterWrapper iframe={iframe} />
       </Content>
       <EmbedWrapper />
