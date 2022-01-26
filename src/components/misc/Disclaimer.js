@@ -1,14 +1,19 @@
 import React from 'react'
 import styled from 'styled-components'
 
+import useIframe from 'hooks/useIframe'
+
 const Wrapper = styled.div`
   margin-top: 3rem;
+  font-size: ${(props) => (props.iframe ? 0.75 : 1)}rem;
   font-weight: 300;
   text-align: center;
 `
 export default function Disclaimer(props) {
+  const iframe = useIframe()
+
   return (
-    <Wrapper>
+    <Wrapper iframe={iframe}>
       {props.itinerary && (
         <p>
           Les distances et modes de transport sont donnés à titre indicatif et

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import useIframe from 'hooks/useIframe'
-import ThemeToggle from 'components/base/ThemeToggle'
 import InstallButton from 'components/base/InstallButton'
 import HeaderWrapper from 'components/wrappers/HeaderWrapper'
 import FooterWrapper from 'components/wrappers/FooterWrapper'
@@ -34,10 +33,10 @@ const FullScreen = styled.div`
   max-width: 100%;
   min-height: ${(props) => (props.iframe ? 'none' : '100vh')};
   margin: 0 auto;
-  padding: 0 5rem 5rem;
+  padding: 0 5rem ${(props) => (props.iframe ? 2 : 5)}rem;
 
   ${(props) => props.theme.mq.small}  {
-    padding: 0 0.75rem 5rem;
+    padding: 0 0.75rem ${(props) => (props.iframe ? 2 : 5)}rem;
   }
 `
 export default function Web(props) {
@@ -47,11 +46,9 @@ export default function Web(props) {
   useEffect(() => {
     setnoHeader(window.location.search.includes('noheader'))
   }, [])
-  console.log(iframe)
+
   return (
     <Wrapper>
-      <ThemeToggle />
-
       <Content>
         <FullScreen iframe={iframe}>
           <HeaderWrapper noHeader={noHeader} />

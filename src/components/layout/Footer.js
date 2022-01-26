@@ -3,7 +3,6 @@ import styled from 'styled-components'
 
 import useIframe from 'hooks/useIframe'
 import MagicLink from 'components/base/MagicLink'
-import ThemeToggle from 'components/base/ThemeToggle'
 import ContactPrompt from 'components/base/ContactPrompt'
 import Button from 'components/base/Button'
 import Marianne from 'components/base/Marianne'
@@ -14,14 +13,17 @@ import MobileButtons from './footer/MobileButtons'
 const Wrapper = styled.div`
   position: relative;
   background-color: ${(props) =>
-    props.theme.colors[props.background || 'footer']};
-  border-radius: ${(props) => (props.iframe ? '1rem' : 0)};
+    props.theme.colors[props.iframe ? 'background' : 'footer']};
   transition: all 600ms;
 `
 const Content = styled.div`
   max-width: ${(props) => props.width || '37rem'};
   margin: 0 auto;
-  padding: 2rem 1rem 1rem;
+  padding: ${(props) => (props.iframe ? 1 : 2)}rem 1rem 1rem;
+  background-color: ${(props) =>
+    props.iframe ? props.theme.colors.footer : 'transparent'};
+
+  border-radius: ${(props) => (props.iframe ? '1rem' : 0)};
 `
 const Section = styled.div`
   display: flex;
@@ -38,11 +40,9 @@ const Section = styled.div`
     font-size: 1.75rem;
   }
 `
-const MobileSection = styled(Section)`
-  display: none;
-  ${(props) => props.theme.mq.medium} {
-    display: flex;
-  }
+const SmallButton = styled(Button)`
+  margin: 0 auto;
+  font-size: 0.75rem;
 `
 const LogosWrapper = styled.div`
   display: flex;
@@ -65,18 +65,14 @@ export default function Footer(props) {
       iframe={iframe}
       id='apropos'
     >
-      <Content>
+      <Content iframe={iframe}>
         <MobileButtons iframe={iframe} />
-        <Section>
-          {iframe && (
-            <Button to={process.env.GATSBY_URL}>
-              En savoir plus sur ce simulateur
-            </Button>
-          )}
-        </Section>
-        <MobileSection>
-          <ThemeToggle mobile />
-        </MobileSection>
+
+        {iframe && (
+          <SmallButton to={process.env.GATSBY_URL}>
+            En savoir plus sur ce simulateur
+          </SmallButton>
+        )}
         {!iframe && (
           <>
             <Section>{props.children}</Section>
