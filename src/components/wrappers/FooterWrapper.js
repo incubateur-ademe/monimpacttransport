@@ -19,13 +19,17 @@ export default function FooterWrapper() {
         serre (GES) et plus généralement tout exercice de comptabilité carbone.
       </p>
       <p>
+        Les sources et calculs de chaque mode de transport sont précisés au clic
+        sur le nom du mode de transport.
+      </p>
+      <p>
         <strong>Équivalent CO₂ par personne en France.</strong>
       </p>
       <p>
         <Emoji>⚠️</Emoji>{' '}
         <strong>
-          Sont incluses les émissions directes, et la
-          production et distribution de carburant et d'électricité.
+          Sont incluses les émissions directes, et la production et distribution
+          de carburant et d'électricité.
         </strong>
         .
       </p>

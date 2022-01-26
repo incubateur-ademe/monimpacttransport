@@ -4,7 +4,7 @@ Application web et API permettant de comparer la consommation en CO2e de différ
 
 https://monimpacttransport.fr/
 
-https://api.monimpacttransport.fr/
+https://api.monimpacttransport.fr/beta/getEmissionsPerDistance
 
 ## Application Web
 

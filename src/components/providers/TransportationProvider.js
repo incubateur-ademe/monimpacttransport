@@ -1,104 +1,90 @@
 import React, { useState, useEffect } from 'react'
-import {
-  useQueryParam,
-  BooleanParam,
-  NumberParam,
-  DelimitedArrayParam,
-  withDefault,
-} from 'use-query-params'
+import queryString from 'query-string'
 
+import transportationsData from 'data/transportations.json'
+import itineraryTransportationsData from 'data/itinerary.json'
 import TransportationContext from 'utils/TransportationContext'
 
+const addCarpoolTransportations = (transportations) => {
+  let carpoolTransportation = []
+  for (let transportation of transportations) {
+    if (transportation.carpool) {
+      carpoolTransportation.push({
+        ...transportation,
+        id: transportation.id + '-carpool',
+        carpool: false,
+      })
+    }
+  }
+  return carpoolTransportation
+}
+const filterTransportation = (transportations, query) => {
+  if (query) {
+    const queriedTransportations = query.split('_')
+    return transportations.filter((transportation) =>
+      queriedTransportations.find(
+        (queriedTransportation) =>
+          Number(queriedTransportation) === transportation.id
+      )
+    )
+  } else {
+    return transportations
+  }
+}
 export default function TransportationProvider(props) {
   const [transportations, setTransportations] = useState([])
   useEffect(() => {
-    fetch('/data/transportations.json')
-      .then((res) => res.json())
-      .then((res) =>
-        setTransportations(
-          res.sort((a, b) =>
-            a.label.fr.normalize('NFD') > b.label.fr.normalize('NFD') ? 1 : -1
-          )
-        )
+    let filteredTransportations = filterTransportation(
+      transportationsData,
+      queryString.parse(window.location.search).transportations
+    )
+    let carpoolTransportation = addCarpoolTransportations(
+      filteredTransportations
+    )
+    setTransportations(
+      [...filteredTransportations, ...carpoolTransportation].sort((a, b) =>
+        a.label.fr.normalize('NFD') > b.label.fr.normalize('NFD') ? 1 : -1
       )
+    )
   }, [])
 
-  const [transportationsVisibles, setTransportationsVisibles] = useQueryParam(
-    'transportations',
-    withDefault(DelimitedArrayParam, [])
-  )
-  const [
-    transportationsAlwaysVisibles,
-    setTransportationsAlwaysVisibles,
-  ] = useQueryParam('always', withDefault(DelimitedArrayParam, []))
-
+  const [itineraryTransportations, setItineraryTransportations] = useState([])
   useEffect(() => {
-    if (!transportationsVisibles.length) {
-      setTransportationsVisibles(
-        transportations
-          .filter((transportation) => transportation.default)
-          .map((transportation) => transportation.id)
+    let filteredTransportations = filterTransportation(
+      itineraryTransportationsData,
+      queryString.parse(window.location.search).transportations
+    )
+    let carpoolTransportation = addCarpoolTransportations(
+      filteredTransportations
+    )
+    setItineraryTransportations(
+      [...filteredTransportations, ...carpoolTransportation].sort((a, b) =>
+        a.label.fr.normalize('NFD') > b.label.fr.normalize('NFD') ? 1 : -1
       )
-    }
-  }, [transportations, transportationsVisibles, setTransportationsVisibles])
+    )
+  }, [])
 
-  const [carpool, setCarpool] = useQueryParam(
-    'carpool',
-    withDefault(NumberParam, 1)
+  const [displayAll, setDisplayAll] = useState(
+    queryString.parse(window.location.search).all || false
   )
 
-  const [uncertainty, setUncertainty] = useQueryParam(
-    'uncertainty',
-    withDefault(BooleanParam, true)
+  const [carpool, setCarpool] = useState(
+    queryString.parse(window.location.search).carpool || 0
   )
+
+  const [uncertainty, setUncertainty] = useState(true)
 
   return (
     <TransportationContext.Provider
       value={{
         transportations,
-        transportationsVisibles,
-        transportationsAlwaysVisibles,
+        itineraryTransportations,
         carpool,
         setCarpool,
         uncertainty,
         setUncertainty,
-        toggleVisible: (id) => {
-          setTransportationsVisibles((oldVisibles) =>
-            oldVisibles.includes(String(id))
-              ? oldVisibles.filter(
-                  (visibleId) => String(visibleId) !== String(id)
-                )
-              : [...oldVisibles, id]
-          )
-          setTransportationsAlwaysVisibles((oldAlwaysVisibles) =>
-            oldAlwaysVisibles.filter(
-              (alwaysId) => String(alwaysId) !== String(id)
-            )
-          )
-        },
-        toggleAlwaysVisible: (id) => {
-          setTransportationsVisibles((oldVisibles) =>
-            oldVisibles.includes(String(id))
-              ? oldVisibles
-              : [...oldVisibles, id]
-          )
-          setTransportationsAlwaysVisibles((oldAlwaysVisibles) =>
-            oldAlwaysVisibles.includes(String(id))
-              ? oldAlwaysVisibles.filter(
-                  (alwaysId) => String(alwaysId) !== String(id)
-                )
-              : [...oldAlwaysVisibles, id]
-          )
-        },
-        reset: () => {
-          setTransportationsVisibles(
-            transportations
-              .filter((transportation) => transportation.default)
-              .map((transportation) => transportation.id)
-          )
-          setTransportationsAlwaysVisibles([])
-          setCarpool(1)
-        },
+        displayAll,
+        setDisplayAll,
       }}
     >
       {props.children}

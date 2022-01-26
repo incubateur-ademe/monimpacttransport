@@ -4,7 +4,6 @@ import { useLocation } from 'react-router-dom'
 import copy from 'copy-to-clipboard'
 
 import StyleContext from 'utils/StyleContext'
-import UXContext from 'utils/UXContext'
 
 const Wrapper = styled.div`
   margin-bottom: 2em;
@@ -38,22 +37,15 @@ const Explication = styled.p`
 export default function Code(props) {
   let location = useLocation()
   const { theme } = useContext(StyleContext)
-  const { center } = useContext(UXContext)
-  const centerSearch = `&center=long-${center.long}_lat-${center.lat}`
-
   const [script, setScript] = useState(null)
 
   useEffect(() => {
     setScript(
       `<script id="${props.id || 'datagir'}" src="${
         window.location.origin
-      }/iframe.js" data-search="${
-        props.typeShare === 'result'
-          ? location.search
-          : '?theme=' + theme + centerSearch
-      }"></script>`
+      }/iframe.js" data-search="${props.url || '?'}theme=${theme}"></script>`
     )
-  }, [location.search, props.id, props.typeShare, theme, centerSearch])
+  }, [location.pathname, props.id, props.url, theme])
 
   const [copied, setCopied] = useState(false)
   return (
@@ -64,6 +56,7 @@ export default function Code(props) {
           if (copy(script)) {
             setCopied(true)
           }
+          window._paq?.push(['trackEvent', 'Share', 'Embed', props.url])
         }}
       >
         {script}

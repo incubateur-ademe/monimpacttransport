@@ -3,22 +3,26 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { QueryParamProvider } from 'use-query-params'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
+import 'fonts/fonts.css'
 import { GlobalStyle } from 'utils/styles'
 import StyleProvider from 'components/providers/StyleProvider'
 import ModalProvider from 'components/providers/ModalProvider'
 import UXProvider from 'components/providers/UXProvider'
 import TransportationProvider from 'components/providers/TransportationProvider'
-import SuggestionProvider from 'components/providers/SuggestionProvider'
 import SearchProvider from 'components/providers/SearchProvider'
 
 import CO2EModal from 'components/modals/CO2EModal'
-import ConfiguratorModal from 'components/modals/ConfiguratorModal'
 import RadiativeForcingModal from 'components/modals/RadiativeForcingModal'
-import ApproximationModal from 'components/modals/ApproximationModal'
 import InstallInstructionsModal from 'components/modals/InstallInstructionsModal'
+import SourceModal from 'components/modals/SourceModal'
+import TeletravailModal from 'components/modals/TeletravailModal'
+import FootprintModal from 'components/modals/FootprintModal'
+import OccupancyModal from 'components/modals/OccupancyModal'
 import Web from 'components/layout/Web'
-import Iframe from 'components/layout/Iframe'
-import Comparator from 'views/Comparator'
+import Search from 'components/misc/Search'
+import Itinerary from 'views/Itinerary'
+import Teletravail from 'views/Teletravail'
+import Distance from 'views/Distance'
 
 const queryClient = new QueryClient()
 
@@ -27,40 +31,38 @@ function App() {
     <Router>
       <QueryParamProvider ReactRouterRoute={Route}>
         <QueryClientProvider client={queryClient}>
-          <UXProvider>
-            <StyleProvider>
-              <ModalProvider>
-                <TransportationProvider>
-                  <SuggestionProvider>
-                    <SearchProvider>
-                      <GlobalStyle />
+          <StyleProvider>
+            <TransportationProvider>
+              <SearchProvider>
+                <UXProvider>
+                  <GlobalStyle />
+                  <ModalProvider>
+                    <Web>
+                      <Search />
                       <Switch>
-                        <Route path='/embed'>
-                          <Iframe>
-                            <Comparator iframe />
-                          </Iframe>
+                        <Route path='/itineraire'>
+                          <Itinerary />
                         </Route>
-                        <Route>
-                          <Web>
-                            <Switch>
-                              <Route path='/'>
-                                <Comparator />
-                              </Route>
-                            </Switch>
-                          </Web>
+                        <Route path='/teletravail'>
+                          <Teletravail />
+                        </Route>
+                        <Route path='/'>
+                          <Distance />
                         </Route>
                       </Switch>
-                      <CO2EModal />
-                      <ConfiguratorModal />
-                      <RadiativeForcingModal />
-                      <ApproximationModal />
-                      <InstallInstructionsModal />
-                    </SearchProvider>
-                  </SuggestionProvider>
-                </TransportationProvider>
-              </ModalProvider>
-            </StyleProvider>
-          </UXProvider>
+                    </Web>
+                    <CO2EModal />
+                    <RadiativeForcingModal />
+                    <InstallInstructionsModal />
+                    <SourceModal />
+                    <TeletravailModal />
+                    <FootprintModal />
+                    <OccupancyModal />
+                  </ModalProvider>
+                </UXProvider>
+              </SearchProvider>
+            </TransportationProvider>
+          </StyleProvider>
         </QueryClientProvider>
       </QueryParamProvider>
     </Router>

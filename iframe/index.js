@@ -8,9 +8,9 @@ const domain = script.dataset.domain
 const search = script.dataset.search
 const source = window.location.href.toString()
 
-const src = `${domain || 'https://monimpacttransport.fr'}/embed/${search}${
+const src = `${domain || 'https://monimpacttransport.fr'}/${search}${
   search && search.includes('?') ? '&' : '?'
-}source=${source}`
+}source=${source}&iframe=1`
 
 const iframe = document.createElement('iframe')
 

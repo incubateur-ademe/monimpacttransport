@@ -10,7 +10,7 @@ export default function ContactWrapper(props) {
         {
           value: 'Transport Manquant',
           label: 'Il manque un mode de transport',
-          disclaimer: `Ce simulateur n'est qu'une illustration des différences entre les principaux modes de transport et n'a pas pour objectif d'être exhaustif.`,
+          disclaimer: `Ce simulateur n'est qu'une illustration des différences entre les principaux modes de transport et n'a pas pour objectif d'être exhaustif. Les données des modes de transport suivant n'existent pas encore : <br/><br/>- Véhicule hydrogène<br/><br/>- Ferry<br/><br/>- Bateau à moteur<br/><br/>- Scooter et moto légère (électrique)<br/><br/>- Camping Car<br/><br/>`,
         },
         {
           value: 'Imprecision',

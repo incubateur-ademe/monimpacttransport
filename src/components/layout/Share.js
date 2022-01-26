@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
-import { useLocation } from 'react-router-dom'
 
 import UXContext from 'utils/UXContext'
 import Select from 'components/base/FancySelect'
@@ -33,19 +32,16 @@ const ShareButtons = styled.div`
   }
 `
 export default function Share(props) {
-  const { shareOpen, setShareOpen, typeShare, setTypeShare, setEmbedOpen } =
-    useContext(UXContext)
+  const {
+    shareOpen,
+    setShareOpen,
+    typeShare,
+    url,
+    setTypeShare,
+    setEmbedOpen,
+  } = useContext(UXContext)
 
-  let location = useLocation()
-  const [url, setUrl] = useState()
-  useEffect(() => {
-    setUrl(
-      `${window.location.origin}${
-        typeShare === 'result' ? location.pathname + location.search : ''
-      }`
-    )
-  }, [location.search, location.pathname, typeShare])
-
+  const absoluteUrl = `${window.location.origin}${url}`
   return (
     <Panel
       small={props.small}
@@ -64,7 +60,7 @@ export default function Share(props) {
             { value: 'simulator', label: `ce simulateur` },
             {
               value: 'result',
-              label: `cette fiche`,
+              label: `ce résultat`,
             },
           ]}
         />
@@ -74,19 +70,28 @@ export default function Share(props) {
         <Mail
           subject={props.messages.mail[typeShare].subject}
           body={props.messages.mail[typeShare].body}
-          url={url}
+          url={absoluteUrl}
         />
-        <Facebook quote={props.messages.facebook[typeShare].quote} url={url} />
-        <Twitter title={props.messages.twitter[typeShare].title} url={url} />
+        <Facebook
+          quote={props.messages.facebook[typeShare].quote}
+          url={absoluteUrl}
+        />
+        <Twitter
+          title={props.messages.twitter[typeShare].title}
+          url={absoluteUrl}
+        />
         <Linkedin
           title={props.messages.linkedin[typeShare].title}
           summary={props.messages.linkedin[typeShare].summary}
           source={props.messages.linkedin[typeShare].source}
-          url={url}
+          url={absoluteUrl}
         />
-        <Whatsapp title={props.messages.whatsapp[typeShare].title} url={url} />
+        <Whatsapp
+          title={props.messages.whatsapp[typeShare].title}
+          url={absoluteUrl}
+        />
       </ShareButtons>
-      <Link url={url} />
+      <Link url={absoluteUrl} />
     </Panel>
   )
 }
