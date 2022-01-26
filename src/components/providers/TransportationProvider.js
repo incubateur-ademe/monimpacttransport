@@ -50,10 +50,7 @@ export default function TransportationProvider(props) {
 
   const [itineraryTransportations, setItineraryTransportations] = useState([])
   useEffect(() => {
-    let filteredTransportations = filterTransportation(
-      itineraryTransportationsData,
-      queryString.parse(window.location.search).transportations
-    )
+    let filteredTransportations = itineraryTransportationsData
     let carpoolTransportation = addCarpoolTransportations(
       filteredTransportations
     )
