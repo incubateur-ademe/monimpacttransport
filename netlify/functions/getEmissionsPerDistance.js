@@ -1,3 +1,5 @@
+const axios = require('axios')
+
 var MatomoTracker = require('matomo-tracker')
 
 var matomo = new MatomoTracker(155, 'https://stats.data.gouv.fr/matomo.php')
