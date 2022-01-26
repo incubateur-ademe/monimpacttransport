@@ -14,7 +14,6 @@ const Wrapper = styled.div`
   position: relative;
   background-color: ${(props) =>
     props.theme.colors[props.iframe ? 'background' : 'footer']};
-  transition: all 600ms;
 `
 const Content = styled.div`
   max-width: ${(props) => props.width || '37rem'};

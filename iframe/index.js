@@ -8,7 +8,7 @@ const domain = script.dataset.domain
 const search = script.dataset.search
 const source = window.location.href.toString()
 
-const src = `${domain || 'https://v2--ecolab-transport.netlify.app'}/${search}${
+const src = `${domain || 'https://monimpacttransport.fr'}/${search}${
   search && search.includes('?') ? '&' : '?'
 }source=${source}&iframe=1`
 
