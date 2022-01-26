@@ -33,7 +33,7 @@ const FullScreen = styled.div`
   max-width: 100%;
   min-height: ${(props) => (props.iframe ? 'none' : '100vh')};
   margin: 0 auto;
-  padding: 0 5rem ${(props) => (props.iframe ? 2 : 5)}rem;
+  padding: 0 5rem ${(props) => (props.iframe ? 0 : 5)}rem;
 
   ${(props) => props.theme.mq.small}  {
     padding: 0 0.75rem ${(props) => (props.iframe ? 2 : 5)}rem;
