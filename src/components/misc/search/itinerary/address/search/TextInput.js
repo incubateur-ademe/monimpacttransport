@@ -53,7 +53,6 @@ const Input = styled.input`
   }
 `
 export default React.forwardRef(function TextInput(props, ref) {
-  console.log(props.isFetching)
   return (
     <Wrapper isFetching={props.isFetching}>
       <Input
