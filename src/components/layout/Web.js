@@ -29,15 +29,11 @@ const FullScreen = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  width: 47rem;
+  width: 38.5rem;
   max-width: 100%;
   min-height: ${(props) => (props.iframe ? 'none' : '100vh')};
   margin: 0 auto;
-  padding: 0 5rem ${(props) => (props.iframe ? 0 : 5)}rem;
-
-  ${(props) => props.theme.mq.small}  {
-    padding: 0 0.75rem ${(props) => (props.iframe ? 2 : 5)}rem;
-  }
+  padding: 0 0.75rem ${(props) => (props.iframe ? 0 : 5)}rem;
 `
 export default function Web(props) {
   const iframe = useIframe()

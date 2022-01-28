@@ -30,6 +30,7 @@ const Tab = styled(MagicLink)`
   }
 
   ${(props) => props.theme.mq.small} {
+    display: ${(props) => (props.large ? 'none' : 'flex')};
     margin-bottom: -1.25rem;
     padding: 0.25rem 0 1.25rem;
     font-size: 0.875rem;
@@ -44,6 +45,13 @@ export default function ModeSelector() {
       </Tab>
       <Tab current={location.pathname === '/itineraire'} to='/itineraire'>
         Itinéraire
+      </Tab>
+      <Tab
+        current={location.pathname === '/teletravail'}
+        to='/teletravail'
+        large
+      >
+        Télétravail
       </Tab>
       <Burger location={location} />
     </Wrapper>

@@ -6,6 +6,11 @@ import MagicLink from 'components/base/MagicLink'
 
 const Wrapper = styled.div`
   position: relative;
+  display: none;
+
+  ${(props) => props.theme.mq.small} {
+    display: block;
+  }
 `
 const Button = styled.button`
   width: 4rem;

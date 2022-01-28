@@ -20,7 +20,7 @@ export const themes = {
       title: '"Marianne", Arial, sans-serif',
     },
     mq: {
-      small: `@media screen and (max-width: ${46}em)`,
+      small: `@media screen and (max-width: ${39}em)`,
       medium: `@media screen and (max-width: ${75}em)`,
       mediumLandscape: `@media screen and (orientation: landscape) and (max-width: ${62}px)`,
       mediumPortrait: `@media screen and (orientation: portrait) and (max-width: ${62}px)`,
@@ -46,7 +46,7 @@ export const themes = {
       title: '"Marianne", Arial, sans-serif',
     },
     mq: {
-      small: `@media screen and (max-width: ${46}em)`,
+      small: `@media screen and (max-width: ${39}em)`,
       medium: `@media screen and (max-width: ${75}em)`,
       mediumLandscape: `@media screen and (orientation: landscape) and (max-width: ${62}px)`,
       mediumPortrait: `@media screen and (orientation: portrait) and (max-width: ${62}px)`,

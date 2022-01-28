@@ -77,7 +77,7 @@ const Value = styled.div`
   color: ${(props) => props.theme.colors.second};
   transition: color 200ms ease-out;
 
-  ${(props) => props.theme.mq.small} {
+  ${(props) => props.theme.mq.medium} {
     left: ${(props) => (props.inside ? 'auto' : '100%')};
     right: ${(props) => (props.inside ? '1rem' : 'auto')};
     color: ${(props) =>
