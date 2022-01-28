@@ -1,14 +1,40 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import Submit from './textInput/Submit'
 import Geoloc from './textInput/Geoloc'
 
+const loading = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+`
 const Wrapper = styled.div`
   position: relative;
-  // overflow: hidden;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: ${(props) => props.theme.colors.secondLight};
+    pointer-events: none;
+    opacity: 0;
+    animation: ${(props) => (props.isFetching ? loading : 'none')} 1s infinite;
+  }
 `
 const Input = styled.input`
+  position: relative;
   width: 100%;
   padding: 0.5rem 0 0.5rem 1.5rem;
   font-size: 1rem;
@@ -27,8 +53,9 @@ const Input = styled.input`
   }
 `
 export default React.forwardRef(function TextInput(props, ref) {
+  console.log(props.isFetching)
   return (
-    <Wrapper>
+    <Wrapper isFetching={props.isFetching}>
       <Input
         ref={ref}
         type='text'

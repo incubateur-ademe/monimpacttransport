@@ -19,7 +19,7 @@ const Wrapper = styled.form`
   border-radius: 1.5rem;
   transition: box-shadow 200ms ease-out;
   transition: border 200ms ease-out, top 300ms ease-out;
-  //overflow: hidden;
+  overflow: hidden;
 `
 
 export default function Search(props) {
@@ -27,6 +27,7 @@ export default function Search(props) {
   useEffect(() => {
     setSearch(props.address)
   }, [props.address])
+
   const debouncedSearch = useDebounce(search)
 
   const { data, isFetching } = useSuggestions(debouncedSearch)
