@@ -10,7 +10,12 @@ import MagicLink from 'components/base/MagicLink'
 const Wrapper = styled.div`
   display: none;
   justify-content: space-around;
-  margin-bottom: ${(props) => (props.iframe ? 0.5 : 2)}rem;
+  width: 100%;
+  max-width: 37rem;
+  margin: 0 auto ${(props) => (props.iframe ? 0.5 : 2)}rem;
+  padding: ${(props) => (props.iframe ? '1rem 0 0.5rem' : 0)};
+  background-color: ${(props) => props.theme.colors.footer};
+  border-radius: 1rem;
 
   ${(props) => props.theme.mq.medium} {
     display: flex;

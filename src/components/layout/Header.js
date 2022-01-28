@@ -26,19 +26,17 @@ const Left = styled.div`
 const Logos = styled(MagicLink)`
   display: flex;
   align-items: center;
-  margin: 0 0.75em 0 -0.75em;
+  margin: 0 0 0 -0.75em;
   background-color: #fff;
 `
 export default function Header(props) {
   return (
     <Wrapper className={props.className}>
       <Left>
-        {!props.noHeader && (
-          <Logos to='/' aria-label='Accueil'>
-            <Marianne />
-            <Ademe />
-          </Logos>
-        )}
+        <Logos to='/' aria-label='Accueil'>
+          <Marianne />
+          <Ademe />
+        </Logos>
         {props.children}
       </Left>
       <ThemeToggle />

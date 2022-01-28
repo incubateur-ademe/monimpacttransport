@@ -4,7 +4,6 @@ import styled from 'styled-components'
 const Wrapper = styled.div`
   padding: 1em;
   font-size: 0.75em;
-  background-color: #fff;
 
   &:before {
     content: '';

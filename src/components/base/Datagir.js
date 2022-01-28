@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const Wrapper = styled.svg`
   display: block;
+  margin: 0.5em;
 `
 const Color = styled.path`
   fill: ${(props) => (props.hover ? 'white' : '#1FC58E')};

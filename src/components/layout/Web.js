@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 import useIframe from 'hooks/useIframe'
@@ -33,21 +33,17 @@ const FullScreen = styled.div`
   max-width: 100%;
   min-height: ${(props) => (props.iframe ? 'none' : '100vh')};
   margin: 0 auto;
-  padding: 0 0.75rem ${(props) => (props.iframe ? 0 : 5)}rem;
+  padding: ${(props) => (props.iframe ? 0.75 : 0)}rem 0.75rem
+    ${(props) => (props.iframe ? 0 : 5)}rem;
 `
 export default function Web(props) {
   const iframe = useIframe()
-  const [noHeader, setnoHeader] = useState(false)
-
-  useEffect(() => {
-    setnoHeader(window.location.search.includes('noheader'))
-  }, [])
 
   return (
     <Wrapper>
       <Content>
         <FullScreen iframe={iframe}>
-          <HeaderWrapper noHeader={noHeader} />
+          {!iframe && <HeaderWrapper />}
           {props.children}
         </FullScreen>
         {!iframe && <Learning />}

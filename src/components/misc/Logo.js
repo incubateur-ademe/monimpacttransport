@@ -7,6 +7,7 @@ const Wrapper = styled(MagicLink)`
   display: flex;
   align-items: center;
   text-decoration: none;
+  margin: 0 0.75em;
 
   ${(props) => props.theme.mq.small} {
     font-size: 0.75rem;
