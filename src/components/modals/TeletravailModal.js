@@ -93,7 +93,13 @@ export default function TeletravailModal() {
           ]}
         />{' '}
         des émissions évitées via le télétravail sont émises pour d'autres
-        trajets (courses, école, etc.). Cette valeur (25 %) est tiré de cette{' '}
+        trajets (courses, école, etc.). Cette valeur par défaut (25
+        <span
+          dangerouslySetInnerHTML={{
+            __html: '&nbsp;',
+          }}
+        />
+        %) est tirée de cette{' '}
         <MagicLink to='https://librairie.ademe.fr/mobilite-et-transport/3776-caracterisation-des-effets-rebond-induits-par-le-teletravail.html'>
           étude de l'ADEME
         </MagicLink>

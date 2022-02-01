@@ -47,12 +47,11 @@ export default function SetFootprintModal() {
         >
           respecter l'accord de Paris
         </MagicLink>{' '}
-        est d'environ 2 tonnes de GES par an et par personne, avec un premier
-        palier de réduction de -40% de GES d'ici 2030 (l'Europe parle de -55%).
+        est de moins de 2 tonnes de GES par an et par personne d'ici 2050.
       </Text>
       <Text>
         Si vous connaissez{' '}
-        <label htmlFor='empreinte'>votre empreinte carbonne annuelle</label>,
+        <label htmlFor='empreinte'>votre empreinte carbone annuelle</label>,
         vous pouvez la modifier :{' '}
         <StyledTextInput
           name='empreinte'
