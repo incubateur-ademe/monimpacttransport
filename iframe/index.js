@@ -5,7 +5,7 @@ const script =
   document.getElementById('ecolab-transport')
 
 const domain = script.dataset.domain
-const search = script.dataset.search
+const search = script.dataset.search || ''
 const source = window.location.href.toString()
 
 const src = `${domain || 'https://monimpacttransport.fr'}/${search}${
