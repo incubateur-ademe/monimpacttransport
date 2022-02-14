@@ -8,7 +8,7 @@ import YearlyFootprint from './teletravail/YearlyFootprint'
 import PercentFootprint from './teletravail/PercentFootprint'
 import Disclaimer from 'components/misc/Disclaimer'
 
-const Wrapper = styled.div`
+const Wrapper = styled.main`
   margin-top: 2rem;
 `
 export default function Teletravail() {

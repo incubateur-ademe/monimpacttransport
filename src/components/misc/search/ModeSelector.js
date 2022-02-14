@@ -5,7 +5,7 @@ import MagicLink from 'components/base/MagicLink'
 
 import Burger from './modeSelector/Burger'
 
-const Wrapper = styled.div`
+const Wrapper = styled.nav`
   display: flex;
 `
 const Tab = styled(MagicLink)`

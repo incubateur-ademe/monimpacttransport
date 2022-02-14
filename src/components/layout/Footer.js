@@ -10,7 +10,7 @@ import Ademe from 'components/base/Ademe'
 import Datagir from 'components/base/Datagir'
 import MobileButtons from './footer/MobileButtons'
 
-const Wrapper = styled.div`
+const Wrapper = styled.footer`
   position: relative;
   background-color: ${(props) =>
     props.theme.colors[props.iframe ? 'background' : 'footer']};
