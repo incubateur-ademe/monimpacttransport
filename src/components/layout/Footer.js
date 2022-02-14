@@ -55,6 +55,13 @@ const Logos = styled(MagicLink)`
     font-size: ${(props) => (props.iframe ? 0.75 : 1)}rem;
   }
 `
+const Accessibility = styled.div`
+  padding-bottom: 1rem;
+  font-size: 0.75rem;
+  font-weight: 300;
+  text-align: center;
+  background-color: ${(props) => props.theme.colors.background};
+`
 export default function Footer(props) {
   const iframe = useIframe()
   return iframe ? (
@@ -121,6 +128,7 @@ export default function Footer(props) {
           <Datagir />
         </Logos>
       </LogosWrapper>
+      <Accessibility>accessibilité : non conforme</Accessibility>
     </Wrapper>
   )
 }
