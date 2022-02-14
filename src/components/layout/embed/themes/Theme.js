@@ -17,9 +17,10 @@ const Content = styled.div`
   border-radius: 1rem;
   cursor: pointer;
 `
-const Title = styled.h4`
+const Title = styled.div`
   margin-bottom: 0.4em;
   font-size: 1.5em;
+  font-weight: bold;
   color: ${(props) => props.displayTheme.colors.second};
 `
 const Tiles = styled.div`

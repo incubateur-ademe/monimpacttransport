@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import styled from 'styled-components'
 
 import UXContext from 'utils/UXContext'
 import Panel from 'components/base/Panel'
@@ -7,6 +8,17 @@ import Code from './embed/Code'
 import ContactPrompt from 'components/base/ContactPrompt'
 import Select from 'components/base/FancySelect'
 
+const Title = styled.div`
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: ${(props) => props.theme.colors.second};
+  font-weight: bold;
+  line-height: 1.2;
+
+  ${(props) => props.theme.mq.small} {
+    font-size: 1.5rem;
+  }
+`
 export default function Embed(props) {
   const { embedOpen, setEmbedOpen, url, typeShare, setTypeShare } =
     useContext(UXContext)
@@ -20,7 +32,7 @@ export default function Embed(props) {
       }}
       index={0}
     >
-      <h2>
+      <Title>
         Intégrer{' '}
         <Select
           fancy
@@ -31,7 +43,7 @@ export default function Embed(props) {
             { value: 'result', label: `ce résultat` },
           ]}
         />
-      </h2>
+      </Title>
       <Code id={props.id} url={url} />
       {props.children && (
         <>
@@ -39,7 +51,6 @@ export default function Embed(props) {
           {props.children}
         </>
       )}
-      <h3>Choisissez un thème</h3>
       <Themes />
       <ContactPrompt configurator />
     </Panel>
