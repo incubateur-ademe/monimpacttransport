@@ -54,6 +54,7 @@ export default function Button(props) {
       className={props.className}
       textColor={props.textColor}
       aria-label={props.children}
+      noIcon
     >
       {props.children}
     </Wrapper>

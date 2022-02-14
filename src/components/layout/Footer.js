@@ -71,6 +71,7 @@ export default function Footer(props) {
         to='https://datagir.ademe.fr/'
         aria-label='datagir.ademe.fr'
         iframe
+        noIcon
       >
         <Marianne />
         <Ademe />
@@ -122,7 +123,11 @@ export default function Footer(props) {
         </Section>
       </Content>
       <LogosWrapper>
-        <Logos to='https://datagir.ademe.fr/' aria-label='datagir.ademe.fr'>
+        <Logos
+          to='https://datagir.ademe.fr/'
+          aria-label='datagir.ademe.fr'
+          noIcon
+        >
           <Marianne />
           <Ademe />
           <Datagir />
