@@ -35,7 +35,7 @@ const Content = styled.div`
   background-color: ${(props) => props.theme.colors.background};
   border-radius: 1em;
   box-shadow: 0px 0px 15px 10px rgba(0, 0, 0, 0.2);
-
+  visibility: ${(props) => (props.open ? 'visible' : 'hidden')};
   opacity: ${(props) => (props.open ? 1 : 0)};
   transform: scale(${(props) => (props.open ? 1 : 0.7)})
     translateY(${(props) => (props.open ? 0 : '10em')});
