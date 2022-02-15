@@ -5,7 +5,7 @@ import UXContext from 'utils/UXContext'
 import MagicLink from 'components/base/MagicLink'
 
 const Text = styled.p``
-const Title = styled.h3``
+const Title = styled.h2``
 const StyledLink = styled.button`
   display: inline;
   margin: 0;

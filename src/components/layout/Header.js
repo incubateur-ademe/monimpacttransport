@@ -6,7 +6,7 @@ import Marianne from 'components/base/Marianne'
 import Ademe from 'components/base/Ademe'
 import ThemeToggle from './header/ThemeToggle'
 
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   position: relative;
   display: flex;
   justify-content: space-between;
