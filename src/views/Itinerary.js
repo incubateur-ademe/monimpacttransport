@@ -19,8 +19,9 @@ export default function Itinerary() {
   const { data: carItineraries } = useItinerary(start, end, 'driving')
   const { data: footItineraries } = useItinerary(start, end, 'walking')
   const { data: railItineraries } = useItinerary(start, end, 'transit')
+  const [planeDistance, setPlaneDistance] = useState(0)
 
-  const [datas, setDatas] = useState({ car: 0, foot: 0, rail: 0 })
+  const [datas, setDatas] = useState({ car: 0, foot: 0, rail: 0, plane: 0 })
   useEffect(() => {
     setDatas({
       car:
@@ -38,14 +39,33 @@ export default function Itinerary() {
           : carItineraries &&
             carItineraries[0].elements[0].status === 'OK' &&
             carItineraries[0].elements[0].distance.value),
+      plane: planeDistance,
     })
-  }, [carItineraries, footItineraries, railItineraries])
+  }, [carItineraries, footItineraries, railItineraries, planeDistance])
 
   const {
     itineraryTransportations: transportations,
     carpool,
     uncertainty,
   } = useContext(TransportationContext)
+
+  useEffect(() => {
+    console.log(start)
+    if (start && end) {
+      const R = 6371e3 // metres
+      const φ1 = (start.latitude * Math.PI) / 180 // φ, λ in radians
+      const φ2 = (end.latitude * Math.PI) / 180
+      const Δφ = ((end.latitude - start.latitude) * Math.PI) / 180
+      const Δλ = ((end.longitude - start.longitude) * Math.PI) / 180
+
+      const a =
+        Math.sin(Δφ / 2) * Math.sin(Δφ / 2) +
+        Math.cos(φ1) * Math.cos(φ2) * Math.sin(Δλ / 2) * Math.sin(Δλ / 2)
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+
+      setPlaneDistance(R * c)
+    }
+  }, [start, end])
 
   const [transportationsToDisplay, settransportationsToDisplay] = useState([])
   useEffect(() => {
