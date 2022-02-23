@@ -69,7 +69,7 @@ export default function TransportationProvider(props) {
     queryString.parse(window.location.search).carpool || 0
   )
 
-  const [uncertainty, setUncertainty] = useState(true)
+  const [uncertainty, setUncertainty] = useState(false)
 
   return (
     <TransportationContext.Provider

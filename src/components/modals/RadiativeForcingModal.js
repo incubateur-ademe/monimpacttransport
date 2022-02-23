@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import ModalContext from 'utils/ModalContext'
 import TransportationContext from 'utils/TransportationContext'
 import Checkbox from 'components/base/Checkbox'
-
 import Modal from 'components/base/Modal'
+import MagicLink from 'components/base/MagicLink'
 
 const Title = styled.h2``
 const Text = styled.p``
@@ -22,7 +22,13 @@ export default function CO2EModal() {
         kérosène crée des traînées et perturbe les cycles d’autres gaz à effet
         de serre que le CO2 (vapeur d'eau, eau condensée sous diverses formes,
         NOx et méthane qui, ensemble, produisent de l'ozone, etc.). Cet impact
-        est appelé forçage radiatif additionnel.
+        est appelé forçage radiatif additionnel. Dans l'
+        <MagicLink to='https://www.ecologie.gouv.fr/information-ges-des-prestations-transport'>
+          Information GES des prestations de transport réglementaire
+        </MagicLink>
+        , cet impact n'est pas inclus. Vous pouvez visualiser l'impact des
+        traînées tel que proposé dans la Base Carbone(r) en cochant la case
+        ci-dessous.
       </Text>
       <Checkbox
         name='trainées'
