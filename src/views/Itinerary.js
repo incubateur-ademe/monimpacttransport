@@ -50,7 +50,6 @@ export default function Itinerary() {
   } = useContext(TransportationContext)
 
   useEffect(() => {
-    console.log(start)
     if (start && end) {
       const R = 6371e3 // metres
       const φ1 = (start.latitude * Math.PI) / 180 // φ, λ in radians
