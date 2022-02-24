@@ -26,7 +26,8 @@ export default function CO2EModal() {
         <MagicLink to='https://www.ecologie.gouv.fr/information-ges-des-prestations-transport'>
           Information GES des prestations de transport réglementaire
         </MagicLink>
-        , cet impact n'est pas inclus. Vous pouvez visualiser l'impact des
+        , cet impact n'est pas inclus mais il est recommandé dans la réglementation
+        pour la réalisation des Bilans GES des organisations. Vous pouvez visualiser l'impact des
         traînées tel que proposé dans la Base Carbone(r) en cochant la case
         ci-dessous.
       </Text>
