@@ -1,12 +1,12 @@
-self.addEventListener('install', function (e) {
-  self.skipWaiting()
+window.self.addEventListener('install', function (e) {
+  window.self.skipWaiting()
 })
 
-self.addEventListener('activate', function (e) {
-  self.registration
+window.self.addEventListener('activate', function (e) {
+  window.self.registration
     .unregister()
     .then(function () {
-      return self.clients.matchAll()
+      return window.self.clients.matchAll()
     })
     .then(function (clients) {
       clients.forEach((client) => client.navigate(client.url))
