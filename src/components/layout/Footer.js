@@ -55,7 +55,8 @@ const Logos = styled(MagicLink)`
     font-size: ${(props) => (props.iframe ? 0.75 : 1)}rem;
   }
 `
-const Accessibility = styled.div`
+const Accessibility = styled.p`
+  margin: 0;
   padding-bottom: 1rem;
   font-size: 0.75rem;
   font-weight: 300;

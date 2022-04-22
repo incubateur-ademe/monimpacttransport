@@ -155,15 +155,15 @@ export default function Contact(props) {
             Envoyer mon message
           </Button>
         </ButtonWrapper>
-        {empty && <Alert>Merci de remplir tous les champs</Alert>}
+        {empty && <Alert role='alert'>Merci de remplir tous les champs</Alert>}
         {mutation.isError && (
-          <Alert>
+          <Alert role='alert'>
             Quelque chose n'a pas fonctionné :(
             <br />({mutation.error.message})
           </Alert>
         )}
         {mutation.isSuccess && (
-          <Alert>
+          <Alert role='status'>
             Merci !<br />
             Nous avons bien reçu votre message
           </Alert>

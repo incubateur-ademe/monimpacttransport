@@ -14,6 +14,10 @@ const Wrapper = styled.main`
   margin-bottom: 2rem;
 `
 export default function Itinerary() {
+  useEffect(() => {
+    document.title = 'Itinéraire | Mon Impact Transport'
+  }, [])
+
   const { start, end } = useContext(SearchContext)
 
   const { data: carItineraries } = useItinerary(start, end, 'driving')

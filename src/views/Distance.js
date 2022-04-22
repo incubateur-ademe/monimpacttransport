@@ -14,6 +14,10 @@ const Wrapper = styled.main`
   margin-bottom: 2rem;
 `
 export default function Results() {
+  useEffect(() => {
+    document.title = 'Mon Impact Transport'
+  }, [])
+
   const { transportations, carpool, uncertainty, displayAll } = useContext(
     TransportationContext
   )

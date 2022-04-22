@@ -26,7 +26,7 @@ export default function FooterWrapper() {
         <strong>Équivalent CO₂ par personne en France.</strong>
       </p>
       <p>
-        <Emoji>⚠️</Emoji>{' '}
+        <Emoji alt='Attention :'>⚠️</Emoji>{' '}
         <strong>
           Sont incluses les émissions directes, et la production et distribution
           de carburant et d'électricité.
@@ -34,10 +34,10 @@ export default function FooterWrapper() {
         .
       </p>
       <p>
-        <Emoji>⚠️</Emoji> <strong>La construction des véhicules</strong>{' '}
-        (voiture, vélo, batterie, train, avion...){' '}
-        <strong>et des infrastructures</strong> (routes, rails, aéroports...){' '}
-        <strong>n'est pas incluse.</strong>
+        <Emoji alt='Attention :'>⚠️</Emoji>{' '}
+        <strong>La construction des véhicules</strong> (voiture, vélo, batterie,
+        train, avion...) <strong>et des infrastructures</strong> (routes, rails,
+        aéroports...) <strong>n'est pas incluse.</strong>
       </p>
       <p>
         Si vous souhaitez aller plus loin dans votre démarche, vous pouvez{' '}

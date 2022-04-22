@@ -12,6 +12,10 @@ const Wrapper = styled.main`
   margin-top: 2rem;
 `
 export default function Teletravail() {
+  useEffect(() => {
+    document.title = 'Télétravail | Mon Impact Transport'
+  }, [])
+
   const {
     start,
     end,
