@@ -1,12 +1,16 @@
-window.self.addEventListener('install', function (e) {
-  window.self.skipWaiting()
+/* eslint-disable no-restricted-globals */
+
+const ignored = self.__WB_MANIFEST
+
+self.addEventListener('install', function (e) {
+  self.skipWaiting()
 })
 
-window.self.addEventListener('activate', function (e) {
-  window.self.registration
+self.addEventListener('activate', function (e) {
+  self.registration
     .unregister()
     .then(function () {
-      return window.self.clients.matchAll()
+      return self.clients.matchAll()
     })
     .then(function (clients) {
       clients.forEach((client) => client.navigate(client.url))
