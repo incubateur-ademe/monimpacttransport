@@ -39,7 +39,8 @@ const Value = styled.div`
   font-size: 2.5rem;
   font-weight: bold;
 `
-const Text = styled.div`
+const Text = styled.p`
+  margin: 0;
   font-size: 0.875rem;
   font-weight: 300;
   text-align: center;

@@ -38,7 +38,8 @@ const Saved = styled(Emitted)`
   color: ${(props) => props.theme.colors.second};
   background-color: transparent;
 `
-const Content = styled.div`
+const Content = styled.p`
+  margin: 0;
   padding-top: 2rem;
   text-align: center;
   line-height: 1.4rem;

@@ -94,6 +94,7 @@ export default function Contact(props) {
           onChange={({ name, value }) =>
             setUser((prevUser) => ({ ...prevUser, [name]: value }))
           }
+          autocomplete='name'
           required
         />
         <TextInput
@@ -105,6 +106,7 @@ export default function Contact(props) {
           onChange={({ name, value }) =>
             setUser((prevUser) => ({ ...prevUser, [name]: value }))
           }
+          autocomplete='email'
         />
         <Select
           name={'objet'}

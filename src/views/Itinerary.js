@@ -8,7 +8,7 @@ import { useItinerary } from 'hooks/useItineraries'
 import Transportation from 'components/misc/Transportation'
 import Disclaimer from 'components/misc/Disclaimer'
 
-const Wrapper = styled.main`
+const Wrapper = styled.div`
   flex: 1;
   position: relative;
   margin-bottom: 2rem;

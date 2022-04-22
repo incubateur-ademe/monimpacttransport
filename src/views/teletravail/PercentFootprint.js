@@ -7,7 +7,7 @@ import SearchContext from 'utils/SearchContext'
 const Wrapper = styled.div`
   margin-bottom: 2.5rem;
 `
-const Result = styled.div`
+const Result = styled.p`
   margin-bottom: 0.5rem;
   font-size: 1.25rem;
   text-align: center;
