@@ -40,15 +40,28 @@ export default function ModeSelector() {
   const location = useLocation()
   return (
     <Wrapper>
-      <Tab current={location.pathname === '/'} to='/'>
+      <Tab
+        current={location.pathname === '/'}
+        to='/'
+        title={`Distance${location.pathname === '/' ? ' : page actuelle' : ''}`}
+      >
         Distance
       </Tab>
-      <Tab current={location.pathname === '/itineraire'} to='/itineraire'>
+      <Tab
+        current={location.pathname === '/itineraire'}
+        to='/itineraire'
+        title={`Itinéraire${
+          location.pathname === '/itineraire' ? ' : page actuelle' : ''
+        }`}
+      >
         Itinéraire
       </Tab>
       <Tab
         current={location.pathname === '/teletravail'}
         to='/teletravail'
+        title={`Télétravail${
+          location.pathname === '/teletravail' ? ' : page actuelle' : ''
+        }`}
         large
       >
         Télétravail

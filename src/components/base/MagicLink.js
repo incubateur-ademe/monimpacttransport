@@ -18,6 +18,7 @@ export default function MagicLink(props) {
     <button
       id={props.id}
       className={props.className}
+      title={props.title}
       onClick={props.onClick}
       aria-label={props['aria-label']}
     >
@@ -29,6 +30,7 @@ export default function MagicLink(props) {
     <a
       id={props.id}
       className={props.className}
+      title={props.title}
       href={props.to}
       onClick={props.onClick || null}
       target={
@@ -59,6 +61,7 @@ export default function MagicLink(props) {
     <Link
       id={props.id}
       className={props.className}
+      title={props.title}
       to={props.to + (!props.to.includes('?') && search)}
       onClick={props.onClick || null}
       aria-label={props['aria-label']}
