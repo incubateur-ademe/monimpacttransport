@@ -16,6 +16,8 @@ const Wrapper = styled.div`
 export default function Results() {
   useEffect(() => {
     document.title = 'Mon Impact Transport'
+    document.getElementById('Accueil').focus()
+    document.activeElement.blur()
   }, [])
 
   const { transportations, carpool, uncertainty, displayAll } = useContext(

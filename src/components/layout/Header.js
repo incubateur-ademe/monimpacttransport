@@ -33,7 +33,7 @@ export default function Header(props) {
   return (
     <Wrapper className={props.className}>
       <Left>
-        <Logos to='/' aria-label={`Revenir à l'accueil`}>
+        <Logos to='/' aria-label={`Revenir à l'accueil`} id='Accueil'>
           <Marianne />
           <Ademe />
         </Logos>
