@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 export default function Results() {
   useEffect(() => {
     document.title = 'Mon Impact Transport'
-    document.getElementById('Accueil').focus()
+    document.getElementById('Accueil')?.focus()
     document.activeElement.blur()
   }, [])
 

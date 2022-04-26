@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 export default function Itinerary() {
   useEffect(() => {
     document.title = 'Itinéraire | Mon Impact Transport'
-    document.getElementById('Accueil').focus()
+    document.getElementById('Accueil')?.focus()
     document.activeElement.blur()
   }, [])
 

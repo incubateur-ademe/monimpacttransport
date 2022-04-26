@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 export default function Teletravail() {
   useEffect(() => {
     document.title = 'Télétravail | Mon Impact Transport'
-    document.getElementById('Accueil').focus()
+    document.getElementById('Accueil')?.focus()
     document.activeElement.blur()
   }, [])
 
