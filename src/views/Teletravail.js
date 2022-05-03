@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import TransportationContext from 'utils/TransportationContext'
 import SearchContext from 'utils/SearchContext'
+import useIframe from 'hooks/useIframe'
 import { useItinerary } from 'hooks/useItineraries'
 import YearlyFootprint from './teletravail/YearlyFootprint'
 import PercentFootprint from './teletravail/PercentFootprint'
@@ -12,10 +13,14 @@ const Wrapper = styled.div`
   margin-top: 2rem;
 `
 export default function Teletravail() {
+  const iframe = useIframe()
+
   useEffect(() => {
-    document.title = 'Télétravail | Mon Impact Transport'
-    document.getElementById('Accueil')?.focus()
-    document.activeElement.blur()
+    if (!iframe) {
+      document.title = 'Télétravail | Mon Impact Transport'
+      document.getElementById('Accueil')?.focus()
+      document.activeElement.blur()
+    }
   }, [])
 
   const {

@@ -4,6 +4,7 @@ import { Flipper, Flipped } from 'react-flip-toolkit'
 
 import TransportationContext from 'utils/TransportationContext'
 import SearchContext from 'utils/SearchContext'
+import useIframe from 'hooks/useIframe'
 import { useItinerary } from 'hooks/useItineraries'
 import Transportation from 'components/misc/Transportation'
 import Disclaimer from 'components/misc/Disclaimer'
@@ -14,10 +15,14 @@ const Wrapper = styled.div`
   margin-bottom: 2rem;
 `
 export default function Itinerary() {
+  const iframe = useIframe()
+
   useEffect(() => {
-    document.title = 'Itinéraire | Mon Impact Transport'
-    document.getElementById('Accueil')?.focus()
-    document.activeElement.blur()
+    if (!iframe) {
+      document.title = 'Itinéraire | Mon Impact Transport'
+      document.getElementById('Accueil')?.focus()
+      document.activeElement.blur()
+    }
   }, [])
 
   const { start, end } = useContext(SearchContext)
