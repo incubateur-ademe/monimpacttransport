@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   margin-bottom: 2rem;
 `
 export default function Itinerary() {
-  const iframe = useIframe()
+  const iframe = useIframe(true)
 
   useEffect(() => {
     if (!iframe) {

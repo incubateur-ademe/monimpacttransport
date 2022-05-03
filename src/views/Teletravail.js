@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   margin-top: 2rem;
 `
 export default function Teletravail() {
-  const iframe = useIframe()
+  const iframe = useIframe(true)
 
   useEffect(() => {
     if (!iframe) {

@@ -15,9 +15,10 @@ const Wrapper = styled.div`
   margin-bottom: 2rem;
 `
 export default function Results() {
-  const iframe = useIframe()
+  const iframe = useIframe(true)
 
   useEffect(() => {
+    console.log('iframe', iframe)
     if (!iframe) {
       document.title = 'Mon Impact Transport'
       document.getElementById('Accueil')?.focus()

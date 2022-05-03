@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
-export default function useIframe(value, delay = 100) {
-  const [iframe, setIframe] = useState(false)
+export default function useIframe(initialValue) {
+  const [iframe, setIframe] = useState(initialValue || false)
   useEffect(() => {
     setIframe(window.location.search.includes('iframe'))
   }, [])
