@@ -23,7 +23,7 @@ export default function Itinerary() {
       document.getElementById('Accueil')?.focus()
       document.activeElement.blur()
     }
-  }, [])
+  }, [iframe])
 
   const { start, end } = useContext(SearchContext)
 

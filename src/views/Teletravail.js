@@ -21,7 +21,7 @@ export default function Teletravail() {
       document.getElementById('Accueil')?.focus()
       document.activeElement.blur()
     }
-  }, [])
+  }, [iframe])
 
   const {
     start,
