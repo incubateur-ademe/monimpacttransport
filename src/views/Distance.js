@@ -18,7 +18,6 @@ export default function Results() {
   const iframe = useIframe(true)
 
   useEffect(() => {
-    console.log('iframe', iframe)
     if (!iframe) {
       document.title = 'Mon Impact Transport'
       document.getElementById('Accueil')?.focus()
