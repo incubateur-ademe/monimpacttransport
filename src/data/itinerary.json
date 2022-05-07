@@ -13,7 +13,7 @@
     "emoji": { "main": "✈️" },
     "default": false,
     "display": {
-      "min": 500
+      "min": 400
     },
     "values": [
       {
