@@ -35,6 +35,11 @@ const Section = styled.div`
     font-size: 1.75rem;
   }
 `
+const StyledLink = styled(MagicLink)`
+  margin: 0 auto 0.75rem;
+  font-size: 0.875rem;
+  text-align: center;
+`
 const LogosWrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -67,7 +72,9 @@ export default function Footer(props) {
   const iframe = useIframe()
   return iframe ? (
     <>
-      <MobileButtons iframe={iframe} />
+      <StyledLink to={'https://monimpacttransport.fr'}>
+        Voir la version détaillée
+      </StyledLink>
       <Logos
         to='https://datagir.ademe.fr/'
         aria-label='datagir.ademe.fr'
