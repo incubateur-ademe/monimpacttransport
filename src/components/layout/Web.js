@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import useIframe from 'hooks/useIframe'
+import useInteraction from 'hooks/useInteraction'
 import InstallButton from 'components/base/InstallButton'
 import HeaderWrapper from 'components/wrappers/HeaderWrapper'
 import FooterWrapper from 'components/wrappers/FooterWrapper'
@@ -38,6 +39,8 @@ const FullScreen = styled.div`
 `
 export default function Web(props) {
   const iframe = useIframe()
+
+  useInteraction()
 
   return (
     <Wrapper>
