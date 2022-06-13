@@ -62,8 +62,10 @@ export default function TransportationProvider(props) {
   }, [])
 
   const [displayAll, setDisplayAll] = useState(
-    queryString.parse(window.location.search).all || false
+    queryString.parse(window.location.search).all === 'true'
   )
+
+  console.log(displayAll)
 
   const [carpool, setCarpool] = useState(
     Number(queryString.parse(window.location.search).carpool) || 0
