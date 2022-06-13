@@ -9,7 +9,7 @@ const domain = script.dataset.domain
 const search = script.dataset.search || ''
 const source = window.location.href.toString()
 
-const src = `${domain || 'https://monimpacttransport.fr'}/${search}${
+const src = `${domain || 'https://monimpacttransport.fr'}${search}${
   search && search.includes('?') ? '&' : '?'
 }iframe=1&source=${source}`
 
