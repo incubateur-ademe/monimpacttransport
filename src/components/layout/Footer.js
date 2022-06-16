@@ -146,7 +146,7 @@ export default function Footer(props) {
       </LogosWrapper>
       <Accessibility to='/accessibilite'>
         Accessibilité : partiellement conforme
-      </Accessibility>{' '}
+      </Accessibility>
     </Wrapper>
   )
 }
