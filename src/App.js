@@ -23,6 +23,7 @@ import Search from 'components/misc/Search'
 import Itinerary from 'views/Itinerary'
 import Teletravail from 'views/Teletravail'
 import Distance from 'views/Distance'
+import Accessibility from 'views/Accessibility'
 
 const queryClient = new QueryClient()
 
@@ -38,16 +39,23 @@ function App() {
                   <GlobalStyle />
                   <ModalProvider>
                     <Web>
-                      <Search />
                       <Switch>
-                        <Route path='/itineraire'>
-                          <Itinerary />
+                        <Route path='/accessibilite'>
+                          <Accessibility />
                         </Route>
-                        <Route path='/teletravail'>
-                          <Teletravail />
-                        </Route>
-                        <Route path='/'>
-                          <Distance />
+                        <Route>
+                          <Search />
+                          <Switch>
+                            <Route path='/itineraire'>
+                              <Itinerary />
+                            </Route>
+                            <Route path='/teletravail'>
+                              <Teletravail />
+                            </Route>
+                            <Route path='/'>
+                              <Distance />
+                            </Route>
+                          </Switch>
                         </Route>
                       </Switch>
                     </Web>

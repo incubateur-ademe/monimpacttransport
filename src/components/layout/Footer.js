@@ -60,12 +60,15 @@ const Logos = styled(MagicLink)`
     font-size: ${(props) => (props.iframe ? 0.75 : 1)}rem;
   }
 `
-const Accessibility = styled.p`
+const Accessibility = styled(MagicLink)`
+  display: block;
   margin: 0;
   padding-bottom: 1rem;
   font-size: 0.75rem;
   font-weight: 300;
   text-align: center;
+  color: ${(props) => props.theme.colors.text};
+  text-decoration: none;
   background-color: ${(props) => props.theme.colors.background};
 `
 export default function Footer(props) {
@@ -141,7 +144,9 @@ export default function Footer(props) {
           <Datagir />
         </Logos>
       </LogosWrapper>
-      <Accessibility>accessibilité : non conforme</Accessibility>
+      <Accessibility to='/accessibilite'>
+        Accessibilité : partiellement conforme
+      </Accessibility>{' '}
     </Wrapper>
   )
 }
