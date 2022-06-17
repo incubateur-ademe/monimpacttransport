@@ -91,7 +91,12 @@
     "display": {},
     "values": [
       {
-        "value": 193
+        "value": 192
+      }
+    ],
+    "construction": [
+      {
+        "value": 218
       }
     ],
     "carpool": 5
@@ -111,6 +116,11 @@
     "values": [
       {
         "value": 19.8
+      }
+    ],
+    "construction": [
+      {
+        "value": 103
       }
     ],
     "carpool": 5
@@ -241,9 +251,9 @@
       "fr": "Scooter et moto légère"
     },
     "description": {
-      "fr": "Deux roues thermiques < 250cm3 ; <br/>61,6 gCO2e/km/personne ; calculs ADEME à partir d'HBEFA (2020)"
+      "fr": "Deux roues thermiques < 250cm3 ; <br/>60,4 gCO2e/km/personne ; calculs ADEME à partir d'HBEFA (2020)"
     },
-    "source": "https://www.ademe.fr/sites/default/files/assets/documents/51911_synthese-transport.pdf",
+    "source": "https://bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=moto",
     "emoji": { "main": "🛵" },
     "default": true,
     "display": {
@@ -251,7 +261,12 @@
     },
     "values": [
       {
-        "value": 61.6
+        "value": 60.4
+      }
+    ],
+    "construction": [
+      {
+        "value": 76.3
       }
     ]
   },
@@ -270,7 +285,12 @@
     },
     "values": [
       {
-        "value": 168
+        "value": 165
+      }
+    ],
+    "construction": [
+      {
+        "value": 191
       }
     ]
   },

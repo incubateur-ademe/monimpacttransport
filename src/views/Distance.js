@@ -25,9 +25,8 @@ export default function Results() {
     }
   }, [iframe])
 
-  const { transportations, carpool, uncertainty, displayAll } = useContext(
-    TransportationContext
-  )
+  const { transportations, carpool, uncertainty, displayAll, construction } =
+    useContext(TransportationContext)
   const { km } = useContext(SearchContext)
 
   const [transportationsToDisplay, settransportationsToDisplay] = useState([])
@@ -35,7 +34,10 @@ export default function Results() {
     settransportationsToDisplay(
       transportations
         // Remove all empty transportations
-        .filter((transportation) => transportation.values)
+        .filter(
+          (transportation) =>
+            transportation[construction ? 'construction' : 'values']
+        )
         // Show only default (or display all)
         .filter((transportation) => transportation.default || displayAll)
         // Show carpool or not
@@ -45,6 +47,8 @@ export default function Results() {
           (transportation) =>
             // Display all transportations
             displayAll ||
+            // Show construction
+            construction ||
             // No display indicator at all
             !transportation.display ||
             // Empty display indicator
@@ -59,9 +63,11 @@ export default function Results() {
         )
         .map((transportation) => {
           const valuesToUse =
-            transportation.values.length > 1
-              ? transportation.values.find((value) => value.max > km)
-              : transportation.values[0]
+            transportation[construction ? 'construction' : 'values'].length > 1
+              ? transportation[construction ? 'construction' : 'values'].find(
+                  (value) => value.max > km
+                )
+              : transportation[construction ? 'construction' : 'values'][0]
           const valueToUse =
             (valuesToUse
               ? uncertainty && valuesToUse.uncertainty
@@ -79,7 +85,7 @@ export default function Results() {
         })
         .sort((a, b) => (a.value > b.value ? 1 : -1))
     )
-  }, [km, transportations, carpool, uncertainty, displayAll])
+  }, [km, transportations, carpool, uncertainty, displayAll, construction])
 
   return (
     <Wrapper>

@@ -65,7 +65,9 @@ export default function TransportationProvider(props) {
     queryString.parse(window.location.search).all === 'true'
   )
 
-  console.log(displayAll)
+  const [construction, setConstruction] = useState(
+    queryString.parse(window.location.search).construction === 'true'
+  )
 
   const [carpool, setCarpool] = useState(
     Number(queryString.parse(window.location.search).carpool) || 0
@@ -84,6 +86,8 @@ export default function TransportationProvider(props) {
         setUncertainty,
         displayAll,
         setDisplayAll,
+        construction,
+        setConstruction,
       }}
     >
       {props.children}

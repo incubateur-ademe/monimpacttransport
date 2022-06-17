@@ -48,10 +48,11 @@ const Checkboxes = styled.div`
   align-items: flex-end;
 `
 const StyledCheckbox = styled(Checkbox)`
+  margin-bottom: 0.375rem;
   font-size: 0.875rem;
 
-  &:first-child {
-    margin-bottom: 0.375rem;
+  &:last-child {
+    margin-bottom: 0;
   }
 
   ${(props) => props.theme.mq.small} {
@@ -59,9 +60,14 @@ const StyledCheckbox = styled(Checkbox)`
   }
 `
 export default function Search() {
-  const { displayAll, setDisplayAll, carpool, setCarpool } = useContext(
-    TransportationContext
-  )
+  const {
+    displayAll,
+    setDisplayAll,
+    carpool,
+    setCarpool,
+    construction,
+    setConstruction,
+  } = useContext(TransportationContext)
   const { setOccupancy } = useContext(ModalContext)
 
   return (
@@ -97,12 +103,20 @@ export default function Search() {
       <Checkboxes>
         <Route path='/' exact>
           <StyledCheckbox
+            name='construction'
+            checked={construction}
+            onChange={setConstruction}
+          >
+            Ajouter la construction des véhicules
+          </StyledCheckbox>
+          <StyledCheckbox
             name='display-all'
             checked={displayAll}
             onChange={setDisplayAll}
           >
             Afficher tous les modes de transport
           </StyledCheckbox>
+
           <StyledCheckbox
             name='carpool'
             checked={carpool}
