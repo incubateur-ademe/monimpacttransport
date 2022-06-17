@@ -25,8 +25,8 @@ export default function Disclaimer(props) {
       )}
       {construction && !props.itinerary && (
         <p>
-          Seul les véhicules dont l'impact de la construction sont connus sont
-          affichés
+          Seul les véhicules dont l'impact de la construction est connu sont
+          affichés.
         </p>
       )}
       <p>
