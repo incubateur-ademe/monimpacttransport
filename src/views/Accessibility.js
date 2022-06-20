@@ -33,7 +33,7 @@ export default function Accessibility() {
       <h4>Non-conformités</h4>
       <ul>
         <li>
-          onformités Des fonctionnalités JavaScript ne sont pas compatibles avec
+          Des fonctionnalités JavaScript ne sont pas compatibles avec
           les technologies d’assistance (notamment des fenêtres modales, un
           slider, des combobox et une zone qui s’affiche et qui se masque) ;
         </li>
