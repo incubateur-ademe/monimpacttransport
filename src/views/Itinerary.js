@@ -126,6 +126,7 @@ export default function Itinerary() {
           return {
             ...transportation,
             value: valueWithCarpool,
+            total: valueWithCarpool,
             base: (valueToUse.value * datas[transportation.type]) / 1000,
           }
         })
