@@ -83,7 +83,7 @@
       "fr": "Voiture (thermique)"
     },
     "description": {
-      "fr": "193 gCO2e/km/véhicule ; Base Carbone ADEME, moyenne nationale toutes distances, toutes carburations. <br/>Les données intègrent l’amont et la combustion du carburant. Comme pour les autres modes de transports, elles n’intègrent pas la fabrication des véhicules et les émissions liées aux infrastructures routières."
+      "fr": "Voiture - Motorisation moyenne - 2018 | Base Carbone ADEME<br/><br/>Carburant (amont/combustion) : 192 gCO2e/km<br/>Fabrication : 25,6 gCO2e/km"
     },
     "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=voiture",
     "emoji": { "main": "🚗" },
@@ -104,7 +104,7 @@
       "fr": "Voiture (électrique)"
     },
     "description": {
-      "fr": "19,8 gCO2e/km/véhicule ; Base Carbone ADEME, Véhicule Electrique compact - \"Coeur de gamme\". <br/>Les données intègrent les émissions liées à l'électricité pour recharger le véhicule. Comme pour les autres modes de transports, elles n’intègrent pas la fabrication des véhicules et les émissions liées aux infrastructures routières."
+      "fr": "Voiture particulière - Coeur de gamme - Véhicule compact - Electrique  | Base Carbone ADEME<br/><br/>Carburant (amont/combustion) : 19,8 gCO2e/km<br/>Fabrication : 83,6 gCO2e/km"
     },
     "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=voiture",
     "emoji": { "main": "🚗", "secondary": "⚡" },
@@ -115,7 +115,7 @@
         "value": 19.8
       }
     ],
-    "construction": 83.2,
+    "construction": 83.6,
     "carpool": 5
   },
   {
@@ -163,9 +163,9 @@
       "fr": "Vélo (ou trottinette) à assistance électrique"
     },
     "description": {
-      "fr": " 2 gCO2e/km/personne pour la phase d'usage ; Etude ADEME \"Modélisation et évaluation environnementale de produits de consommation et biens d’Équipement \"<br/><br/>Hypothèses Vélo Électrique :<br/>- Capacité de la batterie : 11,6 Ah<br/>- Tension : 36 V<br/>- Capacité énergétique 417,6 Wh<br/>- Distance de 40 km par charge complète<br/>- 2 500 km/an<br/><br/>Hypothèses Trotinette Électrique :<br/>- Capacité de la batterie : 2,5 Ah<br/>- Tension : 36 V<br/>- Capacité énergétique : 90 Wh<br/>- 300 charges par an<br/>- 1 000 km/an"
+      "fr": "Vélo - à assistance électrique  | Base Carbone ADEME<br/><br/>Carburant (amont/combustion) : 2,2 gCO2e/km<br/>Fabrication : 8,7 gCO2e/km"
     },
-    "source": "https://librairie.ademe.fr/dechets-economie-circulaire/127-modelisation-et-evaluation-environnementale-de-produits-de-consommation-et-biens-d-equipement.html",
+    "source": "https://bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=velo",
     "emoji": { "main": "🚴", "secondary": "⚡" },
     "default": true,
     "display": {
@@ -176,7 +176,7 @@
         "value": 2
       }
     ],
-    "construction": 8.72
+    "construction": 8.7
   },
 
   {
@@ -185,7 +185,7 @@
       "fr": "Bus (thermique)"
     },
     "description": {
-      "fr": "103 gCO2e/km/personne ; Taux de remplissage : 10 personnes ; Base Carbone ADEME, Autobus - Gazole"
+      "fr": "Autobus - Gazole | Base Carbone ADEME<br/><br/>Carburant (amont/combustion) : 104 gCO2e/km<br/>Fabrication : 8,7 gCO2e/km<br/><br/>Taux de remplissage : 10 personnes."
     },
     "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=autobus",
     "emoji": { "main": "🚌" },
@@ -246,7 +246,7 @@
       "fr": "Scooter et moto légère"
     },
     "description": {
-      "fr": "Deux roues thermiques < 250cm3 ; <br/>60,4 gCO2e/km/personne ; calculs ADEME à partir d'HBEFA (2020)"
+      "fr": "Moto =< 250 cm3 - Mixte - 2018 <br/><br/>Carburant (amont/combustion) : 60,4 gCO2e/km<br/>Fabrication : 15,9 gCO2e/km"
     },
     "source": "https://bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=moto",
     "emoji": { "main": "🛵" },
@@ -267,8 +267,9 @@
       "fr": "Moto"
     },
     "description": {
-      "fr": "Deux roues thermiques > 250cm3 ;<br/>168 gCO2e/km/personne ; calculs ADEME à partir d'HBEFA (2020)"
+      "fr": "Moto >= 250 cm3 - Mixte - 2018 <br/><br/>Carburant (amont/combustion) : 164,8 gCO2e/km<br/>Fabrication : 26,5 gCO2e/km"
     },
+    "source": "https://bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=moto",
     "emoji": { "main": "🏍️" },
     "default": true,
     "display": {
@@ -279,7 +280,7 @@
         "value": 165
       }
     ],
-    "construction": 26
+    "construction": 27
   },
   {
     "id": 14,
@@ -328,7 +329,7 @@
       "fr": "Bus (électrique)"
     },
     "description": {
-      "fr": "9,5 gCO2e/km/personne ; Base Carbone ADEME, Autobus - Electrique"
+      "fr": "Autobus - Électrique | Base Carbone ADEME<br/><br/>Carburant (amont/combustion) : 9,5 gCO2e/km<br/>Fabrication : 12,2 gCO2e/km<br/><br/>Taux de remplissage : 10 personnes."
     },
     "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=autobus",
     "emoji": { "main": "🚌", "secondary": "⚡" },
@@ -393,7 +394,7 @@
       "fr": "Bus (GNV)"
     },
     "description": {
-      "fr": "113 gCO2e/km/personne ; Taux de remplissage : 10 personnes ; Base Carbone ADEME, Autobus - GNV"
+      "fr": "Autobus - GNV | Base Carbone ADEME<br/><br/>Carburant (amont/combustion) : 113 gCO2e/km<br/>Fabrication : 8,9 gCO2e/km<br/><br/>Taux de remplissage : 10 personnes."
     },
     "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=autobus",
     "emoji": { "main": "🚌", "secondary": "💨" },
@@ -406,7 +407,7 @@
         "value": 113
       }
     ],
-    "construction": 9.2
+    "construction": 8.9
   },
   {
     "id": 22,
