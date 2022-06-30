@@ -20,7 +20,7 @@ const Details = styled.button`
   cursor: pointer;
 `
 export default function Teletravail() {
-  const { start, setStartPlace, end, setEndPlace, teletravailTransportation } =
+  const { start, setStart, end, setEnd, teletravailTransportation } =
     useContext(SearchContext)
 
   const { setTeletravail } = useContext(ModalContext)
@@ -30,13 +30,9 @@ export default function Teletravail() {
       <Address
         placeholder='Domicile'
         address={start?.address}
-        setPlace={setStartPlace}
+        setPlace={setStart}
       />
-      <Address
-        placeholder='Travail'
-        address={end?.address}
-        setPlace={setEndPlace}
-      />
+      <Address placeholder='Travail' address={end?.address} setPlace={setEnd} />
       <Transportations />
       <Days />
       {start && end && teletravailTransportation && (
