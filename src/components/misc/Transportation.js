@@ -134,8 +134,7 @@ const Unit = styled.span`
 
 export default function Transportation(props) {
   const { setSource, setCO2E } = useContext(ModalContext)
-  console.log(props.transportation.label.fr, props.transportation.construction)
-  console.log(props.transportation.label.fr, props.transportation.total)
+
   return (
     <Wrapper {...props}>
       <EmojiWrapper>

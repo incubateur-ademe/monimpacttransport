@@ -29,13 +29,13 @@ export default function UXProvider(props) {
               : ''
           }${
             location.pathname !== '/'
-              ? `${start ? `start=${start}` : ''}${end ? `&end=${end}` : ''}&`
+              ? `${location.search.replace('?', '')}&`
               : ''
           }`
         : ''
     )
   }, [typeShare, location, km, start, end, carpool, displayAll])
-
+  console.log(location)
   const [installPrompt, setInstallPrompt] = useState(null)
   useEffect(() => {
     window.addEventListener('beforeinstallprompt', (e) => {
