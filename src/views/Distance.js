@@ -25,9 +25,8 @@ export default function Results() {
     }
   }, [iframe])
 
-  const { transportations, carpool, uncertainty, displayAll } = useContext(
-    TransportationContext
-  )
+  const { transportations, carpool, uncertainty, displayAll, construction } =
+    useContext(TransportationContext)
   const { km } = useContext(SearchContext)
 
   const [transportationsToDisplay, settransportationsToDisplay] = useState([])
@@ -35,7 +34,10 @@ export default function Results() {
     settransportationsToDisplay(
       transportations
         // Remove all empty transportations
-        .filter((transportation) => transportation.values)
+        .filter(
+          (transportation) =>
+            transportation[construction ? 'construction' : 'values']
+        )
         // Show only default (or display all)
         .filter((transportation) => transportation.default || displayAll)
         // Show carpool or not
@@ -45,6 +47,8 @@ export default function Results() {
           (transportation) =>
             // Display all transportations
             displayAll ||
+            // Show construction
+            construction ||
             // No display indicator at all
             !transportation.display ||
             // Empty display indicator
@@ -71,15 +75,23 @@ export default function Results() {
           const valueWithCarpool = transportation.carpool
             ? valueToUse / carpool
             : valueToUse
+
+          const constructionToUse =
+            ((transportation.construction || 0) * km) /
+            (transportation.carpool ? carpool : 1)
+
           return {
             ...transportation,
             value: valueWithCarpool,
-            base: valueToUse.value * km,
+            construction: constructionToUse,
+            total: construction
+              ? valueWithCarpool + constructionToUse
+              : valueWithCarpool,
           }
         })
-        .sort((a, b) => (a.value > b.value ? 1 : -1))
+        .sort((a, b) => (a.total > b.total ? 1 : -1))
     )
-  }, [km, transportations, carpool, uncertainty, displayAll])
+  }, [km, transportations, carpool, uncertainty, displayAll, construction])
 
   return (
     <Wrapper>
@@ -94,8 +106,9 @@ export default function Results() {
               transportation={transportation}
               max={
                 transportationsToDisplay[transportationsToDisplay.length - 1]
-                  .value
+                  .total
               }
+              construction={construction}
             />
           </Flipped>
         ))}

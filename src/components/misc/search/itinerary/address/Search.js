@@ -30,9 +30,10 @@ export default function Search(props) {
 
   const debouncedSearch = useDebounce(search)
 
-  const { data, isFetching } = useSuggestions(debouncedSearch)
-
   const [focus, setFocus] = useState(false)
+
+  const { data, isFetching } = useSuggestions(debouncedSearch, focus)
+
   const input = useRef(null)
   const [current, setCurrent] = useState(0)
 

@@ -16,7 +16,7 @@ export default function UXProvider(props) {
   let location = useLocation()
   const [typeShare, setTypeShare] = useState('simulator')
   const [url, setUrl] = useState('')
-  const { km, startPlace, endPlace } = useContext(SearchContext)
+  const { km, start, end } = useContext(SearchContext)
   const { carpool, displayAll } = useContext(TransportationContext)
   useEffect(() => {
     setUrl(
@@ -29,14 +29,12 @@ export default function UXProvider(props) {
               : ''
           }${
             location.pathname !== '/'
-              ? `${startPlace ? `start=${startPlace}` : ''}${
-                  endPlace ? `&end=${endPlace}` : ''
-                }&`
+              ? `${location.search.replace('?', '')}&`
               : ''
           }`
         : ''
     )
-  }, [typeShare, location, km, startPlace, endPlace, carpool, displayAll])
+  }, [typeShare, location, km, start, end, carpool, displayAll])
 
   const [installPrompt, setInstallPrompt] = useState(null)
   useEffect(() => {

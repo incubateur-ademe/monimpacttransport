@@ -14,6 +14,7 @@ export function useItinerary(start, end, mode) {
       enabled: start && end && mode ? true : false,
       keepPreviousData: false,
       refetchOnWindowFocus: false,
+      staleTime: Infinity,
     }
   )
 }

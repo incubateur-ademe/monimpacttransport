@@ -42,16 +42,59 @@ const Color = styled.button`
     text-decoration: underline;
   }
 `
+const BottomWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  ${(props) => props.theme.mq.small} {
+    flex-direction: column-reverse;
+  }
+`
+const Legend = styled.div`
+  position: relative;
+  margin: 0.25rem 0.5rem;
+  padding-left: 1.375rem;
+  font-size: 0.875rem;
+
+  ${(props) => props.theme.mq.small} {
+    margin: 0.25rem 0 0.5rem;
+  }
+
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 1.125rem;
+    height: 1.125rem;
+    background: linear-gradient(
+      45deg,
+      ${(props) => props.theme.colors.second} 12.5%,
+      ${(props) => props.theme.colors.secondLightest} 12.5%,
+      ${(props) => props.theme.colors.secondLightest} 37.5%,
+      ${(props) => props.theme.colors.second} 37.5%,
+      ${(props) => props.theme.colors.second} 62.5%,
+      ${(props) => props.theme.colors.secondLightest} 62.5%,
+      ${(props) => props.theme.colors.secondLightest} 87.5%,
+      ${(props) => props.theme.colors.second} 87.5%
+    );
+    background-size: 1rem 1rem;
+    background-position: 0 0;
+    border-radius: 0.25rem;
+  }
+`
 const Checkboxes = styled.div`
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 `
 const StyledCheckbox = styled(Checkbox)`
+  margin-bottom: 0.375rem;
   font-size: 0.875rem;
 
-  &:first-child {
-    margin-bottom: 0.375rem;
+  &:last-child {
+    margin-bottom: 0;
   }
 
   ${(props) => props.theme.mq.small} {
@@ -59,9 +102,14 @@ const StyledCheckbox = styled(Checkbox)`
   }
 `
 export default function Search() {
-  const { displayAll, setDisplayAll, carpool, setCarpool } = useContext(
-    TransportationContext
-  )
+  const {
+    displayAll,
+    setDisplayAll,
+    carpool,
+    setCarpool,
+    construction,
+    setConstruction,
+  } = useContext(TransportationContext)
   const { setOccupancy } = useContext(ModalContext)
 
   return (
@@ -94,24 +142,39 @@ export default function Search() {
           </Route>
         </Switch>
       </Content>
-      <Checkboxes>
-        <Route path='/' exact>
-          <StyledCheckbox
-            name='display-all'
-            checked={displayAll}
-            onChange={setDisplayAll}
-          >
-            Afficher tous les modes de transport
-          </StyledCheckbox>
-          <StyledCheckbox
-            name='carpool'
-            checked={carpool}
-            onChange={() => setCarpool((prevCarpool) => (prevCarpool ? 0 : 2))}
-          >
-            Afficher le covoiturage
-          </StyledCheckbox>
-        </Route>
-        <Route path='/itineraire'>
+
+      <Route path='/' exact>
+        <BottomWrapper>
+          {construction && <Legend>Construction</Legend>}
+          <Checkboxes>
+            <StyledCheckbox
+              name='construction'
+              checked={construction}
+              onChange={setConstruction}
+            >
+              Ajouter la construction des véhicules
+            </StyledCheckbox>
+            <StyledCheckbox
+              name='display-all'
+              checked={displayAll}
+              onChange={setDisplayAll}
+            >
+              Afficher tous les modes de transport
+            </StyledCheckbox>
+            <StyledCheckbox
+              name='carpool'
+              checked={carpool}
+              onChange={() =>
+                setCarpool((prevCarpool) => (prevCarpool ? 0 : 2))
+              }
+            >
+              Afficher le covoiturage
+            </StyledCheckbox>
+          </Checkboxes>
+        </BottomWrapper>
+      </Route>
+      <Route path='/itineraire'>
+        <Checkboxes>
           <StyledCheckbox
             name='carpool-2'
             checked={carpool}
@@ -119,8 +182,8 @@ export default function Search() {
           >
             Afficher le covoiturage
           </StyledCheckbox>
-        </Route>
-      </Checkboxes>
+        </Checkboxes>
+      </Route>
     </Wrapper>
   )
 }

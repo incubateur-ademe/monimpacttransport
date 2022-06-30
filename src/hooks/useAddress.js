@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query'
 import axios from 'axios'
 
-export function useSuggestions(search) {
+export function useSuggestions(search, focus) {
   return useQuery(
     ['search', search],
     () =>
@@ -15,6 +15,8 @@ export function useSuggestions(search) {
     {
       keepPreviousData: true,
       refetchOnWindowFocus: false,
+      staleTime: Infinity,
+      enabled: focus,
     }
   )
 }
@@ -30,6 +32,7 @@ export function useAddress(id) {
     {
       keepPreviousData: true,
       refetchOnWindowFocus: false,
+      staleTime: Infinity,
       enabled: id ? true : false,
     }
   )
@@ -45,6 +48,7 @@ export function usePosition(position) {
         .then((res) => res.data),
     {
       enabled: position ? true : false,
+      staleTime: Infinity,
       refetchOnWindowFocus: false,
     }
   )

@@ -64,7 +64,37 @@ const Bar = styled.div`
   background-color: ${(props) => props.theme.colors.second};
   border-radius: 1rem;
 `
+const Construction = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
 
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: ${(props) => props.percent * 100}%;
+    height: 100%;
+    background: linear-gradient(
+      45deg,
+      ${(props) => props.theme.colors.second} 12.5%,
+      ${(props) => props.theme.colors.secondLightest} 12.5%,
+      ${(props) => props.theme.colors.secondLightest} 37.5%,
+      ${(props) => props.theme.colors.second} 37.5%,
+      ${(props) => props.theme.colors.second} 62.5%,
+      ${(props) => props.theme.colors.secondLightest} 62.5%,
+      ${(props) => props.theme.colors.secondLightest} 87.5%,
+      ${(props) => props.theme.colors.second} 87.5%
+    );
+    background-size: 1rem 1rem;
+    background-position: 0 0;
+  }
+`
 const Value = styled.div`
   position: absolute;
   top: 50%;
@@ -128,19 +158,26 @@ export default function Transportation(props) {
           </Title>
         </TitleWrapper>
         <Chart>
-          <Bar percent={props.transportation.value / props.max}>
+          <Bar percent={props.transportation.total / props.max}>
+            {props.construction && (
+              <Construction
+                percent={
+                  props.transportation.construction / props.transportation.total
+                }
+              />
+            )}
             <Value
-              noBar={props.transportation.value / props.max === 0}
-              inside={props.transportation.value / props.max > 0.7}
+              noBar={props.transportation.total / props.max === 0}
+              inside={props.transportation.total / props.max > 0.7}
             >
               <Number>
-                {props.transportation.value > 100000
-                  ? Math.round(props.transportation.value / 1000)
-                  : props.transportation.value > 10000
-                  ? Math.round(props.transportation.value / 100) / 10
-                  : props.transportation.value > 100
-                  ? Math.round(props.transportation.value / 10) / 100
-                  : Math.round(props.transportation.value) / 1000}
+                {props.transportation.total > 100000
+                  ? Math.round(props.transportation.total / 1000)
+                  : props.transportation.total > 10000
+                  ? Math.round(props.transportation.total / 100) / 10
+                  : props.transportation.total > 100
+                  ? Math.round(props.transportation.total / 10) / 100
+                  : Math.round(props.transportation.total) / 1000}
               </Number>
               <Unit onClick={() => setCO2E(true)}>
                 {' '}
