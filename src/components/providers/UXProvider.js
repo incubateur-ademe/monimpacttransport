@@ -35,7 +35,7 @@ export default function UXProvider(props) {
         : ''
     )
   }, [typeShare, location, km, start, end, carpool, displayAll])
-  console.log(location)
+
   const [installPrompt, setInstallPrompt] = useState(null)
   useEffect(() => {
     window.addEventListener('beforeinstallprompt', (e) => {
