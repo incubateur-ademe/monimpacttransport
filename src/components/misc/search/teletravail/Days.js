@@ -32,28 +32,24 @@ export default function Days() {
     }
   }, [days, presentiel, teletravail, setPresentiel, setTeletravail])
 
-  return (
-    start &&
-    end &&
-    teletravailTransportation && (
-      <Wrapper>
-        <Selector
-          label='Présentiel'
-          value={presentiel}
-          onChange={(value) => {
-            setPresentiel(value)
-            setTeletravail(days - value)
-          }}
-        />
-        <Selector
-          label='Télétravail'
-          value={teletravail}
-          onChange={(value) => {
-            setTeletravail(value)
-            setPresentiel(days - value)
-          }}
-        />
-      </Wrapper>
-    )
-  )
+  return start && end && teletravailTransportation ? (
+    <Wrapper>
+      <Selector
+        label='Présentiel'
+        value={presentiel}
+        onChange={(value) => {
+          setPresentiel(value)
+          setTeletravail(days - value)
+        }}
+      />
+      <Selector
+        label='Télétravail'
+        value={teletravail}
+        onChange={(value) => {
+          setTeletravail(value)
+          setPresentiel(days - value)
+        }}
+      />
+    </Wrapper>
+  ) : null
 }

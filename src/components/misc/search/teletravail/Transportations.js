@@ -24,27 +24,24 @@ export default function Transportations() {
   )
   const { start, end, teletravailTransportation } = useContext(SearchContext)
 
-  return (
-    start &&
-    end && (
-      <Wrapper>
-        <List>
-          {transportations
-            .filter(
-              (transportation) =>
-                transportation.default && !transportation.carpool
-            )
-            .sort((a, b) => (a.id > b.id ? 1 : -1))
-            .map((transportation) => (
-              <Transportation transportation={transportation} />
-            ))}
-        </List>
-        <Result>
-          {transportations.find(
-            (transportation) => transportation.id === teletravailTransportation
-          )?.label.fr || 'Choisissez votre mode de transport'}
-        </Result>
-      </Wrapper>
-    )
-  )
+  return start && end ? (
+    <Wrapper>
+      <List>
+        {transportations
+          .filter(
+            (transportation) =>
+              transportation.default && !transportation.carpool
+          )
+          .sort((a, b) => (a.id > b.id ? 1 : -1))
+          .map((transportation) => (
+            <Transportation transportation={transportation} />
+          ))}
+      </List>
+      <Result>
+        {transportations.find(
+          (transportation) => transportation.id === teletravailTransportation
+        )?.label.fr || 'Choisissez votre mode de transport'}
+      </Result>
+    </Wrapper>
+  ) : null
 }
