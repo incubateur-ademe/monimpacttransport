@@ -35,7 +35,8 @@
         "value": 82.8,
         "uncertainty": 151
       }
-    ]
+    ],
+    "construction": 0.37
   },
   {
     "id": 2,
@@ -55,7 +56,8 @@
       {
         "value": 1.73
       }
-    ]
+    ],
+    "construction": 6.3
   },
   {
     "id": 3,
@@ -75,7 +77,8 @@
       {
         "value": 5.29
       }
-    ]
+    ],
+    "construction": 0.63
   },
   {
     "id": 4,
@@ -124,7 +127,7 @@
       "fr": "Autocar"
     },
     "description": {
-      "fr": "35,2 gCO2e/km/personne ; Taux de remplissage : 30 personnes (62%) ; Base Carbone ADEME, Autocar - Gazole"
+      "fr": "29,5 gCO2e/km/personne ; Taux de remplissage : 30 personnes (62%) ; Base Carbone ADEME, Autocar - Gazole"
     },
     "source": "https://www.bilans-ges.ademe.fr/fr/basecarbone/donnees-consulter/liste-element?recherche=autocar",
     "emoji": { "main": "🚐" },
@@ -134,7 +137,7 @@
     },
     "values": [
       {
-        "value": 35.2
+        "value": 29.5
       }
     ]
   },
@@ -218,7 +221,8 @@
       {
         "value": 2.2
       }
-    ]
+    ],
+    "construction": 0.48
   },
   {
     "id": 11,
@@ -238,7 +242,8 @@
       {
         "value": 2.5
       }
-    ]
+    ],
+    "construction": 0.24
   },
   {
     "id": 12,
@@ -301,7 +306,8 @@
       {
         "value": 4.1
       }
-    ]
+    ],
+    "construction": 3.18
   },
   {
     "id": 15,
@@ -321,7 +327,8 @@
       {
         "value": 24.8
       }
-    ]
+    ],
+    "construction": 4.79
   },
   {
     "id": 16,
