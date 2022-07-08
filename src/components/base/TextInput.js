@@ -38,6 +38,7 @@ export default function TextInput(props) {
         name={props.name}
         value={props.value}
         error={props.error}
+        autoComplete={props.autocomplete}
         onChange={(e) => {
           props.onChange({ value: e.currentTarget.value, name: props.name })
         }}
