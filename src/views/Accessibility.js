@@ -33,9 +33,9 @@ export default function Accessibility() {
       <h4>Non-conformités</h4>
       <ul>
         <li>
-          Des fonctionnalités JavaScript ne sont pas compatibles avec
-          les technologies d’assistance (notamment des fenêtres modales, un
-          slider, des combobox et une zone qui s’affiche et qui se masque) ;
+          Des fonctionnalités JavaScript ne sont pas compatibles avec les
+          technologies d’assistance (notamment des fenêtres modales, un slider,
+          des combobox et une zone qui s’affiche et qui se masque) ;
         </li>
         <li> Des pages contiennent des erreurs de code source ;</li>
         <li>
@@ -113,9 +113,11 @@ export default function Accessibility() {
         Il est important de rappeler qu’en vertu de l’article 11 de la loi de
         février 2005 :
         <br />
-        « la personne handicapée a droit à la compensation des conséquences de
-        son handicap, quels que soient l’origine et la nature de sa déficience,
-        son âge ou son mode de vie. »
+        <blockquote>
+          « la personne handicapée a droit à la compensation des conséquences de
+          son handicap, quels que soient l’origine et la nature de sa
+          déficience, son âge ou son mode de vie. »
+        </blockquote>
         <br />
         L’ADEME s'engage à prendre les moyens nécessaires afin de donner accès,
         dans un délai raisonnable, aux informations et fonctionnalités
@@ -141,7 +143,7 @@ export default function Accessibility() {
           ;
         </li>
         <li>
-          <MagicLink to='www.defenseurdesdroits.fr/office/'>
+          <MagicLink to='https://www.defenseurdesdroits.fr/office/'>
             la liste du ou des délégués de votre région
           </MagicLink>{' '}
           avec leurs informations de contact direct ;
