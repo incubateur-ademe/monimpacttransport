@@ -1,6 +1,11 @@
 import { useQuery } from 'react-query'
 import axios from 'axios'
 
+const generateToken = () => (Math.random() + 1).toString(36).substring(2)
+
+let sessiontoken = generateToken()
+
+console.log('sessiontoken', sessiontoken)
 export function useSuggestions(search, focus) {
   return useQuery(
     ['search', search],
@@ -8,7 +13,7 @@ export function useSuggestions(search, focus) {
       search && search.length > 2
         ? axios
             .get(
-              `https://monimpacttransport.fr/.netlify/functions/callGMapSearch?input=${search}&language=fr`
+              `https://monimpacttransport.fr/.netlify/functions/callGMapSearch?input=${search}&language=fr&sessiontoken=${sessiontoken}`
             )
             .then((res) => res.data.predictions)
         : Promise.resolve([]),
@@ -26,9 +31,12 @@ export function useAddress(id) {
     () =>
       axios
         .get(
-          `https://monimpacttransport.fr/.netlify/functions/callGMapPlace?place_id=${id}`
+          `https://monimpacttransport.fr/.netlify/functions/callGMapPlace?place_id=${id}&sessiontoken=${sessiontoken}`
         )
-        .then((res) => res.data),
+        .then((res) => {
+          sessiontoken = generateToken()
+          return res.data
+        }),
     {
       keepPreviousData: true,
       refetchOnWindowFocus: false,
