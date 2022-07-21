@@ -18,22 +18,22 @@
       {
         "max": 1000,
         "value": 126,
-        "uncertainty": 230
+        "uncertainty": 104
       },
       {
         "max": 2000,
         "value": 102,
-        "uncertainty": 186
+        "uncertainty": 84
       },
       {
         "max": 3500,
         "value": 97.4,
-        "uncertainty": 178
+        "uncertainty": 80.6
       },
       {
         "max": 100000000000000000,
         "value": 82.8,
-        "uncertainty": 151
+        "uncertainty": 68.2
       }
     ]
   },

@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import ModalContext from 'utils/ModalContext'
 import Emoji from 'components/base/Emoji'
 import Carpool from './transportation/Carpool'
-import Uncertainty from './transportation/Uncertainty'
+import UncertaintyLabel from './transportation/UncertaintyLabel'
 
 const Wrapper = styled.div`
   position: relative;
@@ -95,6 +95,32 @@ const Construction = styled.div`
     background-position: 0 0;
   }
 `
+const Uncertainty = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: ${(props) => props.percent * 100}%;
+    height: 100%;
+    background: ${(props) => props.theme.colors.secondLightest};
+    mask-image: -webkit-gradient(
+      linear,
+      right top,
+      left top,
+      from(rgba(0, 0, 0, 0.6)),
+      to(rgba(0, 0, 0, 0.2))
+    );
+  }
+`
 const Value = styled.div`
   position: absolute;
   top: 50%;
@@ -154,7 +180,6 @@ export default function Transportation(props) {
                 }km)`}
             </span>
             <Carpool transportation={props.transportation} />
-            <Uncertainty transportation={props.transportation} />
           </Title>
         </TitleWrapper>
         <Chart>
@@ -166,6 +191,11 @@ export default function Transportation(props) {
                 }
               />
             )}
+            <Uncertainty
+              percent={
+                props.transportation.uncertainty / props.transportation.total
+              }
+            />
             <Value
               noBar={props.transportation.total / props.max === 0}
               inside={props.transportation.total / props.max > 0.7}
@@ -185,6 +215,7 @@ export default function Transportation(props) {
                 <sub>2</sub>e
               </Unit>
             </Value>
+            <UncertaintyLabel transportation={props.transportation} />
           </Bar>
         </Chart>
       </ChartWrapper>

@@ -66,12 +66,8 @@ export default function Results() {
             transportation.values.length > 1
               ? transportation.values.find((value) => value.max > km)
               : transportation.values[0]
-          const valueToUse =
-            (valuesToUse
-              ? uncertainty && valuesToUse.uncertainty
-                ? valuesToUse.uncertainty
-                : valuesToUse.value
-              : 0) * km
+          const valueToUse = valuesToUse?.value * km || 0
+          const uncertaintyToUse = valuesToUse?.uncertainty * km || 0
           const valueWithCarpool = transportation.carpool
             ? valueToUse / carpool
             : valueToUse
@@ -84,9 +80,10 @@ export default function Results() {
             ...transportation,
             value: valueWithCarpool,
             construction: constructionToUse,
+            uncertainty: uncertaintyToUse,
             total: construction
-              ? valueWithCarpool + constructionToUse
-              : valueWithCarpool,
+              ? valueWithCarpool + constructionToUse + uncertaintyToUse
+              : valueWithCarpool + uncertaintyToUse,
           }
         })
         .sort((a, b) => (a.total > b.total ? 1 : -1))
