@@ -75,9 +75,12 @@ export default function Footer(props) {
   const iframe = useIframe()
   return iframe ? (
     <>
-      <StyledLink to={'https://monimpacttransport.fr'}>
-        Voir la version détaillée
-      </StyledLink>
+      <Section>
+        <Button to='https://monconvertisseurco2.fr' hollow small>
+          Voir toutes les catégories
+        </Button>
+      </Section>
+
       <Logos
         to='https://datagir.ademe.fr/'
         aria-label='datagir.ademe.fr'
