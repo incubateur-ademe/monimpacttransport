@@ -35,11 +35,6 @@ const Section = styled.div`
     font-size: 1.75rem;
   }
 `
-const StyledLink = styled(MagicLink)`
-  margin: 0 auto 0.75rem;
-  font-size: 0.875rem;
-  text-align: center;
-`
 const LogosWrapper = styled.div`
   display: flex;
   justify-content: center;
