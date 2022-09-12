@@ -9,6 +9,7 @@ import ModeSelector from './search/ModeSelector'
 import Distance from './search/Distance'
 import Itinerary from './search/Itinerary'
 import Teletravail from './search/Teletravail'
+import MagicLink from 'components/base/MagicLink'
 
 const Wrapper = styled.div``
 const Content = styled.div`
@@ -101,6 +102,15 @@ const StyledCheckbox = styled(Checkbox)`
     font-size: 0.75rem;
   }
 `
+const StyledMagicLink = styled(MagicLink)`
+  display: block;
+  margin: 1rem auto 0;
+  padding: 0;
+  color: ${(props) => props.theme.colors.main};
+  text-decoration: underline;
+  background: none;
+  border: none;
+`
 export default function Search() {
   const {
     displayAll,
@@ -110,7 +120,7 @@ export default function Search() {
     construction,
     setConstruction,
   } = useContext(TransportationContext)
-  const { setOccupancy } = useContext(ModalContext)
+  const { setOccupancy, setSurvey } = useContext(ModalContext)
 
   return (
     <Wrapper>
@@ -141,6 +151,9 @@ export default function Search() {
             <Distance />
           </Route>
         </Switch>
+        <StyledMagicLink onClick={() => setSurvey(true)}>
+          Participez à notre enquête utilisateurs !
+        </StyledMagicLink>
       </Content>
 
       <Route path='/' exact>

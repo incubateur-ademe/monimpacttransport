@@ -9,6 +9,7 @@ export default function ModalProvider(props) {
   const [teletravail, setTeletravail] = useState(false)
   const [footprint, setFootprint] = useState(false)
   const [occupancy, setOccupancy] = useState(false)
+  const [survey, setSurvey] = useState(false)
 
   return (
     <ModalContext.Provider
@@ -27,6 +28,8 @@ export default function ModalProvider(props) {
         setFootprint,
         occupancy,
         setOccupancy,
+        survey,
+        setSurvey,
       }}
     >
       {props.children}
