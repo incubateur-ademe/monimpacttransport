@@ -15,7 +15,7 @@ export function useSuggestions(search, focus) {
             .get(
               `https://osm--ecolab-transport.netlify.app/.netlify/functions/callGMapSearch?${search}`
             )
-            .then((res) => res.data.predictions)
+            .then((res) => res.data.features)
         : Promise.resolve([]),
     {
       keepPreviousData: true,
