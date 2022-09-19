@@ -5,11 +5,11 @@ const countries = require('./countries.json')
 exports.handler = function (event) {
   const country = countries[event.headers['x-country']]
   console.log(
-    `https://maps.googleapis.com/maps/api/place/queryautocomplete/json?${event.rawQuery}&location=${country[0]},${country[1]}&radius=750000&key=${process.env.GMAP_API_KEY}`
+    `https://api.maptiler.com/geocoding/${event.rawQuery}.json&proximity=${country[0]},${country[1]}&language=fr`
   )
   return axios
     .get(
-      `https://maps.googleapis.com/maps/api/place/queryautocomplete/json?${event.rawQuery}&location=${country[0]},${country[1]}&radius=750000&key=${process.env.GMAP_API_KEY}`
+      `https://api.maptiler.com/geocoding/${event.rawQuery}.json&proximity=${country[0]},${country[1]}&language=fr&key=${process.env.MAPTILER_API_KEY}`
     )
     .then((res) => ({
       statusCode: 200,
