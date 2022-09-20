@@ -5,11 +5,11 @@ const countries = require('./countries.json')
 exports.handler = function (event) {
   const country = countries[event.headers['x-country']]
   console.log(
-    `https://api.maptiler.com/geocoding/${event.rawQuery}.json?proximity=${country[1]},${country[0]}&language=fr`
+    `https://api.maptiler.com/geocoding/${event.rawQuery}?lat=${country[1]},${country[0]}&lang=fr`
   )
   return axios
     .get(
-      `https://api.maptiler.com/geocoding/${event.rawQuery}.json?proximity=${country[1]},${country[0]}&language=fr&key=${process.env.MAPTILER_API_KEY}`
+      `https://photon.komoot.io/api/?q=${event.rawQuery}&lat=${country[0]}&lon${country[1]}&lang=fr`
     )
     .then((res) => ({
       statusCode: 200,
