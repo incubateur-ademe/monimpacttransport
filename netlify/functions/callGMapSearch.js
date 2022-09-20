@@ -5,7 +5,7 @@ const countries = require('./countries.json')
 exports.handler = function (event) {
   const country = countries[event.headers['x-country']]
   console.log(
-    `https://api.maptiler.com/geocoding/${event.rawQuery}?lat=${country[1]},${country[0]}&lang=fr`
+    `https://photon.komoot.io/api/?q=${event.rawQuery}&lat=${country[0]}&lon${country[1]}&lang=fr`
   )
   return axios
     .get(

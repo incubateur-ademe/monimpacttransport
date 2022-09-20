@@ -75,7 +75,7 @@ export default function Suggestions(props) {
                 <Highlighter
                   searchWords={props.search.split(' ')}
                   autoEscape={true}
-                  textToHighlight={result.place_name_fr}
+                  textToHighlight={`${result.properties.name} ${result.properties.housenumber} ${result.properties.street}, ${result.properties.city}, ${result.properties.country}`}
                 />
               </Name>
             </Suggestion>
