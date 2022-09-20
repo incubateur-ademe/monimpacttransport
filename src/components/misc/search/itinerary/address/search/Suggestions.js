@@ -3,6 +3,13 @@ import styled from 'styled-components'
 
 import Highlighter from 'react-highlight-words'
 
+const displayAddress = (address) =>
+  `${address.properties.name ? address.properties.name + ' ' : ''}${
+    address.properties.housenumber ? address.properties.housenumber + ' ' : ''
+  }${address.properties.street ? address.properties.street + ', ' : ''}${
+    address.properties.city ? address.properties.city + ' ' : ''
+  } ${address.properties.country}`
+
 const Wrapper = styled.div`
   position: relative;
   background-color: ${(props) => props.theme.colors.background};
@@ -75,7 +82,7 @@ export default function Suggestions(props) {
                 <Highlighter
                   searchWords={props.search.split(' ')}
                   autoEscape={true}
-                  textToHighlight={`${result.properties.name} ${result.properties.housenumber} ${result.properties.street}, ${result.properties.city}, ${result.properties.country}`}
+                  textToHighlight={displayAddress(result)}
                 />
               </Name>
             </Suggestion>

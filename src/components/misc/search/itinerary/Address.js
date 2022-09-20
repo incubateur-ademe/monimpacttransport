@@ -9,6 +9,14 @@ const Wrapper = styled.div`
   height: 2.5rem;
   margin-bottom: 1rem;
 `
+
+const displayAddress = (address) =>
+  `${address.properties.name ? address.properties.name + ' ' : ''}${
+    address.properties.housenumber ? address.properties.housenumber + ' ' : ''
+  }${address.properties.street ? address.properties.street + ', ' : ''}${
+    address.properties.city ? address.properties.city + ' ' : ''
+  } ${address.properties.country}`
+
 export default function Address(props) {
   return (
     <Wrapper>
@@ -19,7 +27,7 @@ export default function Address(props) {
           props.setPlace({
             latitude: address.geometry.coordinates[1],
             longitude: address.geometry.coordinates[0],
-            address: `${address.properties.name} ${address.properties.housenumber} ${address.properties.street}, ${address.properties.city}, ${address.properties.country}`,
+            address: displayAddress(address),
           })
         }}
       />
