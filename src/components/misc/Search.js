@@ -9,7 +9,6 @@ import ModeSelector from './search/ModeSelector'
 import Distance from './search/Distance'
 import Itinerary from './search/Itinerary'
 import Teletravail from './search/Teletravail'
-import MagicLink from 'components/base/MagicLink'
 
 const Wrapper = styled.div``
 const Content = styled.div`
@@ -101,15 +100,6 @@ const StyledCheckbox = styled(Checkbox)`
   ${(props) => props.theme.mq.small} {
     font-size: 0.75rem;
   }
-`
-const StyledMagicLink = styled(MagicLink)`
-  display: block;
-  margin: 1rem auto 0;
-  padding: 0;
-  color: ${(props) => props.theme.colors.main};
-  text-decoration: underline;
-  background: none;
-  border: none;
 `
 export default function Search() {
   const {
