@@ -120,7 +120,7 @@ export default function Search() {
     construction,
     setConstruction,
   } = useContext(TransportationContext)
-  const { setOccupancy, setSurvey } = useContext(ModalContext)
+  const { setOccupancy } = useContext(ModalContext)
 
   return (
     <Wrapper>
@@ -151,9 +151,6 @@ export default function Search() {
             <Distance />
           </Route>
         </Switch>
-        <StyledMagicLink onClick={() => setSurvey(true)}>
-          Participez à notre enquête utilisateurs !
-        </StyledMagicLink>
       </Content>
 
       <Route path='/' exact>

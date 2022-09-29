@@ -18,7 +18,6 @@ import SourceModal from 'components/modals/SourceModal'
 import TeletravailModal from 'components/modals/TeletravailModal'
 import FootprintModal from 'components/modals/FootprintModal'
 import OccupancyModal from 'components/modals/OccupancyModal'
-import SurveyModal from 'components/modals/SurveyModal'
 import Web from 'components/layout/Web'
 import Search from 'components/misc/Search'
 import Itinerary from 'views/Itinerary'
@@ -67,7 +66,6 @@ function App() {
                     <TeletravailModal />
                     <FootprintModal />
                     <OccupancyModal />
-                    <SurveyModal />
                   </ModalProvider>
                 </UXProvider>
               </SearchProvider>
