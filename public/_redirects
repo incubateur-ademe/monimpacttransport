@@ -1,8 +1,8 @@
 http://api.monimpacttransport.fr/beta/*   https://impactco2.fr/.netlify/functions/:splat 200
 https://api.monimpacttransport.fr/beta/*  https://impactco2.fr/.netlify/functions/:splat 200
 
-http://api.monimpacttransport.fr/*        https://impactco2.fr/transport/:splat
-https://api.monimpacttransport.fr/*       https://impactco2.fr/transport/:splat
+http://api.monimpacttransport.fr/*        https://impactco2.fr/transport/:splat 301!
+https://api.monimpacttransport.fr/*       https://impactco2.fr/transport/:splat 301!
 
 http://api.monimpacttransport.fr/        https://impactco2.fr/transport/
 https://api.monimpacttransport.fr/       https://impactco2.fr/transport/
